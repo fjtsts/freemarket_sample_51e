@@ -6,11 +6,12 @@
 |password|string|null: false|
 ### Association
 - has_many :reviews
-- belongs_to :user
-- has_many :exhibits
-- has_many :purchases
+- has_many :exhibits, dependent: :destroy
+- has_many :purchases, dependent: :destroy
 - has_many :comments
-- has_many :favorite_items
+- has_many :favorite_items, dependent: :destroy
+- has_one :user_profile, dependent: :destroy
+- has_one :addresse, dependent: :destroy
 
 ## user_profiles
 |Column|Type|Options|
@@ -26,6 +27,8 @@
 |avatar|string|null: true|
 |introduction|text|null: true|
 |users_id|reference|null: false,foregin_key: true|
+### Association
+- belongs_to :user
 
 ## addresses table
 |Column|Type|Options|
@@ -41,6 +44,8 @@
 |building|string|null: true|
 |tel|int|null: true|
 |users_id|reference|null: false,foregin_key: true|
+### Association
+- belongs_to :user
 
 ## review table
 |Column|Type|Options|
@@ -64,10 +69,10 @@
 - has_many :item_images
 - has_many :item_categories
 - has_many :categories, through: :item_categories
-- has_many :exhibits
+- has_many :exhibits, dependent: :destroy
 - has_many :purchases
-- has_many :comments
-- has_many :favorite_items
+- has_many :comments, dependent: :destroy
+- has_many :favorite_items, dependent: :destroy
 
 ## item_images
 |Column|Type|Options|
