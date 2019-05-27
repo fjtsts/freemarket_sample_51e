@@ -1,4 +1,4 @@
-##users table
+## users table
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
@@ -12,7 +12,7 @@
 - has_many :comments
 - has_many :favorite_items
 
-##user_profiles
+## user_profiles
 |Column|Type|Options|
 |------|----|-------|
 |last_name|string|null: false|
@@ -27,7 +27,7 @@
 |introduction|text|null: true|
 |users_id|reference|null: false,foregin_key: true|
 
-##addresses table
+## addresses table
 |Column|Type|Options|
 |------|----|-------|
 |last_name|string|null: false|
@@ -42,7 +42,7 @@
 |tel|int|null: true|
 |users_id|reference|null: false,foregin_key: true|
 
-##review table
+## review table
 |Column|Type|Options|
 |------|----|-------|
 |status|string|null: false|
@@ -51,7 +51,7 @@
 ### Association
 - belongs_to :user
 
-##items
+## items
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
@@ -69,7 +69,7 @@
 - has_many :comments
 - has_many :favorite_items
 
-##item_images
+## item_images
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false|
@@ -77,7 +77,7 @@
 ### Association
 - belongs_to :item
 
-##item_categories
+## item_categories
 |Column|Type|Options|
 |------|----|-------|
 |items_id|reference|null: false, references:item, foregin_key: true|
@@ -86,7 +86,7 @@
 - belongs_to :item
 - belongs_to :category
 
-##categories
+## categories
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false, index: true|
@@ -96,7 +96,7 @@
 - has_many :sizes
 - has_many :brands
 
-##sizes
+## sizes
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false|
@@ -104,7 +104,7 @@
 ### Association
 - belongs_to :category
 
-##brands
+## brands
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false, index: true|
@@ -112,7 +112,7 @@
 ### Association
 - belongs_to :category
 
-##exhibits
+## exhibits
 |Column|Type|Options|
 |------|----|-------|
 |status|string|null: false|
@@ -122,7 +122,7 @@
 - belongs_to :user
 - belongs_to :item
 
-##purchases
+## purchases
 |Column|Type|Options|
 |------|----|-------|
 |users_id|reference|null: false, references:user, foregin_key: true|
@@ -131,7 +131,7 @@
 - belongs_to :user
 - belongs_to :item
 
-##comments
+## comments
 |Column|Type|Options|
 |------|----|-------|
 |content|text|null: false|
@@ -141,7 +141,7 @@
 - belongs_to :user
 - belongs_to :item
 
-##favorite_items
+## favorite_items
 |Column|Type|Options|
 |------|----|-------|
 |users_id|reference|null: false, references:user, foregin_key: true|
