@@ -1,0 +1,101 @@
+.main{
+    height:100%;
+    width:100vw;
+    margin:0 auto;
+    .pickup-container{
+    @extend .main;
+    padding:40px 0;
+    
+
+    h2{
+        height:39px;
+        width:100vw;
+        text-align:center;
+        font-size:28px;
+        padding-top:40px 0;
+        font-weight:bold;
+    }
+    h3{
+        @extend h2;
+        padding-top:30px;
+        margin:26px 0;
+        font-size:22px;
+        text-align:center;
+        a{
+            width:28px;
+            text-decoration: none ;
+            color:#0099E8;
+        }
+
+    }
+    .pickup-container__item-boxs{
+        margin:0 250px;
+        height:330px;
+        display:flex;
+        &__box{
+            height:330px;
+            width:213px;
+            margin:0 0 20px 20px;
+            background:white;
+            &__image{         
+                height:220px;
+                .images{
+                    height:100%;
+                    width:100%;
+                }
+            }
+            &__text{
+                height:110px;
+                padding:15px;
+                &__title{
+                    font-size:16px;
+                    height:48px;
+                    word-wrap:wrap;
+                    &__tax{
+                        font-size:10px;
+                    }
+                }
+                &__num{
+                    height:14px;
+                    margin-top:8px;
+                    @extend .clearfix;
+
+                    &__price{
+                        font-size:17px;
+                    }
+                    .icon-like{
+                        float:right;
+                        
+                    }
+                    .like-num{
+                        float:right;
+                    }
+                }
+            }
+        }
+    }
+    .view-all{
+        
+        font-size:14px;
+        padding:0 20px ;
+        margin-right:250px;
+        float:right;
+        border-width:0;
+        text-decoration: none;
+        color:$light-blue;
+        a{
+            text-decoration: none;
+            color:$light-blue;
+        }
+    }
+    }
+}
+.app-banner{
+    width:100%;
+    height:260px;
+
+    .bottom-image{
+        @extend .app-banner;
+    }
+}
+
