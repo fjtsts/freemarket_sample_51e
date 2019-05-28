@@ -16,3 +16,4 @@ if Rails.env.production?
     config.fog_directory  = 'freemarket-market-51e-image'
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-market-51e-image'
   end
+end
