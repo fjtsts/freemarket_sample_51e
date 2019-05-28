@@ -61,6 +61,7 @@
 |------|----|-------|
 |name|string|null: false, index: true|
 |description|text|null: false|
+|status|string|null: false|
 |shipping_fee|string|null: false|
 |area|string|null: false|
 |day|date|null: false|
