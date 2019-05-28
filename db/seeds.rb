@@ -54,6 +54,9 @@ Category.create!(
   name: 'チケット',
   parent_id: 11
 
+
+  
+
 )
 Category.create!(
   name: '自動車・オートバイ',
