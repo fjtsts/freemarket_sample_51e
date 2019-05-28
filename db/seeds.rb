@@ -64,4 +64,3 @@ Category.create!(
   parent_id: 13
 )
 
-
