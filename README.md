@@ -79,15 +79,15 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|items_id|reference|null: false,foregin_key: true|
+|item_id|reference|null: false,foregin_key: true|
 ### Association
 - belongs_to :item
 
 ## item_categories
 |Column|Type|Options|
 |------|----|-------|
-|items_id|reference|null: false, references:item, foregin_key: true|
-|categories_id|reference|null: false, references:category, foregin_key: true|
+|item_id|reference|null: false, references:item, foregin_key: true|
+|category_id|reference|null: false, references:category, foregin_key: true|
 ### Association
 - belongs_to :item
 - belongs_to :category
@@ -106,7 +106,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|sting|null: false|
-|categories_id|reference|null: false,foregin_key: true|
+|category_id|reference|null: false,foregin_key: true|
 ### Association
 - belongs_to :category
 
@@ -114,7 +114,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|sting|null: false, index: true|
-|categories_id|reference|null: false,foregin_key: true|
+|category_id|reference|null: false,foregin_key: true|
 ### Association
 - belongs_to :category
 
@@ -123,7 +123,7 @@
 |------|----|-------|
 |status|string|null: false|
 |user_id|reference|null: false, references:user, foregin_key: true|
-|items_id|reference|null: false, references:item, foregin_key: true|
+|item_id|reference|null: false, references:item, foregin_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -132,7 +132,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|reference|null: false, references:user, foregin_key: true|
-|items_id|reference|null: false, references:item, foregin_key: true|
+|item_id|reference|null: false, references:item, foregin_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -142,7 +142,7 @@
 |------|----|-------|
 |content|text|null: false|
 |user_id|reference|null: false, references:user, foregin_key: true|
-|items_id|reference|null: false, references:item, foregin_key: true|
+|item_id|reference|null: false, references:item, foregin_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -151,7 +151,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|reference|null: false, references:user, foregin_key: true|
-|items_id|reference|null: false, references:item, foregin_key: true|
+|item_id|reference|null: false, references:item, foregin_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :item
