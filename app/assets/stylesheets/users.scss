@@ -1,3 +1,97 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user-main {
+  height: 2000px;
+  background-color: #f5f5f5;
+}
+
+.user-container {
+  margin: 40px auto 0;
+  width: 1020px;
+  background-color: $light-gray !important;
+}
+
+.user-container_left-content {
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+}
+
+.user-container_left-content_info_list {
+  li {
+    background-color: $white;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 16px;
+    border-bottom: 1px solid $light-gray;
+  }
+}
+
+.user-container_left-content_info_head {
+  margin: 40px 0 0;
+  font-weight: bold;
+}
+
+.user-container_right-content_info_head {
+  height: 200px;
+  background: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?6612079");
+}
+
+.user-container_right-content {
+  float: right;
+  width: 700px;
+}
+
+.user-container_right-
+ {
+  height: 200px;
+}
+
+.user-container_right-content_info_content_title {
+  height: 74px;
+  background-color: #fafafa;
+  li {
+    display: inline;
+    line-height: 74px;
+    font-weight: bold;
+  }
+}
+
+.user-container_right-content_info_content_list {
+  li {
+    padding: 16px; 
+    background-color: $white;
+    height: 48px;
+    border-bottom: 1px solid $light-gray;
+  }
+}
+
+.user-container_right-content_info_content_info {
+  height: 88px;
+  a {
+    height: 56px;
+    line-height: 56px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    background-color: $light-gray;
+  }
+}
+
+.user-container_right-content_items_head {
+  padding: 0 16px;
+  height: 72px;
+  line-height: 72px;
+  background-color: #fafafa;
+  font-weight: bold;
+}
+
+.user-container_right-content_items_title {
+  height: 74px;
+  background-color: $white;
+  li {
+    display: inline;
+    line-height: 74px;
+    font-weight: bold;
+  }
+}

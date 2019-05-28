@@ -8,3 +8,4 @@ Item.create!(
   day: 1,
   price: 1000
 )
+
