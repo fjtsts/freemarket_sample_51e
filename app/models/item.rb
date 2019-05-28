@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
-  enum status: [['---',""], ['新品、未使用', 1], ['未使用に近い', 2],['目立った傷や汚れなし', 3]],['やや傷や汚れあり', 4]],['傷や汚れあり', 5]],['全体的に状態が悪い', 6]]
-  enum shipping_fee: [['---',""], ['送料込み(出品者負担)', 1], ['着払い(購入者負担)', 2]
-  enum how_to_shipping: [['---',""], ['未定', 1], ['クロネコヤマト', 2]
-  enum area: [['---',""], ['東京', 1], ['大阪', 2]
-  enum day: [['---',""], ['1〜2日で発送', 1], ['2〜3日で発送', 2], ['4〜7日で発送', 3]
+  enum status:{new: 0,old:1}
+  enum shipping_fee:{me: 0,you: 1}
+  enum how_to_shipping:{kuroneko: 0,yuhpack: 1}
+  enum area:{tokyo: 0 ,osaka: 1}
+  enum day: {onedays: 0, twodays: 1}
 end
