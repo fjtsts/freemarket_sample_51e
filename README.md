@@ -26,7 +26,7 @@
 |tel|int|null: false|
 |avatar|string|null: true|
 |introduction|text|null: true|
-|users_id|reference|null: false,foregin_key: true|
+|user_id|reference|null: false,foregin_key: true|
 ### Association
 - belongs_to :user
 
@@ -43,7 +43,7 @@
 |town_number|string|null: false|
 |building|string|null: true|
 |tel|int|null: true|
-|users_id|reference|null: false,foregin_key: true|
+|user_id|reference|null: false,foregin_key: true|
 ### Association
 - belongs_to :user
 
@@ -52,7 +52,7 @@
 |------|----|-------|
 |status|string|null: false|
 |content|text|null: true|
-|users_id|reference|null: false,foregin_key: true|
+|user_id|reference|null: false,foregin_key: true|
 ### Association
 - belongs_to :user
 
@@ -122,7 +122,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |status|string|null: false|
-|users_id|reference|null: false, references:user, foregin_key: true|
+|user_id|reference|null: false, references:user, foregin_key: true|
 |items_id|reference|null: false, references:item, foregin_key: true|
 ### Association
 - belongs_to :user
@@ -131,7 +131,7 @@
 ## purchases
 |Column|Type|Options|
 |------|----|-------|
-|users_id|reference|null: false, references:user, foregin_key: true|
+|user_id|reference|null: false, references:user, foregin_key: true|
 |items_id|reference|null: false, references:item, foregin_key: true|
 ### Association
 - belongs_to :user
@@ -141,7 +141,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |content|text|null: false|
-|users_id|reference|null: false, references:user, foregin_key: true|
+|user_id|reference|null: false, references:user, foregin_key: true|
 |items_id|reference|null: false, references:item, foregin_key: true|
 ### Association
 - belongs_to :user
@@ -150,7 +150,7 @@
 ## favorite_items
 |Column|Type|Options|
 |------|----|-------|
-|users_id|reference|null: false, references:user, foregin_key: true|
+|user_id|reference|null: false, references:user, foregin_key: true|
 |items_id|reference|null: false, references:item, foregin_key: true|
 ### Association
 - belongs_to :user
