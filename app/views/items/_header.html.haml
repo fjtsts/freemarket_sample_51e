@@ -1,0 +1,38 @@
+.container
+  %header
+    .header-inner
+      .header-inner__top
+        %h1
+          =link_to image_tag("mercari_logo_horizontal.png",:size=> "160x50",class: "img"),"/"
+        = form_tag("/products",method: 'get',class: "header-inner__top__search") do 
+          = text_field_tag :keyword, "", class: "header-inner__top__search__form", placeholder: "キーワードから探す"
+          = button_tag type: "submit",class: "header-inner__top__search__form__button" do
+            =fa_icon "search"
+
+      .header-inner__bottom
+        .header-inner__bottom__nav1
+          %ul.nav1
+            %li.ctd
+              = link_to "/"  do
+                =fa_icon "bars"
+                %span カテゴリー
+            -#   =link_to(content_tag(:i,"カテゴリーから探す",class:"fa fa-bars"),"/")
+                
+            %li.bl
+              =link_to "/" do
+                =fa_icon "tag"
+                %span ブランドから探す
+                 
+
+        .header-inner__bottom__nav2
+          %ul.nav2
+            %li.Notice
+              =fa_icon "bell"
+              %span お知らせ
+            %li.check
+              =fa_icon "check"
+              %span やることリスト
+            %li.mypage
+              =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
+              %span マイページ
+
