@@ -11,7 +11,7 @@
 - has_many :comments
 - has_many :favorite_items, dependent: :destroy
 - has_one :user_profile, dependent: :destroy
-- has_one :addresse, dependent: :destroy
+- has_one :address, dependent: :destroy
 
 ## user_profiles
 |Column|Type|Options|
@@ -61,7 +61,7 @@
 |------|----|-------|
 |name|string|null: false, index: true|
 |description|text|null: false|
-|status|string|null: false|
+|status|enum|null: false|
 |shipping_fee|string|null: false|
 |area|string|null: false|
 |day|date|null: false|
