@@ -23,7 +23,7 @@
 |birth_year|date|null: false|
 |birth_month|date|null: false|
 |birth_day|date|null: false|
-|tel|int|null: false|
+|tel|string|null: false|
 |avatar|string|null: true|
 |introduction|text|null: true|
 |user_id|reference|null: false,foregin_key: true|
@@ -37,12 +37,12 @@
 |first_name|string|null: false|
 |last_name_kata|string|null: false|
 |first_name_kata|string|null: false|
-|postal_code|int|null: false|
+|postal_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |town_number|string|null: false|
 |building|string|null: true|
-|tel|int|null: true|
+|tel|string|null: true|
 |user_id|reference|null: false,foregin_key: true|
 ### Association
 - belongs_to :user
@@ -78,7 +78,7 @@
 ## item_images
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|image|string|null: false|
 |items_id|reference|null: false,foregin_key: true|
 ### Association
 - belongs_to :item
@@ -95,7 +95,7 @@
 ## categories
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false, index: true|
+|name|string|null: false, index: true|
 |parent_id|int|null: true|
 ### Association
 - has_many :items, through: :item_categories
@@ -105,7 +105,7 @@
 ## sizes
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|name|sting|null: false|
 |categories_id|reference|null: false,foregin_key: true|
 ### Association
 - belongs_to :category
@@ -113,7 +113,7 @@
 ## brands
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false, index: true|
+|name|sting|null: false, index: true|
 |categories_id|reference|null: false,foregin_key: true|
 ### Association
 - belongs_to :category
