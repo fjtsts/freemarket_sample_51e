@@ -2,4 +2,6 @@ Rails.application.routes.draw do
   
   root "items#index"
   get"items"  => "items#index"
+  get 'items/new' => 'items#new' #出品ページ
+
 end
