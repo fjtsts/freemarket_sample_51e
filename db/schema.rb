@@ -10,22 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_124721) do
-
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "parent_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_categories_on_name"
-  end
+ActiveRecord::Schema.define(version: 2019_05_29_071820) do
 
   create_table "item_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
-    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_item_categories_on_category_id"
     t.index ["item_id"], name: "index_item_categories_on_item_id"
   end
 
@@ -43,6 +33,28 @@ ActiveRecord::Schema.define(version: 2019_05_28_124721) do
     t.index ["name"], name: "index_items_on_name"
   end
 
-  add_foreign_key "item_categories", "categories"
+  create_table "primary_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "item_category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_category_id"], name: "index_primary_categories_on_item_category_id"
+    t.index ["name"], name: "index_primary_categories_on_name"
+  end
+
+  create_table "secondary_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "item_category_id", null: false
+    t.bigint "primary_categories_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_category_id"], name: "index_secondary_categories_on_item_category_id"
+    t.index ["name"], name: "index_secondary_categories_on_name"
+    t.index ["primary_categories_id"], name: "index_secondary_categories_on_primary_categories_id"
+  end
+
   add_foreign_key "item_categories", "items"
+  add_foreign_key "primary_categories", "item_categories"
+  add_foreign_key "secondary_categories", "item_categories"
+  add_foreign_key "secondary_categories", "primary_categories", column: "primary_categories_id"
 end

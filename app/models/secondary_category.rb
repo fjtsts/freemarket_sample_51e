@@ -1,0 +1,2 @@
+class SecondaryCategory < ApplicationRecord
+end
