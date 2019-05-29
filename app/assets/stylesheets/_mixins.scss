@@ -1,0 +1,55 @@
+@mixin label{
+  font-weight: bold;
+  display: inline-block;
+}
+
+@mixin input_box{
+  padding: 10px 16px;
+  border: 1px solid $light-gray;
+  border-radius: 4px;
+}
+@mixin input_box_option{
+  display: block;
+  margin: 5px 0;
+}
+
+@mixin require {
+  font-size: 12px;
+  padding: 2px 4px;
+  margin-left: 8px;
+  border-radius: 2px;
+  color: white;
+  background-color: red;
+  display: inline-block;
+}
+
+@mixin question {
+  width: 13px;
+  font-size: 11px;
+  text-align: center;
+  color: white;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 8px;
+  background-color: $light-blue;
+  position: relative;
+  top: 4px;
+}
+
+@mixin sell_btn($color){
+  display: inline-block;
+  font-size: 10pt;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  line-height: 1em;
+  transition: .3s;
+  background: $color;
+  border: 2px solid $color;
+} 
+@mixin btn_hover($color){
+  color: $color;
+  background: white;
+}
+
+// @include btn_hover($color);
