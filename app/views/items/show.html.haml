@@ -1,0 +1,132 @@
+.itemDetail-bread-crumbs
+  パンくず
+.itemDetailMain
+  / ここからitemDetail
+  .itemDetail
+    %h1.itemDetail__title 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+    .itemDetail__main
+      .itemDetail__main__photo
+        .itemDetail__main__photo__top{:style => "width: 300px;"}
+          / 売り切れマーク
+          / <div class="itemDetail__main__photo__sold-out"></div>
+          %img{:alt => "bag1", :height => "300px", :src => "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", :width => "300px"}/
+        .itemDetail__main__photo__bottomBox
+          .itemDetail__main__photo__bottomBox__bottom
+            %img{:alt => "bag2", :height => "62px", :src => "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", :width => "62px"}/
+          .itemDetail__main__photo__bottomBox__bottom
+            %img{:alt => "bag2", :height => "62px", :src => "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", :width => "62px"}/
+          .itemDetail__main__photo__bottomBox__bottom
+            %img{:alt => "bag2", :height => "62px", :src => "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", :width => "62px"}/
+          .itemDetail__main__photo__bottomBox__bottom
+            %img{:alt => "bag2", :height => "62px", :src => "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", :width => "62px"}/
+      %div
+        %table.itemDetail__main__table
+          %tbody
+            %tr
+              / 一枠
+              %th 出品者
+              %td
+                %a{:href => ""} BOON90sリバイバル@フォロー割
+                %div
+                  .itemDetail__main__tablel__itemUserRatings
+                    %i=fa_icon "thumbs-up",class:"itemDetail__icon__good"
+                    %span 999
+                    .itemDetail__main__tablel__itemUserRatings
+                      %i=fa_icon "sign-language",class:"itemDetail__icon__normal"
+                      %span 999
+                      .itemDetail__main__tablel__itemUserRatings
+                        %i=fa_icon "thumbs-down",class:"itemDetail__icon__bad"
+                        %span 999
+            %tr
+              / 一枠
+              %th カテゴリー
+              %td
+                %a{:href => ""}
+                  %div レディース
+                %a{:href => ""}
+                  %div ＞バッグ
+                %a{:href => ""}
+                  %div ＞ショルダーバッグ
+            %tr
+              / 一枠
+              %th ブランド
+              %td
+                %a{:href => ""}
+                  %div コーチ
+            %tr
+              / 一枠
+              %th 商品の状態
+              %td やや汚れあり
+            %tr
+              / 一枠
+              %th 配送料の負担
+              %td 送料込み
+            %tr
+              / 一枠
+              %th 配送の方法
+              %td メルカリ便
+            %tr
+              / 一枠
+              %th 配送元地域
+              %td
+                %a{:href => ""}
+                  %div 兵庫県
+            %tr
+              / 一枠
+              %th 配送日の目安
+              %td 1~2日で発送
+    .itemDetail__price
+      %span.itemDetail__price__itemPrice ¥ 3,380
+      %span.itemDetail__price__tax (税込)
+      %span.itemDetail__price__shippingFee 送料込み
+    / <div class="itemDetail__buyBtn">売り切れました</div>
+    %a.itemDetail__buyBtn{:harf => ""} 購入画面に進む
+    .itemDetail__description
+      %p.itemDetail__description__inner
+        ■商品ご覧頂き、誠にありがとうございます。
+        ※今だけ、フォロワーになって下さった方に、300円のお値引きサービス中！！
+        
+        私の商品検索は、
+        \#Boon・バッグ　
+        検索してください。
+        
+        質問がありましたらコメントでよろしくお願いします！
+        ■ 商品説明 ■
+        まずはプロフを確認してください☆
+    .itemDetail__button.clearfix
+      .itemDetail__button__left
+        %button.itemDetail__button__left__like
+          %i ♡
+          %span いいね！
+        %button.itemDetail__button__left__report
+          %i □
+          %span 不適切な商品の報告
+      .itemDetail__button__right
+        %i □
+        %a{:href => ""} あんしん・あんぜんへの取り組み
+  .itemComment-itemPostBox
+    .itemComment
+      .itemComment__content
+        %ul.itemComment__content__item
+          %li.itemComment__content__item__cl.clearfix
+            .itemComment__content__item__cl__user
+              %img{:alt => "usre", :height => "40px", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "40px"}/
+            .itemComment__content__item__cl__body
+              .itemComment__content__item__cl__body__text HelloWorld!
+              .itemComment__content__item__cl__body__icon.clearfix
+                %time.itemComment__content__item__cl__body__icon__left
+                  %i.itemComment-icon-time ○
+                  %span 211 日前
+                .itemComment__content__item__cl__body__icon__right
+                  %form{:action => "", :method => "post"}
+                    %button{:type => "submit"}
+                      %i=fa_icon "flag",class:"itemComment__icon__flag"
+                %i.itemComment-icon-ballon
+    / コメント入力フォーム
+    .itemPostComment
+      %form.itemPostComment__form{:action => ""}
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea.itemPostComment__form__text{:name => "body", :type => "text", :value => ""}
+        %button.itemPostComment__form__btn{:type => "submit"}
+          / <span>売り切れのためコメントできません</span>
+          %span コメントする
