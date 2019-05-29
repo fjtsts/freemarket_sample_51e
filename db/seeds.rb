@@ -66,4 +66,3 @@ Category.create!(
   name: 'その他',
   parent_id: 13
 )
-
