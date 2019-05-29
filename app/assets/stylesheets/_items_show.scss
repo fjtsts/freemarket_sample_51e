@@ -115,6 +115,8 @@
   border: 1px solid #f5f5f5;
   padding: 16px 8px;
   width: 61%;
+  font-size:14px;
+  line-height: 1;
 }
 
 .itemDetail__main__table th{
@@ -123,7 +125,7 @@ background: #fafafa;
 
 .itemDetail__main__tablel__itemUserRatings {
   display: inline-block;
-  margin: 8px 0 0 16px;
+  margin: 8px 0 0 5px;
   font-size: 12px;
 }
 
@@ -140,14 +142,17 @@ background: #fafafa;
 
 .itemDetail__price__itemPrice {
   margin: 0 16px 0 0;
-  font-size: 50px;
+  font-size: 45px;
+  font-weight: 500;
 }
 
 .itemDetail__price__tax {
   font-size: 10px;
+  font-weight: lighter;
 }
 
 .itemDetail__price__shippingFee {
+  font-weight: lighter;
   display: inline-block;
   font-size: 16px;
 }
@@ -232,6 +237,10 @@ font-size: 14px;
   background: #fff;
 }
 
+.clearBoth {
+  clear: both;
+}
+
 /* コメント表示欄 */
 .itemComment__content {
   padding: 24px;
@@ -284,12 +293,21 @@ font-size: 14px;
 
 .itemComment__content__item__cl__body__icon__right {
   float: right;
-  color: #333;
-  opacity: 0.3;
+  color: #aaa;
+  opacity: 0.5;
 }
 
 .itemComment__content__item__cl__body__icon__right form {
   display: inline;
+  padding: 0;
+  background: #eef0f4;
+}
+
+.itemComment__content__item__cl__body__icon__right button {
+  border: 0;
+  outline: 0;
+  background: #eef0f4;
+  cursor: pointer;
 }
 
 .icon-balloon {
@@ -306,17 +324,19 @@ font-size: 14px;
 /* コメント入力欄 */
 .itemPostComment {
   padding: 24px;
+  clear: both;
 }
 
 .itemPostComment__form p {
   padding: 8px;
   font-size: 14px;
   background: #fff6de;
+  line-height: 1.2Z;
 }
 
 .itemPostComment__form__text {
   display: block;
-  width: 100%;
+  width: 630px;
   max-width: 100%;
   min-height: 104px;
   padding: 10px;
@@ -324,6 +344,7 @@ font-size: 14px;
   background: #fff;
   font-size: 16px;
   line-height: 1.5;
+  margin: 8px 0 0;
 }
 
 .itemPostComment__form__btn {
