@@ -155,7 +155,7 @@
                     %a{ href: '#'}
                       テキストテキストテキストテキストテキストテキスト
                     .user-container_right-content_info_content_list_detail_time
-                      =fa_icon "stop-circle"
+                      =fa_icon "history"
                       21時間前
                   .user-container_right-content_info_content_list_next
                     =fa_icon "angle-right"
@@ -166,7 +166,7 @@
                     %a{ href: '#'}
                       テキストテキストテキストテキストテキストテキスト
                     .user-container_right-content_info_content_list_detail_time
-                      =fa_icon "stop-circle"
+                      =fa_icon "history"
                       21時間前
                   .user-container_right-content_info_content_list_next
                     =fa_icon "angle-right"
@@ -177,7 +177,7 @@
                     %a{ href: '#'}
                       テキストテキストテキストテキストテキストテキスト
                     .user-container_right-content_info_content_list_detail_time
-                      =fa_icon "stop-circle"
+                      =fa_icon "history"
                       21時間前
                   .user-container_right-content_info_content_list_next
                     =fa_icon "angle-right"
@@ -188,7 +188,7 @@
                     %a{ href: '#'}
                       テキストテキストテキストテキストテキストテキスト
                     .user-container_right-content_info_content_list_detail_time
-                      =fa_icon "stop-circle"
+                      =fa_icon "history"
                       21時間前
                   .user-container_right-content_info_content_list_next
                     =fa_icon "angle-right"
@@ -199,16 +199,13 @@
                     %a{ href: '#'}
                       テキストテキストテキストテキストテキストテキスト
                     .user-container_right-content_info_content_list_detail_time
-                      =fa_icon "stop-circle"
+                      =fa_icon "history"
                       21時間前
                   .user-container_right-content_info_content_list_next
                     =fa_icon "angle-right"
                 %li{class: "user-container_right-content_info_content_list_go"}
                   %a{ href: '#'}
                     一覧を見る
-            -# .user-container_right-content_info_content_info
-            -#   %a{ href: 'http://google.co.jp'}
-            -#     一覧を見る
       .user-container_right-content_items
         .user-container_right-content_items_head
           購入した商品
@@ -218,6 +215,8 @@
               取引中
             %li
               過去の取引
-        .user-container_right-content_info_content_list
-          %img{alt: "メルカリ", height: "120px", width: "120px", src: "http://static.mercdn.net/images/mercari_profile.png", class: "user-container_right-content_info_head_icon_image"}
-          取引中の商品はありません。
+        .user-container_right-content_items_list
+          .user-container_right-content_items_list_none
+            %img{alt: "メルカリ", height: "120px", width: "120px", src: "http://static.mercdn.net/images/mercari_profile.png", class: "user-container_right-content_items_list_none_image"}
+            %br
+            取引中の商品はありません

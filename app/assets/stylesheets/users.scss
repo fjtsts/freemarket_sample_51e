@@ -175,7 +175,19 @@
   }
 }
 
-.user-container_right-content_info_content_list {
-  // height: 236px;
-  // background-color: $white;
+.user-container_right-content_items_list {
+  height: 236px;
+  background-color: $white;
+}
+
+.user-container_right-content_items_list_none {
+  color: #eee;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.user-container_right-content_items_list_none_image {
+  border-radius: 50%;
+  filter: grayscale(100%);
 }
