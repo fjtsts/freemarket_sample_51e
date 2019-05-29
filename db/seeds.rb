@@ -16,54 +16,123 @@ Category.create!(
 )
 Category.create!(
   name: 'メンズ',
-  parent_id: 2
+  parent_id: 1
 )
 Category.create!(
   name: 'ベビー・キッズ',
-  parent_id: 3
+  parent_id: 1
 )
 Category.create!(
   name: 'インテリア・住まい・小物',
-  parent_id: 4
+  parent_id: 1
 )
 Category.create!(
   name: '本・音楽・ゲーム',
-  parent_id: 5
+  parent_id: 1
 )
 Category.create!(
   name: 'おもちゃ・ホビー・グッズ',
-  parent_id: 6
+  parent_id: 1
 )
 Category.create!(
     name: 'コスメ・香水・美容',
-    parent_id: 7
+    parent_id: 1
 )
 Category.create!(
   name: '家電・スマホ・カメラ',
-  parent_id: 8
+  parent_id: 1
 )
 Category.create!(
   name: 'スポーツ・レジャー',
-  parent_id: 9
+  parent_id: 1
 )
 Category.create!(
   name: 'ハンドメイド',
-  parent_id: 10
+  parent_id: 1
 )
 Category.create!(
   name: 'チケット',
-  parent_id: 11
-
-
-  
-
+  parent_id: 1
 )
 Category.create!(
   name: '自動車・オートバイ',
-  parent_id: 12
+  parent_id: 1
 )
 Category.create!(
   name: 'その他',
-  parent_id: 13
+  parent_id: 1
 )
 
+Category.create!(
+  name: 'すべて',
+  parent_id: 2
+)
+Category.create!(
+  name:'トップス',
+  parent_id: 2 
+)
+Category.create!(
+  name:'ジャケット/アウター',
+  parent_id: 2,
+)
+Category.create(
+  name: 'パンツ'
+  parent_id: 2,
+)
+Category.create!(
+  name: 'スカート',
+  parent_id: 2
+)
+Category.create!(
+  name:'ワンピース',
+  parent_id: 2
+Category.create!(
+  name: '靴',
+  parent_id: 2
+)
+Category.create!(
+  name: 'ルームウェア/パジャマ',
+  paent_id: 2
+)
+Category.create!(
+  name: 'レッグウェア／パジャマ',
+  parent_id: 2
+)
+Category.create!(
+  name: '帽子',
+  parent_id 2
+)
+Category.create!(
+  name: 'バッグ',
+  parent_id 2
+)
+Category.create!(
+   name: 'アクセサリー',
+   parent_id 2
+)
+Category.create!(
+  name: 'ヘアーアクセサリー',
+  parent_id: 2
+
+)
+Category.create!(
+  name: '小物',
+  parent_id:2 
+)
+Category.create!(
+  name: '時計',
+  parent_id: 2
+)
+Category.create!(
+  name: 'ウィッグ/エクステ',
+  parent_id: 2
+)
+Category.create!(
+  name: '浴衣/水着',
+  parent_id: 2
+)
+Category.create!(
+  name: 'スーツ/フォーマル/ドレス',
+  parent_id: 2 
+)
+category
