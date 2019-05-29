@@ -150,3 +150,4 @@ Category.create!(
  Category.create!(
    name: ''
  )
+ 
