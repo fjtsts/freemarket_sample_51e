@@ -13,7 +13,7 @@ if Rails.env.production?
       region: 'ap-northeast-1'
     }
   
-    config.fog_directory  = 'freemarket-market-51e-image'
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-market-51e-image'
+    config.fog_directory  = 'freemarket-sample-51e'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-sample-51e'
   end
 end
