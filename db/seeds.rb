@@ -65,7 +65,7 @@ Category.create!(
 
 Category.create!(
   name: 'すべて',
-  parent_id: 2
+  parent_id: 1
 )
 Category.create!(
   name:'トップス',
@@ -100,15 +100,15 @@ Category.create!(
 )
 Category.create!(
   name: '帽子',
-  parent_id 2
+  parent_id: 2
 )
 Category.create!(
   name: 'バッグ',
-  parent_id 2
+  parent_id: 2
 )
 Category.create!(
    name: 'アクセサリー',
-   parent_id 2
+   parent_id: 2
 )
 Category.create!(
   name: 'ヘアーアクセサリー',
@@ -135,4 +135,18 @@ Category.create!(
   name: 'スーツ/フォーマル/ドレス',
   parent_id: 2 
 )
-category
+Category.create!(
+  name: 'マタニティー',
+  pareant_id: 2
+)
+Category.create!(
+  name: 'その他',
+  paeant_id: 2
+)
+ Category.create!(
+   name: 'すべて',
+   parent_id: 3
+ )
+ Category.create!(
+   name: ''
+ )
