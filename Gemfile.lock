@@ -115,6 +115,8 @@ GEM
       sprockets (< 4.0)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    dropzonejs-rails (0.8.4)
+      rails (> 3.1)
     erb2haml (0.1.5)
       html2haml
     erubi (1.8.0)
@@ -309,6 +311,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   compass-rails (= 3.1.0)
+  dropzonejs-rails
   erb2haml
   fog-aws
   font-awesome-rails

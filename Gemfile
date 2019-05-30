@@ -77,6 +77,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'active_hash'
 gem "jquery-rails"
+gem 'dropzonejs-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
