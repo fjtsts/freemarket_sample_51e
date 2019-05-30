@@ -193,3 +193,13 @@
   border-radius: 50%;
   filter: grayscale(100%);
 }
+
+.user-details {
+  margin: 40px auto;
+  width: 700px;
+}
+
+.user-details_profile {
+  background: url('https://www.mercari.com/jp/assets/img/user/user_bg.jpg?72826626');
+  // background-size: cover;
+}
