@@ -55,6 +55,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+gem 'carrierwave'
+gem 'fog-aws'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
@@ -62,6 +64,10 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+end
+
+group :production do
+  gem 'unicorn', '5.4.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -73,9 +79,4 @@ gem 'compass-rails', '3.1.0'
 gem 'sprockets', '3.7.2'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'carrierwave'
-gem 'fog-aws'
-
-group :production do
-  gem 'unicorn', '5.4.1'
-end
+gem 'aws-sdk-s3'

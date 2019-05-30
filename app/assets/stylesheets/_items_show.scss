@@ -91,7 +91,7 @@
   
   &__bottomBox {
     width: 300px;
-    height: 60px;
+    position: absolute;
     
     &__bottom {
       opacity: 1;
@@ -229,11 +229,12 @@
   text-align: center;
   font-weight: 600;
   font-size: 23px;
+  text-decoration: none;
+  cursor: not-allowed;
 } */
 
 .itemDetail__buyBtn {
   background: #ea352d;
-  cursor: not-allowed;
   height: 60px;
   line-height: 60px;
   display: block;
@@ -242,6 +243,8 @@
   text-align: center;
   font-weight: 600;
   font-size: 23px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .itemDetail__button {
@@ -262,6 +265,7 @@ display: inline-block;
     border-radius: 40px;
     padding: 8px 16px;
     font-size: 14px;
+    cursor: pointer;
 
       i {
         color: #ccc
@@ -277,6 +281,7 @@ display: inline-block;
     border-radius: 40px;
     padding: 8px 16px;
     font-size: 14px;
+    cursor: pointer;
     
     span {
       margin: 0 0 0 5px;
@@ -306,13 +311,14 @@ display: inline-block;
 .itemComment-itemPostBox {
   width: 700px;
   margin: 8px auto;
-  background: #fff;
+  background: #f5f5f5;;
 }
 
 
 /* コメント表示欄 */
 .itemComment__content {
   padding: 24px;
+  background: #fff;
 }
 
 .itemComment__content__item {
@@ -505,7 +511,7 @@ display: inline-block;
       content: "";
       position: absolute;
       top: 0%;
-      right: -13px;
+      right: -17px;
       margin:5px 0 0 -16px;
       border: 6px solid transparent;
       border-right: 20px solid #fbf0e6;
@@ -529,7 +535,7 @@ display: inline-block;
         float: left;
       }
       
-      &__right {
+      &__right__flag {
         float: right;
         color: #aaa;
         opacity: 0.5;
@@ -537,13 +543,31 @@ display: inline-block;
         form {
           display: inline;
           padding: 0;
-          background: #eef0f4;
+          background: #fbf0e6;
         }
         
         button {
           border: 0;
           outline: 0;
-          background: #eef0f4;
+          background: #fbf0e6;
+          cursor: pointer;
+        }
+      }
+      &__right__delete {
+        float: right;
+        color: #aaa;
+        opacity: 0.5;
+        
+        form {
+          display: inline;
+          padding: 0;
+          background: #fbf0e6;
+        }
+        
+        button {
+          border: 0;
+          outline: 0;
+          background: #fbf0e6;
           cursor: pointer;
         }
       }
@@ -551,14 +575,12 @@ display: inline-block;
   }
 }
 
-
-
-
-
 /* コメント入力欄 */
 .itemPostComment {
   padding: 24px;
   clear: both;
+  margin: 8px 0 0;
+  background: #fff;
 }
 
 .itemPostComment__form p {

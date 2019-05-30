@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  
-  root "items#index"
-  get"items"  => "items#index"
-  get"items/show"  => "items#show"
+  resources :items
+  resources :users, only: [:index, :show]
+  root      "items#index"
 end

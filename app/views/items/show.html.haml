@@ -2,9 +2,7 @@
 .itemDetail-bread-crumbs
   %ul
     %li
-      %a(href="")
-        %span パンくず
-      -# %i=fa_icon "chevron-right",class:"itemDetail__icon__arrow"
+      = link_to 'メルカリ', '/'
     %li
       %span 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
 
@@ -15,19 +13,19 @@
     %h1.itemDetail__title 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
     .itemDetail__main
       .itemDetail__main__photo
-        .itemDetail__main__photo__top{:style => "width: 300px;"}
+        .itemDetail__main__photo__top{style: "width: 300px;"}
           / 売り切れマーク
           -# .itemDetail__main__photo__soldOut
-          %img{:alt => "bag1", :height => "300px", :src => "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", :width => "300px"}/
+          =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag1", height: "300px", width: "300px")
         .itemDetail__main__photo__bottomBox
           .itemDetail__main__photo__bottomBox__bottom
-            %img{:alt => "bag2", :height => "62px", :src => "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", :width => "62px"}/
+            =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag2", height: "60px", width: "60px")
           .itemDetail__main__photo__bottomBox__bottom
-            %img{:alt => "bag2", :height => "62px", :src => "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", :width => "62px"}/
+            =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag2", height: "60px", width: "60px")
           .itemDetail__main__photo__bottomBox__bottom
-            %img{:alt => "bag2", :height => "62px", :src => "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", :width => "62px"}/
+            =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag2", height: "60px", width: "60px")
           .itemDetail__main__photo__bottomBox__bottom
-            %img{:alt => "bag2", :height => "62px", :src => "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", :width => "62px"}/
+            =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag2", height: "60px", width: "60px")
       %div
         %table.itemDetail__main__table
           %tbody
@@ -35,14 +33,14 @@
               / 一枠
               %th 出品者
               %td
-                %a{:href => ""} BOON90sリバイバル@フォロー割
+                = link_to '出品ちゃん＠出品者コメント', 'show'
                 %div
                   .itemDetail__main__tablel__itemUserRatings
                     =link_to image_tag("icon-good.png",size: "16x16")
-                    %span 999
+                    %span 2
                   .itemDetail__main__tablel__itemUserRatings
                     =link_to image_tag("icon-normal.png",size: "16x16")
-                    %span 999
+                    %span 10
                   .itemDetail__main__tablel__itemUserRatings
                     =link_to image_tag("icon-bad.png",size: "16x16")
                     %span 999
@@ -50,22 +48,21 @@
               / 一枠
               %th カテゴリー
               %td
-                %a{:href => ""}
-                  %div レディース
-                %a{:href => ""}
+                = link_to 'show' do
+                  レディース
                   %div
+                = link_to "show"  do
                   %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
                   バッグ
-                %a{:href => ""}
                   %div
+                = link_to "show"  do
                   %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
                   ショルダーバッグ
             %tr
               / 一枠
               %th ブランド
               %td
-                %a{:href => ""}
-                  %div コーチ
+                = link_to 'コーチ', 'show'
             %tr
               / 一枠
               %th 商品の状態
@@ -82,8 +79,7 @@
               / 一枠
               %th 配送元地域
               %td
-                %a{:href => ""}
-                  %div 兵庫県
+                = link_to '東京都', 'show'
             %tr
               / 一枠
               %th 配送日の目安
@@ -94,7 +90,7 @@
       %span.itemDetail__price__tax (税込)
       %span.itemDetail__price__shippingFee 送料込み
     -# .itemDetail__buyBtn 売り切れました
-    %a.itemDetail__buyBtn{:harf => ""} 購入画面に進む
+    =link_to "購入画面に進む" , "show" ,class: "itemDetail__buyBtn"
     .itemDetail__description
       %p.itemDetail__description__inner
         ■商品ご覧頂き、誠にありがとうございます。
@@ -109,15 +105,16 @@
         まずはプロフを確認してください
     .itemDetail__button.clearfix
       .itemDetail__button__left
-        %button.itemDetail__button__left__like
+        =button_tag class: "itemDetail__button__left__like" do
           %i=fa_icon "heart",class:"icon-like"
           %span いいね！
-        %button.itemDetail__button__left__report
+        =button_tag class: "itemDetail__button__left__report" do
           %i=fa_icon "flag",class:"itemDetail__icon__flag"
           %span 不適切な商品の報告
       .itemDetail__button__right
-        %i=fa_icon "flag",class:"itemDetail__icon__clock"
-        %a{:href => ""} あんしん・あんぜんへの取り組み
+        = link_to 'show' do
+          %i=fa_icon "flag",class:"itemDetail__icon__clock"
+          あんしん・あんぜんへの取り組み
   .itemComment-itemPostBox
     .itemComment
       .itemComment__content
@@ -125,23 +122,19 @@
           -# コメント__コメント削除
           %li.itemComment__content__item__cl.clearfix
             .itemComment__content__item__cl__user
-              %img{:alt => "usre", :height => "40px", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "40px"}/
+              =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
             .itemComment__content__item__cl__body
               .itemComment__content__item__cl__body__text 出品者がコメントを削除しました
               .itemComment__content__item__cl__body__icon.clearfix
                 %time.itemComment__content__item__cl__body__icon__left
                   %i.itemComment-icon-time ○
                   %span 211 日前
-                .itemComment__content__item__cl__body__icon__right
-                  %form{:action => "", :method => "post"}
-                    %button{:type => "submit"}
-                      %i=fa_icon "flag",class:"itemComment__icon__flag"
           -# コメント__ユーザーあり
           %li.itemComment__content__item__cl.clearfix
             .itemComment__content__item__cl__user
-              %a(href="")
+              = link_to 'show' do
                 %div
-                  %img{:alt => "usre", :height => "40px", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "40px"}/
+                  =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
                 .itemComment__content__item__cl__userName 出品ちゃん＠出品者コメント
                 .itemComment__content__item__cl__seller 出品者
             .itemComment__content__item__cl__body
@@ -151,15 +144,15 @@
                   %i.itemComment-icon-time ○
                   %span 211 日前
                 .itemComment__content__item__cl__body__icon__right
-                  %form{:action => "", :method => "post"}
-                    %button{:type => "submit"}
+                  %form{action: "", method: ""}
+                    = button_tag type: "submit" do
                       %i=fa_icon "flag",class:"itemComment__icon__flag"
           -# コメント__利用者本人
           %li.itemCommentMe__content__item__cl.clearfix
             .itemCommentMe__content__item__cl__user
-              %a(href="")
+              = link_to 'show' do
                 %div
-                  %img{:alt => "usre", :height => "40px", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "40px"}/
+                  =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
                 .clearBoth
                 .itemCommentMe__content__item__cl__userName 私ちゃん＠利用者本人コメント
                 -# .itemCommentMe__content__item__cl__seller 出品者
@@ -169,16 +162,20 @@
                 %time.itemCommentMe__content__item__cl__body__icon__left
                   %i.itemCommentMe-icon-time ○
                   %span 211 日前
-                .itemCommentMe__content__item__cl__body__icon__right
-                  %form{:action => "", :method => "post"}
-                    %button{:type => "submit"}
+                .itemCommentMe__content__item__cl__body__icon__right__delete
+                  %form{action: "", method: ""}
+                    = button_tag type: "submit" do
+                      %i=fa_icon "trash",class:"itemComment__icon__delete"
+                .itemCommentMe__content__item__cl__body__icon__right__flag
+                  %form{action: "", method: ""}
+                    = button_tag type: "submit" do
                       %i=fa_icon "flag",class:"itemComment__icon__flag"
         .clearBoth
     / コメント入力フォーム
     .itemPostComment
-      %form.itemPostComment__form{:action => ""}
+      %form.itemPostComment__form{action: ""}
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %textarea.itemPostComment__form__text{:name => "body", :type => "text", :value => ""}
-        %button.itemPostComment__form__btn{:type => "submit"}
+        %textarea.itemPostComment__form__text{name: "body", type: "text", value: ""}
+        =button_tag type: "submit" , class: "itemPostComment__form__btn" do
           / <span>売り切れのためコメントできません</span>
           %span コメントする
