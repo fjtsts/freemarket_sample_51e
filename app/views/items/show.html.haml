@@ -1,3 +1,4 @@
+
 .itemDetail-bread-crumbs
   %ul
     %li
@@ -6,6 +7,7 @@
       -# %i=fa_icon "chevron-right",class:"itemDetail__icon__arrow"
     %li
       %span 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+
 
 .itemDetailMain
   / ここからitemDetail
@@ -51,9 +53,13 @@
                 %a{:href => ""}
                   %div レディース
                 %a{:href => ""}
-                  %div ＞バッグ
+                  %div
+                  %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
+                  バッグ
                 %a{:href => ""}
-                  %div ＞ショルダーバッグ
+                  %div
+                  %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
+                  ショルダーバッグ
             %tr
               / 一枠
               %th ブランド
@@ -100,17 +106,17 @@
         
         質問がありましたらコメントでよろしくお願いします！
         ■ 商品説明 ■
-        まずはプロフを確認してください☆
+        まずはプロフを確認してください
     .itemDetail__button.clearfix
       .itemDetail__button__left
         %button.itemDetail__button__left__like
           %i=fa_icon "heart",class:"icon-like"
           %span いいね！
         %button.itemDetail__button__left__report
-          %i=fa_icon "flag",class:"itemComment__icon__flag"
+          %i=fa_icon "flag",class:"itemDetail__icon__flag"
           %span 不適切な商品の報告
       .itemDetail__button__right
-        %i □
+        %i=fa_icon "flag",class:"itemDetail__icon__clock"
         %a{:href => ""} あんしん・あんぜんへの取り組み
   .itemComment-itemPostBox
     .itemComment
