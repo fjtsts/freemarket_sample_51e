@@ -1,8 +1,7 @@
 function separate(num){
   return String(num).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
 }
-
-$(function(){
+$(document).on('turbolinks:load', function() {
   $(".sell-form__main__prace__num__input").keyup(function(){
     var input = $(this).val();
     var fee = Math.floor(input * 0.1);
