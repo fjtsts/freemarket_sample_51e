@@ -83,3 +83,5 @@ gem 'aws-sdk-s3'
 gem 'active_hash'
 gem "jquery-rails"
 gem 'dropzonejs-rails'
+gem 'devise'
+
