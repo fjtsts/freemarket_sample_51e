@@ -75,6 +75,7 @@
       }
       // 商品詳細　select
       &__select-box {
+        height: 40px;
         &__text {
           @include input_box;
           @include input_box_option;
@@ -111,6 +112,7 @@
       }
       // 商品詳細　select
       &__select-box {
+        height: 40px;
         &__text {
           @include input_box;
           @include input_box_option;
