@@ -1,0 +1,252 @@
+.sell-form{
+  min-width: 700px;
+  &__header{
+    height: 128px;
+    background-color: $background-color-gray;
+    text-align: center;
+    &__text{
+      height: 56px;
+      padding: 36px 0;
+    }
+  }
+
+  &__main{
+    background-color: $background-color-gray;
+    &__warpper {
+      font-size: 14px;
+      width: 700px;
+      margin: 0 auto;
+      background-color: white;
+    }
+    &__data {
+      padding: 32px 16px;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__image {
+      &__label {
+        @include label;
+        &--require {
+          @include require;
+        }
+      }
+      &__text {
+        margin: 5px 0;
+      }
+    }
+    &__name {
+      &__warp--top {
+        margin-bottom: 40px;
+      }
+      &__label {
+        @include label;
+        &--require {
+          @include require;
+        }
+      }
+      &__text {
+        @include input_box;
+        @include input_box_option;
+        width: 586px;
+      }
+      &__textarea {
+        height: 100px;
+      }
+    }
+    &__detail {
+      &__sub-head{
+        @include label;
+        color: gray;
+        vertical-align: top;
+        margin-right: 142px;
+      }
+      &__warpper{
+        display: inline-block;
+      }
+      &__warp--top{
+        margin-bottom: 40px;
+      }
+      &__label {
+        @include label;
+        &--require {
+          @include require;
+        }
+      }
+      // 商品詳細　select
+      &__select-box {
+        height: 40px;
+        &__text {
+          @include input_box;
+          @include input_box_option;
+          width: 400px;
+          &__icon{
+            float:right;
+            font-size: 60px;
+          }
+        }
+      }
+    }
+    &__delivery{
+      &__sub-head{
+        @include label;
+        color: gray;
+        vertical-align: top;
+        &--question{
+          margin-right: 111px;
+          @include question
+        }
+      }
+      &__warpper{
+        display: inline-block;
+      }
+      &__warp--middle{
+        margin: 40px 0;
+      }
+      &__label {
+        @include label;
+        &--require {
+          @include require;
+        }
+      
+      }
+      // 商品詳細　select
+      &__select-box {
+        height: 40px;
+        &__text {
+          @include input_box;
+          @include input_box_option;
+          width: 400px;
+        }
+        &__icon{
+          float:right;
+        }
+      }
+    }
+    &__prace {
+      &__warpper{
+        width: 403px;
+      }
+      &__sub-head{
+        @include label;
+        font-size: 13px;
+        color: gray;
+        vertical-align: top;
+        &--question{
+          margin-right: 42px;
+          @include question
+        }
+      }
+      &__warpper{
+        display: inline-block;
+      }
+      &__label {
+        @include label;
+        &--require {
+          @include require;
+        }
+      }
+      &__num{
+        display: inline-block;
+        margin-left: 139px;
+        &__input{
+          @include input_box;
+          width: 130px;
+          text-align: right;
+          margin-left: 5px;
+        }
+      }
+      &__fee{
+        width: 403px;
+        margin: 20px 0;
+        padding: 20px 0;
+        border-top: 1px solid $light-gray;
+        border-bottom: 1px solid $light-gray;
+        display: inline-block;
+        &--left{
+          float: left;
+        }
+        &--right{
+          float: right;
+        }
+      }
+      &__profit{
+        width: 403px;
+        display: inline-block;
+        &--left{
+          float: left;
+          font-weight: bold;
+        }
+        &--right{
+          float: right;
+          font-weight: bold;
+          font-size: 30px;
+        }
+      }
+    }
+    &__btn{
+      &__text{
+        &--link{
+          color: $light-blue;
+          text-decoration: none;
+        }
+        &__last{
+          padding-bottom: 20px;
+        }
+      }
+      &__box{
+        text-align: center;
+        margin-top: 20px;
+        height: 50px;
+        color: white;
+        &__sell{
+          @include sell_btn(red);
+          padding: 15px 230px;
+          &:hover {
+            @include btn_hover(red);
+          }
+        }
+        &__back{
+          @include sell_btn(gray);
+          padding: 15px 100px;
+          text-decoration: none;
+          &:hover {
+            @include btn_hover(gray);
+          }
+        }
+      }
+    }  
+    &__box{
+      padding: 40px;
+      border-top: solid 1px $background-color-gray;
+    }
+  }
+
+  &__footer {
+    background-color: $background-color-gray;
+    font-size: 12px;
+    height: 140px;
+    padding: 40px 0;
+    margin: auto;
+    text-align: center;
+    &__list__element {
+      padding: 0 5px 30px;
+      display: inline-block;
+    }
+    &__link{
+      text-decoration: none;
+      color: $font-black;
+    }
+    &__text {
+      margin-top: 6px;
+    }
+  }
+}
+.fa-sell-form__angle-down {
+  font-size: 24px;
+  font-weight: bold;
+  color: gray;
+  position: relative;
+  bottom: 37px;
+  left: 370px;
+}
