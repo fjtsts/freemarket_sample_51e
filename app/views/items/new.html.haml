@@ -22,7 +22,7 @@
               %p.sell-form__main__name__label--require
                 必須
             %input.sell-form__main__name__text{placeholder: "商品名（必須40文字まで）"}
-            =text_field_tag("商品名（必須40文字まで）", name: "name", class: "sell-form__main__name__text")
+            -# =text_field_tag("商品名（必須40文字まで）", name: "name", class: "sell-form__main__name__text")
           .sell-form__main__name__warp
             %h3.sell-form__main__name__label
               商品説明
@@ -79,7 +79,7 @@
               .sell-form__main__delivery__select-box
                 %select.sell-form__main__delivery__select-box__text
                 =fa_icon "angle-down sell-form__angle-down"
-                = select(:name, [["a", "a"], ["appear", "value"] ], class: "sell-form__main__delivery__select-box__text", include_blank: true)
+                -# = select(:name, [["a", "a"], ["appear", "value"] ], class: "sell-form__main__delivery__select-box__text", include_blank: true)
         .sell-form__main__prace.sell-form__main__box
           %h3.sell-form__main__prace__sub-head
             販売価格(300〜9,999,999)
