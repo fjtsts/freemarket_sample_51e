@@ -1,15 +1,59 @@
 
 /* パンくず */
 .itemDetail-bread-crumbs {
-  color: pink;
+  padding-left:0;
+  margin-left:0;
+  // padding-left:0;
+  // margin-left:0;
   background-color: white;
-  /* position: fixed; */
-  width: 100%;
-  height: 49px;
-  line-height: 49px;
   text-align: center;
+  height: 49px;
+  font-size: 14px;
+  line-height: 49px;
   border-top:1px solid #eee;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+
+  ul {
+    width: 700px;
+    margin: 0 auto;
+  }
+
+  li {
+    display:inline;/*横に並ぶように*/
+    list-style: none;
+    font-weight: bold;/*太字*/
+  }
+
+  li:after {
+    content: '>';
+    padding: 0 3px;
+    color: #555;
+  }
+  
+  li:last-child:after {
+    content: '';
+  }
+  
+  li a {
+    text-decoration: none;
+    color: black;/*色*/
+    font-weight: lighter;
+  }
+  
+  li a:hover {
+    text-decoration: underline;
+  }
+
+}
+
+.clearBoth {
+  clear: both;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 .itemDetail {
@@ -21,10 +65,11 @@
 }
 
 .itemDetail__title {
-  font-size: 24px;
+  font-size: 23px;
   text-align: center;
   word-wrap: break-word;
   line-height: 1.4;
+  font-weight: 600
 }
 
 /* ここから写真と説明 */
@@ -35,9 +80,10 @@
 
 .itemDetail__main__photo {
   float: left;
-    min-width: 300px;
-    max-width: 300px;
-    min-height: 375px;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 375px;
+  background: #fafafa;
 }
 
 .itemDetail__main__photo__top {
@@ -47,33 +93,36 @@
 }
 
 /* 売り切れマーク */
-/* .itemDetail__main__photo__sold-out {
+.itemDetail__main__photo__soldOut {
   width: 120px;
   height: 120px;
   position: absolute;
+  
+  &::before {
+    content: "";
+    top: 0;
+    left: 0;
+    border-bottom: 120px solid transparent;
+    border-left: 120px solid #ea352d;
+    position: absolute;
+    z-index: 100;
+  }
+
+  &::after {
+    content: "SOLD";
+    position: absolute;
+    left: 0;
+    display: block;
+    top: 24px;
+    transform: rotate(-45deg);
+    font-size: 28px;
+    color: #fff;
+    z-index: 101;
+  }
+
 }
 
-.itemDetail__main__photo__sold-out::before {
-  content: "";
-  top: 0;
-  left: 0;
-  border-bottom: 120px solid transparent;
-  border-left: 120px solid #ea352d;
-  position: absolute;
-  z-index: 100;
-}
 
-.itemDetail__main__photo__sold-out::after {
-  content: "SOLD";
-  position: absolute;
-  left: 0;
-  display: block;
-  top: 24px;
-  transform: rotate(-45deg);
-  font-size: 28px;
-  color: #fff;
-  z-index: 101;
-} */
 
 .itemDetail__main__photo__bottomBox {
   width: 300px;
@@ -89,10 +138,6 @@
   float: left;
 }
 
-.itemDetail__main__table a {
-  color: #0099e8;
-  text-decoration: none;
-}
 
 .itemDetail__main__table{
   float: right;
@@ -101,32 +146,43 @@
   margin: 0 auto;
   border-collapse: collapse;
   border: 1px solid #f5f5f5;
-}
+  
+  a {
+    color: #0099e8;
+    text-decoration: none;
+  }
+  
+  th {
+    border-collapse: collapse;
+    border: 1px solid #f5f5f5;
+    padding: 5px 8px;
+    width: 39%;
+    background: #fafafa;
+    font-size:14px;
+  }
+  
+  td {
+    border-collapse: collapse;
+    border: 1px solid #f5f5f5;
+    padding: 5px 8px;
+    width: 61%;
+    font-size:14px;
+    line-height: 1;
+  }
 
-.itemDetail__main__table th {
-  border-collapse: collapse;
-  border: 1px solid #f5f5f5;
-  padding: 16px 8px;
-  width: 39%;
-}
-
-.itemDetail__main__table td {
-  border-collapse: collapse;
-  border: 1px solid #f5f5f5;
-  padding: 16px 8px;
-  width: 61%;
-  font-size:14px;
-  line-height: 1;
-}
-
-.itemDetail__main__table th{
-background: #fafafa;
 }
 
 .itemDetail__main__tablel__itemUserRatings {
   display: inline-block;
-  margin: 8px 0 0 5px;
-  font-size: 12px;
+  margin: 4px 0 0 5px;
+  font-size: 14px;
+  height: 16px;
+  
+  span {
+    height: 16px;
+    vertical-align: 3px;
+  }
+
 }
 
 .itemDetail__icon__good {
@@ -159,6 +215,7 @@ background: #fafafa;
 
 .itemDetail__description__inner {
   white-space: pre-wrap;
+  font-size: 18px;
 }
 
 /* 売り切れの場合 */
@@ -176,7 +233,7 @@ background: #fafafa;
 } */
 
 .itemDetail__buyBtn {
-  background: red;
+  background: #ea352d;
   cursor: not-allowed;
   height: 60px;
   line-height: 60px;
@@ -198,7 +255,6 @@ background: #fafafa;
 .itemDetail__button__left {
 float: left;
 display: inline-block;
-font-size: 14px;
 }
 
 .itemDetail__button__left__like {
@@ -207,6 +263,7 @@ font-size: 14px;
   background: #f5f5f5;
   border-radius: 40px;
   padding: 8px 16px;
+  font-size: 14px;
 }
 
 .itemDetail__button__left__report {
@@ -216,6 +273,12 @@ font-size: 14px;
   background: #f5f5f5;
   border-radius: 40px;
   padding: 8px 16px;
+  font-size: 14px;
+  
+  span {
+    margin: 0 0 0 5px;
+  }
+
 }
 
 .itemDetail__button__right {
@@ -224,10 +287,12 @@ font-size: 14px;
   float: right;
   margin: 8px 0 0;
   padding: 0;
-}
-.itemDetail__button__right a {
-  color: #0099e8;
-  text-decoration: none;
+  
+  a {
+    color: #0099e8;
+    text-decoration: none;
+  }
+
 }
 
 /* ここからコメント表示と入力欄 */
@@ -237,25 +302,73 @@ font-size: 14px;
   background: #fff;
 }
 
-.clearBoth {
-  clear: both;
-}
 
 /* コメント表示欄 */
 .itemComment__content {
   padding: 24px;
 }
 
-.itemComment__content__item__cl {
+.itemComment__content__item {
+  
+  li {
+  margin: 60px 0 0;
+  }
+
+  li:first-child {
   margin: 1.5em 0 0;
+  }
+
 }
 
-.itemComment__content__item__cl__user {
-  float: left;
-  position: relative;
-  top: -20px;
-  display: inline-block;
-  color: #333;
+.itemComment__content__item__cl {
+
+  &__user {
+    float: left;
+    position: relative;
+    top: -20px;
+    display: inline-block;
+    color: #333;
+    
+    &:hover {
+      cursor:pointer;
+      filter: alpha(opacity=60);
+      -moz-opacity:0.6;
+      -khtml-opacity: 0.6;
+      opacity:0.6;
+    }
+    
+    a {
+     color: #333;
+     text-decoration: none;
+    }
+  
+  }
+
+
+}
+
+
+
+.itemComment__content__item__cl__userName {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 56px;
+  max-width: 100%;
+  min-width: 214px;
+  height: 1.2em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.itemComment__content__item__cl__seller {
+  margin: 8px 0 0;
+  padding: 4px;
+  background: #eef0f4;
+  color: #000;
+  font-size: 12px;
 }
 
 .itemComment__content__item__cl__user img {
@@ -271,12 +384,33 @@ font-size: 14px;
   line-height: 1.5;
   word-break: break-all;
   width: 568px;
+  position: relative;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0px;
+    margin:5px 0 0 -17px;
+    border: 6px solid transparent;
+    border-right: 20px solid #eef0f4;
+    transform: rotate(40deg);
+  }
+
+
 }
+
 
 .itemComment__content__item__cl__body__icon {
   margin: 8px 0 0;
   float: left;
   width: 100%;
+  
+  time {
+    font-size: 12px;
+    display: block;
+    color: #aaa;
+  }
 }
 
 .itemComment__content__item__cl__body__icon__left {
@@ -285,41 +419,26 @@ font-size: 14px;
   float: left;
 }
 
-.itemComment__content__item__cl__body__icon time {
-  font-size: 12px;
-  display: block;
-  color: #aaa;
-}
-
 .itemComment__content__item__cl__body__icon__right {
   float: right;
   color: #aaa;
   opacity: 0.5;
+  
+  form {
+    display: inline;
+    padding: 0;
+    background: #eef0f4;
+  }
+  
+  button {
+    border: 0;
+    outline: 0;
+    background: #eef0f4;
+    cursor: pointer;
+  }
+
 }
 
-.itemComment__content__item__cl__body__icon__right form {
-  display: inline;
-  padding: 0;
-  background: #eef0f4;
-}
-
-.itemComment__content__item__cl__body__icon__right button {
-  border: 0;
-  outline: 0;
-  background: #eef0f4;
-  cursor: pointer;
-}
-
-.icon-balloon {
-  position: absolute;
-  top: 8px;
-  left: -9px;
-  color: #eef0f4;
-  font-size: 15px;
-  border-style: solid;
-  border-width: 0;
-  /* content: '\e008'; */
-}
 
 /* コメント入力欄 */
 .itemPostComment {
@@ -331,7 +450,7 @@ font-size: 14px;
   padding: 8px;
   font-size: 14px;
   background: #fff6de;
-  line-height: 1.2Z;
+  line-height: 1.2;
 }
 
 .itemPostComment__form__text {

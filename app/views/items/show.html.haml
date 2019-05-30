@@ -1,5 +1,12 @@
 .itemDetail-bread-crumbs
-  パンくず
+  %ul
+    %li
+      %a(href="")
+        %span パンくず
+      -# %i=fa_icon "chevron-right",class:"itemDetail__icon__arrow"
+    %li
+      %span 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+
 .itemDetailMain
   / ここからitemDetail
   .itemDetail
@@ -8,7 +15,7 @@
       .itemDetail__main__photo
         .itemDetail__main__photo__top{:style => "width: 300px;"}
           / 売り切れマーク
-          / <div class="itemDetail__main__photo__sold-out"></div>
+          -# .itemDetail__main__photo__soldOut
           %img{:alt => "bag1", :height => "300px", :src => "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", :width => "300px"}/
         .itemDetail__main__photo__bottomBox
           .itemDetail__main__photo__bottomBox__bottom
@@ -29,14 +36,14 @@
                 %a{:href => ""} BOON90sリバイバル@フォロー割
                 %div
                   .itemDetail__main__tablel__itemUserRatings
-                    %i=fa_icon "thumbs-up",class:"itemDetail__icon__good"
+                    =link_to image_tag("icon-good.png",size: "16x16")
                     %span 999
-                    .itemDetail__main__tablel__itemUserRatings
-                      %i=fa_icon "sign-language",class:"itemDetail__icon__normal"
-                      %span 999
-                      .itemDetail__main__tablel__itemUserRatings
-                        %i=fa_icon "thumbs-down",class:"itemDetail__icon__bad"
-                        %span 999
+                  .itemDetail__main__tablel__itemUserRatings
+                    =link_to image_tag("icon-normal.png",size: "16x16")
+                    %span 999
+                  .itemDetail__main__tablel__itemUserRatings
+                    =link_to image_tag("icon-bad.png",size: "16x16")
+                    %span 999
             %tr
               / 一枠
               %th カテゴリー
@@ -75,11 +82,12 @@
               / 一枠
               %th 配送日の目安
               %td 1~2日で発送
+    .clearBoth
     .itemDetail__price
       %span.itemDetail__price__itemPrice ¥ 3,380
       %span.itemDetail__price__tax (税込)
       %span.itemDetail__price__shippingFee 送料込み
-    / <div class="itemDetail__buyBtn">売り切れました</div>
+    -# .itemDetail__buyBtn 売り切れました
     %a.itemDetail__buyBtn{:harf => ""} 購入画面に進む
     .itemDetail__description
       %p.itemDetail__description__inner
@@ -96,10 +104,10 @@
     .itemDetail__button.clearfix
       .itemDetail__button__left
         %button.itemDetail__button__left__like
-          %i ♡
+          %i=fa_icon "heart",class:"icon-like"
           %span いいね！
         %button.itemDetail__button__left__report
-          %i □
+          %i=fa_icon "flag",class:"itemComment__icon__flag"
           %span 不適切な商品の報告
       .itemDetail__button__right
         %i □
@@ -108,11 +116,12 @@
     .itemComment
       .itemComment__content
         %ul.itemComment__content__item
+          -# コメント__コメント削除
           %li.itemComment__content__item__cl.clearfix
             .itemComment__content__item__cl__user
               %img{:alt => "usre", :height => "40px", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "40px"}/
             .itemComment__content__item__cl__body
-              .itemComment__content__item__cl__body__text HelloWorld!
+              .itemComment__content__item__cl__body__text 出品者がコメントを削除しました
               .itemComment__content__item__cl__body__icon.clearfix
                 %time.itemComment__content__item__cl__body__icon__left
                   %i.itemComment-icon-time ○
@@ -121,7 +130,42 @@
                   %form{:action => "", :method => "post"}
                     %button{:type => "submit"}
                       %i=fa_icon "flag",class:"itemComment__icon__flag"
-                %i.itemComment-icon-ballon
+          -# コメント__ユーザーあり
+          %li.itemComment__content__item__cl.clearfix
+            .itemComment__content__item__cl__user
+              %a(href="")
+                %div
+                  %img{:alt => "usre", :height => "40px", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "40px"}/
+                .itemComment__content__item__cl__userName 出品ちゃん＠テスト中
+                .itemComment__content__item__cl__seller 出品者
+            .itemComment__content__item__cl__body
+              .itemComment__content__item__cl__body__text こんにちは、商品出品者です
+              .itemComment__content__item__cl__body__icon.clearfix
+                %time.itemComment__content__item__cl__body__icon__left
+                  %i.itemComment-icon-time ○
+                  %span 211 日前
+                .itemComment__content__item__cl__body__icon__right
+                  %form{:action => "", :method => "post"}
+                    %button{:type => "submit"}
+                      %i=fa_icon "flag",class:"itemComment__icon__flag"
+          -# コメント__利用者本人
+          %li.itemComment__content__item__cl.clearfix
+            .itemComment__content__item__cl__user
+              %a(href="")
+                %div
+                  %img{:alt => "usre", :height => "40px", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "40px"}/
+                .itemComment__content__item__cl__userName 出品ちゃん＠テスト中
+                .itemComment__content__item__cl__seller 出品者
+            .itemComment__content__item__cl__body
+              .itemComment__content__item__cl__body__text こんにちは、商品出品者です
+              .itemComment__content__item__cl__body__icon.clearfix
+                %time.itemComment__content__item__cl__body__icon__left
+                  %i.itemComment-icon-time ○
+                  %span 211 日前
+                .itemComment__content__item__cl__body__icon__right
+                  %form{:action => "", :method => "post"}
+                    %button{:type => "submit"}
+                      %i=fa_icon "flag",class:"itemComment__icon__flag"
         .clearBoth
     / コメント入力フォーム
     .itemPostComment
