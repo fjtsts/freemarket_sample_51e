@@ -7,6 +7,10 @@
   padding: 10px 16px;
   border: 1px solid $light-gray;
   border-radius: 4px;
+  background-color: transparent;
+  -webkit-appearance: none; //safari
+  -moz-appearance: none;    //firefox
+  appearance: none;
 }
 @mixin input_box_option{
   display: block;
@@ -24,16 +28,20 @@
 }
 
 @mixin question {
-  width: 13px;
-  font-size: 11px;
+  width: 14px;
+  height: 14px;
+  font-size: 10px;
   text-align: center;
+  line-height: 13px;
   color: white;
   display: inline-block;
   vertical-align: top;
-  border-radius: 8px;
+  border-radius: 7px;
   background-color: $light-blue;
   position: relative;
   top: 4px;
+  right: 2px;
+  text-decoration: none;
 }
 
 @mixin sell_btn($color){

@@ -59,10 +59,13 @@
         @include label;
         color: gray;
         vertical-align: top;
-        margin-right: 140px;
+        margin-right: 142px;
       }
       &__warpper{
         display: inline-block;
+      }
+      &__warp--top{
+        margin-bottom: 40px;
       }
       &__label {
         @include label;
@@ -76,9 +79,10 @@
           @include input_box;
           @include input_box_option;
           width: 400px;
-        }
-        &__icon{
-          float:right;
+          &__icon{
+            float:right;
+            font-size: 60px;
+          }
         }
       }
     }
@@ -94,6 +98,9 @@
       }
       &__warpper{
         display: inline-block;
+      }
+      &__warp--middle{
+        margin: 40px 0;
       }
       &__label {
         @include label;
@@ -232,4 +239,12 @@
       margin-top: 6px;
     }
   }
+}
+.fa-sell-form__angle-down {
+  font-size: 24px;
+  font-weight: bold;
+  color: gray;
+  position: relative;
+  bottom: 37px;
+  left: 370px;
 }

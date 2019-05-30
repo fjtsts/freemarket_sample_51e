@@ -40,8 +40,8 @@
                   必須
               .sell-form__main__detail__select-box
                 %select.sell-form__main__detail__select-box__text
-                -# = f.select :brand_id, Brand.all.map{|t| [t.name, t.id]}, prompt: "---"
-              %i.fas.fa-angle-down.sell-form__main__detail__select-box__text__icon
+                  -# = f.select :brand_id, Brand.all.map{|t| [t.name, t.id]}, prompt: "---"
+                =fa_icon "angle-down sell-form__angle-down"
             .sell-form__main__detail__warp
               %h3.sell-form__main__detail__label
                 商品の状態
@@ -52,8 +52,7 @@
         .sell-form__main__delivery.sell-form__main__box
           %h3.sell-form__main__delivery__sub-head
             配送について
-            %h4.sell-form__main__delivery__sub-head--question
-              ?
+            = link_to "?", "/", class: "sell-form__main__delivery__sub-head--question"
           .sell-form__main__delivery__warpper
             .sell-form__main__delivery__warp--top
               %h3.sell-form__main__delivery__label
@@ -62,7 +61,7 @@
                   必須
               .sell-form__main__delivery__select-box
                 %select.sell-form__main__delivery__select-box__text
-            .sell-form__main__delivery__warp
+            .sell-form__main__delivery__warp--middle
               %h3.sell-form__main__delivery__label
                 発送元の地域
                 %p.sell-form__main__delivery__label--require
@@ -80,8 +79,7 @@
         .sell-form__main__prace.sell-form__main__box
           %h3.sell-form__main__prace__sub-head
             販売価格(300〜9,999,999)
-            %h4.sell-form__main__prace__sub-head--question
-              ?
+            = link_to "?", "/", class: "sell-form__main__prace__sub-head--question"
           .sell-form__main__prace__warpper
             .sell-form__main__prace__warp--top
               %h3.sell-form__main__prace__label
