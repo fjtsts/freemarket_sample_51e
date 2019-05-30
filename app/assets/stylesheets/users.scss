@@ -93,6 +93,7 @@
     width: 50%;
     font-size: 16px;
     text-align: center;
+    cursor: pointer;
   }
 }
 
@@ -172,6 +173,7 @@
     width: 50%;
     font-size: 16px;
     text-align: center;
+    cursor: pointer;
   }
 }
 
@@ -190,4 +192,64 @@
 .user-container_right-content_items_list_none_image {
   border-radius: 50%;
   filter: grayscale(100%);
+}
+
+.user-details {
+  margin: 40px auto;
+  width: 700px;
+}
+
+.user-details_profile {
+  background: url('https://www.mercari.com/jp/assets/img/user/user_bg.jpg?72826626');
+  background-size: cover;
+}
+.user-details_profile_box {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.user-details_profile_box_name {
+  margin: 8px 0 16px;
+  font-size: 18px;
+}
+
+.user-details_profile_info {
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+
+.user-details_profile_info_list {
+  margin-left: 12px;
+}
+
+.user-details_info {
+  background: $white;
+}
+
+.user-details_info_review {
+  height: 50px;
+  width: 360px;
+  padding-top: 14px;
+  margin: 0 auto;
+}
+
+.user-details_info_review_icon {
+  float: left;
+  // padding-right: 30px;
+  width: 100px;
+}
+
+.user-details_info_review_icon_size {
+  font-size: 24px;
+}
+
+.user-details_info_description {
+  padding: 30px 50px 60px;
+}
+
+.user-details_description_social {
+  margin: 24px auto;
+  padding: 32px 0 24px;
+  background: $white;
 }
