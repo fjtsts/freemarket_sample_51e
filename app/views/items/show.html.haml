@@ -136,7 +136,7 @@
               %a(href="")
                 %div
                   %img{:alt => "usre", :height => "40px", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "40px"}/
-                .itemComment__content__item__cl__userName 出品ちゃん＠テスト中
+                .itemComment__content__item__cl__userName 出品ちゃん＠出品者コメント
                 .itemComment__content__item__cl__seller 出品者
             .itemComment__content__item__cl__body
               .itemComment__content__item__cl__body__text こんにちは、商品出品者です
@@ -149,20 +149,21 @@
                     %button{:type => "submit"}
                       %i=fa_icon "flag",class:"itemComment__icon__flag"
           -# コメント__利用者本人
-          %li.itemComment__content__item__cl.clearfix
-            .itemComment__content__item__cl__user
+          %li.itemCommentMe__content__item__cl.clearfix
+            .itemCommentMe__content__item__cl__user
               %a(href="")
                 %div
                   %img{:alt => "usre", :height => "40px", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "40px"}/
-                .itemComment__content__item__cl__userName 出品ちゃん＠テスト中
-                .itemComment__content__item__cl__seller 出品者
-            .itemComment__content__item__cl__body
-              .itemComment__content__item__cl__body__text こんにちは、商品出品者です
-              .itemComment__content__item__cl__body__icon.clearfix
-                %time.itemComment__content__item__cl__body__icon__left
-                  %i.itemComment-icon-time ○
+                .clearBoth
+                .itemCommentMe__content__item__cl__userName 私ちゃん＠利用者本人コメント
+                .itemCommentMe__content__item__cl__seller 出品者
+            .itemCommentMe__content__item__cl__body
+              .itemCommentMe__content__item__cl__body__text こんにちは、利用者本人です
+              .itemCommentMe__content__item__cl__body__icon.clearfix
+                %time.itemCommentMe__content__item__cl__body__icon__left
+                  %i.itemCommentMe-icon-time ○
                   %span 211 日前
-                .itemComment__content__item__cl__body__icon__right
+                .itemCommentMe__content__item__cl__body__icon__right
                   %form{:action => "", :method => "post"}
                     %button{:type => "submit"}
                       %i=fa_icon "flag",class:"itemComment__icon__flag"
