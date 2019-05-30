@@ -1,13 +1,30 @@
 .user-details
   .user-details_profile
-    .user-details_profile_icon
-      %img{alt: "メルカリ", height: "180px", width: "180px", src: "http://static.mercdn.net/images/mercari_profile.png", class: "user-container_right-content_info_head_icon_image"}
-    .user-details_profile_name
-      テスト
-    .user-details_profile_info
-      評価   20   出品数   5
-  .user-details_review
-    good normal bad
-  .user-details_description
-    テキストテキストテキストテキストテキスト
-    .user-details_description_social-buttons
+    .user-details_profile_box
+      .user-details_profile_box_icon
+        %img{alt: "メルカリ", height: "180px", width: "180px", src: "http://static.mercdn.net/images/mercari_profile.png", class: "user-container_right-content_info_head_icon_image"}
+      .user-details_profile_box_name
+        テスト
+      .user-details_profile_info
+        %span.user-details_profile_info_list
+          評価20
+        %span.user-details_profile_info_list
+          出品数5
+  .user-details_info
+    .user-details_info_review
+      %span.user-details_info_review_icon
+        %i.fa.fa-history{class: "user-details_info_review_icon_size"}
+        %span.user-details_info_review_icon_number
+          20
+      %span.user-details_info_review_icon
+        %i.fa.fa-history{class: "user-details_info_review_icon_size"}
+        %span.user-details_info_review_icon_number
+          20
+      %span.user-details_info_review_icon
+        %i.fa.fa-history{class: "user-details_info_review_icon_size"}
+        %span.user-details_info_review_icon_number
+          20
+    .user-details_info_description
+      テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+  .user-details_description_social
+    twitter
