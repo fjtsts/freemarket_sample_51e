@@ -13,18 +13,25 @@
   .user-details_info
     .user-details_info_review
       %span.user-details_info_review_icon
-        %i.fa.fa-history{class: "user-details_info_review_icon_size"}
+        %i.fa.fa-laugh{class: "user-details_info_review_icon_size good-icon"}
         %span.user-details_info_review_icon_number
           20
       %span.user-details_info_review_icon
-        %i.fa.fa-history{class: "user-details_info_review_icon_size"}
+        %i.fa.fa-meh{class: "user-details_info_review_icon_size normal-icon"}
         %span.user-details_info_review_icon_number
           20
       %span.user-details_info_review_icon
-        %i.fa.fa-history{class: "user-details_info_review_icon_size"}
+        %i.fa.fa-tired{class: "user-details_info_review_icon_size bad-icon"}
         %span.user-details_info_review_icon_number
           20
     .user-details_info_description
       テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
   .user-details_description_social
-    twitter
+    .user-details_description_social_box
+      = link_to users_path do
+        %i.fab.fa-facebook-square{class: "user-details_description_social-icon facebook-icon"}
+      = link_to users_path do
+        %i.fab.fa-twitter-square{class: "user-details_description_social-icon twitter-icon"}
+      = link_to users_path do
+        %i.fab.fa-line{class: "user-details_description_social-icon line-icon"}
+
