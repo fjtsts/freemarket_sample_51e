@@ -2538,10 +2538,3 @@ categories154 = %w{
       Category.create!(name: category,parent_id:154)
     end
   
-
-
-
-
-
-
- 
