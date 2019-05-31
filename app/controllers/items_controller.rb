@@ -1,10 +1,6 @@
 class ItemsController < ApplicationController
     def index
-        category = Category.find(params[:id])
-        categories = [
-        category.children
-        category.children.map { |category| category.children }
-        ].flatten.compact
+        category1 = Category.find(1)
 
         @items = Item.all.order("created_at DESC").limit(4)
         
