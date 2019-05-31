@@ -1,7 +1,7 @@
 .pickup-container
   %h2 ピックアップカテゴリー 
   %h3
-    =link_to "category1.name新着アイテム","/"
+    =link_to "#{@category.name}新着アイテム","/"
   .pickup-container__item-boxs
     -@items.each do |item|
       .pickup-container__item-boxs__box
@@ -16,7 +16,7 @@
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
   %h3
-    =link_to "レディース新着アイテム","/"
+    =link_to "#{@category1.name}新着アイテム","/"
   .pickup-container__item-boxs
     -@items.each do |item|
       .pickup-container__item-boxs__box
