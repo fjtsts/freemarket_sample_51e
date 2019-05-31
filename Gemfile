@@ -79,4 +79,8 @@ gem 'compass-rails', '3.1.0'
 gem 'sprockets', '3.7.2'
 gem 'mini_magick'
 gem 'aws-sdk-s3'
+gem 'active_hash'
+gem "jquery-rails"
+gem 'dropzonejs-rails'
 gem 'devise'
+
