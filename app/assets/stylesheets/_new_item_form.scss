@@ -1,17 +1,6 @@
 .sell-form{
   min-width: 700px;
-  &__header{
-    height: 128px;
-    background-color: $background-color-gray;
-    text-align: center;
-    &__text{
-      height: 56px;
-      padding: 36px 0;
-    }
-  }
-
   &__main{
-    background-color: $background-color-gray;
     &__warpper {
       font-size: 14px;
       width: 700px;
@@ -219,26 +208,6 @@
     &__box{
       padding: 40px;
       border-top: solid 1px $background-color-gray;
-    }
-  }
-
-  &__footer {
-    background-color: $background-color-gray;
-    font-size: 12px;
-    height: 140px;
-    padding: 40px 0;
-    margin: auto;
-    text-align: center;
-    &__list__element {
-      padding: 0 5px 30px;
-      display: inline-block;
-    }
-    &__link{
-      text-decoration: none;
-      color: $font-black;
-    }
-    &__text {
-      margin-top: 6px;
     }
   }
 }
