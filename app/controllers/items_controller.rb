@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
     end
 
     def new
+        render layout: 'form-layout'
     end
     
 end
