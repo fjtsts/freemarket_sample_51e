@@ -1,7 +1,5 @@
 .sell-form
-  %header.sell-form__header
-    %h1.sell-form__header__text
-      =link_to image_tag("top-logo.png", class: "sell-form__header__logo", width: 193, height: 49),"/"
+  = render partial: "layouts/form-page-header"
   %main.sell-form__main
     .sell-form__main__warpper
       %h2.sell-form__main__data 商品の情報を入力
@@ -122,13 +120,4 @@
             = button_tag "出品する", type: "submit",class: "sell-form__main__btn__box__sell"
           .sell-form__main__btn__box
             = link_to "もどる","/", class: "sell-form__main__btn__box__back"
-  %footer.sell-form__footer
-    %ul.sell-form__footer__list
-      %li.sell-form__footer__list__element
-        =link_to "プライバシーポリシー", "/", class: "sell-form__footer__link"
-      %li.sell-form__footer__list__element
-        =link_to "メルカリ利用規約 ", "/", class: "sell-form__footer__link"
-      %li.sell-form__footer__list__element
-        =link_to "特定商取引に関する表記", "/", class: "sell-form__footer__link"
-    =link_to image_tag("logo-gray.png", class: "sell-form__footer__logo", width: 65, height: 65),"/"
-    %p.sell-form__footer__text © 2019 Mercari
+  = render partial: "layouts/form-page-footer"
