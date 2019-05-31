@@ -25,8 +25,6 @@ set :default_env, {
 
 set :linked_files, %w{ config/master.key }
 
-set :log_level, :debug
-
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
