@@ -1,7 +1,19 @@
 Item.delete_all
 Item.create!(
   name: 'テスト太郎',
-  description: 'ここに商品説明が入ります。ここに商品説明が入ります。ここに商品説明が入ります。ここに商品説明が入ります。ここに商品説明が入ります。ここに商品説明が入ります。ここに商品説明が入ります。ここに商品説明が入ります。',
+  description: 'https://www.playearth10.com/wp-content/uploads/2018/08/hawaiisbx.jpg
+  ',
+  status: 1,
+  shipping_fee: 1,
+  how_to_shipping: 1,
+  area: 1,
+  day: 1,
+  price: 1000
+)
+Item.create!(
+  name: 't',
+  description: 'https://www.playearth10.com/wp-content/uploads/2018/08/hawaiisbx.jpg
+  ',
   status: 1,
   shipping_fee: 1,
   how_to_shipping: 1,
