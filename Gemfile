@@ -77,6 +77,10 @@ gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'compass-rails', '3.1.0'
 gem 'sprockets', '3.7.2'
-gem 'carrierwave'
 gem 'mini_magick'
 gem 'aws-sdk-s3'
+gem 'active_hash'
+gem "jquery-rails"
+gem 'dropzonejs-rails'
+gem 'devise'
+
