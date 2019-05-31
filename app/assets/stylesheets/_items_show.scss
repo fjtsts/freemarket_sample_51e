@@ -1,0 +1,614 @@
+
+/* パンくず */
+.itemDetail-bread-crumbs {
+  padding-left:0;
+  margin-left:0;
+  background-color: white;
+  text-align: left;
+  font-size: 14px;
+  border-top:1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  clear: both;
+
+  ul {
+    width: 700px;
+    margin: 0 auto;
+    padding: 16px 0;
+  }
+
+  li {
+    display:inline;/*横に並ぶように*/
+    list-style: none;
+    font-weight: bold;/*太字*/
+  }
+
+  li:after {
+    content: '>';
+    padding: 0 3px;
+    color: #555;
+  }
+  
+  li:last-child:after {
+    content: '';
+  }
+  
+  li a {
+    text-decoration: none;
+    color: black;/*色*/
+    font-weight: lighter;
+  }
+  
+  li a:hover {
+    text-decoration: underline;
+  }
+}
+
+.clearBoth {
+  clear: both;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.itemDetail {
+  padding: 24px 40px 40px;
+  background:#fff;
+  margin: 40px auto 0;
+  /* width:700px; */
+  width:620px;
+}
+
+.itemDetail__title {
+  font-size: 23px;
+  text-align: center;
+  word-wrap: break-word;
+  line-height: 1.4;
+  font-weight: 600
+}
+
+/* ここから写真と説明 */
+.itemDetail__main {
+  margin:16px 0 10px;
+}
+
+.itemDetail__main__photo {
+  float: left;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 375px;
+  background: #fafafa;
+  
+  &__top {
+    width: 300px;
+    height: 300px;
+    position: relative;
+  }
+  
+  &__bottomBox {
+    width: 300px;
+    position: absolute;
+    
+    &__bottom {
+      opacity: 1;
+      cursor: default;
+      width: 60px;
+      height: 60px;
+      max-height: none;
+      float: left;
+    }
+  }
+}
+
+
+
+
+/* 売り切れマーク */
+.itemDetail__main__photo__soldOut {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  
+  &::before {
+    content: "";
+    top: 0;
+    left: 0;
+    border-bottom: 120px solid transparent;
+    border-left: 120px solid #ea352d;
+    position: absolute;
+    z-index: 100;
+  }
+
+  &::after {
+    content: "SOLD";
+    position: absolute;
+    left: 0;
+    display: block;
+    top: 24px;
+    transform: rotate(-45deg);
+    font-size: 28px;
+    color: #fff;
+    z-index: 101;
+  }
+}
+
+.itemDetail__main__table{
+  float: right;
+  max-width: 300px;
+  height: 420px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid #f5f5f5;
+  
+  a {
+    color: #0099e8;
+    text-decoration: none;
+
+    .itemDetail__icon-arrow-right{
+      font-size: 12px;
+    }
+  }
+  
+  th {
+    border-collapse: collapse;
+    border: 1px solid #f5f5f5;
+    padding: 5px 8px;
+    width: 39%;
+    background: #fafafa;
+    font-size:14px;
+  }
+  
+  td {
+    border-collapse: collapse;
+    border: 1px solid #f5f5f5;
+    padding: 5px 8px;
+    width: 61%;
+    font-size:14px;
+    line-height: 1;
+  }
+}
+
+.itemDetail__main__tablel__itemUserRatings {
+  display: inline-block;
+  margin: 4px 0 0 5px;
+  font-size: 14px;
+  height: 16px;
+  
+  span {
+    height: 16px;
+    vertical-align: 3px;
+  }
+}
+
+.itemDetail__icon__good {
+  font-weight: 900;
+}
+
+.itemDetail__price {
+  margin: 24px 0 0;
+  text-align: center;
+  font-weight: 600;
+  clear: both;
+  
+  &__itemPrice {
+    margin: 0 16px 0 0;
+    font-size: 45px;
+    font-weight: 500;
+  }
+  
+  &__tax {
+    font-size: 10px;
+    font-weight: lighter;
+  }
+  
+  &__shippingFee {
+    font-weight: lighter;
+    display: inline-block;
+    font-size: 16px;
+  }
+}
+
+.itemDetail__description__inner {
+  white-space: pre-wrap;
+  font-size: 18px;
+}
+
+/* 売り切れの場合 */
+/* .itemDetail__buyBtn {
+  background: #888;
+  cursor: not-allowed;
+  height: 60px;
+  line-height: 60px;
+  display: block;
+  margin: 16px 0 0;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 23px;
+  text-decoration: none;
+  cursor: not-allowed;
+} */
+
+.itemDetail__buyBtn {
+  background: #ea352d;
+  height: 60px;
+  line-height: 60px;
+  display: block;
+  margin: 16px 0 0;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 23px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.itemDetail__button {
+  margin: 16px 0 0;
+  font-size: 0;
+  height: 35px;
+  display: block;
+}
+
+.itemDetail__button__left {
+float: left;
+display: inline-block;
+
+  &__like {
+    color: #333;
+    border: 1px solid #f5f5f5;
+    background: #f5f5f5;
+    border-radius: 40px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+
+      i {
+        color: #ccc
+      }
+
+  }
+  
+  &__report {
+    margin: 0 0 0 16px;
+    color: #333;
+    border: 1px solid #f5f5f5;
+    background: #f5f5f5;
+    border-radius: 40px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    
+    span {
+      margin: 0 0 0 5px;
+    }
+  }
+}
+
+.itemDetail__button__right {
+  display: inline-block;
+  font-size: 14px;
+  float: right;
+  margin: 8px 0 0;
+  padding: 0;
+  
+  a {
+    color: #0099e8;
+    text-decoration: none;
+  }
+
+  i {
+    color: #0099e8;
+  }
+
+}
+
+/* ここからコメント表示と入力欄 */
+.itemComment-itemPostBox {
+  width: 700px;
+  margin: 8px auto;
+  background: #f5f5f5;;
+}
+
+
+/* コメント表示欄 */
+.itemComment__content {
+  padding: 24px;
+  background: #fff;
+}
+
+.itemComment__content__item {
+  
+  li {
+  margin: 60px 0 0;
+  }
+
+  li:first-child {
+  margin: 1.5em 0 0;
+  }
+
+}
+
+.itemComment__content__item__cl {
+
+  &__user {
+    float: left;
+    position: relative;
+    top: -20px;
+    display: inline-block;
+    color: #333;
+    
+    &:hover {
+      cursor:pointer;
+      filter: alpha(opacity=60);
+      -moz-opacity:0.6;
+      -khtml-opacity: 0.6;
+      opacity:0.6;
+    }
+    
+    a {
+     color: #333;
+     text-decoration: none;
+    }
+  }
+  
+  &__userName {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 56px;
+    max-width: 100%;
+    min-width: 214px;
+    height: 1.2em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  &__seller {
+    margin: 8px 0 0;
+    padding: 4px;
+    background: #eef0f4;
+    color: #000;
+    font-size: 12px;
+  }
+  
+  &__user img {
+    border-radius: 50%;
+  }
+  
+  &__body {
+    float: right;
+    display: block;
+    padding: 16px;
+    background: #eef0f4;
+    border-radius: 15px;
+    line-height: 1.5;
+    word-break: break-all;
+    width: 568px;
+    position: relative;
+    
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0%;
+      left: 0px;
+      margin:5px 0 0 -17px;
+      border: 6px solid transparent;
+      border-right: 20px solid #eef0f4;
+      transform: rotate(40deg);
+    }
+    
+    &__icon {
+      margin: 8px 0 0;
+      float: left;
+      width: 100%;
+      
+      time {
+        font-size: 12px;
+        display: block;
+        color: #aaa;
+      }
+      
+      &__left {
+        width: 100px;
+        margin: 0;
+        float: left;
+      }
+      
+      &__right {
+        float: right;
+        color: #aaa;
+        opacity: 0.5;
+        
+        form {
+          display: inline;
+          padding: 0;
+          background: #eef0f4;
+        }
+        
+        button {
+          border: 0;
+          outline: 0;
+          background: #eef0f4;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+// 利用者本人コメント
+.itemCommentMe__content__item__cl {
+
+  &__user {
+    float: right;
+    position: relative;
+    top: -20px;
+    display: inline-block;
+    color: #333;
+    
+    &:hover {
+      cursor:pointer;
+      filter: alpha(opacity=60);
+      -moz-opacity:0.6;
+      -khtml-opacity: 0.6;
+      opacity:0.6;
+    }
+    
+    a {
+     color: #ea352d;
+     text-decoration: none;
+    }
+  }
+  
+  &__userName {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 53px;
+    max-width: 100%;
+    min-width: 214px;
+    height: 1.2em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 600;
+    text-align:right;
+  }
+  
+  &__seller {
+    margin: 8px 0 0;
+    padding: 4px;
+    background: #eef0f4;
+    color: #000;
+    font-size: 12px;
+  }
+  
+  &__user img {
+    float: right;
+    border-radius: 50%;
+  }
+  
+  &__body {
+    float: left;
+    display: block;
+    padding: 16px;
+    background: #fbf0e6;
+    border-radius: 15px;
+    line-height: 1.5;
+    word-break: break-all;
+    width: 568px;
+    position: relative;
+    
+    // 吹き出しのとんがり
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0%;
+      right: -17px;
+      margin:5px 0 0 -16px;
+      border: 6px solid transparent;
+      border-right: 20px solid #fbf0e6;
+      transform: rotate(140deg);
+    }
+    
+    &__icon {
+      margin: 8px 0 0;
+      float: left;
+      width: 100%;
+      
+      time {
+        font-size: 12px;
+        display: block;
+        color: #aaa;
+      }
+      
+      &__left {
+        width: 100px;
+        margin: 0;
+        float: left;
+      }
+      
+      &__right__flag {
+        float: right;
+        color: #aaa;
+        opacity: 0.5;
+        
+        form {
+          display: inline;
+          padding: 0;
+          background: #fbf0e6;
+        }
+        
+        button {
+          border: 0;
+          outline: 0;
+          background: #fbf0e6;
+          cursor: pointer;
+        }
+      }
+      &__right__delete {
+        float: right;
+        color: #aaa;
+        opacity: 0.5;
+        
+        form {
+          display: inline;
+          padding: 0;
+          background: #fbf0e6;
+        }
+        
+        button {
+          border: 0;
+          outline: 0;
+          background: #fbf0e6;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/* コメント入力欄 */
+.itemPostComment {
+  padding: 24px;
+  clear: both;
+  margin: 8px 0 0;
+  background: #fff;
+}
+
+.itemPostComment__form p {
+  padding: 8px;
+  font-size: 14px;
+  background: #fff6de;
+  line-height: 1.2;
+}
+
+.itemPostComment__form__text {
+  display: block;
+  width: 630px;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+
+.itemPostComment__form__btn {
+  width: 100%;
+  margin: 8px 0 0;
+  text-align: center;
+  border: 1px solid #888;
+  background: #888;
+  color: #fff;
+  display: block;
+  line-height: 48px;
+  font-size: 14px;
+}
