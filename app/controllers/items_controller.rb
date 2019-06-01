@@ -14,4 +14,13 @@ class ItemsController < ApplicationController
         # @categories = Category.all
     end
 
+    # def create
+    # end
+
+    # def edit
+    #     @images = @product.images
+    #     @category = @product.category
+    #     @categories = Category.all
+    # end
+
 end
