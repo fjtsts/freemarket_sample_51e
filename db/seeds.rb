@@ -51,6 +51,7 @@ Item.create!(
 )
 
 
+
 Category.create!(
   name: 'レディース',
   parent_id: ""
@@ -85,7 +86,7 @@ Category.create!(
   parent_id: ""
 )
 Category.create!(
-  name: '',
+  name: 'スポーツ・レジャー',
   parent_id: ""
 )
 Category.create!(

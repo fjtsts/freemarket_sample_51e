@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_034543) do
+ActiveRecord::Schema.define(version: 2019_06_01_091720) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "last_name", null: false
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(version: 2019_05_31_034543) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,6 +50,14 @@ ActiveRecord::Schema.define(version: 2019_05_31_034543) do
     t.index ["item_id"], name: "index_item_categories_on_item_id"
   end
 
+  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_images_on_item_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -57,6 +69,8 @@ ActiveRecord::Schema.define(version: 2019_05_31_034543) do
     t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "brand_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["name"], name: "index_items_on_name"
   end
 
@@ -65,9 +79,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_034543) do
     t.string "first_name", null: false
     t.string "last_name_kata", null: false
     t.string "first_name_kata", null: false
-    t.date "birth_year", null: false
-    t.date "birth_month", null: false
-    t.date "birth_day", null: false
+    t.date "birth", null: false
     t.string "tel", null: false
     t.string "avatar"
     t.text "introduction"

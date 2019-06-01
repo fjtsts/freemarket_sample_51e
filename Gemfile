@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -83,4 +84,4 @@ gem 'active_hash'
 gem "jquery-rails"
 gem 'dropzonejs-rails'
 gem 'devise'
-
+gem 'enum_help'
