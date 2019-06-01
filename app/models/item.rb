@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   has_many :item_categories
   has_many :categories, through: :item_categories
+  belongs_to :brand
   # enum status:{new: 0,old:1}
 
   # enum shipping_fee:{me: 0,you: 1}

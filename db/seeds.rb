@@ -51,6 +51,7 @@ Item.create!(
 )
 
 
+
 Category.create!(
   name: 'レディース',
   parent_id: ""

@@ -3,7 +3,7 @@
   %h3
     =link_to "#{@category1.name}新着アイテム","/"
   .pickup-container__item-boxs
-    -@items.each do |item|
+    -@items1.each do |item|
       .pickup-container__item-boxs__box
         .pickup-container__item-boxs__box__image
           =image_tag(item.description,class: "images")
@@ -15,10 +15,12 @@
             =fa_icon "heart",class:"icon-like"
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
+  .view-all.clearfix
+    =link_to "すべての商品をみる","/"
   %h3
     =link_to "#{@category2.name}新着アイテム","/"
   .pickup-container__item-boxs
-    -@items.each do |item|
+    -@items2.each do |item|
       .pickup-container__item-boxs__box
         .pickup-container__item-boxs__box__image
           =image_tag(item.description,class: "images")
@@ -30,10 +32,12 @@
             =fa_icon "heart",class:"icon-like"
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
+  .view-all.clearfix
+    =link_to "すべての商品をみる","/"
   %h3
     =link_to "#{@category3.name}新着アイテム","/"
   .pickup-container__item-boxs
-    -@items.each do |item|
+    -@items3.each do |item|
       .pickup-container__item-boxs__box
         .pickup-container__item-boxs__box__image
           =image_tag(item.description,class: "images")
@@ -45,10 +49,12 @@
             =fa_icon "heart",class:"icon-like"
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
+  .view-all.clearfix
+    =link_to "すべての商品をみる","/"
   %h3
     =link_to "#{@category4.name}新着アイテム","/"
   .pickup-container__item-boxs
-    -@items.each do |item|
+    -@items4.each do |item|
       .pickup-container__item-boxs__box
         .pickup-container__item-boxs__box__image
           =image_tag(item.description,class: "images")
@@ -60,8 +66,77 @@
             =fa_icon "heart",class:"icon-like"
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
-    .view-all.clearfix
-      =link_to "すべての商品をみる",""
+  .view-all.clearfix
+    =link_to "すべての商品をみる","/"
+  %h2 ピックアップブランド
+  %h3
+    =link_to "#{@brand1.name}新着アイテム","/"
+  .pickup-container__item-boxs
+    -@items11.each do |item|
+      .pickup-container__item-boxs__box
+        .pickup-container__item-boxs__box__image
+          =image_tag(item.description,class: "images")
+        .pickup-container__item-boxs__box__text
+          .pickup-container__item-boxs__box__text__title #{item.name}
+          .pickup-container__item-boxs__box__text__num
+
+            %span.like-num 15
+            =fa_icon "heart",class:"icon-like"
+            .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+          .pickup-container__item-boxs__box__text__title__tax (税込)
+  .view-all.clearfix
+    =link_to "すべての商品をみる",""
+  %h3
+    =link_to "#{@brand2.name}新着アイテム","/"
+  .pickup-container__item-boxs
+    -@items22.each do |item|
+      .pickup-container__item-boxs__box
+        .pickup-container__item-boxs__box__image
+          =image_tag(item.description,class: "images")
+        .pickup-container__item-boxs__box__text
+          .pickup-container__item-boxs__box__text__title #{item.name}
+          .pickup-container__item-boxs__box__text__num
+
+            %span.like-num 15
+            =fa_icon "heart",class:"icon-like"
+            .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+          .pickup-container__item-boxs__box__text__title__tax (税込)
+  .view-all.clearfix
+    =link_to "すべての商品をみる","/"
+  %h3
+    =link_to "#{@brand3.name}新着アイテム","/"
+  .pickup-container__item-boxs
+    -@items33.each do |item|
+      .pickup-container__item-boxs__box
+        .pickup-container__item-boxs__box__image
+          =image_tag(item.description,class: "images")
+        .pickup-container__item-boxs__box__text
+          .pickup-container__item-boxs__box__text__title #{item.name}
+          .pickup-container__item-boxs__box__text__num
+
+            %span.like-num 15
+            =fa_icon "heart",class:"icon-like"
+            .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+          .pickup-container__item-boxs__box__text__title__tax (税込)
+  .view-all.clearfix
+    =link_to "すべての商品をみる","/"
+  %h3
+    =link_to "#{@brand4.name}新着アイテム","/"
+  .pickup-container__item-boxs
+    -@items44.each do |item|
+      .pickup-container__item-boxs__box
+        .pickup-container__item-boxs__box__image
+          =image_tag(item.description,class: "images")
+        .pickup-container__item-boxs__box__text
+          .pickup-container__item-boxs__box__text__title #{item.name}
+          .pickup-container__item-boxs__box__text__num
+
+            %span.like-num 15
+            =fa_icon "heart",class:"icon-like"
+            .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+          .pickup-container__item-boxs__box__text__title__tax (税込)
+  -# .view-all.clearfix
+  -#   =link_to "すべての商品をみる","/"
       -# .pickup-container__item-boxs__box
       -#   .pickup-container__item-boxs__box__image
       -#     =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
