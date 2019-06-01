@@ -3,22 +3,22 @@ class UserProfile < ApplicationRecord
 
   validates :last_name, presence: true,
     format: {
-      with: /\A[０-９]+\z/,
+      with: /\A[ぁ-んァ-ン一-龥]/,
       message: "全角で入力して下さい"
     }
   validates :first_name, presence: true,
     format: {
-      with: /\A[０-９]+\z/,
+      with: /\A[ぁ-んァ-ン一-龥]/,
       message: "全角で入力して下さい"
     }
   validates :last_name_kata, presence: true,
     format: {
-      with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
+      with: /\A[ァ-ヶー－]+\z/,
       message: "全角カタカナで入力して下さい"
     }
   validates :first_name_kata, presence: true,
     format: {
-      with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
+      with: /\A[ァ-ヶー－]+\z/,
       message: "全角カタカナで入力して下さい"
     }
   validates :birth, presence: true
