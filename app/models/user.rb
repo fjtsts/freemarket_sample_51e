@@ -8,4 +8,6 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :user_profile
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address
+
+  validates :nickname, presence: true
 end
