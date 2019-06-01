@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+  has_many :item_images, dependent: :delete_all
+  has_many :categories, through: :item_categories
+  has_many :item_categories
   # enum status:{new: 0,old:1}
 
   # enum shipping_fee:{me: 0,you: 1}
