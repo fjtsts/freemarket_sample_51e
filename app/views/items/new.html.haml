@@ -1,5 +1,4 @@
 .sell-form
-  = render partial: "layouts/form-page-header"
   %main.sell-form__main
     .sell-form__main__warpper
       %h2.sell-form__main__data 商品の情報を入力
@@ -120,4 +119,3 @@
             = button_tag "出品する", type: "submit",class: "sell-form__main__btn__box__sell"
           .sell-form__main__btn__box
             = link_to "もどる","/", class: "sell-form__main__btn__box__back"
-  = render partial: "layouts/form-page-footer"
