@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
+# before_action :authenticate_user!, only: [:new]
+
     def index
+
         @items = Item.all
         @category1 = Category.find(1)
         @category2= Category.find(2)
@@ -17,10 +20,24 @@ class ItemsController < ApplicationController
         @items22 =@brand2.items.all.order("created_at DESC").limit(4)
         @items33 =@brand3.items.all.order("created_at DESC").limit(4)
         @items44 =@brand4.items.all.order("created_at DESC").limit(4)
+
     end
 
     def new
         render layout: 'form-layout'
+        @item = Item.new
+        @image = @item.item_images.build
+        @category = Category.ids
+        @categories = Category.all
     end
-    
+
+    # def create
+    # end
+
+    # def edit
+    #     @images = @product.images
+    #     @category = @product.category
+    #     @categories = Category.all
+    # end
+
 end
