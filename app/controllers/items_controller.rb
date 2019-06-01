@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+# before_action :authenticate_user!, only: [:new]
+
     def index
         category = Category.find(params[:id])
         categories = [
@@ -12,6 +14,19 @@ class ItemsController < ApplicationController
 
     def new
         render layout: 'form-layout'
+        @item = Item.new
+        # @image = @item.images.build
+        # @category = Category.ids
+        # @categories = Category.all
     end
-    
+
+    # def create
+    # end
+
+    # def edit
+    #     @images = @product.images
+    #     @category = @product.category
+    #     @categories = Category.all
+    # end
+
 end
