@@ -16,8 +16,8 @@ class ItemsController < ApplicationController
         render layout: 'form-layout'
         @item = Item.new
         @image = @item.item_images.build
-        # @category = Category.ids
-        # @categories = Category.all
+        @category = Category.ids
+        @categories = Category.all
     end
 
     # def create
