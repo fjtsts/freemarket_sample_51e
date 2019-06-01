@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 2019_05_31_084118) do
     t.index ["name"], name: "index_categories_on_name"
   end
 
+  create_table "item_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_item_categories_on_category_id"
+    t.index ["item_id"], name: "index_item_categories_on_item_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -80,5 +89,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_084118) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "item_categories", "categories"
+  add_foreign_key "item_categories", "items"
   add_foreign_key "user_profiles", "users"
 end
