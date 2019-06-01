@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
         category = Category.find(params[:id])
         categories = [
         category.children
-        category.children.map { |category| category.children }
+        # category.children.map { |category| category.children }
         ].flatten.compact
 
         @items = Item.all.order("created_at DESC").limit(4)
@@ -18,6 +18,15 @@ class ItemsController < ApplicationController
         # @image = @item.images.build
         # @category = Category.ids
         # @categories = Category.all
+    end
+
+    def show
+        @item = Item.find(params[:id])
+        @user = User.find(params[:id])
+
+    end
+
+    def create
     end
 
     # def create
