@@ -46,6 +46,9 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -85,3 +88,5 @@ gem "jquery-rails"
 gem 'dropzonejs-rails'
 gem 'devise'
 gem 'enum_help'
+gem 'ransack'
+gem  'ancestry'
