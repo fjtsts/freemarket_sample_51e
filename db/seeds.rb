@@ -1,3 +1,13 @@
+brand = %w{
+  シャネル
+  ルイヴィトン
+  シュプリーム
+  ナイキ
+ 
+ }
+ brand.each do |brand|
+  Brand.create(name: brand)
+ end
 Category.delete_all
 Item.create!(
   name: 'テスト太郎',
