@@ -85,3 +85,4 @@ gem "jquery-rails"
 gem 'dropzonejs-rails'
 gem 'devise'
 gem 'enum_help'
+gem 'ancestry'
