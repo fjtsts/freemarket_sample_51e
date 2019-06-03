@@ -1,6 +1,6 @@
 $(function() {
 
-  $('#user_user_nickname').blur(function() {
+  $('#user_nickname').blur(function() {
     if($(this).val() == "") {
       if($('.nickname p').hasClass('wrong-message')) {
         return
@@ -13,7 +13,7 @@ $(function() {
     }
   });
 
-  $('#user_user_email').blur(function() {
+  $('#user_email').blur(function() {
     if($(this).val() == "" ||
     !$(this).val().match(/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/)
     ) {
@@ -28,7 +28,7 @@ $(function() {
     }
   });
   
-  $('#user_user_password').blur(function() {
+  $('#user_password').blur(function() {
     if($(this).val() == "" ||
       !$(this).val().match(/^[a-zA-Z0-9]+$/)||
       $(this).val().length < 6
@@ -43,8 +43,8 @@ $(function() {
     }
   });
 
-  $('#user_user_password_confirmation').blur(function() {
-    if($(this).val() != $('#user_user_password').val()) {
+  $('#user_password_confirmation').blur(function() {
+    if($(this).val() != $('#user_password').val()) {
       if($('.password_confirmation p').hasClass('wrong-message')) {
         return
       } else {
@@ -127,7 +127,7 @@ $(function() {
       if($('.tel p').hasClass('wrong-message')) {
         return
       } else {
-        $('.tel').append('<p class="wrong-message tel-message">電話番号(ハイフンなし) を入力してください</p>');
+        $('.tel').append('<p class="wrong-message tel-message">電話番号の書式を確認してください</p>');
       }
       return;
     } else {
@@ -250,5 +250,64 @@ $(function() {
     $('.user-registration_form_title4').removeClass("hide");
     $('.user-registration_form_container3').addClass("hide");
     $('.user-registration_form_container4').removeClass("hide");
+  });
+
+  $('#user_card_card_number').blur(function() {
+    if($(this).val() == ""  ||
+    !$(this).val().match(/^[0-9]+$/)
+    ) {
+      if($('.card_number p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.card_number').append('<p class="wrong-message card_number-message">必須項目です</p>');
+      }
+    } else {
+      $('.card_number-message').remove();
+    }
+  });
+
+  $('#user_card_card_limit_month').blur(function() {
+    if($(this).val() == "") {
+      if($('.card_limit p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.card_limit').append('<p class="wrong-message card_limit-message">必須項目です</p>');
+      }
+    } else {
+      $('.card_limit-message').remove();
+    }
+  });
+
+  $('#user_card_card_limit_year').blur(function() {
+    if($(this).val() == "") {
+      if($('.card_limit p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.card_limit').append('<p class="wrong-message card_limit-message">必須項目です</p>');
+      }
+    } else {
+      $('.card_limit-message').remove();
+    }
+  });
+
+  $('#user_card_card_cord').blur(function() {
+    if($(this).val() == ""  ||
+    !$(this).val().match(/^[0-9]+$/)
+    ) {
+      if($('.card_cord p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.card_cord').append('<p class="wrong-message card_cord-message">必須項目です</p>');
+      }
+    } else {
+      $('.card_cord-message').remove();
+    }
+  });
+
+  $('.next4').on('click', function() {
+    $('.user-registration_form_title4').addClass("hide");
+    $('.user-registration_form_title5').removeClass("hide");
+    $('.user-registration_form_container4').addClass("hide");
+    $('.user-registration_form_container5').removeClass("hide");
   });
 });
