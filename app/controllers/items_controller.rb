@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
 
     def show
         @item = Item.find(params[:id])
-        @user = User.find(params[:id])
 
     end
 
@@ -37,5 +36,9 @@ class ItemsController < ApplicationController
     #     @category = @product.category
     #     @categories = Category.all
     # end
+    def buy
+        @item = Item.find(params[:id])
+        render layout: 'form-layout'
+    end
 
 end

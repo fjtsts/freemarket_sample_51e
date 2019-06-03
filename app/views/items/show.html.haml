@@ -4,7 +4,7 @@
       = link_to 'メルカリ', '/'
     %li
       %span
-        = @item.name
+        アイテム名（パンくず）
 
 .itemDetailMain
   / ここからitemDetail
@@ -17,6 +17,7 @@
         .itemDetail__main__photo__top{style: "width: 300px;"}
           / 売り切れマーク
           -# .itemDetail__main__photo__soldOut
+          -# =image_tag(@item_images.name, height: "300px", width: "300px") alt: "",
           =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag1", height: "300px", width: "300px")
         .itemDetail__main__photo__bottomBox
           .itemDetail__main__photo__bottomBox__bottom
@@ -34,17 +35,17 @@
               / 一枠
               %th 出品者
               %td
-                = link_to ''
-                = link_to '出品ちゃん＠出品者コメント', 'show'
+                -# =link_to  @users.name , show_user_path リンク先の記述がわからない
+                = link_to '出品ちゃん＠出品者', 'show'
                 %div
                   .itemDetail__main__tablel__itemUserRatings
-                    =link_to image_tag("icon-good.png",size: "16x16")
+                    =image_tag("icon-good.png",size: "16x16")
                     %span 2
                   .itemDetail__main__tablel__itemUserRatings
-                    =link_to image_tag("icon-normal.png",size: "16x16")
+                    =image_tag("icon-normal.png",size: "16x16")
                     %span 10
                   .itemDetail__main__tablel__itemUserRatings
-                    =link_to image_tag("icon-bad.png",size: "16x16")
+                    =image_tag("icon-bad.png",size: "16x16")
                     %span 999
             %tr
               / 一枠
@@ -64,36 +65,47 @@
               / 一枠
               %th ブランド
               %td
-                = link_to 'コーチ', 'show'
+                = link_to 'コーチ', "/"
             %tr
               / 一枠
               %th 商品の状態
-              %td やや汚れあり
+              %td
+                = @item.status
             %tr
               / 一枠
               %th 配送料の負担
-              %td 送料込み
+              %td
+                = @item.shipping_fee
             %tr
               / 一枠
               %th 配送の方法
-              %td メルカリ便
+              %td
+                = @item.how_to_shipping
             %tr
               / 一枠
               %th 配送元地域
               %td
-                = link_to '東京都', 'show'
+                = link_to @item.area,"show"
+                -# = link_to '東京都', 'show'
             %tr
               / 一枠
               %th 配送日の目安
-              %td 1~2日で発送
+              %td
+                = @item.day
     .clearBoth
     .itemDetail__price
       %span.itemDetail__price__itemPrice
-        ¥ 
-        = @item.price
+        = converting_to_jpy(@item.price)
+        -# = @item.price
         -#  ¥ 3,380
       %span.itemDetail__price__tax (税込)
-      %span.itemDetail__price__shippingFee 送料込み
+      %span.itemDetail__price__shippingFee
+        送料込み
+        -# -if @item.day == "送料込み(出品者負担)"
+        -#   送料込み
+        -# -else
+        -#   着払い
+          
     -# .itemDetail__buyBtn 売り切れました
     =link_to "購入画面に進む" , "show" ,class: "itemDetail__buyBtn"
     .itemDetail__description
