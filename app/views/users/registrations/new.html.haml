@@ -11,35 +11,35 @@
         確認画面
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = render "devise/shared/error_messages", resource: resource
-        = f.fields_for :user do |f|
-          .user-registration_form_container1
-            .field.nickname
-              = f.label :"ニックネーム"
+        -# = f.fields_for :user do |f|
+        .user-registration_form_container1
+          .field.nickname
+            = f.label :"ニックネーム"
+            %em
+              必須
+            %br/
+            = f.text_field :nickname, autofocus: true, placeholder: "例)メルカリ太郎"
+          .field.email
+            = f.label :"メールアドレス"
+            %em
+              必須
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+          .field.password
+            = f.label :"パスワード"
+            - if @minimum_password_length
               %em
                 必須
-              %br/
-              = f.text_field :nickname, autofocus: true, placeholder: "例)メルカリ太郎"
-            .field.email
-              = f.label :"メールアドレス"
-              %em
-                必須
-              %br/
-              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
-            .field.password
-              = f.label :"パスワード"
-              - if @minimum_password_length
-                %em
-                  必須
-              %br/
-              = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
-            .field.password_confirmation
-              = f.label :"パスワード(確認)"
-              %em
-                必須
-              %br/
-              = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
-            %p 本人確認
-            %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            %br/
+            = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上"
+          .field.password_confirmation
+            = f.label :"パスワード(確認)"
+            %em
+              必須
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上"
+          %p 本人確認
+          %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
         = f.fields_for :user_profile do |f|
           .user-registration_form_container1
             .field.last_name
@@ -149,5 +149,5 @@
             .next3 次へ進む
         .user-registration_form_container4.hide
           .actions
-            = f.submit "Sign up"
+            = f.submit "登録"
       = render "users/shared/links"

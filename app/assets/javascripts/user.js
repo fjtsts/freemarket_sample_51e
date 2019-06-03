@@ -112,14 +112,14 @@ $(function() {
   });
 
   $('.next1').on('click', function() {
-    $('.user-registration_form_title1').remove();
+    $('.user-registration_form_title1').addClass("hide");
     $('.user-registration_form_title2').removeClass("hide");
-    $('.user-registration_form_container1').remove();
+    $('.user-registration_form_container1').addClass("hide");
     $('.user-registration_form_container2').removeClass("hide");
   });
 
   $('.next2').on('click', function() {
-    $('#user_user_profile_attributes_tel').val()
+    // $('#user_user_profile_attributes_tel').val()
 
     if($('#user_user_profile_attributes_tel').val() == "" ||
       !$('#user_user_profile_attributes_tel').val().match(/^0\d{9,10}$/)
@@ -132,9 +132,9 @@ $(function() {
       return;
     } else {
       $('.tel-message').remove();
-      $('.user-registration_form_title2').remove();
+      $('.user-registration_form_title2').addClass("hide");
       $('.user-registration_form_title3').removeClass("hide");
-      $('.user-registration_form_container2').remove();
+      $('.user-registration_form_container2').addClass("hide");
       $('.user-registration_form_container3').removeClass("hide");
     }
   });
@@ -246,9 +246,9 @@ $(function() {
   });
 
   $('.next3').on('click', function() {
-    $('.user-registration_form_title3').remove();
+    $('.user-registration_form_title3').addClass("hide");
     $('.user-registration_form_title4').removeClass("hide");
-    $('.user-registration_form_container3').remove();
+    $('.user-registration_form_container3').addClass("hide");
     $('.user-registration_form_container4').removeClass("hide");
   });
 });
