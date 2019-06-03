@@ -304,3 +304,17 @@
 .line-icon {
   color: #00b900;
 }
+
+.hide {
+  display: none;
+}
+
+.next1, .next2, .next3{
+  cursor: pointer;
+  background-color: #ea352d;
+  width: 300px;
+}
+
+.wrong-message {
+  color: $red;
+}
