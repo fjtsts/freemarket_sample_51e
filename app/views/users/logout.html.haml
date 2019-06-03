@@ -1,0 +1,12 @@
+.user-main
+  -# ここにパンくずきます
+  .clearBoth
+  .user-container
+    .logoutWrapper
+      = render 'sidebar'
+      .logoutMain
+        .logoutMain__container
+          %form.logoutMain__container__inner(action="")
+            .logoutMain__container__inner__logOutBtn
+              %button.logoutMain__container__inner__logOutBtn__btn
+                ログアウト

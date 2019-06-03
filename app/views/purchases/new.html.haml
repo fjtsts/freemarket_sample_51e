@@ -1,0 +1,52 @@
+.itemBuy
+  %main.itemBuy__main
+    %section.itemBuy__main__container
+      %h2.itemBuy__main__container__head
+        購入内容の確認
+      %section.itemBuy__main__container__wrapper
+        .itemBuy__main__container__wrapper__inner
+          %h3.itemBuy__main__container__wrapper__inner__itemImage
+            = image_tag 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg', alt: '', height: "148px", width: "148px"
+          %p.itemBuy__main__container__wrapper__inner__itemName
+            美品☆コーチ 10127 シグネチャー柄 ショルダーバッグ C655
+          %form.itemBuy__main__container__wrapper__inner__formBuy(action="")
+            %p.itemBuy__main__container__wrapper__inner__formBuy__price
+              = converting_to_jpy(@item.price)
+              %span.itemBuy__main__container__wrapper__inner__formBuy__price__tax
+                送料込み
+            %ul.itemBuy__main__container__wrapper__inner__formBuy__point
+              %li.itemBuy__main__container__wrapper__inner__formBuy__point__pointBtn
+                .itemBuy__main__container__wrapper__inner__formBuy__point__pointBtn__text
+                  ポイントはありません
+            %ul.itemBuy__main__container__wrapper__inner__formBuy__pay
+              %li.itemBuy__main__container__wrapper__inner__formBuy__pay__inner
+                .itemBuy__main__container__wrapper__inner__formBuy__pay__inner__text
+                  支払い金額
+                .itemBuy__main__container__wrapper__inner__formBuy__pay__inner__price
+                  %span
+                    = converting_to_jpy(@item.price)
+            =button_tag class:"itemBuy__main__container__wrapper__inner__formBuy__buyBtn" do
+              購入する
+      %section.itemBuy__main__container__userInfo
+        .itemBuy__main__container__userInfo__inner
+          %h3 配送先
+          %address.itemBuy__main__container__userInfo__inner__text
+            %p 〒150-0041
+            %p 東京都渋谷区神南１丁目１２−１６ アジアビル9F 
+            %p 渋谷 太郎 
+          .itemBuy__main__container__userInfo__inner__text
+          =link_to "buy" do
+            変更する
+            %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
+      %section.itemBuy__main__container__userInfo
+        .itemBuy__main__container__userInfo__inner
+          %h3 支払い方法
+          .itemBuy__main__container__userInfo__inner__text
+            %p ************5566 
+            %p 01 / 23
+          %figure
+            =image_tag("master_card_001.png",width:"30px")
+          %p
+          =link_to "buy" do
+            変更する
+            %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"

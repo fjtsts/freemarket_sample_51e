@@ -1,3 +1,13 @@
+brand = %w{
+  シャネル
+  ルイヴィトン
+  シュプリーム
+  ナイキ
+ 
+ }
+ brand.each do |brand|
+  Brand.create(name: brand)
+ end
 Category.delete_all
 Item.create!(
   name: 'テスト太郎',
@@ -7,7 +17,8 @@ Item.create!(
   how_to_shipping: 1,
   area: 1,
   day: 1,
-  price: 1000
+  price: 1000,
+  brand_id: 1
 )
 Item.create!(
   name: 'テスト太郎',
@@ -17,7 +28,8 @@ Item.create!(
   how_to_shipping: 1,
   area: 1,
   day: 1,
-  price: 1000
+  price: 2000,
+  brand_id: 2
 )
 Item.create!(
   name: 'テスト太郎',
@@ -27,7 +39,8 @@ Item.create!(
   how_to_shipping: 1,
   area: 1,
   day: 1,
-  price: 1000
+  price: 3000,
+  brand_id: 3
 )
 Item.create!(
   name: 'テスト太郎',
@@ -37,7 +50,8 @@ Item.create!(
   how_to_shipping: 1,
   area: 1,
   day: 1,
-  price: 1000
+  price: 4000,
+  brand_id: 4
 )
 Item.create!(
   name: 'テスト太郎',
@@ -47,7 +61,28 @@ Item.create!(
   how_to_shipping: 1,
   area: 1,
   day: 1,
-  price: 1000
+  price: 5000,
+  brand_id: 4
+)
+ItemCategory.create(
+  item_id: 1,
+  category_id: 1
+)
+ItemCategory.create(
+  item_id: 2,
+  category_id: 1
+)
+ItemCategory.create(
+  item_id: 3,
+  category_id: 2
+)
+ItemCategory.create(
+  item_id: 4,
+  category_id: 3
+)
+ItemCategory.create(
+  item_id: 5,
+  category_id: 1
 )
 
 
@@ -85,7 +120,7 @@ Category.create!(
   parent_id: ""
 )
 Category.create!(
-  name: '',
+  name: 'スポーツ・レジャー',
   parent_id: ""
 )
 Category.create!(
