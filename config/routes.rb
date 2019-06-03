@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :purchases, only: [:new]
   root      "items#index"
   get '/purchases/:id/new', to: 'purchases#new'
+  get '/users/:id/logout', to: 'users#logout'
 end
