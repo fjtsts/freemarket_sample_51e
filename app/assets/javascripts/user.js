@@ -2,9 +2,14 @@ $(function() {
 
   $('#user_user_nickname').blur(function() {
     if($(this).val() == "") {
-      $('.nickname').append('<p class="wrong-message nickname-message">ニックネームを入力してください</p>');
+      if($('.nickname p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.nickname').append('<p class="wrong-message nickname-message">ニックネームを入力してください</p>');
+      }
     } else {
-      $('.nickname-message').addClass("hide");
+      $('.nickname-message').remove();
+      console.log($(this).val());
     }
   });
 
@@ -12,9 +17,14 @@ $(function() {
     if($(this).val() == "" ||
     !$(this).val().match(/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/)
     ) {
-      $('.email').append('<p class="wrong-message mail-message">メールアドレスを入力してください</p>');
+      if($('.email p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.email').append('<p class="wrong-message mail-message">メールアドレスを入力してください</p>');
+      }
     } else {
-      $('.mail-message').addClass("hide");
+      $('.mail-message').remove();
+      console.log($(this).val());
     }
   });
   
@@ -23,17 +33,25 @@ $(function() {
       !$(this).val().match(/^[a-zA-Z0-9]+$/)||
       $(this).val().length < 6
     ) {
-      $('.password').append('<p class="wrong-message password-message">パスワードを入力してください<br>パスワードは6文字以上128文字以下で入力してください</p>');
+      if($('.password p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.password').append('<p class="wrong-message password-message">パスワードを入力してください<br>パスワードは6文字以上128文字以下で入力してください</p>');
+      }
     } else {
-      $('.password-message').addClass("hide");
+      $('.password-message').remove();
     }
   });
 
   $('#user_user_password_confirmation').blur(function() {
     if($(this).val() != $('#user_user_password').val()) {
-      $('.password_confirmation').append('<p class="wrong-message password_confirmation-message">パスワード (確認) を入力してください</p>');
+      if($('.password_confirmation p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.password_confirmation').append('<p class="wrong-message password_confirmation-message">パスワード (確認) を入力してください</p>');
+      }
     } else {
-      $('.password_confirmation-message').addClass("hide");
+      $('.password_confirmation-message').remove();
     }
   });
 
@@ -41,9 +59,13 @@ $(function() {
     if($(this).val() == "" ||
       !$(this).val().match(/^[^\x01-\x7E\xA1-\xDF]+$/)
     ) {
-      $('.last_name').append('<p class="wrong-message last_name-message">姓 を入力してください</p>');
+      if($('.last_name p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.last_name').append('<p class="wrong-message last_name-message">姓 を入力してください</p>');
+      }
     } else {
-      $('.last_name-message').addClass("hide");
+      $('.last_name-message').remove();
     }
   });
 
@@ -51,9 +73,13 @@ $(function() {
     if($(this).val() == "" ||
       !$(this).val().match(/^[^\x01-\x7E\xA1-\xDF]+$/)
     ) {
-      $('.first_name').append('<p class="wrong-message first_name-message">名 を入力してください</p>');
+      if($('.first_name p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.first_name').append('<p class="wrong-message first_name-message">名 を入力してください</p>');
+      }
     } else {
-      $('.first_name-message').addClass("hide");
+      $('.first_name-message').remove();
     }
   });
 
@@ -61,9 +87,13 @@ $(function() {
     if($(this).val() == "" ||
       !$(this).val().match(/^[\u30a1-\u30f6]+$/)
     ) {
-      $('.last_name_kata').append('<p class="wrong-message last_name_kata-message">姓カナ を入力してください</p>');
+      if($('.last_name_kata p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.last_name_kata').append('<p class="wrong-message last_name_kata-message">姓カナ を入力してください</p>');
+      }
     } else {
-      $('.last_name_kata-message').addClass("hide");
+      $('.last_name_kata-message').remove();
     }
   });
 
@@ -71,16 +101,20 @@ $(function() {
     if($(this).val() == "" ||
       !$(this).val().match(/^[\u30a1-\u30f6]+$/)
     ) {
-      $('.first_name_kata').append('<p class="wrong-message first_name_kata-message">姓カナ を入力してください</p>');
+      if($('.first_name_kata p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.first_name_kata').append('<p class="wrong-message first_name_kata-message">姓カナ を入力してください</p>');
+      }
     } else {
-      $('.first_name_kata-message').addClass("hide");
+      $('.first_name_kata-message').remove();
     }
   });
 
   $('.next1').on('click', function() {
-    $('.user-registration_form_title1').addClass("hide");
+    $('.user-registration_form_title1').remove();
     $('.user-registration_form_title2').removeClass("hide");
-    $('.user-registration_form_container1').addClass("hide");
+    $('.user-registration_form_container1').remove();
     $('.user-registration_form_container2').removeClass("hide");
   });
 
@@ -90,21 +124,131 @@ $(function() {
     if($('#user_user_profile_attributes_tel').val() == "" ||
       !$('#user_user_profile_attributes_tel').val().match(/^0\d{9,10}$/)
     ) {
-      $('.tel').append('<p class="wrong-message tel-message">電話番号(ハイフンなし) を入力してください</p>');
+      if($('.tel p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.tel').append('<p class="wrong-message tel-message">電話番号(ハイフンなし) を入力してください</p>');
+      }
       return;
     } else {
-      $('.tel-message').addClass("hide");
-      $('.user-registration_form_title2').addClass("hide");
+      $('.tel-message').remove();
+      $('.user-registration_form_title2').remove();
       $('.user-registration_form_title3').removeClass("hide");
-      $('.user-registration_form_container2').addClass("hide");
+      $('.user-registration_form_container2').remove();
       $('.user-registration_form_container3').removeClass("hide");
     }
   });
 
+  $('#user_address_attributes_last_name').blur(function() {
+    if($(this).val() == "" ||
+      !$(this).val().match(/^[^\x01-\x7E\xA1-\xDF]+$/)
+    ) {
+      if($('.address_last_name p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.address_last_name').append('<p class="wrong-message address_last_name-message">姓 を入力してください</p>');
+      }
+    } else {
+      $('.address_last_name-message').remove();
+    }
+  });
+
+  $('#user_address_attributes_first_name').blur(function() {
+    if($(this).val() == "" ||
+      !$(this).val().match(/^[^\x01-\x7E\xA1-\xDF]+$/)
+    ) {
+      if($('.address_first_name p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.address_first_name').append('<p class="wrong-message address_first_name-message">名 を入力してください</p>');
+      }
+    } else {
+      $('.address_first_name-message').remove();
+    }
+  });
+
+  $('#user_address_attributes_last_name_kata').blur(function() {
+    if($(this).val() == "" ||
+      !$(this).val().match(/^[\u30a1-\u30f6]+$/)
+    ) {
+      if($('.address_last_name_kata p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.address_last_name_kata').append('<p class="wrong-message address_last_name_kata-message">姓カナ を入力してください</p>');
+      }
+    } else {
+      $('.address_last_name_kata-message').remove();
+    }
+  });
+
+  $('#user_address_attributes_first_name_kata').blur(function() {
+    if($(this).val() == "" ||
+      !$(this).val().match(/^[\u30a1-\u30f6]+$/)
+    ) {
+      if($('.address_first_name_kata p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.address_first_name_kata').append('<p class="wrong-message address_first_name_kata-message">名カナ を入力してください</p>');
+      }
+    } else {
+      $('.address_first_name_kata-message').remove();
+    }
+  });
+
+  $('#user_address_attributes_postal_code').blur(function() {
+    if($(this).val() == "" ||
+      !$(this).val().match(/^\d{3}[-]\d{4}$|^\d{3}[-]\d{2}$|^\d{3}$/)
+    ) {
+      if($('.address_postal_code p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.address_postal_code').append('<p class="wrong-message address_postal_code-message">郵便番号は半角かつハイフンを付けて入力してください</p>');
+      }
+    } else {
+      $('.address_postal_code-message').remove();
+    }
+  });
+
+  $('#user_address_attributes_prefecture').blur(function() {
+    if($(this).val() == "") {
+      if($('.address_prefecture p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.address_prefecture').append('<p class="wrong-message address_prefecture-message">都道府県を選択してください</p>');
+      }
+    } else {
+      $('.address_prefecture-message').remove();
+    }
+  });
+
+  $('#user_address_attributes_city').blur(function() {
+    if($(this).val() == "") {
+      if($('.address_city p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.address_city').append('<p class="wrong-message address_city-message">市町村を入力してください</p>');
+      }
+    } else {
+      $('.address_city-message').remove();
+    }
+  });
+
+  $('#user_address_attributes_town_number').blur(function() {
+    if($(this).val() == "") {
+      if($('.address_town_number p').hasClass('wrong-message')) {
+        return
+      } else {
+        $('.address_town_number').append('<p class="wrong-message address_town_number-message">番地を入力してください</p>');
+      }
+    } else {
+      $('.address_town_number-message').remove();
+    }
+  });
+
   $('.next3').on('click', function() {
-    $('.user-registration_form_title3').addClass("hide");
+    $('.user-registration_form_title3').remove();
     $('.user-registration_form_title4').removeClass("hide");
-    $('.user-registration_form_container3').addClass("hide");
+    $('.user-registration_form_container3').remove();
     $('.user-registration_form_container4').removeClass("hide");
   });
 });
