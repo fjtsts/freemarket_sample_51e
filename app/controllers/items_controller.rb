@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     def new
         render layout: 'form-layout'
         @item = Item.new
-        @image = @item.item_images.build
+        # @image = @item.item_images.build
         @category = Category.ids
         @categories = Category.all
     end
@@ -46,9 +46,5 @@ class ItemsController < ApplicationController
     #     @category = @product.category
     #     @categories = Category.all
     # end
-    def buy
-        @item = Item.find(params[:id])
-        render layout: 'form-layout'
-    end
 
 end
