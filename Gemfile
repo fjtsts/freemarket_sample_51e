@@ -91,5 +91,6 @@ gem 'dropzonejs-rails'
 gem 'devise'
 gem 'enum_help'
 gem 'ancestry'
+gem 'gretel'
 
 

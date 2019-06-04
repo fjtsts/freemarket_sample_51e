@@ -18,13 +18,13 @@
                 %span カテゴリー
               %ul#nav-drawer
               
-                - @parents.each do |parent|
-                  %li.ctd__2
-                    =link_to "#{parent.name}","/"
-                    %ul#nav-drawer__2
-                      -parent.children.each do |child|
-                        %li
-                          =link_to "#{child.name}","/"
+                -# - @parents.each do |parent|
+                -#   %li.ctd__2
+                -#     =link_to "#{parent.name}","/"
+                -#     %ul#nav-drawer__2
+                -#       -parent.children.each do |child|
+                -#         %li
+                -#           =link_to "#{child.name}","/"
                 %li
                   =link_to "カテゴリー一覧","/"
             %li.bl
@@ -42,6 +42,7 @@
               =fa_icon "check"
               %span やることリスト
             %li.mypage
-              =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
-              %span マイページ
+              =link_to users_path  do
+                =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
+                %span マイページ
 
