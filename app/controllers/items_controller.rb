@@ -37,7 +37,6 @@ class ItemsController < ApplicationController
 
         if @item.save
             params[:item_images][:image].each do |i|   # .reverse
-                binding.pry
                 @image = @item.item_images.create(image: i.original_filename, item_id: @item.id)
             end
             # association,dbcreateまだ
