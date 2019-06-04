@@ -18,16 +18,16 @@
           / 売り切れマーク
           -# .itemDetail__main__photo__soldOut
           -# =image_tag(@item_images.name, height: "300px", width: "300px") alt: "",
-          =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag1", height: "300px", width: "300px")
+          =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", id: "photoMain", "data-url": "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg" ,alt: "bag1")
         .itemDetail__main__photo__bottomBox
           .itemDetail__main__photo__bottomBox__bottom
-            =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag2", height: "60px", width: "60px")
+            =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "photosub", id: "photoSub","data-url": "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag2")
           .itemDetail__main__photo__bottomBox__bottom
-            =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag2", height: "60px", width: "60px")
+            =image_tag("https://www.pakutaso.com/shared/img/thumb/KM19322A015_TP_V4.jpg", class: "photosub", id: "photoSub","data-url": "https://www.pakutaso.com/shared/img/thumb/KM19322A015_TP_V4.jpg",alt: "bag2")
           .itemDetail__main__photo__bottomBox__bottom
-            =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag2", height: "60px", width: "60px")
+            =image_tag("https://www.pakutaso.com/shared/img/thumb/donutIMGL5813_TP_V.jpg", class: "photosub", id: "photoSub","data-url": "https://www.pakutaso.com/shared/img/thumb/donutIMGL5813_TP_V.jpg",alt: "bag2")
           .itemDetail__main__photo__bottomBox__bottom
-            =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag2", height: "60px", width: "60px")
+            =image_tag("https://www.pakutaso.com/shared/img/thumb/crowncat4020137_TP_V.jpg", class: "photosub", id: "photoSub", "data-url": "https://www.pakutaso.com/shared/img/thumb/crowncat4020137_TP_V.jpg",alt: "bag2")
       %div
         %table.itemDetail__main__table
           %tbody
@@ -197,3 +197,17 @@
         =button_tag type: "submit" , class: "itemPostComment__form__btn" do
           / <span>売り切れのためコメントできません</span>
           %span コメントする
+
+-# %dl.gallery
+-#   %dt
+-#     %img#main-image{:alt => "メインイメージ1", :src => "https://www.pakutaso.com/shared/img/thumb/crowncat4020137_TP_V.jpg", width: "400px"}/
+-#   %dd
+-#     %ul
+-#       %li
+-#         %img.thumbnail{:alt => "サムネイル1", "data-url" => "https://www.pakutaso.com/shared/img/thumb/crowncat4020137_TP_V.jpg", :src => "https://www.pakutaso.com/shared/img/thumb/crowncat4020137_TP_V.jpg", width: "100px"}/
+-#       %li
+-#         %img.thumbnail{:alt => "サムネイル2", "data-url" => "https://www.pakutaso.com/shared/img/thumb/PAK160127545475_TP_V.jpg", :src => "https://www.pakutaso.com/shared/img/thumb/PAK160127545475_TP_V.jpg", width: "100px"}/
+-#       %li
+-#         %img.thumbnail{:alt => "サムネイル3", "data-url" => "https://www.pakutaso.com/shared/img/thumb/KM19322A015_TP_V4.jpg", :src => "https://www.pakutaso.com/shared/img/thumb/KM19322A015_TP_V4.jpg", width: "100px"}/
+-#       %li
+-#         %img.thumbnail{:alt => "サムネイル4", "data-url" => "https://www.pakutaso.com/shared/img/thumb/flower420154_TP_V.jpg", :src => "https://www.pakutaso.com/shared/img/thumb/flower420154_TP_V.jpg", width: "100px"}/
