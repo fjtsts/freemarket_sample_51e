@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 describe ItemsController do
   before do
     create_list(:category,10)
@@ -16,3 +17,9 @@ describe ItemsController do
     end
   end
 end
+
+  
+
+
+
+   

@@ -1,4 +1,4 @@
-# Category.delete_all
+
 brand = %w{
   シャネル
   ルイヴィトン
@@ -23,6 +23,7 @@ brand = %w{
  }
  size.each do |size|
   Size.create!(name: size)
+ end
 
 
 

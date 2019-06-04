@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
 
     def index
 
-        @parents = Category.all.order("id ASC").limit(13)
+
+        @parents = Category.all.order("id ASC").limit(13
         @category1 = Category.find(1)
         @category2= Category.find(2)
         @category3= Category.find(3)
@@ -29,6 +30,14 @@ class ItemsController < ApplicationController
         # @image = @item.item_images.build
         @category = Category.ids
         @categories = Category.all
+    end
+
+    def show
+        @item = Item.find(params[:id])
+
+    end
+
+    def create
     end
 
     # def create
