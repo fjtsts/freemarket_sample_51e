@@ -19,7 +19,7 @@
           -# .itemDetail__main__photo__soldOut
           -# =image_tag(@item_images.name, height: "300px", width: "300px") alt: "",
           =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", id: "photoMain", "data-url": "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg" ,alt: "bag1")
-        .itemDetail__main__photo__bottomBox
+        .itemDetail__main__photo__bottomBox.slider
           .itemDetail__main__photo__bottomBox__bottom
             =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "photosub", id: "photoSub","data-url": "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag2")
           .itemDetail__main__photo__bottomBox__bottom
@@ -197,3 +197,12 @@
         =button_tag type: "submit" , class: "itemPostComment__form__btn" do
           / <span>売り切れのためコメントできません</span>
           %span コメントする
+
+-# スライドテスト
+%ul.slider
+  %li
+    = image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",width: "300px",alt: "bag2")
+  %li
+    = image_tag("https://www.pakutaso.com/shared/img/thumb/crowncat4020137_TP_V.jpg",width: "300px", alt: "bag2") 
+  %li
+    = image_tag("https://www.pakutaso.com/shared/img/thumb/donutIMGL5813_TP_V.jpg",width: "300px",alt: "bag2")
