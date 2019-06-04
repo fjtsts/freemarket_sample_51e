@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_01_091720) do
+ActiveRecord::Schema.define(version: 2019_06_03_103741) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "last_name", null: false
@@ -35,19 +35,11 @@ ActiveRecord::Schema.define(version: 2019_06_01_091720) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["name"], name: "index_categories_on_name"
-  end
-
-  create_table "item_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id", null: false
-    t.bigint "category_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_item_categories_on_category_id"
-    t.index ["item_id"], name: "index_item_categories_on_item_id"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,8 +62,16 @@ ActiveRecord::Schema.define(version: 2019_06_01_091720) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "brand_id"
+    t.bigint "category_id", null: false
     t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
+  end
+
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -103,7 +103,5 @@ ActiveRecord::Schema.define(version: 2019_06_01_091720) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "item_categories", "categories"
-  add_foreign_key "item_categories", "items"
   add_foreign_key "user_profiles", "users"
 end
