@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :items
   resources :user_profiles, only: [:new, :create, :edit]
   resources :addresses, only: [:new, :create, :edit]
-  resources :users, only: [:index, :show, :edit]
+  resources :users, only: [:index, :show, :edit, :new]
   resources :purchases, only: [:new]
   root      "items#index"
   get '/purchases/:id/new', to: 'purchases#new'
