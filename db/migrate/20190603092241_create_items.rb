@@ -10,6 +10,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :day, null: false
       t.integer :price, null: false
       t.timestamps
+      t.references :brand,null:true,foregin_key: true
+      t.references :category,null:false,foregin_key: true
     end
   end
 end

@@ -1,689 +1,525 @@
-Category.delete_all
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000
-)
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000
-)
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000
-)
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000
-)
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000
-)
+
+brand = %w{
+  シャネル
+  ルイヴィトン
+  シュプリーム
+  ナイキ
+ 
+ }
+ brand.each do |brand|
+  Brand.create(name: brand)
+ end
+ size = %w{
+   XXS以下
+   XS(SS)
+   S
+   M
+   L
+   XL(LL)
+   2XL(3L)
+   3XL(4L)
+   4XL(5L)
+   FREE SIZE
+ }
+ size.each do |size|
+  Size.create!(name: size)
+ end
 
 
-Category.create!(
-  name: 'レディース',
-  parent_id: ""
+
+parent_id1 = Category.create!(
+  name: 'レディース'
+   
 )
-Category.create!(
-  name: 'メンズ',
-  parent_id: ""
+parent_id2 = Category.create!(
+  name: 'メンズ'
+   
 )
-Category.create!(
-  name: 'ベビー・キッズ',
-  parent_id: ""
+parent_id3 = Category.create!(
+  name: 'ベビー・キッズ'
+   
 )
-Category.create!(
-  name: 'インテリア・住まい・小物',
-  parent_id: ""
+parent_id4 = Category.create!(
+  name: 'インテリア・住まい・小物'
+   
 )
-Category.create!(
-  name: '本・音楽・ゲーム',
-  parent_id: ""
+parent_id5 = Category.create!(
+  name: '本・音楽・ゲーム'
+   
 )
-Category.create!(
-  name: 'おもちゃ・ホビー・グッズ',
-  parent_id: ""
+parent_id6 = Category.create!(
+  name: 'おもちゃ・ホビー・グッズ'
+   
 )
-Category.create!(
-  name: 'コスメ・香水・美容',
-  parent_id: ""
+parent_id7 = Category.create!(
+  name: 'コスメ・香水・美容'
+   
 )
 
-Category.create!(
-  name: '家電・スマホ・カメラ',
-  parent_id: ""
-)
-Category.create!(
-  name: 'スポーツ・レジャー',
-  parent_id: ""
-)
-Category.create!(
-  name: 'ハンドメイド',
-  parent_id: ""
-)
-Category.create!(
-  name: 'チケット',
-  parent_id: ""
-)
-Category.create!(
-  name: '自動車・オートバイ',
-  parent_id: ""
-)
-Category.create!(
-  name: 'その他',
-  parent_id: ""
-)
-Category.create!(
-  name: 'トップス',
-  parent_id: 1
-)
-Category.create!(
-  name: 'ジャケット/アウター',
-  parent_id: 1
-)
-Category.create!(
-  name: 'パンツ',
-  parent_id: 1
-)
-Category.create!(
-  name: 'スカート',
-  parent_id: 1
-)
-Category.create!(
-  name: 'ワンピース',
-  parent_id: 1
-)
-Category.create!(
-  name: '靴',
-  parent_id: 1
-)
-Category.create!(
-  name: 'ルームウェア/パジャマ',
-  parent_id: 1
-)
-Category.create!(
-  name: 'レッグウェア',
-  parent_id: 1
-)
-Category.create!(
-  name: '帽子',
-  parent_id: 1
-)
-Category.create!(
-  name: 'バッグ',
-  parent_id: 1
-)
-Category.create!(
-  name: 'アクセサリー',
-  parent_id: 1
-)
-Category.create!(
-  name: 'ヘアアクセサリー',
-  parent_id: 1
-)
-Category.create!(
-  name: '小物',
-  parent_id: 1
-)
-Category.create!(
-  name: '時計',
-  parent_id: 1
-)
-Category.create!(
-  name: 'ウィッグ/エクステ',
-  parent_id: 1
-)
-Category.create!(
-  name: '浴衣/..水着',
-  parent_id: 1
-)
-Category.create!(
-  name: 'スーツ/フォーマル/ドレス',
-  parent_id: 1
-)
-Category.create!(
-  name: 'マタニティー',
-  parent_id: 1
-)
-Category.create!(
-  name: 'その他',
-  parent_id: 1
-)
-Category.create!(
-  name: 'トップス',
-  parent_id: 2
-)
-Category.create!(
-  name: 'ジャケット/アウター',
-  parent_id: 2
-)
-Category.create!(
-  name: 'パンツ',
-  parent_id: 2
-)
-Category.create!(
-  name: '靴',
-  parent_id: 2
-)
-Category.create!(
-  name: 'バッグ',
-  parent_id: 2
-)
-Category.create!(
-  name: 'スーツ',
-  parent_id: 2
-)
-Category.create!(
-  name: '帽子',
-  parent_id: 2
-)
-Category.create!(
-  name: 'アクセサリー',
-  parent_id: 2
-)
-Category.create!(
-  name: '小物',
-  parent_id: 2
-)
-Category.create!(
-  name: '時計',
-  parent_id: 2
-)
-Category.create!(
-  name: '水着',
-  parent_id: 2
-)
-Category.create!(
-  name: 'レッグウェア',
-  parent_id: 2
-)
-Category.create!(
-  name: 'アンダーウェア',
-  parent_id: 2
-)
-Category.create!(
-  name: 'その他',
-  parent_id: 2
-)
-Category.create!(
-  name: 'ベビー服（女の子用）~95cm',
-  parent_id: 3
-)
-Category.create!(
-  name: 'ベビー服（男の子用）~95cm',
-  parent_id: 3
-)
-Category.create!(
-  name: 'ベビー服（男女兼用）~95cm',
-  parent_id: 3
-)
-Category.create!(
-  name: 'ベビー服（女の子用）~100cm',
-  parent_id: 3
-)
-Category.create!(
-  name: 'ベビー服(男の子用）~100cm',
-  parent_id: 3
-)
-Category.create!(
-  name: 'ベビー服(男女兼用）~100cm',
-  parent_id: 3
-)
-Category.create!(
-  name: 'キッズ靴',
-  parent_id: 3
-)
-Category.create!(
-  name: '子供用ファッション小物',
-  parent_id: 3
-)
-Category.create!(
-  name: 'おむつ/トイレ/バス',
-  parent_id: 3
-)
-Category.create!(
-  name: '外出/移動用品',
-  parent_id: 3
-)
-Category.create!(
-  name: '授乳/ 食事/室内用品',
-  parent_id: 3
-)
-Category.create!(
-  name: 'ベビー家具/寝具/室内用品',
-  parent_id: 3
-)
-Category.create!(
-  name: 'おもちゃ',
-  parent_id: 3
-)
-Category.create!(
-  name: '行事/記念品',
-  parent_id: 3
-)
-Category.create!(
-  name: 'その他',
-  parent_id: 3
-)
-Category.create!(
-  name: 'キッチン/食器',
-  parent_id: 4
-)
-Category.create!(
-  name: 'ベッド/ソファベッド',
-  parent_id: 4
-)
-Category.create!(
-  name: '椅子/チェアー',
-  parent_id: 4
-)
-Category.create!(
-  name: '机/テーブル',
-  parent_id: 4
-)
-Category.create!(
-  name: '収納家具',
-  parent_id: 4
-)
-Category.create!(
-  name: 'ラグ／カーペット/マット',
-  parent_id: 4
-)
-Category.create!(
-  name: 'カーテン/ブラインド',
-  parent_id: 4
-)
-Category.create!(
-  name: 'ライト/証明',
-  parent_id: 4
-)
-Category.create!(
-  name: '寝具',
-  parent_id: 4
-)
-Category.create!(
-  name: 'インテリア小物',
-  parent_id: 4
-)
-Category.create!(
-  name: '季節/年中行事',
-  parent_id: 4
-)
-Category.create!(
-  name: 'その他',
-  parent_id: 4
-)
-Category.create!(
-  name: '本',
-  parent_id: 5
-)
-Category.create!(
-  name: '漫画',
-  parent_id: 5
-)
-Category.create!(
-  name: '雑誌',
-  parent_id: 5
-)
-Category.create!(
-  name: 'CD',
-  parent_id: 5
-)
-Category.create!(
-  name: 'DVD/ブルーレイ',
-  parent_id: 5
-)
-Category.create!(
-  name: 'レコード',
-  parent_id: 5
-)
-Category.create!(
-  name: 'テレビゲーム',
-  parent_id: 5
-)
-Category.create!(
-  name: 'おもちゃ',
-  parent_id: 6
-)
-Category.create!(
-  name: 'タレントグッズ',
-  parent_id: 6
-)
-Category.create!(
-  name: 'コミック/アニメグッズ',
-  parent_id: 6
-)
-Category.create!(
-  name: 'トレーディングカード',
-  parent_id: 6
-)
-Category.create!(
-  name: 'フィギュア',
-  parent_id: 6
-)
-Category.create!(
-  name: '楽器/器材',
-  parent_id: 6
-)
-Category.create!(
-  name: 'コレクション',
-  parent_id: 6
-)
-Category.create!(
-  name: 'ミリタリー',
-  parent_id: 6
-)
-Category.create!(
-  name: '美術品',
-  parent_id: 6
-)
-Category.create!(
-  name: 'アート用品',
-  parent_id: 6
-)
-Category.create!(
-  name: 'その他',
-  parent_id: 6
-)
-Category.create!(
-  name: 'ベースメイク',
-  parent_id: 7
-)
-Category.create!(
-  name: 'メイクアップ',
-  parent_id: 7
-)
-Category.create!(
-  name: 'ネイルケア',
-  parent_id: 7
-)
-  Category.create!(
-    name: '香水',
-    parent_id: 7
-)
-Category.create!(
-  name: 'スキンケア/基礎化粧品',
-  parent_id: 7
-)
-Category.create!(
-  name: 'ヘアケア',
-  parent_id: 7
-)
-Category.create!(
-  name: 'ボディケア',
-  parent_id: 7
-)
-Category.create!(
-  name: 'オーラルケア',
-  parent_id: 7
-)
-Category.create!(
-  name: 'リラクゼーション',
-  parent_id: 7
-)
-Category.create!(
-  name: 'ダイエット',
-  parent_id: 7
-)
-Category.create!(
-  name: 'その他',
-  parent_id: 7
-)
-Category.create!(
-  name: 'スマートフォン/携帯電話',
-  parent_id: 8
-)
-Category.create!(
-  name: 'スマホアクセサリー',
-  parent_id: 8
-)
-Category.create!(
-  name: 'pc/タブレット',
-  parent_id: 8
-)
-Category.create!(
-  name: 'カメラ',
-  parent_id: 8
-)
-Category.create!(
-  name: 'テレビ/映像機器',
-  parent_id: 8
-)
-Category.create!(
-  name: 'オーディオ機器',
-  parent_id: 8
-)
-Category.create!(
-  name: '美容/健康',
-  parent_id: 8
-)
-Category.create!(
-  name: '冷暖房/空調',
-  parent_id: 8
-)
-Category.create!(
-  name: '生活家電',
-  parent_id: 8
-)
-Category.create!(
-  name: 'その他',
-  parent_id: 8
-)
-Category.create!(
-  name: 'ゴルフ',
-  parent_id: 9
-)
-Category.create!(
-  name: 'フィッシング',
-  parent_id: 9
-)
-Category.create!(
-  name: '自転車',
-  parent_id: 9
-)
-Category.create!(
-  name: 'トレーニング/エクササイズ',
-  parent_id: 9
-)
-Category.create!(
-  name: '野球',
-  parent_id: 9
-)
-Category.create!(
-  name: 'サッカー/フットサル',
-  parent_id: 9
-)
-Category.create!(
-  name: 'テニス',
-  parent_id: 9
-)
-Category.create!(
-  name: 'スノーボード',
-  parent_id: 9
-)
-Category.create!(
-  name: 'スキー',
-  parent_id: 9
-)
-Category.create!(
-  name: 'その他のスポーツ',
-  parent_id: 9
-)
-Category.create!(
-  name: 'アウトドア',
-  parent_id: 9
-)
-Category.create!(
-  name: 'その他',
-  parent_id: 9
-)
-Category.create!(
-  name: 'アクセサリー(女性用)',
-  parent_id: 10
-)
-Category.create!(
-  name: 'ファッション/小物',
-  parent_id: 10
-)
-Category.create!(
-  name: 'アクセサリー/時計',
-  parent_id: 10
-)
-Category.create!(
-  name: '日用品/インテリア',
-  parent_id: 10
-)
-Category.create!(
-  name: '趣味/おもちゃ',
-  parent_id: 10
-)
-Category.create!(
-  name: 'キッズ/ベビー',
-  parent_id: 10
-)
-Category.create!(
-  name: '素材/材料',
-  parent_id: 10
-)
-Category.create!(
-  name: '二次創作',
-  parent_id: 10
-)
-Category.create!(
-  name: 'その他',
-  parent_id: 10
-)
-Category.create!(
-  name: '音楽',
-  parent_id: 11
-)
-Category.create!(
-  name: 'スポーツ',
-  parent_id: 11
-)
-Category.create!(
-  name: '演劇/芸能',
-  parent_id: 11
-)
-Category.create!(
-  name: 'イベント',
-  parent_id: 11
-)
-Category.create!(
-  name: '映画',
-  parent_id: 11
-)
-Category.create!(
-  name: '施設利用券',
-  parent_id: 11
-)
-Category.create!(
-  name: '優待券',
-  parent_id: 11
-)
-Category.create!(
-  name: 'その他',
-  parent_id: 11
-)
-Category.create!(
-  name: '自動車本体',
-  parent_id: 12
-)
-Category.create!(
-  name: '自動車タイヤ/ホイール',
-  parent_id: 12
-)
-Category.create!(
-  name: '自動車パーツ',
-  parent_id: 12
-)
-Category.create!(
-  name: '自動車アクセサリー',
-  parent_id: 12
-)
-Category.create!(
-  name: 'オートバイ本体',
-  parent_id: 12
-)
-Category.create!(
-  name: 'オートバイパーツ',
-  parent_id: 12
-)
-Category.create!(
-  name: 'オートバイアクセアリー',
-  parent_id: 12
-)
-Category.create!(
-  name: 'まとめ売り',
-  parent_id: 13
-)
-Category.create!(
-  name: 'ペット用品',
-  parent_id: 13
-)
-Category.create!(
-  name: '食品',
-  parent_id: 13
-)
-Category.create!(
-  name: '飲料/酒',
-  parent_id: 13
-)
-Category.create!(
-  name: '日用品/生活雑貨/旅行',
-  parent_id: 13
-)
-Category.create!(
-  name: 'アンティーク/コレクション',
-  parent_id: 13
-)
-Category.create!(
-  name: '文房具/事務用品',
-  parent_id: 13
-)
-Category.create!(
-  name: '事務/店舗用品',
-  parent_id: 13
-)
-Category.create!(
-  name: 'その他',
-  parent_id: 13
+parent_id8 = Category.create!(
+  name: '家電・スマホ・カメラ'
+   
+)
+parent_id9 = Category.create!(
+  name: 'スポーツ・レジャー'
+   
+)
+parent_id10 = Category.create!(
+  name: 'ハンドメイド'
+   
+)
+parent_id11 = Category.create!(
+  name: 'チケット'
+   
+)
+parent_id12 = Category.create!(
+  name: '自動車・オートバイ'
+   
+)
+parent_id13 = Category.create!(
+  name: 'その他'
+   
+)
+parent_id14 = parent_id1.children.create!(
+  name: 'トップス'
+
+   )
+parent_id15 = parent_id1.children.create!(
+  name: 'ジャケット/アウター'
+  
+)
+parent_id16 = parent_id1.children.create!(
+  name: 'パンツ'
+)
+parent_id17 = parent_id1.children.create!(
+  name: 'スカート'
+)
+parent_id18 = parent_id1.children.create!(
+  name: 'ワンピース'
+)
+parent_id19 = parent_id1.children.create!(
+  name: '靴'
+)
+parent_id20 = parent_id1.children.create!(
+  name: 'ルームウェア/パジャマ'
+)
+parent_id21 = parent_id1.children.create!(
+  name: 'レッグウェア'
+)
+parent_id22 = parent_id1.children.create!(
+  name: '帽子'
+)
+parent_id23 = parent_id1.children.create!(
+  name: 'バッグ'
+)
+parent_id24 = parent_id1.children.create!(
+  name: 'アクセサリー'
+)
+parent_id25 = parent_id1.children.create!(
+  name: 'ヘアアクセサリー'
+)
+parent_id26 = parent_id1.children.create!(
+  name: '小物'
+)
+parent_id27 = parent_id1.children.create!(
+  name: '時計'
+)
+parent_id28 = parent_id1.children.create!(
+  name: 'ウィッグ/エクステ'
+)
+parent_id29 = parent_id1.children.create!(
+  name: '浴衣/..水着'
+)
+parent_id30 = parent_id1.children.create!(
+  name: 'スーツ/フォーマル/ドレス'
+)
+parent_id31 = parent_id1.children.create!(
+  name: 'マタニティー'
+)
+parent_id32 = parent_id1.children.create!(
+  name: 'その他'
+)
+parent_id33 = parent_id2.children.create!(
+  name: 'トップス'
+)
+parent_id34 = parent_id2.children.create!(
+  name: 'ジャケット/アウター'
+)
+parent_id35 = parent_id2.children.create!(
+  name: 'パンツ'
+)
+parent_id36 = parent_id2.children.create!(
+  name: '靴'
+)
+parent_id37 = parent_id2.children.create!(
+  name: 'バッグ'
+)
+parent_id38 = parent_id2.children.create!(
+  name: 'スーツ'
+)
+parent_id39 = parent_id2.children.create!(
+  name: '帽子'
+)
+parent_id40 = parent_id2.children.create!(
+  name: 'アクセサリー'
+)
+parent_id41 = parent_id2.children.create!(
+  name: '小物'
+)
+parent_id42 = parent_id2.children.create!(
+  name: '時計'
+)
+parent_id43 = parent_id2.children.create!(
+  name: '水着'
+)
+parent_id44 = parent_id2.children.create!(
+  name: 'レッグウェア'
+)
+parent_id45 = parent_id2.children.create!(
+  name: 'アンダーウェア'
+)
+parent_id46 = parent_id2.children.create!(
+  name: 'その他'
+)
+parent_id47 = parent_id3.children.create!(
+  name: 'ベビー服（女の子用）~95cm'
+)
+parent_id48 = parent_id3.children.create!(
+  name: 'ベビー服（男の子用）~95cm'
+)
+parent_id49 = parent_id3.children.create!(
+  name: 'ベビー服（男女兼用）~95cm'
+)
+parent_id50 = parent_id3.children.create!(
+  name: 'ベビー服（女の子用）~100cm'
+)
+parent_id51 = parent_id3.children.create!(
+  name: 'ベビー服(男の子用）~100cm'
+)
+parent_id52 = parent_id3.children.create!(
+  name: 'ベビー服(男女兼用）~100cm'
+)
+parent_id53 = parent_id3.children.create!(
+  name: 'キッズ靴'
+)
+parent_id54 = parent_id3.children.create!(
+  name: '子供用ファッション小物'
+)
+parent_id55 = parent_id3.children.create!(
+  name: 'おむつ/トイレ/バス'
+)
+parent_id56 = parent_id3.children.create!(
+  name: '外出/移動用品'
+)
+parent_id57 = parent_id3.children.create!(
+  name: '授乳/ 食事/室内用品'
+)
+parent_id58 = parent_id3.children.create!(
+  name: 'ベビー家具/寝具/室内用品'
+)
+parent_id59 = parent_id3.children.create!(
+  name: 'おもちゃ'
+)
+parent_id60 = parent_id3.children.create!(
+  name: '行事/記念品'
+)
+parent_id61 = parent_id3.children.create!(
+  name: 'その他'
+)
+parent_id62 = parent_id4.children.create!(
+  name: 'キッチン/食器'
+)
+parent_id63 = parent_id4.children.create!(
+  name: 'ベッド/ソファベッド'
+)
+parent_id64 = parent_id4.children.create!(
+  name: '椅子/チェアー'
+)
+parent_id65 = parent_id4.children.create!(
+  name: '机/テーブル'
+)
+parent_id66 = parent_id4.children.create!(
+  name: '収納家具'
+)
+parent_id67 = parent_id4.children.create!(
+  name: 'ラグ／カーペット/マット'
+)
+parent_id68 = parent_id4.children.create!(
+  name: 'カーテン/ブラインド'
+)
+parent_id69 = parent_id4.children.create!(
+  name: 'ライト/証明'
+)
+parent_id70 = parent_id4.children.create!(
+  name: '寝具'
+)
+parent_id71 = parent_id4.children.create!(
+  name: 'インテリア小物'
+)
+parent_id72 = parent_id4.children.create!(
+  name: '季節/年中行事'
+)
+parent_id73 = parent_id4.children.create!(
+  name: 'その他'
+)
+parent_id74 = parent_id5.children.create!(
+  name: '本'
+)
+parent_id75 = parent_id5.children.create!(
+  name: '漫画'
+)
+parent_id76 = parent_id5.children.create!(
+  name: '雑誌'
+)
+parent_id77 = parent_id5.children.create!(
+  name: 'CD'
+)
+parent_id78 = parent_id5.children.create!(
+  name: 'DVD/ブルーレイ'
+)
+parent_id79 = parent_id5.children.create!(
+  name: 'レコード'
+)
+parent_id80 = parent_id5.children.create!(
+  name: 'テレビゲーム'
+)
+parent_id81 = parent_id6.children.create!(
+  name: 'おもちゃ'
+)
+parent_id82 = parent_id6.children.create!(
+  name: 'タレントグッズ'
+)
+parent_id83 = parent_id6.children.create!(
+  name: 'コミック/アニメグッズ'
+)
+parent_id84 = parent_id6.children.create!(
+  name: 'トレーディングカード'
+)
+parent_id85 = parent_id6.children.create!(
+  name: 'フィギュア'
+)
+parent_id86 = parent_id6.children.create!(
+  name: '楽器/器材'
+)
+parent_id87 = parent_id6.children.create!(
+  name: 'コレクション'
+)
+parent_id88 = parent_id6.children.create!(
+  name: 'ミリタリー'
+)
+parent_id89 = parent_id6.children.create!(
+  name: '美術品'
+)
+parent_id90 = parent_id6.children.create!(
+  name: 'アート用品'
+)
+parent_id91 = parent_id6.children.create!(
+  name: 'その他'
+)
+parent_id92 = parent_id7.children.create!(
+  name: 'ベースメイク'
+)
+parent_id93 = parent_id7.children.create!(
+  name: 'メイクアップ'
+)
+parent_id94= parent_id7.children.create!(
+  name: 'ネイルケア'
+)
+parent_id95 = parent_id7.children.create!(
+    name: '香水'
+     
+)
+parent_id96 = parent_id7.children.create!(
+  name: 'スキンケア/基礎化粧品'
+)
+parent_id97 = parent_id7.children.create!(
+  name: 'ヘアケア'
+)
+parent_id98 = parent_id7.children.create!(
+  name: 'ボディケア'
+)
+parent_id99 = parent_id7.children.create!(
+  name: 'オーラルケア'
+)
+parent_id100 = parent_id7.children.create!(
+  name: 'リラクゼーション'
+)
+parent_id101 = parent_id7.children.create!(
+  name: 'ダイエット'
+)
+parent_id102 = parent_id7.children.create!(
+  name: 'その他'
+)
+parent_id103 = parent_id8.children.create!(
+  name: 'スマートフォン/携帯電話'
+   
+)
+parent_id104 = parent_id8.children.create!(
+  name: 'スマホアクセサリー'
+)
+parent_id105 = parent_id8.children.create!(
+  name: 'pc/タブレット'
+)
+parent_id106 = parent_id8.children.create!(
+  name: 'カメラ'
+)
+parent_id107 = parent_id8.children.create!(
+  name: 'テレビ/映像機器'
+)
+parent_id108 = parent_id8.children.create!(
+  name: 'オーディオ機器'
+)
+parent_id109 = parent_id8.children.create!(
+  name: '美容/健康'
+)
+parent_id110 = parent_id8.children.create!(
+  name: '冷暖房/空調'
+)
+parent_id111 = parent_id8.children.create!(
+  name: '生活家電'
+)
+parent_id112 = parent_id8.children.create!(
+  name: 'その他'
+)
+parent_id113 = parent_id9.children.create!(
+  name: 'ゴルフ'
+)
+parent_id114 = parent_id9.children.create!(
+  name: 'フィッシング'
+)
+parent_id115= parent_id9.children.create!(
+  name: '自転車'
+)
+parent_id116 = parent_id9.children.create!(
+  name: 'トレーニング/エクササイズ'
+)
+parent_id117 = parent_id9.children.create!(
+  name: '野球'
+)
+parent_id118 = parent_id9.children.create!(
+  name: 'サッカー/フットサル'
+)
+parent_id119= parent_id9.children.create!(
+  name: 'テニス'
+)
+parent_id120 = parent_id9.children.create!(
+  name: 'スノーボード'
+)
+parent_id121= parent_id9.children.create!(
+  name: 'スキー'
+)
+parent_id122 = parent_id9.children.create!(
+  name: 'その他のスポーツ'
+)
+parent_id123 = parent_id9.children.create!(
+  name: 'アウトドア'
+)
+parent_id124 = parent_id9.children.create!(
+  name: 'その他'
+)
+parent_id125 = parent_id10.children.create!(
+  name: 'アクセサリー(女性用)'
+)
+parent_id126 = parent_id10.children.create!(
+  name: 'ファッション/小物'
+)
+parent_id127 = parent_id10.children.create!(
+  name: 'アクセサリー/時計'
+)
+parent_id128 = parent_id10.children.create!(
+  name: '日用品/インテリア'
+)
+parent_id129 = parent_id10.children.create!(
+  name: '趣味/おもちゃ'
+)
+parent_id130 = parent_id10.children.create!(
+  name: 'キッズ/ベビー'
+)
+parent_id131= parent_id10.children.create!(
+  name: '素材/材料'
+)
+parent_id132 = parent_id10.children.create!(
+  name: '二次創作'
+)
+parent_id133 = parent_id10.children.create!(
+  name: 'その他'
+)
+parent_id134 = parent_id11.children.create!(
+  name: '音楽'
+)
+parent_id135 = parent_id11.children.create!(
+  name: 'スポーツ'
+)
+parent_id136 = parent_id11.children.create!(
+  name: '演劇/芸能'
+)
+parent_id137 = parent_id11.children.create!(
+  name: 'イベント'
+)
+parent_id138 = parent_id11.children.create!(
+  name: '映画'
+)
+parent_id139 = parent_id11.children.create!(
+  name: '施設利用券'
+)
+parent_id140 = parent_id11.children.create!(
+  name: '優待券'
+)
+parent_id141 = parent_id11.children.create!(
+  name: 'その他'
+)
+parent_id142 = parent_id12.children.create!(
+  name: '自動車本体'
+)
+parent_id143 = parent_id12.children.create!(
+  name: '自動車タイヤ/ホイール'
+)
+parent_id144 = parent_id12.children.create!(
+  name: '自動車パーツ'
+)
+parent_id145 = parent_id12.children.create!(
+  name: '自動車アクセサリー'
+)
+parent_id146 = parent_id12.children.create!(
+  name: 'オートバイ本体'
+)
+parent_id147 = parent_id12.children.create!(
+  name: 'オートバイパーツ'
+)
+parent_id148 = parent_id12.children.create!(
+  name: 'オートバイアクセアリー'
+)
+parent_id149 = parent_id13.children.create!(
+  name: 'まとめ売り'
+)
+parent_id150 = parent_id13.children.create!(
+  name: 'ペット用品'
+)
+parent_id151 = parent_id13.children.create(
+  name: '食品'
+)
+parent_id152 = parent_id13.children.create(
+  name: '飲料/酒'
+)
+parent_id153 = parent_id13.children.create(
+  name: '日用品/生活雑貨/旅行'
+)
+parent_id154 = parent_id13.children.create(
+  name: 'アンティーク/コレクション'
+)
+parent_id155 = parent_id13.children.create(
+  name: '文房具/事務用品'
+)
+parent_id154 = parent_id13.children.create(
+  name: '事務/店舗用品'
+)
+parent_id150 = parent_id13.children.create(
+  name: 'その他'
 )
 
 
 
-    categories14 = %w{
+    categories14= %w{
     Tシャツ/カットソー(半袖/袖なし)
     Tシャツ/カットソー（七分/長袖)
     シャツ/ブラウス(半袖/袖なし)
@@ -2160,421 +1996,480 @@ categories154 = %w{
 
   
     categories14.each do | category|
-     Category.create!(name: category,parent_id: 14)
+      parent_id14.children.create!(name: Category)
     end
     categories15.each do | category|
-      Category.create!(name: category,parent_id:15)
+      parent_id15.children.create!(name: category)
     end
     categories16.each do | category|
-      Category.create!(name: category,parent_id:16)
+      parent_id16.children.create!(name: category)
     end
     categories17.each do | category|
-      Category.create!(name: category,parent_id:17)
+      parent_id17.children.create!(name: category)
     end
     categories18.each do | category|
-      Category.create!(name: category,parent_id:18)
+      parent_id18.children.create!(name: category)
     end
     categories19.each do | category|
-      Category.create!(name: category,parent_id:19)
+      parent_id19.children.create!(name: category)
     end
     categories20.each do | category|
-      Category.create!(name: category,parent_id:20)
+      parent_id20.children.create!(name: category)
     end
     categories21.each do | category|
-      Category.create!(name: category,parent_id:21)
+      parent_id21.children.create!(name: category)
     end
     categories22.each do | category|
-      Category.create!(name: category,parent_id:22)
+      parent_id22.children.create!(name: category)
     end
     categories23.each do | category|
-      Category.create!(name: category,parent_id:23)
+      parent_id23.children.create!(name: category)
     end
     categories24.each do | category|
-      Category.create!(name: category,parent_id:24)
+      parent_id24.children.create!(name: category)
     end
     categories25.each do | category|
-      Category.create!(name: category,parent_id:25)
+      parent_id25.children.create!(name: category)
     end
     categories26.each do | category|
-      Category.create!(name: category,parent_id:26)
+      parent_id26.children.create!(name: category)
     end
     categories27.each do | category|
-      Category.create!(name: category,parent_id:27)
+      parent_id27.children.create!(name: category)
     end
     categories28.each do | category|
-      Category.create!(name: category,parent_id:28)
+      parent_id28.children.create!(name: category)
     end
     categories29.each do | category|
-      Category.create!(name: category,parent_id:29)
+      parent_id29.children.create!(name: category)
     end
     categories30.each do | category|
-      Category.create!(name: category,parent_id:30)
+      parent_id30.children.create!(name: category)
     end
     categories31.each do | category|
-      Category.create!(name: category,parent_id:31)
+      parent_id31.children.create!(name: category)
     end
     categories32.each do | category|
-      Category.create!(name: category,parent_id:32)
+      parent_id32.children.create!(name: category)
     end
     categories33.each do | category|
-      Category.create!(name: category,parent_id:33)
+      parent_id33.children.create!(name: category)
     end
     categories34.each do | category|
-      Category.create!(name: category,parent_id:34)
+      parent_id34.children.create!(name: category)
     end
     categories35.each do | category|
-      Category.create!(name: category,parent_id:35)
+      parent_id35.children.create!(name: category)
     end
     categories36.each do | category|
-      Category.create!(name: category,parent_id:36)
+      parent_id36.children.create!(name: category)
     end
     categories37.each do | category|
-      Category.create!(name: category,parent_id:37)
+      parent_id37.children.create!(name: category)
     end
     categories38.each do | category|
-      Category.create!(name: category,parent_id:38)
+      parent_id38.children.create!(name: category)
     end
     categories39.each do | category|
-      Category.create!(name: category,parent_id:39)
+      parent_id39.children.create!(name: category)
     end
     categories40.each do | category|
-      Category.create!(name: category,parent_id:40)
+      parent_id40.children.create!(name: category)
     end
     categories41.each do | category|
-      Category.create!(name: category,parent_id:41)
+      parent_id41.children.create!(name: category)
     end
     categories42.each do | category|
-      Category.create!(name: category,parent_id:42)
+      parent_id42.children.create!(name: category)
     end
     categories43.each do | category|
-      Category.create!(name: category,parent_id:43)
+      parent_id43.children.create!(name: category)
     end
     categories44.each do | category|
-      Category.create!(name: category,parent_id:44)
+      parent_id44.children.create!(name: category)
     end
     categories45.each do | category|
-      Category.create!(name: category,parent_id:45)
+      parent_id45.children.create!(name: category)
     end
     
     categories47.each do | category|
-      Category.create!(name: category,parent_id:47)
+      parent_id47.children.create!(name: category)
     end
     categories48.each do | category|
-      Category.create!(name: category,parent_id:48)
+      parent_id48.children.create!(name: category)
     end
     categories49.each do | category|
-      Category.create!(name: category,parent_id:49)
+      parent_id49.children.create!(name: category)
     end
     categories50.each do | category|
-      Category.create!(name: category,parent_id:50)
+      parent_id50.children.create!(name: category)
     end
     categories51.each do | category|
-      Category.create!(name: category,parent_id:51)
+      parent_id51.children.create!(name: category)
     end
     categories52.each do | category|
-      Category.create!(name: category,parent_id:52)
+      parent_id52.children.create!(name: category)
     end
     categories53.each do | category|
-      Category.create!(name: category,parent_id:53)
+      parent_id53.children.create!(name: category)
     end
     categories54.each do | category|
-      Category.create!(name: category,parent_id:54)
+      parent_id54.children.create!(name: category)
     end
     categories55.each do | category|
-      Category.create!(name: category,parent_id:55)
+      parent_id55.children.create!(name: category)
     end
     categories56.each do | category|
-      Category.create!(name: category,parent_id:56)
+      parent_id56.children.create!(name: category)
     end
     categories57.each do | category|
-      Category.create!(name: category,parent_id:57)
+      parent_id57.children.create!(name: category)
     end
     categories58.each do | category|
-      Category.create!(name: category,parent_id:58)
+      parent_id58.children.create!(name: category)
     end
     categories59.each do | category|
-      Category.create!(name: category,parent_id:59)
+      parent_id59.children.create!(name: category)
     end
     categories60.each do | category|
-      Category.create!(name: category,parent_id:60)
+      parent_id60.children.create!(name: category)
     end
     categories61.each do | category|
-      Category.create!(name: category,parent_id:61)
+      parent_id61.children.create!(name: category)
     end
     categories62.each do | category|
-      Category.create!(name: category,parent_id:62)
+      parent_id62.children.create!(name: category)
     end
     categories63.each do | category|
-      Category.create!(name: category,parent_id:63)
+      parent_id63.children.create!(name: category)
     end
     categories64.each do | category|
-      Category.create!(name: category,parent_id:64)
+      parent_id64.children.create!(name: category)
     end
     categories65.each do | category|
-      Category.create!(name: category,parent_id:65)
+      parent_id65.children.create!(name: category)
     end
     categories66.each do | category|
-      Category.create!(name: category,parent_id:66)
+      parent_id66.children.create!(name: category)
     end
     categories67.each do | category|
-      Category.create!(name: category,parent_id:67)
+      parent_id67.children.create!(name: category)
     end
     categories68.each do | category|
-      Category.create!(name: category,parent_id:68)
+      parent_id68.children.create!(name: category)
     end
     categories69.each do | category|
-      Category.create!(name: category,parent_id:69)
+      parent_id69.children.create!(name: category)
     end
     categories70.each do | category|
-      Category.create!(name: category,parent_id:70)
+      parent_id70.children.create!(name: category)
     end
     categories71.each do | category|
-      Category.create!(name: category,parent_id:71)
+      parent_id71.children.create!(name: category)
     end
     categories72.each do | category|
-      Category.create!(name: category,parent_id:72)
+      parent_id72.children.create!(name: category)
     end
     categories73.each do | category|
-      Category.create!(name: category,parent_id:73)
+      parent_id73.children.create!(name: category)
     end
     categories74.each do | category|
-      Category.create!(name: category,parent_id:74)
+      parent_id74.children.create!(name: category)
     end
     categories75.each do | category|
-      Category.create!(name: category,parent_id:75)
+      parent_id75.children.create!(name: category)
     end
     categories76.each do | category|
-      Category.create!(name: category,parent_id:76)
+      parent_id76.children.create!(name: category)
     end
     categories77.each do | category|
-      Category.create!(name: category,parent_id:77)
+      parent_id77.children.create!(name: category)
     end
     categories78.each do | category|
-      Category.create!(name: category,parent_id:78)
+      parent_id78.children.create!(name: category)
     end
     categories79.each do | category|
-      Category.create!(name: category,parent_id:79)
+      parent_id79.children.create!(name: category)
     end
     categories80.each do | category|
-      Category.create!(name: category,parent_id:80)
+      parent_id80.children.create!(name: category)
     end
     categories81.each do | category|
-      Category.create!(name: category,parent_id:81)
+      parent_id81.children.create!(name: category)
     end
     categories82.each do | category|
-      Category.create!(name: category,parent_id:82)
+      parent_id82.children.create!(name: category)
     end
     categories83.each do | category|
-      Category.create!(name: category,parent_id:83)
+      parent_id83.children.create!(name: category)
     end
     
     categories84.each do | category|
-      Category.create!(name: category,parent_id:84)
+      parent_id84.children.create!(name: category)
     end
     categories85.each do | category|
-      Category.create!(name: category,parent_id:85)
+      parent_id85.children.create!(name: category)
     end
     categories86.each do | category|
-      Category.create!(name: category,parent_id:86)
+      parent_id86.children.create!(name: category)
     end
     categories87.each do | category|
-      Category.create!(name: category,parent_id:87)
+      parent_id87.children.create!(name: category)
     end
     categories88.each do | category|
-      Category.create!(name: category,parent_id:88)
+      parent_id88.children.create!(name: category)
     end
     categories89.each do | category|
-      Category.create!(name: category,parent_id:89)
+      parent_id89.children.create!(name: category)
     end
     categories90.each do | category|
-      Category.create!(name: category,parent_id:90)
+      parent_id90.children.create!(name: category)
     end
     categories91.each do | category|
-      Category.create!(name: category,parent_id:91)
+      parent_id91.children.create!(name: category)
     end
     categories92.each do | category|
-      Category.create!(name: category,parent_id:92)
+      parent_id92.children.create!(name: category)
     end
     categories93.each do | category|
-      Category.create!(name: category,parent_id:93)
+      parent_id93.children.create!(name: category)
     end
     categories94.each do | category|
-      Category.create!(name: category,parent_id:94)
+      parent_id94.children.create!(name: category)
     end
     categories95.each do | category|
-      Category.create!(name: category,parent_id:95)
+      parent_id95.children.create!(name: category)
     end
     categories96.each do | category|
-      Category.create!(name: category,parent_id:96)
+      parent_id96.children.create!(name: category)
     end
     categories97.each do | category|
-      Category.create!(name: category,parent_id:97)
+      parent_id97.children.create!(name: category)
     end
     categories98.each do | category|
-      Category.create!(name: category,parent_id:98)
+      parent_id98.children.create!(name: category)
     end
     categories99.each do | category|
-      Category.create!(name: category,parent_id:99)
+      parent_id99.children.create!(name: category)
     end
     categories100.each do | category|
-      Category.create!(name: category,parent_id:100)
+      parent_id100.children.create!(name: category)
     end
     categories101.each do | category|
-      Category.create!(name: category,parent_id:101)
+      parent_id101.children.create!(name: category)
     end
     categories102.each do | category|
-      Category.create!(name: category,parent_id:102)
+      parent_id102.children.create!(name: category)
     end
     categories103.each do | category|
-      Category.create!(name: category,parent_id:103)
+      parent_id103.children.create!(name: category)
     end
     categories104.each do | category|
-      Category.create!(name: category,parent_id:104)
-    end
-    categories105.each do | category|
-      Category.create!(name: category,parent_id:105)
+      parent_id104.children.create!(name: category)
     end
     categories106.each do | category|
-      Category.create!(name: category,parent_id:106)
+      parent_id106.children.create!(name: category)
     end
     categories107.each do | category|
-      Category.create!(name: category,parent_id:107)
+      parent_id107.children.create!(name: category)
     end
     categories108.each do | category|
-      Category.create!(name: category,parent_id:108)
+      parent_id108.children.create!(name: category)
     end
     categories109.each do | category|
-      Category.create!(name: category,parent_id:109)
+      parent_id109.children.create!(name: category)
     end
     categories110.each do | category|
-      Category.create!(name: category,parent_id:110)
+      parent_id110.children.create!(name: category)
     end
     categories111.each do | category|
-      Category.create!(name: category,parent_id:111)
+      parent_id111.children.create!(name: category)
     end
     categories112.each do | category|
-      Category.create!(name: category,parent_id:112)
+      parent_id112.children.create!(name: category)
     end
     categories113.each do | category|
-      Category.create!(name: category,parent_id:113)
+      parent_id113.children.create!(name: category)
     end
     categories114.each do | category|
-      Category.create!(name: category,parent_id:114)
+      parent_id114.children.create!(name: category)
     end
     categories115.each do | category|
-      Category.create!(name: category,parent_id:115)
+      parent_id115.children.create!(name: category)
     end
     categories116.each do | category|
-      Category.create!(name: category,parent_id:116)
+      parent_id116.children.create!(name: category)
     end
     categories117.each do | category|
-      Category.create!(name: category,parent_id:117)
+      parent_id117.children.create!(name: category)
     end
     categories118.each do | category|
-      Category.create!(name: category,parent_id:118)
+      parent_id118.children.create!(name: category)
     end
     categories119.each do | category|
-      Category.create!(name: category,parent_id:119)
+      parent_id119.children.create!(name: category)
     end
     categories120.each do | category|
-      Category.create!(name: category,parent_id:120)
+      parent_id120.children.create!(name: category)
     end
     categories121.each do | category|
-      Category.create!(name: category,parent_id:121)
+      parent_id121.children.create!(name: category)
     end
     categories122.each do | category|
-      Category.create!(name: category,parent_id:122)
+      parent_id122.children.create!(name: category)
     end
     categories123.each do | category|
-      Category.create!(name: category,parent_id:123)
+      parent_id123.children.create!(name: category)
     end
     categories124.each do | category|
-      Category.create!(name: category,parent_id:124)
+      parent_id124.children.create!(name: category)
     end
     categories125.each do | category|
-      Category.create!(name: category,parent_id:125)
+      parent_id125.children.create!(name: category)
     end
     categories126.each do | category|
-      Category.create!(name: category,parent_id:126)
+      parent_id126.children.create!(name: category)
     end
     categories127.each do | category|
-      Category.create!(name: category,parent_id:127)
+      parent_id127.children.create!(name: category)
     end
     categories128.each do | category|
-      Category.create!(name: category,parent_id:128)
+      parent_id128.children.create!(name: category)
     end
     categories129.each do | category|
-      Category.create!(name: category,parent_id:129)
+      parent_id129.children.create!(name: category)
     end
     categories130.each do | category|
-      Category.create!(name: category,parent_id:130)
+      parent_id130.children.create!(name: category)
     end
     categories131.each do | category|
-      Category.create!(name: category,parent_id:131)
+      parent_id131.children.create!(name: category)
     end
     categories132.each do | category|
-      Category.create!(name: category,parent_id:132)
+      parent_id132.children.create!(name: category)
     end
     
     categories134.each do | category|
-      Category.create!(name: category,parent_id:134)
+      parent_id134.children.create!(name: category)
     end
     categories135.each do | category|
-      Category.create!(name: category,parent_id:135)
+      parent_id135.children.create!(name: category)
     end
     categories136.each do | category|
-      Category.create!(name: category,parent_id:136)
+      parent_id136.children.create!(name: category)
     end
     categories137.each do | category|
-      Category.create!(name: category,parent_id:137)
+      parent_id137.children.create!(name: category)
     end
     categories138.each do | category|
-      Category.create!(name: category,parent_id:138)
+      parent_id138.children.create!(name: category)
     end
     categories139.each do | category|
-      Category.create!(name: category,parent_id:139)
+      parent_id139.children.create!(name: category)
     end
     categories140.each do | category|
-      Category.create!(name: category,parent_id:140)
+      parent_id140.children.create!(name: category)
     end
     
     categories142.each do | category|
-      Category.create!(name: category,parent_id:142)
+      parent_id142.children.create!(name: category)
     end
     categories143.each do | category|
-      Category.create!(name: category,parent_id:143)
+      parent_id143.children.create!(name: category)
     end
     categories144.each do | category|
-      Category.create!(name: category,parent_id:144)
+      parent_id144.children.create!(name: category)
     end
     categories145.each do | category|
-      Category.create!(name: category,parent_id:145)
+      parent_id145.children.create!(name: category)
     end
     categories146.each do | category|
-      Category.create!(name: category,parent_id:146)
+      parent_id146.children.create!(name: category)
     end
     categories147.each do | category|
-      Category.create!(name: category,parent_id:147)
+      parent_id147.children.create!(name: category)
     end
     categories148.each do | category|
-      Category.create!(name: category,parent_id:148)
+      parent_id148.children.create!(name: category)
     end
     categories149.each do | category|
-      Category.create!(name: category,parent_id:149)
+      parent_id149.children.create!(name: category)
     end
     categories150.each do | category|
-      Category.create!(name: category,parent_id:150)
+      parent_id150.children.create!(name: category)
     end
     categories151.each do | category|
-      Category.create!(name: category,parent_id:151)
+      parent_id151.children.create!(name: category)
     end
     categories152.each do | category|
-      Category.create!(name: category,parent_id:152)
+      parent_id152.children.create!(name: category)
     end
     categories153.each do | category|
-      Category.create!(name: category,parent_id:153)
+      parent_id153.children.create!(name: category)
     end
     categories154.each do | category|
-      Category.create!(name: category,parent_id:154)
+      parent_id154.children.create!(name: category)
     end
-  
+Item.create!(
+  name: 'テスト太郎',
+  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+  status: 1,
+  shipping_fee: 1,
+  how_to_shipping: 1,
+  area: 1,
+  day: 1,
+  price: 1000,
+  brand_id: 1,
+  category_id: 3
+
+)
+Item.create!(
+  name: 'テスト太郎',
+  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+  status: 1,
+  shipping_fee: 1,
+  how_to_shipping: 1,
+  area: 1,
+  day: 1,
+  price: 1000,
+  brand_id: 2,
+  category_id: 7
+
+
+)
+Item.create!(
+  name: 'テスト太郎',
+  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+  status: 1,
+  shipping_fee: 1,
+  how_to_shipping: 1,
+  area: 1,
+  day: 1,
+  price: 1000,
+  brand_id: 2,
+  category_id: 4
+)
+Item.create!(
+  name: 'テスト太郎',
+  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+  status: 1,
+  shipping_fee: 1,
+  how_to_shipping: 1,
+  area: 1,
+  day: 1,
+  price: 1000,
+  brand_id: 4,
+  category_id: 2
+)
+Item.create!(
+  name: 'テスト太郎',
+  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+  status: 1,
+  shipping_fee: 1,
+  how_to_shipping: 1,
+  area: 1,
+  day: 1,
+  price: 1000,
+  brand_id: 1,
+  category_id: 1
+) 

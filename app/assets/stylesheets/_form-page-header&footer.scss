@@ -8,6 +8,99 @@
       padding: 36px 0;
     }
   }
+  &__registration {
+    height: 128px;
+    // line-height: 128px;
+    background-color: $background-color-gray;
+    text-align: center;
+    h1 {
+      display: inline-block;
+      margin-top: 40px;
+      vertical-align: middle;
+      a {
+        margin: 0 8px 0 0;
+      }
+    }
+    &__progress {
+      vertical-align: middle;
+      display: inline-block;
+      padding: 40px 0 0 44px;
+      ol {
+      }
+      li {
+        display: inline-block;
+        font-size: 12px;
+        color: #888;
+        margin-right: 40px;
+        position: relative;
+        z-index: 1;
+      }
+      li:first-child &__status {
+        &::before {
+          content: none;
+        }
+      }
+      li:last-child {
+        margin-right: 0px;
+        width: 30px;
+      }
+      li:last-child &__status {
+        &::after {
+          content: none;
+        }
+      }
+      &__status {
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #ccc;
+        border-radius: 50%;
+        &::before {
+          right: 50%;
+          position: absolute;
+          bottom: 5px;
+          z-index: -1;
+          display: block;
+          content: '';
+          width: 100%;
+          height: 2px;
+          background: #ccc;
+          border-style: solid;
+          border-width: 0;
+        }
+        &::after {
+          left: 50%;
+          position: absolute;
+          bottom: 5px;
+          z-index: -1;
+          display: block;
+          content: '';
+          width: 100%;
+          height: 2px;
+          background: #ccc;
+        }
+      }
+    }
+  }
+
+  .progress-red {
+    &__text {
+      font-weight: 600;
+      color: $red;
+    }
+    &__mark {
+      background: $red;
+    }
+  }
+
+  .change-red-front:before {
+    background: $red;
+  }
+
+  .change-red-back:after {
+    background: $red;
+  }
+
   
   &__footer {
     background-color: $background-color-gray;

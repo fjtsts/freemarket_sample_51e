@@ -16,8 +16,17 @@
               = link_to "/"  do
                 =fa_icon "bars"
                 %span カテゴリー
-            -#   =link_to(content_tag(:i,"カテゴリーから探す",class:"fa fa-bars"),"/")
-                
+              %ul#nav-drawer
+              
+                - @parents.each do |parent|
+                  %li.ctd__2
+                    =link_to "#{parent.name}","/"
+                    %ul#nav-drawer__2
+                      -parent.children.each do |child|
+                        %li
+                          =link_to "#{child.name}","/"
+                %li
+                  =link_to "カテゴリー一覧","/"
             %li.bl
               =link_to "/" do
                 =fa_icon "tag"
