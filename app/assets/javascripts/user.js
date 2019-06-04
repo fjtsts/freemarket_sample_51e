@@ -118,6 +118,7 @@ $(function() {
     $('#progress2-mark').addClass("progress-red__mark");
     $('#progress1-mark').addClass("change-red-back");
     $('#progress2-mark').addClass("change-red-front");
+    $("html,body").animate({scrollTop:0},"300");
   });
 
   $('.next2').on('click', function() {
@@ -142,6 +143,7 @@ $(function() {
       $('#progress3-mark').addClass("progress-red__mark");
       $('#progress2-mark').addClass("change-red-back");
       $('#progress3-mark').addClass("change-red-front");
+      $("html,body").animate({scrollTop:0},"300");
     }
   });
 
@@ -260,6 +262,7 @@ $(function() {
     $('#progress4-mark').addClass("progress-red__mark");
     $('#progress3-mark').addClass("change-red-back");
     $('#progress4-mark').addClass("change-red-front");
+    $("html,body").animate({scrollTop:0},"300");
   });
 
   $('#user_card_card_number').blur(function() {
@@ -323,5 +326,6 @@ $(function() {
     $('#progress5-mark').addClass("progress-red__mark");
     $('#progress4-mark').addClass("change-red-back");
     $('#progress5-mark').addClass("change-red-front");
+    $("html,body").animate({scrollTop:0},"300");
   });
 });
