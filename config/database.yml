@@ -52,6 +52,5 @@ production:
   database: freemarket_sample_51e_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  master_key: <%= ENV['RAILS_MASTER_KEY'] %>
   socket: /var/lib/mysql/mysql.sock
 
