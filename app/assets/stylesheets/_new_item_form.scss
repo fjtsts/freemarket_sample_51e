@@ -90,7 +90,7 @@
         display: inline-block;
       }
       &__warp--middle{
-        margin: 40px 0;
+        margin-top: 40px;
       }
       &__label {
         @include label;
@@ -115,6 +115,7 @@
     &__prace {
       &__warpper{
         width: 403px;
+        display: inline-block;
       }
       &__sub-head{
         @include label;
@@ -126,7 +127,7 @@
           @include question
         }
       }
-      &__warpper{
+      &__inner{
         display: inline-block;
       }
       &__label {
@@ -137,7 +138,7 @@
       }
       &__num{
         display: inline-block;
-        margin-left: 139px;
+        margin-left: 146px;
         &__input{
           @include input_box;
           width: 130px;
@@ -173,19 +174,19 @@
         }
       }
     }
-    &__btn{
+    &__notes{
       &__text{
         &--link{
           color: $light-blue;
           text-decoration: none;
         }
-        &__last{
-          padding-bottom: 20px;
-        }
       }
+    }
+
+    &__btn{
       &__box{
         text-align: center;
-        margin-top: 20px;
+        padding-bottom: 20px;
         height: 50px;
         color: white;
         &__sell{
@@ -204,7 +205,7 @@
           }
         }
       }
-    }  
+    }
     &__box{
       padding: 40px;
       border-top: solid 1px $background-color-gray;
