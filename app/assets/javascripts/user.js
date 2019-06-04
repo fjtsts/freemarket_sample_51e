@@ -9,7 +9,6 @@ $(function() {
       }
     } else {
       $('.nickname-message').remove();
-      console.log($(this).val());
     }
   });
 
@@ -24,7 +23,6 @@ $(function() {
       }
     } else {
       $('.mail-message').remove();
-      console.log($(this).val());
     }
   });
   
@@ -116,6 +114,10 @@ $(function() {
     $('.user-registration_form_title2').removeClass("hide");
     $('.user-registration_form_container1').addClass("hide");
     $('.user-registration_form_container2').removeClass("hide");
+    $('#progress2').addClass("progress-red__text");
+    $('#progress2-mark').addClass("progress-red__mark");
+    $('#progress1-mark').addClass("change-red-back");
+    $('#progress2-mark').addClass("change-red-front");
   });
 
   $('.next2').on('click', function() {
@@ -136,6 +138,10 @@ $(function() {
       $('.user-registration_form_title3').removeClass("hide");
       $('.user-registration_form_container2').addClass("hide");
       $('.user-registration_form_container3').removeClass("hide");
+      $('#progress3').addClass("progress-red__text");
+      $('#progress3-mark').addClass("progress-red__mark");
+      $('#progress2-mark').addClass("change-red-back");
+      $('#progress3-mark').addClass("change-red-front");
     }
   });
 
@@ -250,6 +256,10 @@ $(function() {
     $('.user-registration_form_title4').removeClass("hide");
     $('.user-registration_form_container3').addClass("hide");
     $('.user-registration_form_container4').removeClass("hide");
+    $('#progress4').addClass("progress-red__text");
+    $('#progress4-mark').addClass("progress-red__mark");
+    $('#progress3-mark').addClass("change-red-back");
+    $('#progress4-mark').addClass("change-red-front");
   });
 
   $('#user_card_card_number').blur(function() {
@@ -309,5 +319,9 @@ $(function() {
     $('.user-registration_form_title5').removeClass("hide");
     $('.user-registration_form_container4').addClass("hide");
     $('.user-registration_form_container5').removeClass("hide");
+    $('#progress5').addClass("progress-red__text");
+    $('#progress5-mark').addClass("progress-red__mark");
+    $('#progress4-mark').addClass("change-red-back");
+    $('#progress5-mark').addClass("change-red-front");
   });
 });
