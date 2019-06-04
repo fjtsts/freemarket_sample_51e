@@ -108,24 +108,31 @@ header{
             @extend .clearfix;
             position:relative;
             z-index:1;
-            
+        
             #nav-drawer{
-                display:none;
+                // display:none;
                 position:absolute;
                 background-color:$white;
                 height:600px;
                 width:250px;
                 font-size:14px;
-                li{
+                &__ctd2{
+                    width:600px;
+
                     padding-top:20px;
-                    padding-right:10px;
+                    padding-left:20px;
                     font-weight:normal;
                     letter-spacing: 2px;
-                    
+                    .child{
+                        width:600px;
+                        display:inline-block;
+                       
+                        padding-left:20px;
+                    }
                 }
             
                 &__2{
-                    display:none;
+                    // display:none;
                 position:absolute;
                 top:0px;
                 left:250px;
@@ -133,17 +140,47 @@ header{
                 height:600px;
                 width:250px;
                 font-size:14px;
+                
+                .cd2{
+                    width:600px;
+
+                    padding-top:20px;
+                    padding-left:20px;
+                    font-weight:normal;
+                    letter-spacing: 2px;
                 }
-                a:hover + #nav-drawer__2{
+                
+                }
+                 .chaild:hover +#nav-drawer__2  {
                     display:block;
-                    z-index:3;
-                    display:block;
+            
+                    z-index:2;
+                    &:hover  > #nav-drawer2 {
+                        display:block;
+                        z-index:4;
+                        margin-left:200px;
+                        a:hover + #nav-drawer{
+                            display:block;
+                            z-index:4;
+                            &:hover > #nav-drawer{
+                                display:block;
+                                width:600px;
+                                z-index:2;
+    
+                            
+                            }
+                        
+                
+                            
+                        }
+                        
+                    }
+                
+                    
         
                     
                 }
-                &:hover #nav-drawer:hover >#nav-drawer__2{
-                    display:block;
-                }
+                
                 
             }
             
@@ -151,11 +188,14 @@ header{
                 display:block;
                 z-index:3;
                 display:block;
+            
     
                 
             }
             &:hover > #nav-drawer{
                 display:block;
+                width:600px;
+            
             }
             i{
                  color:red;

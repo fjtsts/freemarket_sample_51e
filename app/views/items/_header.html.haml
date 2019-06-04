@@ -16,14 +16,15 @@
               = link_to "/"  do
                 =fa_icon "bars"
                 %span カテゴリー
+              
               %ul#nav-drawer
               
                 - @parents.each do |parent|
-                  %li.ctd__2
-                    =link_to "#{parent.name}","/"
+                  %li#nav-drawer__ctd2
+                    =link_to "#{parent.name}","/",class: "chaild"
                     %ul#nav-drawer__2
                       -parent.children.each do |child|
-                        %li
+                        %li.cd2
                           =link_to "#{child.name}","/"
                 %li
                   =link_to "カテゴリー一覧","/"
