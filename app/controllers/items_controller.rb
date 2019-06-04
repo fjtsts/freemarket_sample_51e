@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
     def new
         render layout: 'form-layout'
         @item = Item.new
-        # @image = @item.item_images.build
+        @image = @item.item_images.build
         @category = Category.ids
         @categories = Category.all
     end
@@ -40,13 +40,13 @@ class ItemsController < ApplicationController
     def create
     end
 
-    # def create
-    # end
+    def create
+    end
 
-    # def edit
-    #     @images = @product.images
-    #     @category = @product.category
-    #     @categories = Category.all
-    # end
+    def edit
+        @images = @product.images
+        @category = @product.category
+        @categories = Category.all
+    end
 
 end
