@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
     @user_profile = @user.build_user_profile
     @address = @user.build_address
-    render layout: 'form-layout'
+    render layout: 'form-layout-registration'
   end
 
   # POST /resource
