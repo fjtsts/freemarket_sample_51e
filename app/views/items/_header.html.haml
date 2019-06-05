@@ -17,21 +17,28 @@
                 =fa_icon "bars"
                 %span カテゴリー
               %ul#nav-drawer
-              
-                -# - @parents.each do |parent|
-                -#   %li.ctd__2
-                -#     =link_to "#{parent.name}","/"
-                -#     %ul#nav-drawer__2
-                -#       -parent.children.each do |child|
-                -#         %li
-                -#           =link_to "#{child.name}","/"
-                %li
-                  =link_to "カテゴリー一覧","/"
+                = render "items/category-menue"
+              -# %ul#nav-drawer
+              -#   - @parents.each do |parent|
+              -#     %li#nav-drawer__ctd2
+              -#       =link_to "#{parent.name}","/"
+              -#       %ul#nav-drawer__2
+              -#         -parent.children.each do |child|
+              -#           %li.cd3
+              -#             =link_to "#{child.name}","/"
+              -#   %li
+              -#     =link_to "カテゴリー一覧","/"
             %li.bl
               =link_to "/" do
                 =fa_icon "tag"
                 %span ブランドから探す
-                 
+              %ul.nav-drawer2
+                - Brand.all.each do |brand|
+                  %li.bl2
+                    =link_to "#{brand.name}","/"
+                %li.all-brand
+                  カテゴリー一覧
+                  
 
         .header-inner__bottom__nav2
           %ul.nav2
@@ -43,6 +50,7 @@
               %span やることリスト
             %li.mypage
               =link_to users_path  do
+
                 =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
                 %span マイページ
 

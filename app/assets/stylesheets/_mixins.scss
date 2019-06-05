@@ -60,5 +60,13 @@
   color: $color;
   background: white;
 }
+@mixin ctd{
+  width:250px;
+  padding-top:15px;
+  margin-left:20px;
+  font-weight:normal;
+  letter-spacing: 2px;
+}
+
 
 // @include btn_hover($color);
