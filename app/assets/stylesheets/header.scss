@@ -80,14 +80,19 @@ header{
             float:left;
             @extend .clearfix;
     .nav1{
+        width:320px;
         height:44px;
         margin-top:8px;
+        float:left;
         .bl{
             float:left;
+            pointer-events : auto;
             margin-right:30px;
+            position:relative;
             font-weight:bold;
             font-size:14px;
             @extend .clearfix;
+            z-index:1;
             i{
                 color:red;
            }
@@ -98,6 +103,7 @@ header{
                    color:$light-blue;
                  }
            }
+           
         }
         .ctd{
             pointer-events : auto;
@@ -108,54 +114,20 @@ header{
             @extend .clearfix;
             position:relative;
             z-index:1;
-            
-            #nav-drawer{
-                display:none;
-                position:absolute;
-                background-color:$white;
-                height:600px;
-                width:250px;
-                font-size:14px;
-                li{
-                    padding-top:20px;
-                    padding-right:10px;
-                    font-weight:normal;
-                    letter-spacing: 2px;
-                    
-                }
-            
-                &__2{
-                    display:none;
-                position:absolute;
-                top:0px;
-                left:250px;
-                background-color:$white;
-                height:600px;
-                width:250px;
-                font-size:14px;
-                }
-                a:hover + #nav-drawer__2{
-                    display:block;
-                    z-index:3;
-                    display:block;
+
         
-                    
-                }
-                &:hover #nav-drawer:hover >#nav-drawer__2{
-                    display:block;
-                }
-                
-            }
             
-            a:hover + #nav-drawer{
+            li:hover + #nav-drawer{
                 display:block;
                 z-index:3;
-                display:block;
+            
     
                 
             }
             &:hover > #nav-drawer{
                 display:block;
+            
+            
             }
             i{
                  color:red;
@@ -167,12 +139,32 @@ header{
                     color:$light-blue;
                   }
             }
-            
+
             }
-                
         }
-            
     }
+    .nav-drawer2{
+        width:200px;
+        height:200px;
+        display:none;
+        position:absolute;
+        background-color:$white;
+        font-size:14px;
+        .bl2{
+            @include ctd;
+
+        }
+        .all-brand{
+            @extend .bl2;
+        }
+    }
+    li:hover {
+        display:block;
+        
+        ul{
+          display:block;
+        }
+      }
         }
         
            
@@ -204,6 +196,9 @@ header{
                         top:50px;
                         right:200px;
                         }
+                        &:hover {
+                            color:$light-blue;
+                        }
                     i{
                         size:23px;
                         color:$light-gray;
@@ -218,6 +213,14 @@ header{
                     span{
                         font-size:14px;
                         height:18px;
+                        @extend .clearfix;
+                    }
+                    a{
+                        text-decoration: none;
+                        color:black;
+                    }
+                    &:hover {
+                        color:$light-blue;
                     }
                  }
             }

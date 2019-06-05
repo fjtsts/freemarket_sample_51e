@@ -91,7 +91,8 @@ gem "jquery-rails"
 gem 'dropzonejs-rails'
 gem 'devise'
 gem 'enum_help'
-gem 'ancestry'
+gem 'ancestry
+gem 'gretel'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
