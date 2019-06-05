@@ -16,7 +16,7 @@
               = link_to "/"  do
                 =fa_icon "bars"
                 %span カテゴリー
-                = render "category-menue"
+                = render "items/category-menue"
               -# %ul#nav-drawer
               -#   - @parents.each do |parent|
               -#     %li#nav-drawer__ctd2
@@ -32,7 +32,7 @@
                 =fa_icon "tag"
                 %span ブランドから探す
               %ul.nav-drawer2
-                - @brands.each do |brand|
+                - Brand.all.each do |brand|
                   %li.bl2
                     =link_to "#{brand.name}","/"
                 %li.all-brand
@@ -48,6 +48,7 @@
               =fa_icon "check"
               %span やることリスト
             %li.mypage
-              =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
-              %span マイページ
+              =link_to "users/index" do
+                =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
+                %span マイページ
 

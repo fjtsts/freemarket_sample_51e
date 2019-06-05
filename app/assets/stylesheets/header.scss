@@ -196,6 +196,9 @@ header{
                         top:50px;
                         right:200px;
                         }
+                        &:hover {
+                            color:$light-blue;
+                        }
                     i{
                         size:23px;
                         color:$light-gray;
@@ -210,6 +213,14 @@ header{
                     span{
                         font-size:14px;
                         height:18px;
+                        @extend .clearfix;
+                    }
+                    a{
+                        text-decoration: none;
+                        color:black;
+                    }
+                    &:hover {
+                        color:$light-blue;
                     }
                  }
             }
