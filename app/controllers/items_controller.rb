@@ -28,9 +28,9 @@ class ItemsController < ApplicationController
         render layout: 'form-layout'
         @item = Item.new
         @image = @item.item_images.build
-        @category = Category.ids
-        @categories = Category.all
-        @parents = Category.all.order("id ASC").limit(13)
+        # @category = Category.ids
+        # @categories = Category.all
+        # @parents = Category.all.order("id ASC").limit(13)
     end
 
     def create
