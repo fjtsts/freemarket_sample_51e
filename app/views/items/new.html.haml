@@ -37,15 +37,15 @@
                   = f.label "カテゴリー", class:"sell-form__main__detail__label"
                   %span{class:"sell-form__main__detail__label--require"} 必須
                 .sell-form__main__detail__select-box
-                  -# = f.collection_select :item_categories, @categories[1..12],include_blank: "---" ,class: "sell-form__main__detail__select-box__text"
+                  = f.collection_select :category_id, Category.all.order("id ASC").limit(13),:id, :name, {include_blank: "---" },{ class:"sell-form__main__detail__select-box__text", required:"required"}
                   =fa_icon "angle-down sell-form__angle-down"
               .sell-form__main__detail__warp
                 .sell-form__main__detail
                   = f.label "商品の状態", class:"sell-form__main__detail__label"
                   %span{class:"sell-form__main__detail__label--require"} 必須
-                = f.select :status, options_for_select({'新品、未使用':1,'未使用に近い':2,'目立った傷や汚れなし':3,'やや汚れや傷あり':4,'傷や汚れあり':5,'全体的に状態が悪い':6}), { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
-                =fa_icon "angle-down sell-form__angle-down"
-                  
+                .sell-form__main__detail__select-box
+                  = f.select :status, options_for_select({'新品、未使用':1,'未使用に近い':2,'目立った傷や汚れなし':3,'やや汚れや傷あり':4,'傷や汚れあり':5,'全体的に状態が悪い':6}), { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
+                  =fa_icon "angle-down sell-form__angle-down"
 
           .sell-form__main__delivery.sell-form__main__box
             %h3.sell-form__main__delivery__sub-head
