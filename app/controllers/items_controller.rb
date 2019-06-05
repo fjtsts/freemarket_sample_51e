@@ -20,8 +20,9 @@ class ItemsController < ApplicationController
         render layout: 'form-layout'
         @item = Item.new
         @image = @item.item_images.build
-        @category = Category.ids
-        @categories = Category.all
+        # @category = Category.ids
+        # @categories = Category.all
+        # @parents = Category.all.order("id ASC").limit(13)
     end
 
     def create
@@ -29,10 +30,9 @@ class ItemsController < ApplicationController
 
         if @item.save
             params[:item_images][:image].each do |i|   # .reverse
-                @image = @item.item_images.create(image: i.original_filename, item_id: @item.id)
+                @image = @item.item_images.create(image: i.tempfile, item_id: @item.id)
             end
-            # association,dbcreateまだ
-            # @item.exihibits.create(status: 1,item_id: @item.id, user_id: current_user.id)
+            Exhibit.create(item_id: @item.id, user_id: current_user.id)
             redirect_to root_path
         else
             render :index
@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
 
     private
     def item_params
-        params.permit(:name, :description, :status, :shipping_fee, :how_to_shipping, :area, :day, :price, item_images_attributes: [:image])
+        params.permit(:name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :area, :day, :price, item_images_attributes: [:image])
     end
-          #  .require(:item)    #  , :size, :category_id,  .merge(user_id: current_user.id)
+          #  .require(:item)    #  , :size,   .merge(user_id: current_user.id)
 end
