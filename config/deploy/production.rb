@@ -59,6 +59,5 @@ server "3.113.56.233",
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
   }
-
-# set :rails_env, "production"
-# set :unicorn_rack_env, "production"
+set :rails_env, "production"
+set :unicorn_rack_env, "production"
