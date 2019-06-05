@@ -34,14 +34,17 @@ li:hover {
   
   ul{
     display:block;
+    li{
+      display:block;
+    }
   }
 }
 
-// li:hover  > ul{
-//   display:block;
+li:hover  > ul{
+  display:block;
 
 
-// }
+}
 #nav-drawer__2{
   display:none;
 position:absolute;
