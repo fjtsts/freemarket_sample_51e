@@ -18,16 +18,6 @@
                 %span カテゴリー
               %ul#nav-drawer
                 = render "items/category-menue"
-              -# %ul#nav-drawer
-              -#   - @parents.each do |parent|
-              -#     %li#nav-drawer__ctd2
-              -#       =link_to "#{parent.name}","/"
-              -#       %ul#nav-drawer__2
-              -#         -parent.children.each do |child|
-              -#           %li.cd3
-              -#             =link_to "#{child.name}","/"
-              -#   %li
-              -#     =link_to "カテゴリー一覧","/"
             %li.bl
               =link_to "/" do
                 =fa_icon "tag"
