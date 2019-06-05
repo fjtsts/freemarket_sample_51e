@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 # before_action :authenticate_user!, only: [:new]
+before_action :set_parents, only: [:new, :edit]
 
     def index
 
@@ -29,8 +30,6 @@ class ItemsController < ApplicationController
         @item = Item.new
         @image = @item.item_images.build
         # @category = Category.ids
-        # @categories = Category.all
-        # @parents = Category.all.order("id ASC").limit(13)
     end
 
     def create
@@ -50,7 +49,6 @@ class ItemsController < ApplicationController
     # def edit
     #     @images = @item.images
     #     @category = @item.category
-    #     @categories = Category.all
     # end
 
     def show
@@ -65,5 +63,8 @@ class ItemsController < ApplicationController
     def item_params
         params.permit(:name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :area, :day, :price, item_images_attributes: [:image])
     end
-          #  .require(:item)    #  , :size,   .merge(user_id: current_user.id)
+          #  .require(:item)    #  , :size
+    def set_parents
+        @parents = Category.where(ancestry: nil)
+    end
 end
