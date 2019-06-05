@@ -82,9 +82,14 @@
   background: #fafafa;
   
   &__top {
+    position: relative;
     width: 300px;
     height: 300px;
-    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: scale-down;
+    }
   }
   
   &__bottomBox {
@@ -98,6 +103,12 @@
       height: 60px;
       max-height: none;
       float: left;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 }
@@ -611,4 +622,63 @@ display: inline-block;
   display: block;
   line-height: 48px;
   font-size: 14px;
+}
+
+
+// test
+.bl_sliderBlock{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+.el_menuSliderCounter{
+  padding: 10px 0 0;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 0.2em;
+}
+
+.slick-initialized .slick-slide{
+  position: relative;
+}
+
+.bl_sliderBlock_slide > img{
+  width: 100%;
+  max-width: 790px;
+}
+
+/*スライダー送り矢印のCSS*/
+.slider-arrow{
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  top: calc(50%);
+  transform: translateY(-50%);
+}
+
+.slider-arrow.slider-prev{
+  left: calc((100% - 800px)/2 - 30px);
+  transform: translate(-100%,-50%);
+}
+@media screen and (max-width: 640px){
+  .slider-arrow.slider-prev{
+      transform: translate(0,-50%);
+      left: 20px; 
+  }
+}
+
+.slider-arrow.slider-next{
+  right: calc((100% - 800px)/2 - 30px);
+  transform: translate(100%,-50%);
+}
+@media screen and (max-width: 640px){
+  .slider-arrow.slider-next{
+      transform: translate(0,-50%);
+      right: 20px;    
+  }
+}
+
+.slider-arrow img{
+  width: 35px;
+  height: 50px;
 }

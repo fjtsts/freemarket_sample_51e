@@ -9,6 +9,10 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def new
+    render layout: 'form-layout'
+  end
+
   def logout
   end
 
