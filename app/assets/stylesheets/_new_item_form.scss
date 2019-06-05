@@ -62,9 +62,8 @@
           @include require;
         }
       }
-      // 商品詳細　select
       &__select-box {
-        height: 40px;
+        height: 50px;
         &__text {
           @include input_box;
           @include input_box_option;
@@ -101,7 +100,7 @@
       }
       // 商品詳細　select
       &__select-box {
-        height: 40px;
+        height: 50px;
         &__text {
           @include input_box;
           @include input_box_option;
@@ -210,6 +209,9 @@
       padding: 40px;
       border-top: solid 1px $background-color-gray;
     }
+  }
+  &__lastbox{
+    height: 40px;
   }
 }
 .fa-sell-form__angle-down {
