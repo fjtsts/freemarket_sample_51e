@@ -4,15 +4,15 @@
       %h2.user-form__main__data 
         新規会員登録
       .user-form__main__box
-        %a{href: new_user_registration_path}
+        = link_to new_user_registration_path do
           .user-form__main__box__mail
             %i.fa.fa-envelope
             メールアドレスで登録
-        %a{href: user_facebook_omniauth_authorize_path}
+        = link_to user_facebook_omniauth_authorize_path do
           .user-form__main__box__facebook
             %i.fab.fa-facebook-square
             Facebookで登録
-        %a{href: user_google_oauth2_omniauth_authorize_path}
+        = link_to user_google_oauth2_omniauth_authorize_path do
           .user-form__main__box__google
             %i.fab.fa-google
             Googleで登録
