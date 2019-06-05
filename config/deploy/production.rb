@@ -54,9 +54,9 @@ server "3.113.56.233",
   roles: %w{app db web},
   ssh_options: {
     port: 3000,
-    user: "user_name", # overrides user setting above
+    user: "ec2-user", # overrides user setting above
     keys: %w(~/.ssh/51e.pem),,
-    forward_agent: true,
+    forward_agent: true
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
   }
