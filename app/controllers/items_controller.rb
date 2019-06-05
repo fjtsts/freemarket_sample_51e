@@ -4,11 +4,13 @@ class ItemsController < ApplicationController
     def index
 
 
-        @parents = Category.all.order("id ASC").limit(13
+        @parents = Category.all.order("id ASC").limit(13)
+        @brands = Brand.all.order("id ASC").limit(4)
         @category1 = Category.find(1)
         @category2= Category.find(2)
         @category3= Category.find(3)
         @category4= Category.find(4)
+        
         @items1 =  @category1.items.all.order("created_at DESC").limit(4)
         @items2 =  @category2.items.all.order("created_at DESC").limit(4)
         @items3 =  @category3.items.all.order("created_at DESC").limit(4)

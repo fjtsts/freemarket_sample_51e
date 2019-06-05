@@ -1996,7 +1996,7 @@ categories154 = %w{
 
   
     categories14.each do | category|
-      parent_id14.children.create!(name: Category)
+      parent_id14.children.create!(name: category)
     end
     categories15.each do | category|
       parent_id15.children.create!(name: category)
