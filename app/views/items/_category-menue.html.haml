@@ -1,16 +1,14 @@
-%ul#nav-drawer
-  - Category.all.order("id ASC").limit(13).each do |parent|
-    %li#nav-drawer__ctd2
-      =link_to "#{parent.name}","/"
-      %ul#nav-drawer__2
-        -parent.children.each do |chaild|
-          %li#nav-drawer__ctd3
-            =link_to "#{chaild.name}","/"
-            %ul#nav-drawer__3
-              -chaild.children.each do |grandchaild|
-                %li#nav-drawer__ctd4
-                  =link_to "#{ grandchaild.name}","/"
-
-  %li.all
-    =link_to "カテゴリー一覧","/"
+- Category.all.order("id ASC").limit(13).each do |parent|
+  %li#nav-drawer__ctd2
+    =link_to "#{parent.name}","categories/#{parent.id}"
+    %ul#nav-drawer__2
+      -parent.children.each do |chaild|
+        %li#nav-drawer__ctd3
+          =link_to "#{chaild.name}","categories/#{chaild.id}"
+          %ul#nav-drawer__3
+            -chaild.children.each do |grandchaild|
+              %li#nav-drawer__ctd4
+                =link_to "#{ grandchaild.name}","categories/#{grandchaild.id}"
+%li.all
+  =link_to "カテゴリー一覧",categories_path
   
