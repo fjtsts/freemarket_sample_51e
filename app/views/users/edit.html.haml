@@ -6,15 +6,17 @@
       .userProfileEdit__main
         %section
           %h2.userProfileEdit__main__head プロフィール
-          %form{action: ""}
+          = form_for @user do |f|
             %input{type: "hidden"}/
             .userProfileEdit__main__image
               %figure.userProfileEdit__main__image__user
-                =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "60px", width: "60px")
-                %input.userProfileEdit__main__image__user__nameBtn{name: "nikname", placeholder: "例)AYA★セール中", type: "text"}/
-          .userProfileEdit__main__bottom
-            %form.userProfileEdit__main__bottom__form{action: ""}
-              %textarea.userProfileEdit__main__bottom__form__comment{name: "comment", type: "text", value: ""}
-              =button_tag type: "submit", name: "button", class: "userProfileEdit__main__bottom__form__btn" do
-                %span 変更する
+                - if @userprofile.avatar == nil
+                  =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "60px", width: "60px")
+                - else
+                  =image_tag("#{@userprofile.avatar}",alt: "usre", height: "60px", width: "60px")
+                = f.text_field :nickname ,class: "userProfileEdit__main__image__user__nameBtn", placeholder: "例)AYA★セール中"
+            .userProfileEdit__main__bottom
+              = f.fields_for @userprofile do |prf|
+                = prf.text_field :introduction,class: "userProfileEdit__main__bottom__form__comment"
+              = f.submit "変更する", class: "userProfileEdit__main__bottom__form__btn", name: "button"
       .clearBoth

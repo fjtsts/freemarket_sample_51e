@@ -18,13 +18,13 @@
                 %span カテゴリー
               %ul#nav-drawer
               
-                - @parents.each do |parent|
-                  %li.ctd__2
-                    =link_to "#{parent.name}","/"
-                    %ul#nav-drawer__2
-                      -parent.children.each do |child|
-                        %li
-                          =link_to "#{child.name}","/"
+                -# - @parents.each do |parent|
+                -#   %li.ctd__2
+                -#     =link_to "#{parent.name}","/"
+                -#     %ul#nav-drawer__2
+                -#       -parent.children.each do |child|
+                -#         %li
+                -#           =link_to "#{child.name}","/"
                 %li
                   =link_to "カテゴリー一覧","/"
             %li.bl
