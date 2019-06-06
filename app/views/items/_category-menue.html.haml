@@ -1,4 +1,3 @@
-
 - Category.all.order("id ASC").limit(13).each do |parent|
   %li#nav-drawer__ctd2
     =link_to "#{parent.name}","categories/#{parent.id}"

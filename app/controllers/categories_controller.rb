@@ -7,3 +7,5 @@ class CategoriesController < ApplicationController
     @items = @category.items.order("created_at DESC").page(params[:page]).per(60)
   end
   end
+
+  

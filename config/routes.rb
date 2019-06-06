@@ -14,3 +14,4 @@ Rails.application.routes.draw do
   get '/purchases/:id/new', to: 'purchases#new'
   get '/users/:id/logout', to: 'users#logout'
 end
+
