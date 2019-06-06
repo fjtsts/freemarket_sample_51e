@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :addresses, only: [:new, :create, :edit]
   resources :users, only: [:index, :show, :edit, :new]
   resources :purchases, only: [:new]
+  resources :categories, only:[:index,:show]
   root      "items#index"
   get '/purchases/:id/new', to: 'purchases#new'
   get '/users/:id/logout', to: 'users#logout'

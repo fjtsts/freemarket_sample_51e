@@ -1,0 +1,23 @@
+-breadcrumb :categories
+.category-container
+  %h2.category-container__title カテゴリー一覧
+  .category-container__parent-box
+    -@parents.each do |parent|
+      =link_to "#{parent.name}","/",class: "parent-link"
+  -@parents.each do |parent|
+    .category-container__list-box
+      .category-container__list-box__parent-title #{parent.name}
+      .category-container__list-box__inner-box
+        %p.category-container__list-box__inner-box__ladies-all
+          = link_to "すべて","/"
+        -parent.children.each do |chaild|
+          .category-container__list-box__inner-box__sub-title
+            %h4 #{chaild.name}
+            .category-container__list-box__inner-box__container
+              .category-container__list-box__inner-box__container__title
+                %p
+                  = link_to "すべて","category_path" 
+              -chaild.children.each do |grandchaild|
+                .category-container__list-box__inner-box__container__title
+                  %p
+                    = link_to "#{grandchaild.name}","categories/#{grandchaild.id}" 
