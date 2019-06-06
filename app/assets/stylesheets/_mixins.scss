@@ -67,6 +67,48 @@
   font-weight:normal;
   letter-spacing: 2px;
 }
+@mixin box{
+  height:330px;
+  width:213px;
+  margin:0 0 20px 20px;
+  background:white;
+}
+@mixin image-wrapper{
+  height:220px;
+
+}
+@mixin image{
+  height:100%;
+  width:100%;
+}
+@mixin text{
+  height:110px;
+  padding:15px;
+
+}
+@mixin title{
+  font-size:16px;
+  height:48px;
+  word-wrap:wrap;
+}
+@mixin tax{
+  font-size:10px;
+}
+@mixin num{
+  height:14px;
+  margin-top:8px;
+  @extend .clearfix;
+}
+@mixin price{
+  font-size:17px;
+}
+@mixin icon-like{
+  float:right;
+}
+@mixin like-num{
+  float:right;
+}
+
 
 
 // @include btn_hover($color);
