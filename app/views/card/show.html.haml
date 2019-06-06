@@ -1,10 +1,25 @@
-%label 登録クレジットカード情報
-%br
-= "**** **** **** " + @default_card_information.last4
-%br
-- exp_month = @default_card_information.exp_month.to_s
-- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-= exp_month + " / " + exp_year
-= form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
-  %input{ type: "hidden", name: "card_id", value: "" }
-  %button 削除する
+-breadcrumb :users 
+.user-main
+  .user-container
+    = render './users/sidebar'
+    .user-container_right-content
+      .user-container_right-content_form
+        .user-container_right-content__head
+          %h2 支払い方法
+        .user-container_right-content__detail
+          .user-container_right-content__detail__content
+            .user-container_right-content__detail__content__group
+              %label クレジットカード一覧
+              %img{src: "https://about.mercari.com/wordpress/wp-content/uploads/2016/11/jcb.png", height: "70px"}
+              %br
+              = "**** **** **** " + @default_card_information.last4
+              %br
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+              = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+                %input{ type: "hidden", name: "card_id", value: "" }
+                %button 削除する
+          .user-container_right-content__detail__foot
+            %p.user-form__main__box__link
+              %a{href: "https://www.mercari.com/jp/help_center/category/6/", target: "_blank"} 支払い方法について >
