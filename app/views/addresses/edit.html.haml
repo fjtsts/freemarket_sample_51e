@@ -4,19 +4,13 @@
     = render 'users/sidebar'
     .user-container_right-content
       .user-container_right-content_address
-        %h2.user-container_right-content_address_chapter 本人情報の登録
+        %h2.user-container_right-content_address_chapter 発送元・お届け先住所変更
         .user-container_right-content_address_content
           = form_with model: current_user,  html:{multipart: true, method: "POST"}, local: true do |f|
-            .user-container_right-content_address_content_description
-              %p
-                お客様の本人情報をご登録ください。
-                登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-              %p.user-container_right-content_address_content_description--link
-                %a{href: ""}
-                  本人書類のアップロードについて＞
             .user-container_right-content_address_content_form-group
-              %label お名前
-              %p #{current_user.user_profile.last_name} #{current_user.user_profile.first_name}
+              %label{for: "last_name"} お名前
+              %span.form-arbitrary 必須
+              = f.text_field :last_name, class: "input-default", placeholder: "例）山田",value: "#{current_user.address.last_name}"
             .user-container_right-content_address_content_form-group
               %label お名前カナ
               %p #{current_user.user_profile.last_name_kata} #{current_user.user_profile.first_name_kata}
@@ -32,7 +26,6 @@
               %span.form-arbitrary 任意
               .user-container_right-content_address_content_select-wrap
                 = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "--", required:"required"},{class:"user-container_right-content_address_content_select-default"}
-                =fa_icon "angle-down user-address-angle-down"
             .user-container_right-content_address_content_form-group
               %label{for: "city"} 市区町村
               %span.form-arbitrary 任意
@@ -51,3 +44,4 @@
                 =link_to "" do
                   本人情報について＞
 
+            

@@ -11,6 +11,10 @@
   -webkit-appearance: none; //safari
   -moz-appearance: none;    //firefox
   appearance: none;
+  &:focus {
+  outline: 0;
+  border: solid 1px $light-blue;
+}
 }
 @mixin input_box_option{
   display: block;
@@ -27,7 +31,16 @@
   display: inline-block;
   font-weight: bold;
 }
-
+@mixin require_color_option($backgrount-color) {
+  font-size: 12px;
+  padding: 2px 4px;
+  margin-left: 8px;
+  border-radius: 2px;
+  color: white;
+  background-color: $backgrount-color;
+  display: inline-block;
+  font-weight: bold;
+ }
 @mixin question {
   width: 14px;
   height: 14px;
@@ -109,6 +122,8 @@
   float:right;
 }
 
-
-
-// @include sell_btn($color);
+@mixin chapter {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
