@@ -48,8 +48,6 @@
             %button.user-container_right-content_address_content_btn-default{type: "button"} 登録する
             .user-container_right-content_address_content_form-group_text-right
               %p
-                %a{href: ""}
+                =link_to "" do
                   本人情報について＞
 
-            
-          = link_to "log_out",destroy_user_session_path,method: :delete
