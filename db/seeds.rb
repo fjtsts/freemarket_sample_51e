@@ -2487,3 +2487,66 @@ Item.create!(
   brand_id: 1,
   category_id: 1
 ) 
+Item.create!(
+  name: 'テスト太郎',
+  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+  status: 1,
+  shipping_fee: 1,
+  how_to_shipping: 1,
+  area: 1,
+  price: 1000,
+  brand_id: 3,
+  category_id: 3
+
+)
+Item.create!(
+  name: 'テスト太郎',
+  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+  status: 1,
+  shipping_fee: 1,
+  how_to_shipping: 1,
+  area: 1,
+  day: 1,
+  price: 5000,
+  brand_id: 3,
+  category_id: 5
+
+
+)
+Item.create!(
+  name: 'テスト太郎',
+  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+  status: 1,
+  shipping_fee: 1,
+  how_to_shipping: 1,
+  area: 1,
+  day: 1,
+  price: 4000,
+  brand_id: 1,
+  category_id: 3
+)
+Item.create!(
+  name: 'テスト太郎',
+  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+  status: 1,
+  shipping_fee: 1,
+  how_to_shipping: 1,
+  area: 1,
+  day: 1,
+  price: 3000,
+  brand_id: 2,
+  category_id: 3
+)
+Item.create!(
+  name: 'テスト太郎',
+  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+  status: 1,
+  shipping_fee: 1,
+  how_to_shipping: 1,
+  area: 1,
+  day: 1,
+  price: 2000,
+  brand_id: 2,
+  category_id: 2
+) 
+

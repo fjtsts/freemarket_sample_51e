@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 # before_action :authenticate_user!, only: [:new]
 
     def index
+        @item_images =ItemImage.all
         @items1 =  Category.first.items.all.order("created_at DESC").limit(4)
         @items2 =  Category.second.items.all.order("created_at DESC").limit(4)
         @items3 =  Category.third.items.all.order("created_at DESC").limit(4)
