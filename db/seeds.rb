@@ -2494,6 +2494,7 @@ Item.create!(
   shipping_fee: 1,
   how_to_shipping: 1,
   area: 1,
+  day: 1,
   price: 1000,
   brand_id: 3,
   category_id: 3
