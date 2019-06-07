@@ -1,21 +1,22 @@
+.swiper-container
+  .swiper-wrapper
+    -# slides
+    .swiper-slide
+      = image_tag 'banner-new-life.jpg', alt: 'swipe01'
+      .swiper-button-prev
+      .swiper-button-next
+    .swiper-slide
+      = image_tag 'banner-bokurano-heisei.jpg', alt: 'swipe02'
+      .swiper-button-prev
+      .swiper-button-next
+    .swiper-slide
+      = image_tag 'banner-new-register.jpg', alt: 'swipe03'
+      .swiper-button-prev
+      .swiper-button-next
+    
+      .swiper-pagination
 .pickup-container
-  .swiper-container
-    .swiper-wrapper
-      -# slides
-      .swiper-slide
-        = image_tag 'banner-new-life.jpg', alt: 'swipe01'
-        .swiper-button-prev
-        .swiper-button-next
-      .swiper-slide
-        = image_tag 'banner-bokurano-heisei.jpg', alt: 'swipe02'
-        .swiper-button-prev
-        .swiper-button-next
-      .swiper-slide
-        = image_tag 'banner-new-register.jpg', alt: 'swipe03'
-        .swiper-button-prev
-        .swiper-button-next
-      
-        .swiper-pagination
+
   %h2 ピックアップカテゴリー 
   %h3
     =link_to "レディース新着アイテム","/"
