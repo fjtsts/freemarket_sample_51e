@@ -2,8 +2,6 @@
     background :#fff;
     text-decoration: none;
     height:100px;
-    position:absolute;
-    z-index:2;
   .header-inner{
      width:1020px;
      padding:0 210px;
@@ -88,7 +86,7 @@
             font-weight:bold;
             font-size:14px;
             @extend .clearfix;
-            z-index:1;
+            z-index:2;
             i{
                 color:red;
            }
@@ -109,7 +107,7 @@
             font-size:14px;
             @extend .clearfix;
             position:relative;
-            z-index:1;
+            z-index:2;
 
         
             
