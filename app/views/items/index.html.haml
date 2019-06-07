@@ -1,4 +1,21 @@
 .pickup-container
+  .swiper-container
+    .swiper-wrapper
+      -# slides
+      .swiper-slide
+        = image_tag 'banner-new-life.jpg', alt: 'swipe01'
+        .swiper-button-prev
+        .swiper-button-next
+      .swiper-slide
+        = image_tag 'banner-bokurano-heisei.jpg', alt: 'swipe02'
+        .swiper-button-prev
+        .swiper-button-next
+      .swiper-slide
+        = image_tag 'banner-new-register.jpg', alt: 'swipe03'
+        .swiper-button-prev
+        .swiper-button-next
+      
+        .swiper-pagination
   %h2 ピックアップカテゴリー 
   %h3
     =link_to "レディース新着アイテム","/"
@@ -135,207 +152,4 @@
             =fa_icon "heart",class:"icon-like"
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
-  -# .view-all.clearfix
-  -#   =link_to "すべての商品をみる","/"
-      -# .pickup-container__item-boxs__box
-      -#   .pickup-container__item-boxs__box__image
-      -#     =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-      -#   .pickup-container__item-boxs__box__text
-      -#     .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-      -#     .pickup-container__item-boxs__box__text__num
-            
-      -#       %span.like-num 15
-      -#       =fa_icon "heart",class:"icon-like"
-      -#       .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-      -#     .pickup-container__item-boxs__box__text__title__tax (税込)
-      -# .pickup-container__item-boxs__box
-      -#   .pickup-container__item-boxs__box__image
-      -#     =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-      -#   .pickup-container__item-boxs__box__text
-      -#     .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-      -#     .pickup-container__item-boxs__box__text__num
-            
-      -#       %span.like-num 15
-      -#       =fa_icon "heart",class:"icon-like"
-      -#       .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-      -#     .pickup-container__item-boxs__box__text__title__tax (税込)
-      -# .pickup-container__item-boxs__box
-      -#   .pickup-container__item-boxs__box__image
-      -#     =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-      -#   .pickup-container__item-boxs__box__text
-      -#     .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-      -#     .pickup-container__item-boxs__box__text__num
-            
-      -#       %span.like-num 15
-      -#       =fa_icon "heart",class:"icon-like"
-      -#       .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-      -#     .pickup-container__item-boxs__box__text__title__tax (税込)
-    -# .view-all.clearfix
-    -#   =link_to "すべての商品をみる",""
-      
-    -# %h3
-    -#   =link_to "レディース新着アイテム","/"
-    -# .pickup-container__item-boxs
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-            
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#       .pickup-container__item-boxs__box__text__title__tax (税込)
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-            
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#       .pickup-container__item-boxs__box__text__title__tax (税込)
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-            
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#       .pickup-container__item-boxs__box__text__title__tax (税込)
-    -# %h3
-    -#   =link_to "レディース新着アイテム","/"
-    -# .pickup-container__item-boxs
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-            
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#       .pickup-container__item-boxs__box__text__title__tax (税込)
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-            
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#       .pickup-container__item-boxs__box__text__title__tax (税込)
-    -# %h3
-    -#   =link_to "レディース新着アイテム","/"
-    -# .pickup-container__item-boxs
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-            
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#       .pickup-container__item-boxs__box__text__title__tax (税込)
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-            
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#       .pickup-container__item-boxs__box__text__title__tax (税込)
-    -# %h3
-    -#   =link_to "レディース新着アイテム","/"
-    -# .pickup-container__item-boxs
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-            
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#       .pickup-container__item-boxs__box__text__title__tax (税込)
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-            
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#       .pickup-container__item-boxs__box__text__title__tax (税込)
-    -# %h3
-    -#   =link_to "レディース新着アイテム","/"
-    -# .pickup-container__item-boxs
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-            
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#       .pickup-container__item-boxs__box__text__title__tax (税込)
-    -# %h3
-    -#   =link_to "レディース新着アイテム","/"
-    -# .pickup-container__item-boxs
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-            
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#       .pickup-container__item-boxs__box__text__title__tax (税込)
-    -# %h3
-    -#   =link_to "レディース新着アイテム","/"
-    -# .pickup-container__item-boxs
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-            
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#       .pickup-container__item-boxs__box__text__title__tax (税込)
-    -#   .pickup-container__item-boxs__box
-    -#     .pickup-container__item-boxs__box__image
-    -#       =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",class: "images")
-    -#     .pickup-container__item-boxs__box__text
-    -#       .pickup-container__item-boxs__box__text__title リュック 星柄 (クマのチャーム付き)
-    -#       .pickup-container__item-boxs__box__text__num
-
-    -#         %span.like-num 15
-    -#         =fa_icon "heart",class:"icon-like"
-    -#         .pickup-container__item-boxs__box__text__num__price ¥ 3,800
-    -#         .pickup-container__item-boxs__box__text__title__tax (税込)
-  -# =render "footer"
-  
+= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"
