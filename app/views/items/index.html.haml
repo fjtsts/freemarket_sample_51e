@@ -23,6 +23,7 @@
   .pickup-container__item-boxs
     -@items1.each do |item|
       .pickup-container__item-boxs__box
+       =link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
           =image_tag(item.description,class: "images")
         .pickup-container__item-boxs__box__text

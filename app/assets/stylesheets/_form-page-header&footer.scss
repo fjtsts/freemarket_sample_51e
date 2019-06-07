@@ -1,15 +1,16 @@
 .form-page{
   &__header{
-    height: 128px;
+    height: 50px;
     background-color: $background-color-gray;
     text-align: center;
+    padding-bottom:30px;
     &__text{
       height: 56px;
       padding: 36px 0;
     }
   }
   &__registration {
-    height: 128px;
+    height: 50px;
     // line-height: 128px;
     background-color: $background-color-gray;
     text-align: center;
@@ -22,6 +23,7 @@
       }
     }
     &__progress {
+      padding-top:30px;
       vertical-align: middle;
       display: inline-block;
       padding: 40px 0 0 44px;
