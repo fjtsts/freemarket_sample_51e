@@ -56,4 +56,9 @@ end
 crumb :new_user do
   link "New User", new_user_path
   parent :users
+end 
+#categories#index
+crumb :categories do
+  link "カテゴリー一覧",categories_path
+  parent :root
 end
