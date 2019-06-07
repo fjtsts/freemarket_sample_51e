@@ -32,13 +32,11 @@
 li:hover {
   display:block;
   
-  ul{
+  .nav-drawer__2{
     display:block;
-    li{
-      display:block;
     }
   }
-}
+
 
 li:hover  > ul{
   display:block;
