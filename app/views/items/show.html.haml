@@ -18,16 +18,11 @@
           / 売り切れマーク
           -# .itemDetail__main__photo__soldOut
           -# =image_tag(@item_images.name, height: "300px", width: "300px") alt: "",
-          =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", id: "photoMain", "data-url": "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg" ,alt: "bag1")
+          =image_tag("#{@item.item_images[0].image}", id: "photoMain", "data-url": "#{@item.item_images[0].image}" ,alt: "bag1")
         .itemDetail__main__photo__bottomBox
-          .itemDetail__main__photo__bottomBox__bottom
-            =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "photosub", id: "photoSub","data-url": "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag2")
-          .itemDetail__main__photo__bottomBox__bottom
-            =image_tag("https://www.pakutaso.com/shared/img/thumb/KM19322A015_TP_V4.jpg", class: "photosub", id: "photoSub","data-url": "https://www.pakutaso.com/shared/img/thumb/KM19322A015_TP_V4.jpg",alt: "bag2")
-          .itemDetail__main__photo__bottomBox__bottom
-            =image_tag("https://www.pakutaso.com/shared/img/thumb/donutIMGL5813_TP_V.jpg", class: "photosub", id: "photoSub","data-url": "https://www.pakutaso.com/shared/img/thumb/donutIMGL5813_TP_V.jpg",alt: "bag2")
-          .itemDetail__main__photo__bottomBox__bottom
-            =image_tag("https://www.pakutaso.com/shared/img/thumb/crowncat4020137_TP_V.jpg", class: "photosub", id: "photoSub", "data-url": "https://www.pakutaso.com/shared/img/thumb/crowncat4020137_TP_V.jpg",alt: "bag2")
+          - @item.item_images.each do |image|
+            .itemDetail__main__photo__bottomBox__bottom
+              =image_tag("#{image.image}", class: "photosub", id: "photoSub","data-url": "#{image.image}",alt: "#{@item.name}")
       %div
         %table.itemDetail__main__table
           %tbody
@@ -51,16 +46,16 @@
               / 一枠
               %th カテゴリー
               %td
-                = link_to 'show' do
-                  レディース
+                = link_to category_path(@item.category.parent.parent.id) do
+                  = @item.category.parent.parent.name
                   %div
-                = link_to "show"  do
+                = link_to category_path(@item.category.parent.id) do
                   %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
-                  バッグ
+                  = @item.category.parent.name
                   %div
-                = link_to "show"  do
+                = link_to category_path(@item.category.id) do
                   %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
-                  ショルダーバッグ
+                  = @item.category.name
             %tr
               / 一枠
               %th ブランド
