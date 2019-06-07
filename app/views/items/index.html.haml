@@ -24,7 +24,7 @@
     -@items1.each do |item|
       .pickup-container__item-boxs__box
         .pickup-container__item-boxs__box__image
-          =image_tag(item.description,class: "images")
+          =image_tag(item.item_images[0].image,class: "images")
         .pickup-container__item-boxs__box__text
           .pickup-container__item-boxs__box__text__title #{item.name}
           .pickup-container__item-boxs__box__text__num
