@@ -378,12 +378,10 @@
         }
       }
       &__prefecture {
-        select {
-          margin-top: 5px;
-          height: 48px;
-          width: 100%;
-          font-size: 16px;
-        }
+        margin-top: 5px;
+        height: 48px;
+        width: 100%;
+        font-size: 16px;
       }
       &__card-limit {
         select {
