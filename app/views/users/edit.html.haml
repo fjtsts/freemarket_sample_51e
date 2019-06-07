@@ -6,7 +6,7 @@
       .userProfileEdit__main
         %section
           %h2.userProfileEdit__main__head プロフィール
-          = form_for @user do |f|
+          = form_with model: @user do |f|
             %input{type: "hidden"}/
             .userProfileEdit__main__image
               %figure.userProfileEdit__main__image__user
