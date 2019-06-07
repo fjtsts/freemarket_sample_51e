@@ -1,0 +1,54 @@
+- breadcrumb :users
+.user-main
+  .user-container
+    = render 'users/sidebar'
+    .user-container_right-content
+      .user-container_right-content_address
+        %h2.user-container_right-content_address_chapter 本人情報の登録
+        .user-container_right-content_address_content
+          = form_with model: current_user,  html:{multipart: true, method: "POST"}, local: true do |f|
+            .user-container_right-content_address_content_description
+              %p
+                お客様の本人情報をご登録ください。
+                登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+              %p.user-container_right-content_address_content_description--link
+                %a{href: ""}
+                  本人書類のアップロードについて＞
+            .user-container_right-content_address_content_form-group
+              %label お名前
+              %p #{current_user.user_profile.last_name} #{current_user.user_profile.first_name}
+            .user-container_right-content_address_content_form-group
+              %label お名前カナ
+              %p #{current_user.user_profile.last_name_kata} #{current_user.user_profile.first_name_kata}
+            .user-container_right-content_address_content_form-group
+              %label 生年月日
+              %p #{current_user.user_profile.birth}
+            .user-container_right-content_address_content_form-group
+              %label{for: "postal_code"} 郵便番号
+              %span.form-arbitrary 任意
+              = f.text_field :postal_code, class: "input-default", placeholder: "例）1234567",value: "#{current_user.address.postal_code}"
+            .user-container_right-content_address_content_form-group
+              %label{for: "prefecture"} 都道府県
+              %span.form-arbitrary 任意
+              .user-container_right-content_address_content_select-wrap
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "--", required:"required"},{class:"user-container_right-content_address_content_select-default"}
+            .user-container_right-content_address_content_form-group
+              %label{for: "city"} 市区町村
+              %span.form-arbitrary 任意
+              = f.text_field :city, class: "input-default", placeholder: "例）横浜市青葉区", value: "#{current_user.address.city}"
+            .user-container_right-content_address_content_form-group
+              %label{for: "town_number"} 番地
+              %span.form-arbitrary 任意
+              = f.text_field :town_number, class: "input-default",placeholder: "例）青山1−1−1", type: "text", value: "#{current_user.address.town_number}"
+            .user-container_right-content_address_content_form-group
+              %label{for: "building_label"} 建物名
+              %span.form-arbitrary 任意
+              = f.text_field :building, class: "input-default",placeholder: "例）柳ビル103", type: "text", value: "#{current_user.address.building}"
+            %button.user-container_right-content_address_content_btn-default{type: "submit"} 登録する
+            .user-container_right-content_address_content_form-group_text-right
+              %p
+                %a{href: ""}
+                  本人情報について＞
+
+            
+          = link_to "log_out",destroy_user_session_path,method: :delete
