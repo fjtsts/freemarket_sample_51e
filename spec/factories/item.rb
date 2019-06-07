@@ -11,5 +11,12 @@ FactoryBot.define do
   brand_id {"1"}
   sequence(:category_id) { |n| n }
   created_at { Faker::Time.between(2.days.ago, Time.now, :all) }
+  # after(:create) do |item|
+  #   create(item: item,category: create(:category),brand: create(:brand))
+  
+  # end
+
+ 
   end
+
 end
