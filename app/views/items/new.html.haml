@@ -32,20 +32,36 @@
             %h3.sell-form__main__detail__sub-head
               商品の詳細
             .sell-form__main__detail__warpper
+              -# 作業中
               .sell-form__main__detail__warp--top
                 .sell-form__main__detail
                   = f.label "カテゴリー", class:"sell-form__main__detail__label"
                   %span{class:"sell-form__main__detail__label--require"} 必須
-                .sell-form__main__detail__select-box--parent.sell-form__lastbox
-                  = f.collection_select :category_id, @parents,:id, :name, {include_blank: "---" },{ class:"sell-form__main__detail__select-box__text", required:"required"}
+                #category_parent.sell-form__main__detail__select-box--parent.sell-form__lastbox
+                  = f.collection_select :category_id, @parents,:id, :name, {include_blank: "---" },{id:'select_parent', class:"sell-form__main__detail__select-box__text", required:"required"}
                   =fa_icon "angle-down sell-form__angle-down"
-                .sell-form__main__detail__select-box--child.sell-form__lastbox
-                  = f.collection_select :category_id, @parents.first.children,:id, :name, {include_blank: "---" },{ class:"sell-form__main__detail__select-box__text", required:"required"}
+                #category_children.sell-form__main__detail__select-box--child.sell-form__lastbox
+                  = f.collection_select :category_id, @parents[0].children,:id, :name, {include_blank: "---" },{id:'select_children', class:"sell-form__main__detail__select-box__text", required:"required"}
                   =fa_icon "angle-down sell-form__angle-down"
-                .sell-form__main__detail__select-box--grandchild.sell-form__lastbox
-                  = f.collection_select :category_id, @parents.first.children.first.children,:id, :name, {include_blank: "---" },{ class:"sell-form__main__detail__select-box__text", required:"required"}
+                #category_grandchildren.sell-form__main__detail__select-box--grandchild.sell-form__lastbox
+                  = f.collection_select :category_id, @parents[0].children[0].children,:id, :name, {include_blank: "---" },{id:'select_grondchildren', class:"sell-form__main__detail__select-box__text", required:"required"}
                   =fa_icon "angle-down sell-form__angle-down"
-              .sell-form__main__detail__warp
+              -# 作業
+              .sell-form__main__detail__warp--middle
+                .sell-form__main__detail
+                  = f.label "サイズ", class:"sell-form__main__detail__label"
+                  %span{class:"sell-form__main__detail__label--require"} 必須
+                .sell-form__main__detail__select-box.sell-form__lastbox
+                  = f.select :status, options_for_select({'free':1}), { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
+                  =fa_icon "angle-down sell-form__angle-down"
+              .sell-form__main__detail__warp--middle
+                .sell-form__main__detail
+                  = f.label "ブランド", class:"sell-form__main__detail__label"
+                  %span{class:"sell-form__main__detail__label--require sell-form__main__detail__label--require--brand"} 任意
+                .sell-form__main__detail__select-box.sell-form__lastbox
+                  = f.text_field :name, class:"sell-form__main__detail__select-box__text sell-form__main__detail__select-box__text--brand", placeholder:"例）シャネル"
+                  =fa_icon "angle-down sell-form__angle-down"
+              .sell-form__main__detail__warp--middle
                 .sell-form__main__detail
                   = f.label "商品の状態", class:"sell-form__main__detail__label"
                   %span{class:"sell-form__main__detail__label--require"} 必須
