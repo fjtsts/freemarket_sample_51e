@@ -3,13 +3,12 @@
     width:100vw;
     margin:0 auto;
     background:#f5f5f5;
-    z-index:2px;
-    position: absolute;;
+    z-index:2;
+    padding-top:100px;
     .pickup-container{
     @extend .main;
-    padding:100px 0 40px;
-    z-index:1px;
-    
+    padding-bottom:40px;
+    z-index:2;
 
     h2{
         height:39px;
