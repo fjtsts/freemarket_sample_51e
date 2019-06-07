@@ -17,6 +17,6 @@
                 = f.text_field :nickname ,class: "userProfileEdit__main__image__user__nameBtn", placeholder: "例)AYA★セール中"
             .userProfileEdit__main__bottom
               = f.fields_for @userprofile do |prf|
-                = prf.text_field :introduction,class: "userProfileEdit__main__bottom__form__comment"
+                = prf.text_area :introduction,class: "userProfileEdit__main__bottom__form__comment"
               = f.submit "変更する", class: "userProfileEdit__main__bottom__form__btn", name: "button"
       .clearBoth
