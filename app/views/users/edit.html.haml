@@ -14,7 +14,9 @@
                   =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "60px", width: "60px")
                 - else
                   =image_tag("#{@userprofile.avatar}",alt: "usre", height: "60px", width: "60px")
-                = f.text_field :nickname ,class: "userProfileEdit__main__image__user__nameBtn", placeholder: "例)AYA★セール中"
+                = f.text_field :nickname ,class: "userProfileEdit__main__image__user__nameBtn", placeholder: "例)AYA★セール中", id: "user_nickname"
+                .userProfileEdit__main__image__user__nameBtnerror
+                  %p.nicnameover.nickname
             .userProfileEdit__main__bottom
               = f.fields_for @userprofile do |prf|
                 = prf.text_area :introduction,class: "userProfileEdit__main__bottom__form__comment"

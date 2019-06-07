@@ -62,6 +62,16 @@
           font-size: 16px;
           font-weight: lighter;
         }
+
+        &__nameBtnerror {
+          line-height: 1.5;
+          font-size: 14px;
+
+          p {
+            margin: 8px 0 0;
+            font-size: 14px;
+          }
+        }
       }
     }
     &__bottom {
@@ -134,3 +144,6 @@
   width: 170px;
 }
 
+div.field_with_errors {
+  background-color: red;
+}

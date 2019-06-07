@@ -28,5 +28,3 @@ class UserProfile < ApplicationRecord
       message: "電話番号は半角ハイフン無しで入力してください。"
     }
 end
-
-# validates :introduction, length: { maximum: 10 }
