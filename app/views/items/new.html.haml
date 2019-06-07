@@ -47,14 +47,14 @@
                   = f.collection_select :category_id, @parents[0].children[0].children,:id, :name, {include_blank: "---" },{id:'select_grondchildren', class:"sell-form__main__detail__select-box__text", required:"required"}
                   =fa_icon "angle-down sell-form__angle-down"
               -# 作業
-              .sell-form__main__detail__warp--middle
+              #form-wrap-size.sell-form__main__detail__warp--middle
                 .sell-form__main__detail
                   = f.label "サイズ", class:"sell-form__main__detail__label"
                   %span{class:"sell-form__main__detail__label--require"} 必須
                 .sell-form__main__detail__select-box.sell-form__lastbox
-                  = f.select :status, options_for_select({'free':1}), { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
+                  = f.select :status, options_for_select({'free':1}), { include_blank: "---" },{class:"sell-form__main__detail__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
-              .sell-form__main__detail__warp--middle
+              #form-wrap-brand.sell-form__main__detail__warp--middle
                 .sell-form__main__detail
                   = f.label "ブランド", class:"sell-form__main__detail__label"
                   %span{class:"sell-form__main__detail__label--require sell-form__main__detail__label--require--brand"} 任意
