@@ -12,8 +12,8 @@ describe ItemsController do
       let(:items1){created_list(:brand.items)}
  
     it "renders the :new template" do
-      items1 = category.first.items
-      items11 = brand.first.items
+      items = category.first.items
+      items1 = brand.first.items
 
       get :index
       expect(response).to render_template :index

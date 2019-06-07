@@ -2,9 +2,6 @@ class ItemsController < ApplicationController
 # before_action :authenticate_user!, only: [:new]
 
     def index
-
-        @parents = Category.all.order("id ASC").limit(13)
-        @brands = Brand.all.order("id ASC").limit(4)
         @items1 =  Category.first.items.all.order("created_at DESC").limit(4)
         @items2 =  Category.second.items.all.order("created_at DESC").limit(4)
         @items3 =  Category.third.items.all.order("created_at DESC").limit(4)
