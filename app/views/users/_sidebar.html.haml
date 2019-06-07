@@ -101,7 +101,7 @@
           .user-container_left-content_info_list
             =fa_icon "angle-right"
         %li
-          %a{ href: '#'}
+          = link_to card_path(current_user.id) do
             支払い方法
           .user-container_left-content_info_list
             =fa_icon "angle-right"
