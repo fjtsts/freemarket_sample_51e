@@ -3,13 +3,19 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSample51e
+    = include_gon
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.8.2/css/all.css", :integrity => "sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay", :rel => "stylesheet"}/
+    
   %body
     =render "items/header"
+    %p
+      = breadcrumbs 
   .main
     = yield
     =render "items/footer"
