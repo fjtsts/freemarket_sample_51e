@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 # before_action :authenticate_user!, only: [:new]
 
     def index
-
+        @query = Item.ransack(params[:q])
         @parents = Category.all.order("id ASC").limit(13)
         @brands = Brand.all.order("id ASC").limit(4)
         @items1 =  Category.first.items.all.order("created_at DESC").limit(4)
@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
         @items22 =Brand.second.items.all.order("created_at DESC").limit(4)
         @items33 =Brand.third.items.all.order("created_at DESC").limit(4)
         @items44 =Brand.fourth.items.all.order("created_at DESC").limit(4)
-
     end
 
     def new
@@ -49,6 +48,9 @@ class ItemsController < ApplicationController
         @item = Item.find(params[:id])
 
     end
+    def search
+        @q = Item.search(search_params)
+        @items =@q.result(distinct:true)
 
 
 

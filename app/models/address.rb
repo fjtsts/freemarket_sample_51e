@@ -1,5 +1,6 @@
 class Address < ApplicationRecord
   belongs_to :user
+  belongs_to_active_hash :prefecture
   validates :last_name, presence: true,
     format: {
       with: /\A[ぁ-んァ-ン一-龥]/,

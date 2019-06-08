@@ -4,11 +4,10 @@
       .header-inner__top
         %h1
           =link_to image_tag("mercari_logo_horizontal.png",:size=> "160x50",class: "img"),"/"
-        = form_tag("/products",method: 'get',class: "header-inner__top__search") do 
-          = text_field_tag :keyword, "", class: "header-inner__top__search__form", placeholder: "キーワードから探す"
-          = button_tag type: "submit",class: "header-inner__top__search__form__button" do
-            =fa_icon "search"
-
+        = search_form_for(@query,url: "/",class: "header-inner__top__search") do |f|
+          = f.search_field :name_cont, class: "header-inner__top__search__form", placeholder: "キーワードから探す"
+          = button_tag type:"submit", class: "header-inner__top__search__button" do 
+            = fa_icon "search"
       .header-inner__bottom
         .header-inner__bottom__nav1
           %ul.nav1

@@ -23,34 +23,35 @@
         }
     &__top__search{
             height:40px;
-            width:851px;
+            width:841px;
             position:relative;
-            padding-right:40px;
+            margin-left:45px;
         
 
             
 
-        input{
+            &__form{
                 height:100%;
                 width:798px; 
-                margin-left:45px;
+                padding-left:10px;
                 display:inline-block;
                 border:none;
-                padding:0;
+                padding-right:42px;
                 background:#f5f5f5;
                 border-radius:4px;
                 border:1px solid $light-gray;
+                outline: none;
                 
 
             }
-        &__form__button{
+            &__button{
         
-            height:42px;
+            height:40px;
             width:40px;
             border:none; 
             position:absolute;
             top:0;
-            right:6px;
+            right:1px;
             background:rgb(102, 102, 102);
             border-radius:4px;
             color:#fff;

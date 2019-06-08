@@ -14,8 +14,12 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :new]
   resources :purchases, only: [:new]
   resources :categories, only:[:index,:show]
-  root      "items#index"
+  root to: "items#index"
+  get 'search', to: 'students#search'
+  
   get '/purchases/:id/new', to: 'purchases#new'
-  get '/users/:id/logout', to: 'users#logout'
+  get '/users/:id/logout', to: 
+  'users#logout'
+
 end
 
