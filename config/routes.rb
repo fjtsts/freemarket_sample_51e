@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   get 'search', to: 'students#search'
   
   get '/purchases/:id/new', to: 'purchases#new'
-  get '/users/:id/logout', to: 
-  'users#logout'
-
+  get '/users/:id/logout', to: 'users#logout'
 end
 
