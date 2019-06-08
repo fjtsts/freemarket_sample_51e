@@ -59,8 +59,8 @@
                   = f.label "ブランド", class:"sell-form__main__detail__label"
                   %span{class:"sell-form__main__detail__label--require sell-form__main__detail__label--require--brand"} 任意
                 .sell-form__main__detail__select-box.sell-form__lastbox
-                  = f.text_field :name, class:"sell-form__main__detail__select-box__text sell-form__main__detail__select-box__text--brand", placeholder:"例）シャネル"
-                  =fa_icon "angle-down sell-form__angle-down"
+                  = f.fields_for :brands do |i|
+                    = i.text_field :name, class:"sell-form__main__detail__select-box__text sell-form__main__detail__select-box__text--brand", placeholder:"例）シャネル"
               .sell-form__main__detail__warp--middle
                 .sell-form__main__detail
                   = f.label "商品の状態", class:"sell-form__main__detail__label"

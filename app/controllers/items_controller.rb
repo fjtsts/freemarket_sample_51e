@@ -34,12 +34,14 @@ before_action :set_parents, only: [:new, :edit]
 
     def create
         @item = Item.create(item_params)
-
         if @item.save
             params[:item_images][:image].each do |i|   # .reverse
                 @image = @item.item_images.create(image: i.tempfile, item_id: @item.id)
             end
             Exhibit.create(item_id: @item.id, user_id: current_user.id)
+            # if Brand.where(name: params[:brands][:name]) == true　　　一致したらreateせず既存のidを渡す、しなければcrea  find_or_initialize_by
+            Brand.create(name: params[:brands][:name])
+            # end
             redirect_to root_path
         else
             render :index
@@ -61,7 +63,7 @@ before_action :set_parents, only: [:new, :edit]
 
     private
     def item_params
-        params.permit(:name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :area, :day, :price, item_images_attributes: [:image])
+        params.permit(:name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :area, :day, :price, item_images_attributes: [:image], brands_attributes: [:name])
     end
           #  .require(:item)    #  , :size
     def set_parents
