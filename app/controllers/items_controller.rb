@@ -51,6 +51,7 @@ class ItemsController < ApplicationController
     def search
         @q = Item.search(search_params)
         @items =@q.result(distinct:true)
+    end
 
 
 
