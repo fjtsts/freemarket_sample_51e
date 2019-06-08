@@ -2,9 +2,7 @@ class ItemsController < ApplicationController
 # before_action :authenticate_user!, only: [:new]
 
     def index
-        @query = Item.ransack(params[:q])
-        @parents = Category.all.order("id ASC").limit(13)
-        @brands = Brand.all.order("id ASC").limit(4)
+        
         @items1 =  Category.first.items.all.order("created_at DESC").limit(4)
         @items2 =  Category.second.items.all.order("created_at DESC").limit(4)
         @items3 =  Category.third.items.all.order("created_at DESC").limit(4)
@@ -49,8 +47,9 @@ class ItemsController < ApplicationController
 
     end
     def search
-        @q = Item.search(search_params)
-        @items =@q.result(distinct:true)
+        $query = Item.ransack(params[:q])
+        
+        @items = Item.ransack(name_cont: params[:keyword]).result.all
     end
 
 
@@ -61,4 +60,7 @@ class ItemsController < ApplicationController
         params.permit(:name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :area, :day, :price, item_images_attributes: [:image])
     end
           #  .require(:item)    #  , :size,   .merge(user_id: current_user.id)
+    def search_params
+      params.require(:q).permit(:name_cont)
+    end
 end

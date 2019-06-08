@@ -66,6 +66,10 @@
                 .sell-form__main__delivery__select-box
                   = f.select :how_to_shipping,Item.how_to_shippings.keys.to_a, { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
+                .sell-form__main__delivery__select-box
+                  -# 少ないver
+                  = f.select :how_to_shipping,Item.how_to_shippings.keys.to_a, { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
+                  =fa_icon "angle-down sell-form__angle-down"
               .sell-form__main__delivery__warp--middle
                 .sell-form__main__delivery
                   = f.label "発送元の地域", class:"sell-form__main__delivery__label"

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :purchases, only: [:new]
   resources :categories, only:[:index,:show]
   root to: "items#index"
-  get 'search', to: 'students#search'
+  get 'search', to: 'items#search'
   
   get '/purchases/:id/new', to: 'purchases#new'
   get '/users/:id/logout', to: 'users#logout'

@@ -1,0 +1,9 @@
+.search-container
+  .search-container__left
+    .search-container__left__wrapper
+      =search_form_for(@q,url:search_path)
+        =f.select
+      .search-container__left__wrapper__sort
+      
+  .search-container__right
+    .search-container__right__wrapper
