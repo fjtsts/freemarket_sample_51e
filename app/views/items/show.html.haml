@@ -25,11 +25,10 @@
       %table.itemDetail__main__table
         %tbody
           %tr
-            / 一枠
             %th 出品者
             %td
-              -# =link_to  @users.name , show_user_path リンク先の記述がわからない
-              = link_to '出品ちゃん＠出品者', 'show'
+              
+              = link_to"#{@item.exhibit.user.nickname}",users_path
               %div
                 .itemDetail__main__tablel__itemUserRatings
                   =image_tag("icon-good.png",size: "16x16")
@@ -44,16 +43,16 @@
               / 一枠
               %th カテゴリー
               %td
-                = link_to 'show' do
-                  レディース
+                = link_to category_path(@category.parent.parent.id) do
+                  #{@category.parent.parent.name}
                   %div
-                = link_to "show"  do
+                = link_to category_path(@category.parent.id)  do
                   %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
-                  バッグ
+                  #{@category.parent.name}
                   %div
-                = link_to "show"  do
+                = link_to category_path(@category.id)  do
                   %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
-                  ショルダーバッグ
+                  #{@category.name}
             %tr
               / 一枠
               %th ブランド
@@ -100,7 +99,7 @@
         -#   着払い
           
     -# .itemDetail__buyBtn 売り切れました
-    =link_to "購入画面に進む" , "show" ,class: "itemDetail__buyBtn"
+    =link_to "購入画面に進む" , new_item_path ,class: "itemDetail__buyBtn"
     .itemDetail__description
       %p.itemDetail__description__inner
         = @item.description
