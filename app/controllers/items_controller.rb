@@ -51,8 +51,9 @@ class ItemsController < ApplicationController
     def search
         $query = Item.ransack(params[:q])
         @items = Item.ransack(name_cont: params[:keyword]).result.all
-        binding.pry
+       
     end
+
     private
     def item_params
         params.permit(:name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :area, :day, :price, item_images_attributes: [:image])
