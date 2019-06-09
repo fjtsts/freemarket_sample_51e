@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+before_action :authenticate_user!, only: [:edit]
+
   def index
   end
 
@@ -36,6 +38,8 @@ class UsersController < ApplicationController
   def user_profile_params
     params.require(:user).require(:user_profile).permit(:introduction)
   end
+
+
   
   # なぜかattributesが使えなかったためparamsを２つに分けました。
   # user_params

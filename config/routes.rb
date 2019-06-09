@@ -8,6 +8,4 @@ Rails.application.routes.draw do
   root      "items#index"
   get '/purchases/:id/new', to: 'purchases#new'
   get '/users/:id/logout', to: 'users#logout'
-  post 'users/:id/edit' => 'users#edit'
-
 end

@@ -61,6 +61,8 @@
           line-height: 1.5;
           font-size: 16px;
           font-weight: lighter;
+          outline:none;
+
         }
 
         &__nameBtnerror {
@@ -93,18 +95,11 @@
           font-size: 16px;
           line-height: 1.5;
           margin: 8px 0 0;
-          word-wrap : break-word !important;
-          word-break : break-all !important;
-          overflow-wrap : break-word !important;
-          white-space: pre-wrap !important;
-
-          text input　{
-            word-wrap : break-word !important;
-            word-break : break-all !important;
-            overflow-wrap : break-word !important;
-            white-space: pre-wrap !important;
-          }
-          
+          word-wrap : break-word;
+          word-break : break-all;
+          overflow-wrap : break-word;
+          white-space: pre-wrap;
+          outline:none;
         }
       
         &__btn {
@@ -117,33 +112,9 @@
           line-height: 48px;
           font-size: 14px;
           border-style:none;
+          outline:none;
         }
       }
     }
   }
-}
-
-.userProfileEdit__main__image__user__nameBtn_test {
-  width: 170px;
-  margin: 0 0 0 8px;
-  vertical-align: middle;
-  height: 28px;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-  line-height: 1.5;
-  font-size: 16px;
-}
-
-.user-form input {
-
-}
-
-.actions {
-  width: 170px;
-}
-
-div.field_with_errors {
-  background-color: red;
 }

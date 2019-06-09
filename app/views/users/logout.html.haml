@@ -8,5 +8,5 @@
         .logoutMain__container
           %form.logoutMain__container__inner(action="")
             .logoutMain__container__inner__logOutBtn
-              %button.logoutMain__container__inner__logOutBtn__btn
-                ログアウト
+              -# %button.logoutMain__container__inner__logOutBtn__btn
+              = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logoutMain__container__inner__logOutBtn__btn'
