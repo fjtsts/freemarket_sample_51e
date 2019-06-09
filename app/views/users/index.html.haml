@@ -5,11 +5,11 @@
     .user-container_right-content
       .user-container_right-content_info
         .user-container_right-content_info_head
-          %a{ href: '#'}
+          = link_to user_path(@user) do 
             .user-container_right-content_info_head_icon
               %img{alt: "メルカリ", height: "60px", width: "60px", src: "http://static.mercdn.net/images/mercari_profile.png", class: "user-container_right-content_info_head_icon_image"}
             .user-container_right-content_info_head_name
-              名前
+              = @user.nickname
             .user-container_right-content_info_head_review
               評価   20   出品数   5
             .user-container_right-content_info_head_info
