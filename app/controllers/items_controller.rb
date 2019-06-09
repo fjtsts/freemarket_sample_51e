@@ -2,9 +2,7 @@ class ItemsController < ApplicationController
 # before_action :authenticate_user!, only: [:new]
 
     def index
-
-        @parents = Category.all.order("id ASC").limit(13)
-        @brands = Brand.all.order("id ASC").limit(4)
+        
         @items1 =  Category.first.items.all.order("created_at DESC").limit(4)
         @items2 =  Category.second.items.all.order("created_at DESC").limit(4)
         @items3 =  Category.third.items.all.order("created_at DESC").limit(4)
@@ -13,7 +11,6 @@ class ItemsController < ApplicationController
         @items22 =Brand.second.items.all.order("created_at DESC").limit(4)
         @items33 =Brand.third.items.all.order("created_at DESC").limit(4)
         @items44 =Brand.fourth.items.all.order("created_at DESC").limit(4)
-
     end
 
     def new
@@ -49,6 +46,10 @@ class ItemsController < ApplicationController
         @item = Item.find(params[:id])
 
     end
+    def search
+        $query = Item.ransack(params[:q])
+        @items = Item.ransack(name_cont: params[:keyword]).result.all
+    end
 
 
 
@@ -58,4 +59,8 @@ class ItemsController < ApplicationController
         params.permit(:name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :area, :day, :price, item_images_attributes: [:image])
     end
           #  .require(:item)    #  , :size,   .merge(user_id: current_user.id)
+    def search_params
+        binding.pry
+      params.require(:q).permit(:name_cont)
+    end
 end

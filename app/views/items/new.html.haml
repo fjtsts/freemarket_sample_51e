@@ -44,7 +44,7 @@
                   = f.label "商品の状態", class:"sell-form__main__detail__label"
                   %span{class:"sell-form__main__detail__label--require"} 必須
                 .sell-form__main__detail__select-box
-                  = f.select :status, options_for_select({'新品、未使用':1,'未使用に近い':2,'目立った傷や汚れなし':3,'やや汚れや傷あり':4,'傷や汚れあり':5,'全体的に状態が悪い':6}), { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
+                  = f.select :status,Item.statuses.keys.to_a,{ include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
 
           .sell-form__main__delivery.sell-form__main__box
@@ -57,14 +57,18 @@
                   = f.label "発送料の負担", class:"sell-form__main__delivery__label"
                   %span{class:"sell-form__main__delivery__label--require"} 必須
                 .sell-form__main__delivery__select-box
-                  = f.select :shipping_fee, options_for_select({'送料込み（出品者負担）':1,'着払い（購入者負担）':2}), {include_blank: "---" },{required:"required",class:"sell-form__main__delivery__select-box__text"}
+                  = f.select :shipping_fee,Item.shipping_fees.keys.to_a, {include_blank: "---" },{required:"required",class:"sell-form__main__delivery__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
               .sell-form__main__delivery__warp--middle
                 .sell-form__main__delivery
                   = f.label "発送の方法", class:"sell-form__main__delivery__label"
                   %span{class:"sell-form__main__delivery__label--require"} 必須
                 .sell-form__main__delivery__select-box
-                  = f.select :how_to_shipping, options_for_select({'未定':1,'クロネコヤマト':2}), { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
+                  = f.select :how_to_shipping,Item.how_to_shippings.keys.to_a, { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
+                  =fa_icon "angle-down sell-form__angle-down"
+                .sell-form__main__delivery__select-box
+                  -# 少ないver
+                  = f.select :how_to_shipping,Item.how_to_shippings.keys.to_a, { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
               .sell-form__main__delivery__warp--middle
                 .sell-form__main__delivery
@@ -78,7 +82,7 @@
                   = f.label "発送までの日数", class:"sell-form__main__delivery__label"
                   %span{class:"sell-form__main__delivery__label--require"} 必須
                 .sell-form__main__delivery__select-box
-                  = f.select :day, options_for_select({'1~2日で発送':1,'2~3日で発送':2,'4~7日で発送':3}), {include_blank: "---" },{required:"required",class:"sell-form__main__delivery__select-box__text"}
+                  = f.select :day,Item.days.keys.to_a , {include_blank: "---" },{required:"required",class:"sell-form__main__delivery__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
 
           .sell-form__main__prace.sell-form__main__box

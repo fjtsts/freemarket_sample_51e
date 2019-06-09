@@ -23,8 +23,9 @@
   .pickup-container__item-boxs
     -@items1.each do |item|
       .pickup-container__item-boxs__box
+        = link_to "",item_path(item.id) 
         .pickup-container__item-boxs__box__image
-          =image_tag(item.description,class: "images")
+          =image_tag(item.item_images[0].image.to_s,class: "images")
         .pickup-container__item-boxs__box__text
           .pickup-container__item-boxs__box__text__title #{item.name}
           .pickup-container__item-boxs__box__text__num
@@ -40,6 +41,7 @@
   .pickup-container__item-boxs
     -@items2.each do |item|
       .pickup-container__item-boxs__box
+        = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
           =image_tag(item.description,class: "images")
         .pickup-container__item-boxs__box__text
@@ -57,6 +59,7 @@
   .pickup-container__item-boxs
     -@items3.each do |item|
       .pickup-container__item-boxs__box
+        = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
           =image_tag(item.description,class: "images")
         .pickup-container__item-boxs__box__text
@@ -74,6 +77,7 @@
   .pickup-container__item-boxs
     -@items4.each do |item|
       .pickup-container__item-boxs__box
+        = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
           =image_tag(item.description,class: "images")
         .pickup-container__item-boxs__box__text
@@ -92,6 +96,7 @@
   .pickup-container__item-boxs
     -@items11.each do |item|
       .pickup-container__item-boxs__box
+        = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
           =image_tag(item.description,class: "images")
         .pickup-container__item-boxs__box__text
@@ -109,6 +114,7 @@
   .pickup-container__item-boxs
     -@items22.each do |item|
       .pickup-container__item-boxs__box
+        = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
           =image_tag(item.description,class: "images")
         .pickup-container__item-boxs__box__text
@@ -126,6 +132,7 @@
   .pickup-container__item-boxs
     -@items33.each do |item|
       .pickup-container__item-boxs__box
+        = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
           =image_tag(item.description,class: "images")
         .pickup-container__item-boxs__box__text
@@ -143,6 +150,7 @@
   .pickup-container__item-boxs
     -@items44.each do |item|
       .pickup-container__item-boxs__box
+        = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
           =image_tag(item.description,class: "images")
         .pickup-container__item-boxs__box__text

@@ -2424,66 +2424,66 @@ categories157 = %w{
       parent_id157.children.create!(name: category)
     end
 
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000,
-  brand_id: 1,
-  category_id: 3
+# Item.create!(
+#   name: 'テスト太郎',
+#   description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+#   status: 1,
+#   shipping_fee: 1,
+#   how_to_shipping: 1,
+#   area: 1,
+#   day: 1,
+#   price: 1000,
+#   brand_id: 1,
+#   category_id: 3
 
-)
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000,
-  brand_id: 2,
-  category_id: 7
+# )
+# Item.create!(
+#   name: 'テスト太郎',
+#   description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+#   status: 1,
+#   shipping_fee: 1,
+#   how_to_shipping: 1,
+#   area: 1,
+#   day: 1,
+#   price: 1000,
+#   brand_id: 2,
+#   category_id: 7
 
 
-)
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000,
-  brand_id: 2,
-  category_id: 4
-)
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000,
-  brand_id: 4,
-  category_id: 2
-)
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000,
-  brand_id: 1,
-  category_id: 1
-) 
+# )
+# Item.create!(
+#   name: 'テスト太郎',
+#   description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+#   status: 1,
+#   shipping_fee: 1,
+#   how_to_shipping: 1,
+#   area: 1,
+#   day: 1,
+#   price: 1000,
+#   brand_id: 2,
+#   category_id: 4
+# )
+# Item.create!(
+#   name: 'テスト太郎',
+#   description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+#   status: 1,
+#   shipping_fee: 1,
+#   how_to_shipping: 1,
+#   area: 1,
+#   day: 1,
+#   price: 1000,
+#   brand_id: 4,
+#   category_id: 2
+# )
+# Item.create!(
+#   name: 'テスト太郎',
+#   description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+#   status: 1,
+#   shipping_fee: 1,
+#   how_to_shipping: 1,
+#   area: 1,
+#   day: 1,
+#   price: 1000,
+#   brand_id: 1,
+#   category_id: 1
+# ) 
