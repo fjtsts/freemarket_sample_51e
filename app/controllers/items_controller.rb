@@ -48,7 +48,6 @@ class ItemsController < ApplicationController
     end
     def search
         $query = Item.ransack(params[:q])
-        
         @items = Item.ransack(name_cont: params[:keyword]).result.all
     end
 
@@ -61,6 +60,7 @@ class ItemsController < ApplicationController
     end
           #  .require(:item)    #  , :size,   .merge(user_id: current_user.id)
     def search_params
+        binding.pry
       params.require(:q).permit(:name_cont)
     end
 end
