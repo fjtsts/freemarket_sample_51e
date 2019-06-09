@@ -1,52 +1,31 @@
 require 'rails_helper'
 
 describe UsersController do
-  # let(:user) { create(:user) }
-  # before do
-  # user = create(:user)
-  # #   sign_in user
-  # end
+
   describe 'Get #edit' do
-
-    # before do
-    #   login_user user
-    #   # controller_macros.rb内のlogin_userメソッドを呼び出し
-    # end
-
-  # subject { patch :user, params }
-  # let(:params) do
-  #   { 
-  #     id: 1,
-  #     message_id: 100,
-  #     comment: {
-  #       content: 'Test message comment'
-  #     }
-  #   }
-  # end
-    # before do
-    #   let(:user) { create(:user) }
-    # user = FactoryBot.create(:user)
-    # end
+  # let(:users) { create(:user) }
+  # let(:params) { password: attributes_for(:user) }
   # let(:article) { create(:article) }
+  # let(:users) { create(:user) }
+  let(:user_profiles) { create(:user_profile) }
+  before { get :edit, params: { id: user_profiles.id }}
+  # before { get :edit, params: { id: users.id }}
   # before { get :edit, params: { id: article.id }, session: {} }
 
     it 'リクエストは200 OKとなること' do
       expect(response.status).to eq 200
     end
+
+    it ':editテンプレートを表示すること' do
+
+      get :edit, params
+
+      expect(response).to render_template :edit
+
+    end
+
     it '@userに要求されたユーザーを割り当てること' do
       expect(assigns(:user)).to eq @user
-    end
-    it ':editテンプレートを表示すること' do
-      # let(:params) { { message_id: 101 } }
-      # get :edit, params
-      # get :edit
-      # post = Post.create attributes: "required", for: "a post"
-      # get :edit, params: {id: 1}
-      # let(:user) { create(:user) }
-      # user = FactoryBot.create(:user)
-      # sign_in user
-      expect(response).to render_template :edit
-      # expect(response).to render_template :edit
     end
   end
 
