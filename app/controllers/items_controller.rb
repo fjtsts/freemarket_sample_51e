@@ -46,10 +46,7 @@ class ItemsController < ApplicationController
         @item = Item.find(params[:id])
 
     end
-    def search
-        $query = Item.ransack(params[:q])
-        @items = Item.ransack(name_cont: params[:keyword]).result.all
-    end
+    
 
 
 
