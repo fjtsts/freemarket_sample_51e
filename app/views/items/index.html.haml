@@ -21,9 +21,45 @@
   %h3
     =link_to "レディース新着アイテム","/"
   .pickup-container__item-boxs
-    -@items1.each do |item|
+    -@ladies.each do |lady|
       .pickup-container__item-boxs__box
-        = link_to "",item_path(item.id) 
+        = link_to "",item_path(lady.id) 
+        .pickup-container__item-boxs__box__image
+          =image_tag(lady.item_images[0].image.to_s,class: "images")
+        .pickup-container__item-boxs__box__text
+          .pickup-container__item-boxs__box__text__title #{lady.name}
+          .pickup-container__item-boxs__box__text__num
+
+            %span.like-num 15
+            =fa_icon "heart",class:"icon-like"
+            .pickup-container__item-boxs__box__text__num__price ¥#{lady.price}
+          .pickup-container__item-boxs__box__text__title__tax (税込)
+  .view-all.clearfix
+    =link_to "すべての商品をみる","/"
+  %h3
+    =link_to "メンズ新着アイテム","/"
+  .pickup-container__item-boxs
+    -@mens.each do |men|
+      .pickup-container__item-boxs__box
+        = link_to "",item_path(men.id)
+        .pickup-container__item-boxs__box__image
+          =image_tag(men.item_images[0].image.to_s,class: "images")
+        .pickup-container__item-boxs__box__text
+          .pickup-container__item-boxs__box__text__title #{men.name}
+          .pickup-container__item-boxs__box__text__num
+
+            %span.like-num 15
+            =fa_icon "heart",class:"icon-like"
+            .pickup-container__item-boxs__box__text__num__price ¥#{men.price}
+          .pickup-container__item-boxs__box__text__title__tax (税込)
+  .view-all.clearfix
+    =link_to "すべての商品をみる","/"
+  %h3
+    =link_to "ベビー・キッズ新着アイテム","/"
+  .pickup-container__item-boxs
+    -@baby.each do |item|
+      .pickup-container__item-boxs__box
+        = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
           =image_tag(item.item_images[0].image.to_s,class: "images")
         .pickup-container__item-boxs__box__text
@@ -37,49 +73,13 @@
   .view-all.clearfix
     =link_to "すべての商品をみる","/"
   %h3
-    =link_to "メンズ新着アイテム","/"
-  .pickup-container__item-boxs
-    -@items2.each do |item|
-      .pickup-container__item-boxs__box
-        = link_to "",item_path(item.id)
-        .pickup-container__item-boxs__box__image
-          =image_tag(item.description,class: "images")
-        .pickup-container__item-boxs__box__text
-          .pickup-container__item-boxs__box__text__title #{item.name}
-          .pickup-container__item-boxs__box__text__num
-
-            %span.like-num 15
-            =fa_icon "heart",class:"icon-like"
-            .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
-          .pickup-container__item-boxs__box__text__title__tax (税込)
-  .view-all.clearfix
-    =link_to "すべての商品をみる","/"
-  %h3
-    =link_to "ベビー・キッズ新着アイテム","/"
-  .pickup-container__item-boxs
-    -@items3.each do |item|
-      .pickup-container__item-boxs__box
-        = link_to "",item_path(item.id)
-        .pickup-container__item-boxs__box__image
-          =image_tag(item.description,class: "images")
-        .pickup-container__item-boxs__box__text
-          .pickup-container__item-boxs__box__text__title #{item.name}
-          .pickup-container__item-boxs__box__text__num
-
-            %span.like-num 15
-            =fa_icon "heart",class:"icon-like"
-            .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
-          .pickup-container__item-boxs__box__text__title__tax (税込)
-  .view-all.clearfix
-    =link_to "すべての商品をみる","/"
-  %h3
     =link_to "インテリア・住まい・小物新着アイテム","/"
   .pickup-container__item-boxs
-    -@items4.each do |item|
+    -@interior.each do |item|
       .pickup-container__item-boxs__box
         = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
-          =image_tag(item.description,class: "images")
+          =image_tag(item.item_images[0].image.to_s,class: "images")
         .pickup-container__item-boxs__box__text
           .pickup-container__item-boxs__box__text__title #{item.name}
           .pickup-container__item-boxs__box__text__num
@@ -94,11 +94,11 @@
   %h3
     =link_to "シャネル新着アイテム","/"
   .pickup-container__item-boxs
-    -@items11.each do |item|
+    -@chanel.each do |item|
       .pickup-container__item-boxs__box
         = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
-          =image_tag(item.description,class: "images")
+          =image_tag(item.item_images[0].image.to_s,class: "images")
         .pickup-container__item-boxs__box__text
           .pickup-container__item-boxs__box__text__title #{item.name}
           .pickup-container__item-boxs__box__text__num
@@ -112,7 +112,7 @@
   %h3
     =link_to "ルイヴィトン新着アイテム","/"
   .pickup-container__item-boxs
-    -@items22.each do |item|
+    -@vuitton.each do |item|
       .pickup-container__item-boxs__box
         = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
@@ -130,11 +130,11 @@
   %h3
     =link_to "シュプリーム新着アイテム","/"
   .pickup-container__item-boxs
-    -@items33.each do |item|
+    -@supreme.each do |item|
       .pickup-container__item-boxs__box
         = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
-          =image_tag(item.description,class: "images")
+          =image_tag(item.item_images[0].image.to_s,class: "images")
         .pickup-container__item-boxs__box__text
           .pickup-container__item-boxs__box__text__title #{item.name}
           .pickup-container__item-boxs__box__text__num
@@ -148,11 +148,11 @@
   %h3
     =link_to "ナイキ新着アイテム","/"
   .pickup-container__item-boxs
-    -@items44.each do |item|
+    -@nike.each do |item|
       .pickup-container__item-boxs__box
         = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
-          =image_tag(item.description,class: "images")
+          =image_tag(item.item_images[0].image.to_s,class: "images")
         .pickup-container__item-boxs__box__text
           .pickup-container__item-boxs__box__text__title #{item.name}
           .pickup-container__item-boxs__box__text__num
@@ -161,4 +161,6 @@
             =fa_icon "heart",class:"icon-like"
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
+
 = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"
+

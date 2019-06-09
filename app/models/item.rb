@@ -1,7 +1,9 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 
   include JpPrefecture
-  jp_prefecture :origin_of_delivery
+  # jp_prefecture :origin_of_delivery
   has_many :item_images, dependent: :delete_all
   accepts_nested_attributes_for :item_images
   has_many :categories, through: :item_categories
