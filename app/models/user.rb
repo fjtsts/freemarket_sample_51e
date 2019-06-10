@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_one :card, dependent: :destroy
   accepts_nested_attributes_for :address
   has_many :exhibits, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :nickname, presence: true
 

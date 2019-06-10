@@ -10,10 +10,11 @@ class Item < ApplicationRecord
   belongs_to :category,optional: true
   belongs_to :brand,optional: true
   has_one :exhibit, dependent: :destroy
+  has_many :comments, dependent: :destroy
   # belong_to  :size
 
   with_options presence: true do
-    validates :name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :area, :day, :price
+    validates :name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price
   end
   validates :price, numericality: {greater_than_or_equal_to: 300,less_than_or_equal_to: 9_999_999}
 

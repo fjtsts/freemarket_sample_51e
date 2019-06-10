@@ -11,7 +11,8 @@
             .user-container_right-content_info_head_name
               = @user.nickname
             .user-container_right-content_info_head_review
-              評価   20   出品数   5
+              評価   20   出品数
+              = @user.exhibits.count
             .user-container_right-content_info_head_info
         .user-container_right-content_info_content
           .user-container_right-content_info_content
