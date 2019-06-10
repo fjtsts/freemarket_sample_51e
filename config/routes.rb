@@ -8,7 +8,9 @@ Rails.application.routes.draw do
       post 'pay', to: 'card#pay'
     end
   end
-  resources :items
+  resources :items do
+    resources :comments
+  end
   resources :user_profiles, only: [:new, :create, :edit]
   resources :addresses, only: [:new, :create, :edit, :show]
   resources :users, only: [:index, :show, :edit, :new] do

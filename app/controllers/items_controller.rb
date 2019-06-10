@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
     def show
         @item = Item.find(params[:id])
         @category =@item.category
-
+        @comment = Comment.new
     end
     def search
         $query = Item.ransack(params[:q])
@@ -62,6 +62,10 @@ class ItemsController < ApplicationController
     def search_params
         binding.pry
       params.require(:q).permit(:name_cont)
+    end
+
+    def comment_params
+        
     end
 end
 
