@@ -9,9 +9,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_back(fallback_location: root_path)
+    @item = Item.find(params[:item_id])
+    if current_user.id == @item.exhibit.user.id
+      @comment = Comment.find(params[:id])
+      @comment.destroy
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private
