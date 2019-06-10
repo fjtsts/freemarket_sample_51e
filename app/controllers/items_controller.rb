@@ -73,5 +73,3 @@ before_action :set_parents, only: [:new, :edit]
     def comment_params
 
     end
-end
-
