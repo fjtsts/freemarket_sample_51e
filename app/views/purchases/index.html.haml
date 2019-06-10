@@ -6,9 +6,9 @@
       %section.itemBuy__main__container__wrapper
         .itemBuy__main__container__wrapper__inner
           %h3.itemBuy__main__container__wrapper__inner__itemImage
-            = image_tag 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg', alt: '', height: "148px", width: "148px"
+            = image_tag("#{@item.item_images[0].image}", id: "photoMain", "data-url": "#{@item.item_images[0].image}" ,alt: "#{@item.name}", height: "148px", width: "148px")
           %p.itemBuy__main__container__wrapper__inner__itemName
-            美品☆コーチ 10127 シグネチャー柄 ショルダーバッグ C655
+            = @item.name
           %form.itemBuy__main__container__wrapper__inner__formBuy(action="")
             %p.itemBuy__main__container__wrapper__inner__formBuy__price
               = converting_to_jpy(@item.price)
@@ -31,22 +31,42 @@
         .itemBuy__main__container__userInfo__inner
           %h3 配送先
           %address.itemBuy__main__container__userInfo__inner__text
-            %p 〒150-0041
-            %p 東京都渋谷区神南１丁目１２−１６ アジアビル9F 
-            %p 渋谷 太郎 
+            %p
+              = current_user.address.postal_code
+            %p
+              = current_user.address.prefecture
+              = current_user.address.city
+              = current_user.address.town_number
+              = current_user.address.building
+            %p
+              = current_user.address.last_name
+              = current_user.address.first_name
           .itemBuy__main__container__userInfo__inner__text
-          =link_to "buy" do
+          =link_to edit_address_path(current_user.id) do
             変更する
             %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
       %section.itemBuy__main__container__userInfo
-        .itemBuy__main__container__userInfo__inner
-          %h3 支払い方法
-          .itemBuy__main__container__userInfo__inner__text
-            %p ************5566 
-            %p 01 / 23
-          %figure
-            =image_tag("master_card_001.png",width:"30px")
-          %p
-          =link_to "buy" do
-            変更する
-            %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
+        - if @default_card_information.nil?
+          .itemBuy__main__container__userInfo__inner
+            %h3 支払い方法
+            .itemBuy__main__container__userInfo__inner__text
+            %p
+            = link_to card_path(current_user.id) do
+              変更する
+              %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
+        - else
+          .itemBuy__main__container__userInfo__inner
+            %h3 支払い方法
+            .itemBuy__main__container__userInfo__inner__text
+              %p
+                = "**** **** **** " + @default_card_information.last4
+              %p
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
+            %figure
+              =image_tag("master_card_001.png",width:"30px")
+            %p
+            = link_to card_path(current_user.id) do
+              変更する
+              %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"

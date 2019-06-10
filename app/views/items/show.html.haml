@@ -99,7 +99,7 @@
         -#   着払い
           
     -# .itemDetail__buyBtn 売り切れました
-    =link_to "購入画面に進む" , new_item_path ,class: "itemDetail__buyBtn"
+    =link_to "購入画面に進む" , item_purchases_path(@item) ,class: "itemDetail__buyBtn"
     .itemDetail__description
       %p.itemDetail__description__inner
         = @item.description
