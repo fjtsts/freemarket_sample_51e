@@ -2,126 +2,140 @@
   .user-container_left-content_info
     .user-container_left-content_info_list
       %ul
-        %li
-          %a{ href: '#'}
+        = link_to users_path do
+          %li
             マイページ
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             お知らせ
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             やることリスト
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             いいね！一覧
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             出品する
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             出品した商品 - 出品中
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             出品した商品 - 取引中
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             出品した商品 - 売却済み
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             購入した商品 - 取引中
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             購入した商品 - 過去の取引
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             ニュース一覧
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             評価一覧
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             ガイド
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             お問い合わせ
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
     .user-container_left-content_info_head
       メルペイ
     .user-container_left-content_info_list
       %ul
-        %li
-          %a{ href: '#'}
+        %a{ href: '#'}
+          %li
             売上・振込申請
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             ポイント
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
     .user-container_left-content_info_head
       設定
     .user-container_left-content_info_list
       %ul
-        %li
-          %a{ href: '#'}
+        %a{ href: '#'}
+          %li
             プロフィール
           .user-container_left-content_info_list
             =fa_icon "angle-right"
         %li
-          %a{ href: '#'}
+          = link_to edit_address_path(current_user) do
             発送元・お届け先住所変更
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        - if user_signed_in?
           = link_to card_path(current_user.id) do
-            支払い方法
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            %li
+              支払い方法
+              .user-container_left-content_info_list
+                =fa_icon "angle-right"
+        - else
+          = link_to new_user_path do
+            %li
+              支払い方法
+              .user-container_left-content_info_list
+                =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             メール/パスワード
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: 'addresses/1'}
-            本人情報
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        - if user_signed_in?
+          = link_to address_path(current_user.id) do
+            %li
+              本人情報
+              .user-container_left-content_info_list
+                =fa_icon "angle-right"
+        - else
+          = link_to new_user_path do
+            %li
+              支払い方法
+              .user-container_left-content_info_list
+                =fa_icon "angle-right"
+        %a{ href: '#'}
+          %li
             電話番号の確認
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
-        %li
-          %a{ href: '#'}
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
+        = link_to logout_users_path do
+          %li
             ログアウト
-          .user-container_left-content_info_list
-            =fa_icon "angle-right"
+            .user-container_left-content_info_list
+              =fa_icon "angle-right"
