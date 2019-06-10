@@ -12,9 +12,15 @@ class Item < ApplicationRecord
   has_one :exhibit, dependent: :destroy
   # belong_to  :size
 
+  with_options presence: true do
+    validates :name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :area, :day, :price
+  end
+  validates :price, numericality: {greater_than_or_equal_to: 300,less_than_or_equal_to: 9_999_999}
+
+
   enum status: {"新品、未使用": 1, "未使用に近い": 2, "目立った傷や汚れなし": 3, "やや傷や汚れあり": 4, "傷や汚れあり": 5, "全体的に状態が悪い": 6}
   enum day: {"1~2日で発送": 1, "2~3日で発送": 2, "4~7日で発送": 3}
   enum shipping_fee: {"着払い(購入者負担)": 1, "送料込み(出品者負担)": 2}
   enum how_to_shipping:{ "未定":1,"らくらくメルカリ便":2,"ゆうメール":3,"レターパック":4,"普通郵便(定型,定形外)":5, "クロネコヤマト":6,"ゆうパック":7,"クリックポスト":8,"ゆうパケット":9}
- 
+
 end

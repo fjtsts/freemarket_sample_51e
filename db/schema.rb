@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2019_06_09_073954) do
     t.integer "status", null: false
     t.integer "shipping_fee", null: false
     t.integer "how_to_shipping", null: false
+    t.integer "area", null: false
     t.integer "day", null: false
     t.integer "price", null: false
     t.datetime "created_at", null: false

@@ -56,19 +56,29 @@
       &__warp--top{
         margin-bottom: 40px;
       }
+      &__warp--middle{
+        margin-top: 40px;
+      }
       &__label {
         @include label;
         &--require {
           @include require;
+          &--brand{
+            @include require_color_option(lightgray);
+
+          }
         }
       }
-      // 商品詳細　select
       &__select-box {
-        height: 40px;
+        height: 50px;
         &__text {
           @include input_box;
           @include input_box_option;
           width: 400px;
+          &--brand{
+            height: 18px;
+            width: 366px;
+          }
           &__icon{
             float:right;
             font-size: 60px;
@@ -101,7 +111,7 @@
       }
       // 商品詳細　select
       &__select-box {
-        height: 40px;
+        height: 50px;
         &__text {
           @include input_box;
           @include input_box_option;
@@ -210,6 +220,9 @@
       padding: 40px;
       border-top: solid 1px $background-color-gray;
     }
+  }
+  &__lastbox{
+    height: 40px;
   }
 }
 .fa-sell-form__angle-down {
