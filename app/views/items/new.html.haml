@@ -79,20 +79,19 @@
                 .sell-form__main__delivery
                   = f.label "発送料の負担", class:"sell-form__main__delivery__label"
                   %span{class:"sell-form__main__delivery__label--require"} 必須
-                .sell-form__main__delivery__select-box
-                  = f.select :shipping_fee,Item.shipping_fees.keys.to_a, {include_blank: "---" },{required:"required",class:"sell-form__main__delivery__select-box__text"}
+                #shipping_fee.sell-form__main__delivery__select-box
+                  = f.select :shipping_fee,Item.shipping_fees.keys.to_a, {include_blank: "---" },{required:"required",id:'select_shipping_fee',class:"sell-form__main__delivery__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
-              .sell-form__main__delivery__warp--middle
+              #how_to_shipping.sell-form__main__delivery__warp--middle
                 .sell-form__main__delivery
                   = f.label "発送の方法", class:"sell-form__main__delivery__label"
                   %span{class:"sell-form__main__delivery__label--require"} 必須
-                .sell-form__main__delivery__select-box
-                  = f.select :how_to_shipping,Item.how_to_shippings.keys.to_a, { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
+                #exhibitor_burden.sell-form__main__delivery__select-box
+                  = f.select :how_to_shipping,Item.exhibitor_burdens.keys.to_a, { include_blank: "---" },{ class:"sell-form__main__detail__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
-                .sell-form__main__delivery__select-box
-                  -# 少ないver
-                  -# = f.select :how_to_shipping,Item.how_to_shippings.keys.to_a, { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
-                  -# =fa_icon "angle-down sell-form__angle-down"
+                #purchaser_burden.sell-form__main__delivery__select-box
+                  = f.select :how_to_shipping,Item.purchaser_burdens.keys.to_a, { include_blank: "---" },{ class:"sell-form__main__detail__select-box__text"}
+                  =fa_icon "angle-down sell-form__angle-down"
               .sell-form__main__delivery__warp--middle
                 .sell-form__main__delivery
                   = f.label "発送元の地域", class:"sell-form__main__delivery__label"
