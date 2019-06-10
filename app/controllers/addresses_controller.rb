@@ -9,10 +9,10 @@ class AddressesController < ApplicationController
   def edit
   end
 
-  def update 
-    address = Address.find_by(user_id: current_user.id) 
+  def update
+    address = current_user.address
     if address.update(addresses_params)
-      redirect_to edit_address_path, notice: '更新しました'
+      redirect_to edit_address_path
     else
       render :edit
   end
