@@ -161,6 +161,7 @@
           
           - @comments.each do |comment|
             - if user_signed_in?
+              -# ログイン時のビュー画面
               - if comment.user.id == current_user.id
                 %li.itemCommentMe__content__item__cl.clearfix
                   .itemCommentMe__content__item__cl__user
@@ -171,7 +172,9 @@
                       .itemCommentMe__content__item__cl__userName 
                         = comment.user.nickname
                         さんコメント
-                      -# .itemCommentMe__content__item__cl__seller 出品者
+                      - if comment.user.id == @item.exhibit.user.id
+                        .itemComment__content__item__cl__seller
+                          %p 出品者
                   .itemCommentMe__content__item__cl__body
                     .itemCommentMe__content__item__cl__body__text
                       = comment.content
@@ -196,7 +199,9 @@
                       .itemComment__content__item__cl__userName
                         = comment.user.nickname
                         さんコメント
-                      .itemComment__content__item__cl__seller 出品者
+                      - if comment.user.id == @item.exhibit.user.id
+                        .itemComment__content__item__cl__seller
+                          %p 出品者
                   .itemComment__content__item__cl__body
                     .itemComment__content__item__cl__body__text
                       = comment.content
@@ -210,6 +215,7 @@
                           = button_tag type: "submit" do
                             %i=fa_icon "flag",class:"itemComment__icon__flag"
             - else
+              -# ログインしていない時のビュー画面
               %li.itemComment__content__item__cl.clearfix
                 .itemComment__content__item__cl__user
                   = link_to user_path(comment.user) do
