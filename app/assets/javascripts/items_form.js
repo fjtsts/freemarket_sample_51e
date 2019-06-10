@@ -20,7 +20,6 @@ $(document).on('turbolinks:load', function() {
   $('#purchaser_burden').css("display" , "none");
   $("#shipping_fee").change(function(){
     var how_to_shipping = $("#select_shipping_fee").val();
-    console.log(how_to_shipping)
     if (how_to_shipping == "送料込み(出品者負担)") {
       $('#how_to_shipping').css("display" , "");
       $('#exhibitor_burden').css("display" , "");
