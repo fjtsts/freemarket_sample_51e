@@ -1,47 +1,53 @@
 .container
-  %header
+  .header1
     .header-inner
       .header-inner__top
         %h1
           =link_to image_tag("mercari_logo_horizontal.png",:size=> "160x50",class: "img"),"/"
-        = form_tag("/products",method: 'get',class: "header-inner__top__search") do 
-          = text_field_tag :keyword, "", class: "header-inner__top__search__form", placeholder: "キーワードから探す"
-          = button_tag type: "submit",class: "header-inner__top__search__form__button" do
-            =fa_icon "search"
-
+        = search_form_for($query,url: search_path ,class: "header-inner__top__search") do |f|
+          = f.search_field :name_cont, class: "header-inner__top__search__form", placeholder: "キーワードから探す"
+          -# = f.submit 'Search',class: "header-inner__top__search__button"
+          = button_tag type:"submit", class: "header-inner__top__search__button" do 
+            = fa_icon "search"
       .header-inner__bottom
         .header-inner__bottom__nav1
           %ul.nav1
             %li.ctd
-              = link_to "/"  do
+              = link_to categories_path  do
                 =fa_icon "bars"
                 %span カテゴリー
               %ul#nav-drawer
-              
-                - @parents.each do |parent|
-                  %li.ctd__2
-                    =link_to "#{parent.name}","/"
-                    %ul#nav-drawer__2
-                      -parent.children.each do |child|
-                        %li
-                          =link_to "#{child.name}","/"
-                %li
-                  =link_to "カテゴリー一覧","/"
+                = render "items/category-menue"
             %li.bl
               =link_to "/" do
                 =fa_icon "tag"
                 %span ブランドから探す
-                 
-
-        .header-inner__bottom__nav2
-          %ul.nav2
-            %li.Notice
-              =fa_icon "bell"
-              %span お知らせ
-            %li.check
-              =fa_icon "check"
-              %span やることリスト
-            %li.mypage
-              =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
-              %span マイページ
+              %ul.nav-drawer2
+                - Brand.all.each do |brand|
+                  %li.bl2
+                    =link_to "#{brand.name}","/"
+                %li.all-brand
+                  カテゴリー一覧
+        -if user_signed_in?
+          .header-inner__bottom__nav2
+            %ul.nav2
+              %li.Notice
+                =fa_icon "bell"
+                %span お知らせ
+              %li.check
+                =fa_icon "check"
+                %span やることリスト
+              %li.mypage
+                =link_to users_path  do
+                  =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
+                  %span マイページ
+        -else
+          .header-inner__bottom__nav2
+            %ul.nav2-login
+              %li.nav2-login__btn
+                =link_to "新規会員登録", new_user_registration_path,class: "signup"
+              %li.nav2-login__btn 
+                = link_to "ログイン", user_session_path,class: "login"
+            
+          
 

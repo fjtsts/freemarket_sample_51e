@@ -48,5 +48,6 @@
     .footer-copyright
       %span.copyright © 2019 Mercari
 .footer-sell-btn
-  %p.sell 出品
-  =fa_icon"camera", class: 'icon'
+  =link_to "/items/new" do
+    %p.sell 出品
+    =fa_icon"camera", class: 'icon'

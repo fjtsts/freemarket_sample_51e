@@ -1,6 +1,7 @@
 .user-main {
   height: 2000px;
   background-color: #f5f5f5;
+  padding: 1px;
   li {
     font-size: 14px;
     &:hover {
@@ -73,6 +74,89 @@
 .user-container_right-content {
   float: right;
   width: 700px;
+  &__head {
+    text-align: center;
+    padding: 8px 24px;
+    background-color: $white;
+    border-bottom: 1px solid $background-color-gray;
+    h2 {
+      font-weight: bold;
+      font-size: 24px;
+    }
+  }
+  &__detail {
+    background-color: $white;
+    padding: 64px;
+    &__foot {
+      background-color: $white;
+      border-top: 1px solid $background-color-gray;
+      margin-top: 40px;
+      p {
+        margin-top: 40px;
+      }
+    }
+    &__content {
+      width: 320px;
+      margin: 0 auto;
+      &__group {
+        position: relative;
+        margin-bottom: 40px;
+        button {
+          position: absolute;
+          top: 30%;
+          right: 0;
+          background-color: $white;
+          border-radius: 3px;
+          border: 1px solid $red;
+          color: $red;
+          padding: 4px 6px;
+          font-size: 14px;
+          cursor: pointer;
+        }
+        input {
+          width: 286px;
+          margin-top: 8px;
+          height: 28px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+        input:last-child {
+          width: 100%;
+          background: $red;
+          border: 1px solid $red;
+          color: #fff;
+          height: 48px;
+          line-height: 48px;
+          font-size: 14px;
+          padding: 0;
+          cursor: pointer;
+        }
+        label {
+          font-weight: bold;
+          font-size: 14px;
+        }
+        em {
+          font-size: 12px;
+          background-color: $red;
+          color: $white;
+          border-radius: 2px;
+        }
+        select {
+          margin-top: 8px;
+          width: 112px;
+          height: 48px;
+          background-color: $white;
+        }
+      }
+      &__group:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
 }
 
 .user-container_right-
@@ -378,12 +462,10 @@
         }
       }
       &__prefecture {
-        select {
-          margin-top: 5px;
-          height: 48px;
-          width: 100%;
-          font-size: 16px;
-        }
+        margin-top: 5px;
+        height: 48px;
+        width: 100%;
+        font-size: 16px;
       }
       &__card-limit {
         select {

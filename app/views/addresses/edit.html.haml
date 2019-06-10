@@ -1,0 +1,41 @@
+- breadcrumb :users
+.user-main
+  .user-container
+    = render 'users/sidebar'
+    .user-container_right-content
+      .user-container_right-content_address
+        %h2.user-container_right-content_address_chapter 発送元・お届け先住所変更
+        .user-container_right-content_addedit_content
+          = form_with model: current_user, url: address_path(current_user), method: "PATCH" , local: true do |f|
+            .user-container_right-content_addedit_content_form-group
+              %label{for: "last_name"} お名前
+              %span.form-arbitrary 必須
+              = f.text_field :last_name, class: "input-default", placeholder: "例）山田",value: "#{current_user.address.last_name}"
+              = f.text_field :first_name, class: "input-default", placeholder: "例）彩",value: "#{current_user.address.first_name}"
+            .user-container_right-content_addedit_content_form-group
+              %label お名前カナ
+              %span.form-arbitrary 必須
+              = f.text_field :last_name_kata, class: "input-default", placeholder: "例）ヤマダ",value: "#{current_user.address.last_name_kata}"
+              = f.text_field :first_name_kata, class: "input-default", placeholder: "例）アヤ",value: "#{current_user.address.first_name_kata}"
+            .user-container_right-content_addedit_content_form-group
+              %label{for: "postal_code"} 郵便番号
+              %span.form-arbitrary 必須
+              = f.text_field :postal_code, class: "input-default", placeholder: "例）1234567",value: "#{current_user.address.postal_code}"
+            .user-container_right-content_addedit_content_form-group
+              %label{for: "prefecture"} 都道府県
+              %span.form-arbitrary 必須
+              .user-container_right-content_addedit_content_select-wrap
+                = f.collection_select :prefecture, Prefecture.all, :name, :name, {include_blank: current_user.address.prefecture, required:"required"},{class:"user-container_right-content_addedit_content_select-default"}
+            .user-container_right-content_addedit_content_form-group
+              %label{for: "city"} 市区町村
+              %span.form-arbitrary 必須
+              = f.text_field :city, class: "input-default", placeholder: "例）横浜市青葉区", value: "#{current_user.address.city}"
+            .user-container_right-content_addedit_content_form-group
+              %label{for: "town_number"} 番地
+              %span.form-arbitrary 必須
+              = f.text_field :town_number, class: "input-default",placeholder: "例）青山1−1−1", type: "text", value: "#{current_user.address.town_number}"
+            .user-container_right-content_addedit_content_form-group
+              %label{for: "building_label"} 建物名
+              %span.form-arbitrary 必須
+              = f.text_field :building, class: "input-default",placeholder: "例）柳ビル103", type: "text", value: "#{current_user.address.building}"
+            = f.submit "変更する", class: "user-container_right-content_addedit_content_btn-default"

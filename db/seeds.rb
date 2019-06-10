@@ -230,290 +230,294 @@ parent_id62 = parent_id4.children.create!(
   name: 'キッチン/食器'
 )
 parent_id63 = parent_id4.children.create!(
-  name: 'ベッド/ソファベッド'
+  name: 'ベッド/マットレス'
 )
 parent_id64 = parent_id4.children.create!(
+  name: 'ソファー/ソファーベッド'
+)
+
+parent_id65 = parent_id4.children.create!(
   name: '椅子/チェアー'
 )
-parent_id65 = parent_id4.children.create!(
+parent_id66 = parent_id4.children.create!(
   name: '机/テーブル'
 )
-parent_id66 = parent_id4.children.create!(
+parent_id67 = parent_id4.children.create!(
   name: '収納家具'
 )
-parent_id67 = parent_id4.children.create!(
+parent_id68 = parent_id4.children.create!(
   name: 'ラグ／カーペット/マット'
 )
-parent_id68 = parent_id4.children.create!(
+parent_id69 = parent_id4.children.create!(
   name: 'カーテン/ブラインド'
 )
-parent_id69 = parent_id4.children.create!(
+parent_id70 = parent_id4.children.create!(
   name: 'ライト/証明'
 )
-parent_id70 = parent_id4.children.create!(
+parent_id71 = parent_id4.children.create!(
   name: '寝具'
 )
-parent_id71 = parent_id4.children.create!(
+parent_id72 = parent_id4.children.create!(
   name: 'インテリア小物'
 )
-parent_id72 = parent_id4.children.create!(
+parent_id73 = parent_id4.children.create!(
   name: '季節/年中行事'
 )
-parent_id73 = parent_id4.children.create!(
+parent_id74 = parent_id4.children.create!(
   name: 'その他'
-)
-parent_id74 = parent_id5.children.create!(
-  name: '本'
 )
 parent_id75 = parent_id5.children.create!(
-  name: '漫画'
+  name: '本'
 )
 parent_id76 = parent_id5.children.create!(
-  name: '雑誌'
+  name: '漫画'
 )
 parent_id77 = parent_id5.children.create!(
-  name: 'CD'
+  name: '雑誌'
 )
 parent_id78 = parent_id5.children.create!(
-  name: 'DVD/ブルーレイ'
+  name: 'CD'
 )
 parent_id79 = parent_id5.children.create!(
-  name: 'レコード'
+  name: 'DVD/ブルーレイ'
 )
 parent_id80 = parent_id5.children.create!(
+  name: 'レコード'
+)
+parent_id81 = parent_id5.children.create!(
   name: 'テレビゲーム'
 )
-parent_id81 = parent_id6.children.create!(
+parent_id82 = parent_id6.children.create!(
   name: 'おもちゃ'
 )
-parent_id82 = parent_id6.children.create!(
+parent_id83 = parent_id6.children.create!(
   name: 'タレントグッズ'
 )
-parent_id83 = parent_id6.children.create!(
+parent_id84 = parent_id6.children.create!(
   name: 'コミック/アニメグッズ'
 )
-parent_id84 = parent_id6.children.create!(
+parent_id85 = parent_id6.children.create!(
   name: 'トレーディングカード'
 )
-parent_id85 = parent_id6.children.create!(
+parent_id86 = parent_id6.children.create!(
   name: 'フィギュア'
 )
-parent_id86 = parent_id6.children.create!(
+parent_id87 = parent_id6.children.create!(
   name: '楽器/器材'
 )
-parent_id87 = parent_id6.children.create!(
+parent_id88 = parent_id6.children.create!(
   name: 'コレクション'
 )
-parent_id88 = parent_id6.children.create!(
+parent_id89 = parent_id6.children.create!(
   name: 'ミリタリー'
 )
-parent_id89 = parent_id6.children.create!(
+parent_id90 = parent_id6.children.create!(
   name: '美術品'
 )
-parent_id90 = parent_id6.children.create!(
+parent_id91 = parent_id6.children.create!(
   name: 'アート用品'
 )
-parent_id91 = parent_id6.children.create!(
+parent_id92 = parent_id6.children.create!(
   name: 'その他'
 )
-parent_id92 = parent_id7.children.create!(
+parent_id93 = parent_id7.children.create!(
   name: 'ベースメイク'
 )
-parent_id93 = parent_id7.children.create!(
+parent_id94 = parent_id7.children.create!(
   name: 'メイクアップ'
 )
-parent_id94= parent_id7.children.create!(
+parent_id95= parent_id7.children.create!(
   name: 'ネイルケア'
 )
-parent_id95 = parent_id7.children.create!(
+parent_id96 = parent_id7.children.create!(
     name: '香水'
      
 )
-parent_id96 = parent_id7.children.create!(
+parent_id97 = parent_id7.children.create!(
   name: 'スキンケア/基礎化粧品'
 )
-parent_id97 = parent_id7.children.create!(
+parent_id98 = parent_id7.children.create!(
   name: 'ヘアケア'
 )
-parent_id98 = parent_id7.children.create!(
+parent_id99 = parent_id7.children.create!(
   name: 'ボディケア'
 )
-parent_id99 = parent_id7.children.create!(
+parent_id100 = parent_id7.children.create!(
   name: 'オーラルケア'
 )
-parent_id100 = parent_id7.children.create!(
+parent_id101 = parent_id7.children.create!(
   name: 'リラクゼーション'
 )
-parent_id101 = parent_id7.children.create!(
+parent_id102 = parent_id7.children.create!(
   name: 'ダイエット'
 )
-parent_id102 = parent_id7.children.create!(
+parent_id103 = parent_id7.children.create!(
   name: 'その他'
 )
-parent_id103 = parent_id8.children.create!(
+parent_id104 = parent_id8.children.create!(
   name: 'スマートフォン/携帯電話'
    
 )
-parent_id104 = parent_id8.children.create!(
+parent_id105 = parent_id8.children.create!(
   name: 'スマホアクセサリー'
 )
-parent_id105 = parent_id8.children.create!(
+parent_id106 = parent_id8.children.create!(
   name: 'pc/タブレット'
 )
-parent_id106 = parent_id8.children.create!(
+parent_id107 = parent_id8.children.create!(
   name: 'カメラ'
 )
-parent_id107 = parent_id8.children.create!(
+parent_id108 = parent_id8.children.create!(
   name: 'テレビ/映像機器'
 )
-parent_id108 = parent_id8.children.create!(
+parent_id109 = parent_id8.children.create!(
   name: 'オーディオ機器'
 )
-parent_id109 = parent_id8.children.create!(
+parent_id110 = parent_id8.children.create!(
   name: '美容/健康'
 )
-parent_id110 = parent_id8.children.create!(
+parent_id111 = parent_id8.children.create!(
   name: '冷暖房/空調'
 )
-parent_id111 = parent_id8.children.create!(
+parent_id112 = parent_id8.children.create!(
   name: '生活家電'
 )
-parent_id112 = parent_id8.children.create!(
+parent_id113 = parent_id8.children.create!(
   name: 'その他'
-)
-parent_id113 = parent_id9.children.create!(
-  name: 'ゴルフ'
 )
 parent_id114 = parent_id9.children.create!(
+  name: 'ゴルフ'
+)
+parent_id115 = parent_id9.children.create!(
   name: 'フィッシング'
 )
-parent_id115= parent_id9.children.create!(
+parent_id116= parent_id9.children.create!(
   name: '自転車'
 )
-parent_id116 = parent_id9.children.create!(
+parent_id117 = parent_id9.children.create!(
   name: 'トレーニング/エクササイズ'
 )
-parent_id117 = parent_id9.children.create!(
+parent_id118 = parent_id9.children.create!(
   name: '野球'
 )
-parent_id118 = parent_id9.children.create!(
+parent_id119 = parent_id9.children.create!(
   name: 'サッカー/フットサル'
 )
-parent_id119= parent_id9.children.create!(
+parent_id120= parent_id9.children.create!(
   name: 'テニス'
 )
-parent_id120 = parent_id9.children.create!(
+parent_id121 = parent_id9.children.create!(
   name: 'スノーボード'
 )
-parent_id121= parent_id9.children.create!(
+parent_id122= parent_id9.children.create!(
   name: 'スキー'
 )
-parent_id122 = parent_id9.children.create!(
+parent_id123 = parent_id9.children.create!(
   name: 'その他のスポーツ'
 )
-parent_id123 = parent_id9.children.create!(
+parent_id124 = parent_id9.children.create!(
   name: 'アウトドア'
 )
-parent_id124 = parent_id9.children.create!(
+parent_id125 = parent_id9.children.create!(
   name: 'その他'
-)
-parent_id125 = parent_id10.children.create!(
-  name: 'アクセサリー(女性用)'
 )
 parent_id126 = parent_id10.children.create!(
-  name: 'ファッション/小物'
+  name: 'アクセサリー(女性用)'
 )
 parent_id127 = parent_id10.children.create!(
-  name: 'アクセサリー/時計'
+  name: 'ファッション/小物'
 )
 parent_id128 = parent_id10.children.create!(
-  name: '日用品/インテリア'
+  name: 'アクセサリー/時計'
 )
 parent_id129 = parent_id10.children.create!(
-  name: '趣味/おもちゃ'
+  name: '日用品/インテリア'
 )
 parent_id130 = parent_id10.children.create!(
+  name: '趣味/おもちゃ'
+)
+parent_id131 = parent_id10.children.create!(
   name: 'キッズ/ベビー'
 )
-parent_id131= parent_id10.children.create!(
+parent_id132= parent_id10.children.create!(
   name: '素材/材料'
 )
-parent_id132 = parent_id10.children.create!(
+parent_id133 = parent_id10.children.create!(
   name: '二次創作'
 )
-parent_id133 = parent_id10.children.create!(
+parent_id134 = parent_id10.children.create!(
   name: 'その他'
-)
-parent_id134 = parent_id11.children.create!(
-  name: '音楽'
 )
 parent_id135 = parent_id11.children.create!(
-  name: 'スポーツ'
+  name: '音楽'
 )
 parent_id136 = parent_id11.children.create!(
-  name: '演劇/芸能'
+  name: 'スポーツ'
 )
 parent_id137 = parent_id11.children.create!(
-  name: 'イベント'
+  name: '演劇/芸能'
 )
 parent_id138 = parent_id11.children.create!(
-  name: '映画'
+  name: 'イベント'
 )
 parent_id139 = parent_id11.children.create!(
-  name: '施設利用券'
+  name: '映画'
 )
 parent_id140 = parent_id11.children.create!(
-  name: '優待券'
+  name: '施設利用券'
 )
 parent_id141 = parent_id11.children.create!(
+  name: '優待券'
+)
+parent_id142 = parent_id11.children.create!(
   name: 'その他'
 )
-parent_id142 = parent_id12.children.create!(
+parent_id143 = parent_id12.children.create!(
   name: '自動車本体'
 )
-parent_id143 = parent_id12.children.create!(
+parent_id144 = parent_id12.children.create!(
   name: '自動車タイヤ/ホイール'
 )
-parent_id144 = parent_id12.children.create!(
+parent_id145 = parent_id12.children.create!(
   name: '自動車パーツ'
 )
-parent_id145 = parent_id12.children.create!(
+parent_id146 = parent_id12.children.create!(
   name: '自動車アクセサリー'
 )
-parent_id146 = parent_id12.children.create!(
+parent_id147 = parent_id12.children.create!(
   name: 'オートバイ本体'
 )
-parent_id147 = parent_id12.children.create!(
+parent_id148 = parent_id12.children.create!(
   name: 'オートバイパーツ'
 )
-parent_id148 = parent_id12.children.create!(
+parent_id149 = parent_id12.children.create!(
   name: 'オートバイアクセアリー'
 )
-parent_id149 = parent_id13.children.create!(
+parent_id150 = parent_id13.children.create!(
   name: 'まとめ売り'
 )
-parent_id150 = parent_id13.children.create!(
+parent_id151 = parent_id13.children.create!(
   name: 'ペット用品'
 )
-parent_id151 = parent_id13.children.create(
+parent_id152 = parent_id13.children.create(
   name: '食品'
 )
-parent_id152 = parent_id13.children.create(
+parent_id153 = parent_id13.children.create(
   name: '飲料/酒'
 )
-parent_id153 = parent_id13.children.create(
+parent_id154 = parent_id13.children.create(
   name: '日用品/生活雑貨/旅行'
 )
-parent_id154 = parent_id13.children.create(
+parent_id155 = parent_id13.children.create(
   name: 'アンティーク/コレクション'
 )
-parent_id155 = parent_id13.children.create(
+parent_id156 = parent_id13.children.create(
   name: '文房具/事務用品'
 )
-parent_id154 = parent_id13.children.create(
+parent_id157 = parent_id13.children.create(
   name: '事務/店舗用品'
 )
-parent_id150 = parent_id13.children.create(
+parent_id158 = parent_id13.children.create(
   name: 'その他'
 )
 
@@ -1207,7 +1211,7 @@ parent_id150 = parent_id13.children.create(
     冬一般
     その他
   }
-  categories74 = %w{
+  categories75 = %w{
   文学/小説
   人文/社会
   ノンフィクション/教養
@@ -1223,7 +1227,7 @@ parent_id150 = parent_id13.children.create(
   参考書
   その他
   }
-  categories75 = %w{
+  categories76 = %w{
     全巻セット
     少年漫画
     少女漫画
@@ -1232,14 +1236,14 @@ parent_id150 = parent_id13.children.create(
     同人誌
     その他
   }
-  categories76 = %w{
+  categories77 = %w{
     アート/エンタメ/ホービー
     ファッション
     ニュース/総合
     趣味/スポーツ
     その他
   }
-  categories77 = %w{
+  categories78 = %w{
     邦楽
     洋楽
     アニメ
@@ -1248,7 +1252,7 @@ parent_id150 = parent_id13.children.create(
     キッズ/ファミリー
     その他
   }
-  categories78 = %w{
+  categories79 = %w{
     外国映画
     日本映画
     アニメ
@@ -1260,13 +1264,13 @@ parent_id150 = parent_id13.children.create(
     その他
 
   }
-  categories79 = %w{
+  categories80 = %w{
     邦楽
     洋楽
     その他
 
   }
-  categories80 = %w{
+  categories81 = %w{
     家庭用ゲーム本体
     家庭用ゲームソフト
     携帯用ゲーム本体
@@ -1274,7 +1278,7 @@ parent_id150 = parent_id13.children.create(
     PCゲーム
     その他
   }
-  categories81 = %w{
+  categories82 = %w{
     キャラクターグッズ
     ぬいぐるみ
     小物/アクセサリー
@@ -1286,7 +1290,7 @@ parent_id150 = parent_id13.children.create(
     鉄道模型
     その他
   }
-  categories82 = %w{
+  categories83 = %w{
     アイドル
     ミュージシャン
     タレント/お笑い芸人
@@ -1294,7 +1298,7 @@ parent_id150 = parent_id13.children.create(
     その他
 
   }
-  categories83 = %w{
+  categories84 = %w{
     ストラップ
     キーホルダー
     バッジ
@@ -1306,7 +1310,7 @@ parent_id150 = parent_id13.children.create(
   }
     
 
-categories84 = %w{
+categories85 = %w{
   遊戯王
   マジック:ザ・ギャザリング
   デュエルマスターズ
@@ -1322,7 +1326,7 @@ categories84 = %w{
   その他
 
 }
-categories85 = %w{
+categories86 = %w{
   コミック/アニメ
   特撮
   ゲームキャラクター
@@ -1332,7 +1336,7 @@ categories85 = %w{
   その他
 
 }
-categories86 = %w{
+categories87 = %w{
   エレキギター
   アコースティックギター
   ベース
@@ -1349,7 +1353,7 @@ categories86 = %w{
   DTM/DAW
   その他
 }
-categories87 = %w{
+categories88 = %w{
   武具
   使用済切手/官製はがき
   旧貨幣/金貨/銀貨/記念硬貨
@@ -1357,12 +1361,12 @@ categories87 = %w{
   ノベルティーグッズ
   その他
 }
-categories88 = %w{
+categories89 = %w{
   トイガン
   個人装備
   その他
 }
-categories89 = %w{
+categories90 = %w{
   陶芸
   ガラス
   漆芸
@@ -1374,12 +1378,12 @@ categories89 = %w{
   その他
 
 }
-categories90 = %w{
+categories91 = %w{
   画材
   額縁
   その他
 }
-categories91 = %w{
+categories92 = %w{
   トランプ/ UNO
   かるた/百人一首
   ダーツ
@@ -1400,7 +1404,7 @@ categories91 = %w{
   パチンコ/パチスロ
   その他
 }
-categories92 = %w{
+categories93 = %w{
   ファンデーション
   化粧下地
   コントロールカラー
@@ -1411,7 +1415,7 @@ categories92 = %w{
   トライアルセット/サンプル
   その他
 }
-categories93 = %w{
+categories94 = %w{
   アイシャドウ
   口紅
   リップグロス
@@ -1429,7 +1433,7 @@ categories93 = %w{
   美顔用品/美顔ローラ
   その他
 }
-categories94 = %w{
+categories95 = %w{
   ネイルカラー
   カラージェル
   ネイルベースコート/トップコート
@@ -1440,14 +1444,14 @@ categories94 = %w{
   除光液
   その他
 }
-categories95 = %w{
+categories96 = %w{
   香水(女性用)
   香水(男性用)
   ユニセックス
   ボディミスト
   その他
 }
-categories96 = %w{
+categories97 = %w{
   化粧水/ローション
   乳液/ミルク
   美容液
@@ -1464,7 +1468,7 @@ categories96 = %w{
   その他
 
 }
-categories97 = %w{
+categories98 = %w{
   シャンプー
   トリートメント
   スタイリング剤
@@ -1472,7 +1476,7 @@ categories97 = %w{
   ブラシ
   その他
 }
-categories98 = %w{
+categories99 = %w{
   オイル/クリーム
   ハンドクリーム
   ローション
@@ -1483,12 +1487,12 @@ categories98 = %w{
   フットケア
   その他
 }
-categories99 = %w{
+categories100 = %w{
   口臭予防/エチケット用品
   歯ブラシ
   その他
 }
-categories100 = %w{
+categories101 = %w{
   エッセンシャルオイル
   芳香剤
   お香/香炉
@@ -1496,27 +1500,27 @@ categories100 = %w{
   リラクゼーション
   その他
 }
-categories101 = %w{
+categories102 = %w{
   ダイエット食品
   エクササイズ用品
   体重計
   体脂肪計
   その他
 }
-categories102 = %w{
+categories103 = %w{
   健康用品
   看護/介護用品
   救急/衛生用品
   その他
 }
-categories103 = %w{
+categories104 = %w{
   スマートホン本体
   バッテリー/充電器
   携帯電話本体
   PHS本体
   その他
 }
-categories104 = %w{
+categories105 = %w{
   Andoroid用ケース
   iphone用ケース
   カバー
@@ -1527,7 +1531,7 @@ categories104 = %w{
   その他
 
 }
-categories105 = %w{
+categories106 = %w{
   タブレット
   ノートPC
   デスクトップ型PC
@@ -1537,7 +1541,7 @@ categories105 = %w{
   PCパーツ
   その他
 }
-categories106 = %w{
+categories107 = %w{
   デジタルカメラ
   ビデオカメラ
   レンズ(単焦点)
@@ -1546,7 +1550,7 @@ categories106 = %w{
   防犯カメラ
   その他
 }
-categories107 = %w{
+categories108 = %w{
   テレビ
   プロジェクター
   ブルーレイレコーダー
@@ -1557,7 +1561,7 @@ categories107 = %w{
   その他
 
 }
-categories108 = %w{
+categories109 = %w{
   ポータブルプレーヤー
   イヤホン
   ヘッドホン
@@ -1566,7 +1570,7 @@ categories108 = %w{
   ラジオ
   その他
 }
-categories109 = %w{
+categories110 = %w{
   ヘアドライヤー
   ヘアアイロン
   美容機器
@@ -1574,7 +1578,7 @@ categories109 = %w{
   電気ブラシ
   その他
 }
-categories110 = %w{
+categories111 = %w{
   エアコン
   空気清浄機
   加湿器
@@ -1592,7 +1596,7 @@ categories110 = %w{
   電気毛布
   その他
 }
-categories111 = %w{
+categories112 = %w{
   冷蔵庫
   洗濯機
   炊飯器
@@ -1606,10 +1610,10 @@ categories111 = %w{
   その他
 
 }
-categories112 = %w{
+categories113 = %w{
   その他
 }
-categories113 = %w{
+categories114 = %w{
   クラブ
   ウエア(男性用)
   ウエア(女性用)
@@ -1620,7 +1624,7 @@ categories113 = %w{
   その他
 
 }
-categories114 = %w{
+categories115 = %w{
   ロッド
   リール
   ルアー
@@ -1629,7 +1633,7 @@ categories114 = %w{
   その他
 
 }
-categories115 = %w{
+categories116 = %w{
   自転車本体
   ウェア
   パーツ
@@ -1638,14 +1642,14 @@ categories115 = %w{
   工具/メンテナンス
   その他
 }
-categories116 = %w{
+categories117 = %w{
   ランニング
   ウオーキング
   ヨガ
   トレーニング
   その他
 }
-categories117 = %w{
+categories118 = %w{
   ウェア
   シューズ
   グローブ
@@ -1657,7 +1661,7 @@ categories117 = %w{
   応援グッズ
   その他
 }
-categories118 = %w{
+categories119 = %w{
   ウェア
   シューズ
   ボール
@@ -1666,7 +1670,7 @@ categories118 = %w{
   応援グッズ
   その他
 }
-categories119 = %w{
+categories120 = %w{
   ラケット(硬式用)
   ラケット(軟式用)
   ウェア
@@ -1677,7 +1681,7 @@ categories119 = %w{
   応援グッズ
   その他
 }
-categories120 = %w{
+categories121 = %w{
   ボード
   バインディング
   ブーツ(男性用)
@@ -1690,7 +1694,7 @@ categories120 = %w{
   バッグ
   その他
 }
-categories121 = %w{
+categories122 = %w{
   板
   ブーツ(男性用)
   ブーツ(女性用)
@@ -1702,7 +1706,7 @@ categories121 = %w{
   ストック
   その他
 }
-categories122 = %w{
+categories123 = %w{
   ダンス/バレー
   サーフィン
   バスケットボール
@@ -1716,7 +1720,7 @@ categories122 = %w{
   ボウリング
   その他
 }
-categories123 = %w{
+categories124 = %w{
   テント
   ライト/ランタン
   寝具/寝袋
@@ -1727,11 +1731,11 @@ categories123 = %w{
   登山用品
   その他
 }
-categories124 = %w{
+categories125 = %w{
   旅行用品
   その他
 }
-categories125 = %w{
+categories126 = %w{
   ピアス
   イヤリング
   ネクレッス
@@ -1742,7 +1746,7 @@ categories125 = %w{
   アンクレット
   その他
 }
-categories126 = %w{
+categories127 = %w{
   バッグ(女性用)
   バッグ(男性用)
   財布(女性用)
@@ -1750,13 +1754,13 @@ categories126 = %w{
   ファッション雑貨
   その他
 }
-categories127 = %w{
+categories128 = %w{
   アクセサリー(男性用)
   時計(女性用)
   時計(男性用)
   その他
 }
-categories128 = %w{
+categories129 = %w{
   キッチン用品
   家具
   文房具
@@ -1766,31 +1770,31 @@ categories128 = %w{
   その他
   
 }
-categories129 = %w{
+categories130 = %w{
   クラフト/布製品
   おもちゃ/人形
   その他
   
 }
-categories130 = %w{
+categories131 = %w{
   ファッション雑貨
   スタイ/よだれかけ
   外出用品
   ネームタグ
   その他
 }
-categories131 = %w{
+categories132 = %w{
   各種パーツ
   生地/糸
   型紙/パターン
   その他
 }
-categories132 = %w{
+categories133 = %w{
   Ingress
   クリエイターズ宇宙兄弟
   その他
 }
-categories134 = %w{
+categories135 = %w{
   男性アイドル
   女性アイドル
   韓流
@@ -1800,7 +1804,7 @@ categories134 = %w{
   声優/アニメ
   その他
 }
-categories135 = %w{
+categories136 = %w{
   サッカー
   野球
   テニス
@@ -1814,7 +1818,7 @@ categories135 = %w{
   その他
 
 }
-categories136 = %w{
+categories137 = %w{
   ミュージカル
   演劇
   伝統芸能
@@ -1825,18 +1829,18 @@ categories136 = %w{
   バレエ
   その他
 }
-categories137 = %w{
+categories138 = %w{
   声優/アニメ
   キッズ/ファミリー
   トークショー/講演会
   その他
 }
-categories138 = %w{
+categories139 = %w{
   邦画
   洋画
   その他
 }
-categories139 = %w{
+categories140 = %w{
   遊園地/テーマパーク
   美術館/博物館
   スキー場
@@ -1848,24 +1852,24 @@ categories139 = %w{
   動物園
   その他
 }
-categories140 = %w{
+categories141 = %w{
   ショッピング
   レストラン/食事券
   フード/ドリンク券
   宿泊券
   その他
 }
-categories142 = %w{
+categories143 = %w{
   国内車体
   外国車体
 }
-categories143 = %w{
+categories144 = %w{
   タイヤ/ホイールセット
   タイヤ
   ホイール
   その他
 }
-categories144 = %w{
+categories145 = %w{
   サスペンション
   ブレーキ
   外装、エアロパーツ
@@ -1881,7 +1885,7 @@ categories144 = %w{
   外国自動車用パーツ
   その他
 }
-categories145 = %w{
+categories146 = %w{
   車内アクセサリー
   カーナビ
   カーオーディオ
@@ -1896,7 +1900,7 @@ categories145 = %w{
   その他
 
 }
-categories146 = %w{
+categories148 = %w{
   タイヤ
   マフラー
   エンジン、冷却装置
@@ -1914,7 +1918,7 @@ categories146 = %w{
   外国オートバイ用パーツ
   その他
 }
-categories147 = %w{
+categories149 = %w{
   ヘルメット/シールド
   バイクウエア/装備
   アクセサリー
@@ -1922,7 +1926,7 @@ categories147 = %w{
   カタログ/マニュアル
   その他
 }
-categories148 = %w{
+categories151 = %w{
   ペットフード
   犬用品
   猫用品
@@ -1935,7 +1939,7 @@ categories148 = %w{
   その他
 
 }
-categories149 = %w{
+categories152 = %w{
   菓子
   米
   野菜
@@ -1945,7 +1949,7 @@ categories149 = %w{
   肉類(加工食品)
   その他
 }
-  categories150 = %w{
+  categories153 = %w{
     コーヒー
     ソフトドリンク
     ミネラルウォーター
@@ -1957,7 +1961,7 @@ categories149 = %w{
     ビール、発泡酒
     その他
   }
-categories151 = %w{
+categories154 = %w{
   タオル/バス用品
   日用品/生活雑貨
   洗剤/柔軟剤
@@ -1965,14 +1969,14 @@ categories151 = %w{
   防災関連グッズ
   その他
 }
-categories152 =%w{
+categories155 =%w{
   雑貨
   工芸品
   家具
   印刷分
   その他
 }
-categories153 =%w{
+categories156 =%w{
   筆記用具
   ノート/メモ帳
   テープ/マスキングテープ
@@ -1984,7 +1988,7 @@ categories153 =%w{
   のり/ホッチキス
   その他
 }
-categories154 = %w{
+categories157 = %w{
   オフィス用品
   オフィス家具
   店舗用品
@@ -1996,7 +2000,7 @@ categories154 = %w{
 
   
     categories14.each do | category|
-      parent_id14.children.create!(name: Category)
+      parent_id14.children.create!(name: category)
     end
     categories15.each do | category|
       parent_id15.children.create!(name: category)
@@ -2173,9 +2177,9 @@ categories154 = %w{
     categories73.each do | category|
       parent_id73.children.create!(name: category)
     end
-    categories74.each do | category|
-      parent_id74.children.create!(name: category)
-    end
+    # categories74.each do | category|
+    #   parent_id74.children.create!(name: category)
+    # end
     categories75.each do | category|
       parent_id75.children.create!(name: category)
     end
@@ -2349,9 +2353,9 @@ categories154 = %w{
       parent_id132.children.create!(name: category)
     end
     
-    categories134.each do | category|
-      parent_id134.children.create!(name: category)
-    end
+    # categories134.each do | category|
+    #   parent_id134.children.create!(name: category)
+    # end
     categories135.each do | category|
       parent_id135.children.create!(name: category)
     end
@@ -2371,9 +2375,9 @@ categories154 = %w{
       parent_id140.children.create!(name: category)
     end
     
-    categories142.each do | category|
-      parent_id142.children.create!(name: category)
-    end
+    # categories142.each do | category|
+    #   parent_id142.children.create!(name: category)
+    # end
     categories143.each do | category|
       parent_id143.children.create!(name: category)
     end
@@ -2386,18 +2390,18 @@ categories154 = %w{
     categories146.each do | category|
       parent_id146.children.create!(name: category)
     end
-    categories147.each do | category|
-      parent_id147.children.create!(name: category)
-    end
+    # categories147.each do | category|
+    #   parent_id147.children.create!(name: category)
+    # end
     categories148.each do | category|
       parent_id148.children.create!(name: category)
     end
     categories149.each do | category|
       parent_id149.children.create!(name: category)
     end
-    categories150.each do | category|
-      parent_id150.children.create!(name: category)
-    end
+    # categories150.each do | category|
+    #   parent_id150.children.create!(name: category)
+    # end
     categories151.each do | category|
       parent_id151.children.create!(name: category)
     end
@@ -2410,66 +2414,76 @@ categories154 = %w{
     categories154.each do | category|
       parent_id154.children.create!(name: category)
     end
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000,
-  brand_id: 1,
-  category_id: 3
+    categories155.each do | category|
+      parent_id155.children.create!(name: category)
+    end
+    categories156.each do | category|
+      parent_id156.children.create!(name: category)
+    end
+    categories157.each do | category|
+      parent_id157.children.create!(name: category)
+    end
 
-)
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000,
-  brand_id: 2,
-  category_id: 7
+# Item.create!(
+#   name: 'テスト太郎',
+#   description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+#   status: 1,
+#   shipping_fee: 1,
+#   how_to_shipping: 1,
+#   area: 1,
+#   day: 1,
+#   price: 1000,
+#   brand_id: 1,
+#   category_id: 3
+
+# )
+# Item.create!(
+#   name: 'テスト太郎',
+#   description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+#   status: 1,
+#   shipping_fee: 1,
+#   how_to_shipping: 1,
+#   area: 1,
+#   day: 1,
+#   price: 1000,
+#   brand_id: 2,
+#   category_id: 7
 
 
-)
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000,
-  brand_id: 2,
-  category_id: 4
-)
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000,
-  brand_id: 4,
-  category_id: 2
-)
-Item.create!(
-  name: 'テスト太郎',
-  description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
-  status: 1,
-  shipping_fee: 1,
-  how_to_shipping: 1,
-  area: 1,
-  day: 1,
-  price: 1000,
-  brand_id: 1,
-  category_id: 1
-) 
+# )
+# Item.create!(
+#   name: 'テスト太郎',
+#   description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+#   status: 1,
+#   shipping_fee: 1,
+#   how_to_shipping: 1,
+#   area: 1,
+#   day: 1,
+#   price: 1000,
+#   brand_id: 2,
+#   category_id: 4
+# )
+# Item.create!(
+#   name: 'テスト太郎',
+#   description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+#   status: 1,
+#   shipping_fee: 1,
+#   how_to_shipping: 1,
+#   area: 1,
+#   day: 1,
+#   price: 1000,
+#   brand_id: 4,
+#   category_id: 2
+# )
+# Item.create!(
+#   name: 'テスト太郎',
+#   description: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg',
+#   status: 1,
+#   shipping_fee: 1,
+#   how_to_shipping: 1,
+#   area: 1,
+#   day: 1,
+#   price: 1000,
+#   brand_id: 1,
+#   category_id: 1
+# ) 

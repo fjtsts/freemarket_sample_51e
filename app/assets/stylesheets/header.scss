@@ -1,14 +1,10 @@
-header{
+.header1{
     background :#fff;
     text-decoration: none;
-
-
     height:100px;
   .header-inner{
      width:1020px;
      padding:0 210px;
-        
-    
     &__top{
             height:40px;
             padding:6px 10px 0 10px;
@@ -27,34 +23,35 @@ header{
         }
     &__top__search{
             height:40px;
-            width:851px;
+            width:841px;
             position:relative;
-            padding-right:40px;
+            margin-left:45px;
         
 
             
 
-        input{
+            &__form{
                 height:100%;
                 width:798px; 
-                margin-left:45px;
+                padding-left:10px;
                 display:inline-block;
                 border:none;
-                padding:0;
+                padding-right:42px;
                 background:#f5f5f5;
                 border-radius:4px;
                 border:1px solid $light-gray;
+                outline: none;
                 
 
             }
-        &__form__button{
+            &__button{
         
-            height:42px;
+            height:40px;
             width:40px;
             border:none; 
             position:absolute;
             top:0;
-            right:6px;
+            right:1px;
             background:rgb(102, 102, 102);
             border-radius:4px;
             color:#fff;
@@ -76,18 +73,21 @@ header{
     &__nav1{
             width:320px;
             height:44px;
-            margin-top:8px;
             float:left;
             @extend .clearfix;
     .nav1{
+        width:320px;
         height:44px;
-        margin-top:8px;
+        float:left;
         .bl{
             float:left;
+            pointer-events : auto;
             margin-right:30px;
+            position:relative;
             font-weight:bold;
             font-size:14px;
             @extend .clearfix;
+            z-index:2;
             i{
                 color:red;
            }
@@ -98,6 +98,7 @@ header{
                    color:$light-blue;
                  }
            }
+           
         }
         .ctd{
             pointer-events : auto;
@@ -107,55 +108,21 @@ header{
             font-size:14px;
             @extend .clearfix;
             position:relative;
-            z-index:1;
-            
-            #nav-drawer{
-                display:none;
-                position:absolute;
-                background-color:$white;
-                height:600px;
-                width:250px;
-                font-size:14px;
-                li{
-                    padding-top:20px;
-                    padding-right:10px;
-                    font-weight:normal;
-                    letter-spacing: 2px;
-                    
-                }
-            
-                &__2{
-                    display:none;
-                position:absolute;
-                top:0px;
-                left:250px;
-                background-color:$white;
-                height:600px;
-                width:250px;
-                font-size:14px;
-                }
-                a:hover + #nav-drawer__2{
-                    display:block;
-                    z-index:3;
-                    display:block;
+            z-index:2;
+
         
-                    
-                }
-                &:hover #nav-drawer:hover >#nav-drawer__2{
-                    display:block;
-                }
-                
-            }
             
-            a:hover + #nav-drawer{
+            li:hover + #nav-drawer{
                 display:block;
                 z-index:3;
-                display:block;
+            
     
                 
             }
             &:hover > #nav-drawer{
                 display:block;
+            
+            
             }
             i{
                  color:red;
@@ -167,12 +134,32 @@ header{
                     color:$light-blue;
                   }
             }
-            
+
             }
-                
         }
-            
     }
+    .nav-drawer2{
+        width:200px;
+        height:200px;
+        display:none;
+        position:absolute;
+        background-color:$white;
+        font-size:14px;
+        .bl2{
+            @include ctd;
+
+        }
+        .all-brand{
+            @extend .bl2;
+        }
+    }
+    li:hover {
+        display:block;
+        
+        ul{
+          display:block;
+        }
+      }
         }
         
            
@@ -204,6 +191,9 @@ header{
                         top:50px;
                         right:200px;
                         }
+                        &:hover {
+                            color:$light-blue;
+                        }
                     i{
                         size:23px;
                         color:$light-gray;
@@ -218,9 +208,56 @@ header{
                     span{
                         font-size:14px;
                         height:18px;
+                        @extend .clearfix;
+                    }
+                    a{
+                        text-decoration: none;
+                        color:black;
+                    }
+                    &:hover {
+                        color:$light-blue;
                     }
                  }
+            }
+            .nav2-login{
+                width:380px;
+                height:44px;
+                text-align:right;
+                &__btn{
+                    line-height:32px;
+                    text-align:right;
+                    display:inline-block;
+                    margin-left:8px;
+                    .login{
+                        background:$red;
+                        text-decoration:none;
+                        font-size:14px;
+                        height:32px;
+                        display:inline-block;
+                        color:$white;
+                        padding:0 10px;
+                        margin-left:6px;
+                        border-radius:4px;
+                    }
+                    .signup{
+                        background:$red;
+                        text-decoration:none;
+                        font-size:14px;
+                        height:32px;
+                        color:$white;
+                        margin:0 auto;
+                        display:inline-block;
+                        padding:0 10px;
+                        margin-left:6px;
+                        border-radius:4px;
+                       
+
+                    }
+                }
             }
         }
         }
   }
+
+
+  

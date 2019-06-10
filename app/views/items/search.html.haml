@@ -1,0 +1,16 @@
+.search-container
+  .search-container__left
+    .search-container__left__wrapper
+      .search-container__left__wrapper__sort
+      -# =search_form_for(@q,url:search_path)
+      -#   = f.select :status, options_for_select({'新品、未使用':1,'未使用に近い':2,'目立った傷や汚れなし':3,'やや汚れや傷あり':4,'傷や汚れあり':5,'全体的に状態が悪い':6}), { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
+
+      
+  .search-container__right
+    .search-container__right__wrapper
+      .search-container__right__wrapper__head
+        %span.result-head 
+          の詳細結果
+      .search-container__right__wrapper__number
+      .search-container__right__wrapper__container
+        

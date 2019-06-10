@@ -1,0 +1,24 @@
+.breadcrumbs{
+  display:flex;
+  width:100%;
+  border-top:1px solid $light-gray;
+  background:$white;
+  margin:0;
+
+
+  height:49px;
+  padding:0;
+  line-height:49px;
+  a{
+    text-decoration:none;
+    color:black;
+    font-size:14px;
+    padding-left:150px;
+  }
+  .current{
+    font-weight:bold;
+    padding-left:10px;
+    font-size:16px;
+
+  }
+}
