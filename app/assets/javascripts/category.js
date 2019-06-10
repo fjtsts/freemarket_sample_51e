@@ -1,4 +1,11 @@
 $(document).on('turbolinks:load',function(){
+  var firstSelecthtml = `<option value="---">---</option>`;
+  function foamHtml(category) {
+    var html = `<option value="${category.id}">${
+      category.name
+    }</option>`;
+    return html;
+  }
 
   $('#category_children').css("display" , "none");
   $('#category_grandchildren').css("display" , "none");
@@ -7,14 +14,27 @@ $(document).on('turbolinks:load',function(){
 
   // parent
   $("#category_parent").change(function(){
-    var parent_id = $("#select_parent").val() - 1;
+    var parent_id = $("#select_parent").val();
     var parent_category = "@parents["+parent_id+"]";
-    if (parent_id == "-1") {
+    if (parent_id == "") {
       $('#category_children').css("display" , "none");
       $('#category_grandchildren').css("display" , "none");
     } else {
-      
-      $('#category_children').css("display" , "");
+      // $.ajax({
+      //   type:    'GET',
+      //   url:     'items/category',
+      //   data:    { parent_id: parent_id },
+      //   dataType: 'json'
+      // })
+      // .done(function(child_ids){
+      //   $('#select_children').empty();
+      //   $("#select_children").append(firstSelecthtml);
+      //   child_ids.forEach(function(child) {
+      //     var html = foamHtml(child);
+      //     $("#select_children").append(html);
+      //   });
+        $('#category_children').css("display" , "");
+      // })
     };
   });
 
@@ -29,10 +49,10 @@ $(document).on('turbolinks:load',function(){
       $('#category_grandchildren').css("display" , "");
     };
   });
-
+// size.brand
   $("#category_grandchildren").change(function(){
     var grandchildren_id = $("#select_grandchildren").val();
-    console.log(grandchildren_id);
+    // console.log(grandchildren_id);
     if (grandchildren_id == "") {
       $('#form-wrap-size').css("display" , "none");
       $('#form-wrap-brand').css("display" , "none");
@@ -43,10 +63,3 @@ $(document).on('turbolinks:load',function(){
   });
 });
 
-// $.ajax({
-//         type:    'GET',
-//         url:     'items/category',
-//         data:    { parent_id: parent_id },
-//         dataType: 'json'
-         
-//       })
