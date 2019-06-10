@@ -20,6 +20,8 @@ $(document).on('turbolinks:load',function(){
       $('#category_children').css("display" , "none");
       $('#category_grandchildren').css("display" , "none");
     } else {
+
+      // 子要素をJSONで返信　まだうまくいってません
       // $.ajax({
       //   type:    'GET',
       //   url:     'items/category',
@@ -33,6 +35,7 @@ $(document).on('turbolinks:load',function(){
       //     var html = foamHtml(child);
       //     $("#select_children").append(html);
       //   });
+
         $('#category_children').css("display" , "");
       // })
     };
@@ -41,7 +44,6 @@ $(document).on('turbolinks:load',function(){
   // children
   $("#category_children").change(function(){
     var children_id = $("#select_children").val();
-    // var parent_category = "@parents["+parent_id+"]";
     if (children_id == "") {
       $('#category_grandchildren').css("display" , "none");
     } else {
@@ -52,7 +54,6 @@ $(document).on('turbolinks:load',function(){
 // size.brand
   $("#category_grandchildren").change(function(){
     var grandchildren_id = $("#select_grandchildren").val();
-    // console.log(grandchildren_id);
     if (grandchildren_id == "") {
       $('#form-wrap-size').css("display" , "none");
       $('#form-wrap-brand').css("display" , "none");
