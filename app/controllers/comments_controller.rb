@@ -1,11 +1,8 @@
 class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_back(fallback_location: root_path)
-    else
-      redirect_back(fallback_location: root_path)
-    end
+    @comment.save
+    redirect_back(fallback_location: root_path)
   end
 
   def update
@@ -14,10 +11,8 @@ class CommentsController < ApplicationController
       @comment = Comment.find(params[:id])
       @comment.content = "出品者がコメントを削除しました"
       @comment.save
-      redirect_back(fallback_location: root_path)
-    else
-      redirect_back(fallback_location: root_path)
     end
+    redirect_back(fallback_location: root_path)
   end
 
   private
