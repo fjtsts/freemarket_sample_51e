@@ -4,6 +4,7 @@
 }
 
 @mixin input_box{
+  height: 40px;
   padding: 10px 16px;
   border: 1px solid $light-gray;
   border-radius: 4px;
@@ -18,7 +19,7 @@
 }
 @mixin input_box_option{
   display: block;
-  margin: 5px 0;
+  margin: 8px 0;
 }
 
 @mixin require {
@@ -40,7 +41,7 @@
   background-color: $backgrount-color;
   display: inline-block;
   font-weight: bold;
- }
+}
 @mixin question {
   width: 14px;
   height: 14px;
