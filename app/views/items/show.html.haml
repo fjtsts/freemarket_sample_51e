@@ -6,61 +6,53 @@
       %span
         アイテム名（パンくず）
 
-.itemDetailMain
-  / ここからitemDetail
-  .itemDetail
-    %h1.itemDetail__title
-      = @item.name
-    -# %h1.itemDetail__title 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
-    .itemDetail__main
-      .itemDetail__main__photo
-        .itemDetail__main__photo__top{style: "width: 300px;"}
-          / 売り切れマーク
-          -# .itemDetail__main__photo__soldOut
-          -# =image_tag(@item_images.name, height: "300px", width: "300px") alt: "",
-          =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", id: "photoMain", "data-url": "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg" ,alt: "bag1")
-        .itemDetail__main__photo__bottomBox
+.itemDetail
+  %h1.itemDetail__title
+    = @item.name
+  -# %h1.itemDetail__title 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+  .itemDetail__main
+    .itemDetail__main__photo
+      .itemDetail__main__photo__top{style: "width: 300px;"}
+        / 売り切れマーク
+        -# .itemDetail__main__photo__soldOut
+        -# =image_tag(@item_images.name, height: "300px", width: "300px") alt: "",
+        =image_tag("#{@item.item_images[0].image}", id: "photoMain", "data-url": "#{@item.item_images[0].image}" ,alt: "bag1")
+      .itemDetail__main__photo__bottomBox
+        - @item.item_images.each do |image|
           .itemDetail__main__photo__bottomBox__bottom
-            =image_tag("https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "photosub", id: "photoSub","data-url": "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg",alt: "bag2")
-          .itemDetail__main__photo__bottomBox__bottom
-            =image_tag("https://www.pakutaso.com/shared/img/thumb/KM19322A015_TP_V4.jpg", class: "photosub", id: "photoSub","data-url": "https://www.pakutaso.com/shared/img/thumb/KM19322A015_TP_V4.jpg",alt: "bag2")
-          .itemDetail__main__photo__bottomBox__bottom
-            =image_tag("https://www.pakutaso.com/shared/img/thumb/donutIMGL5813_TP_V.jpg", class: "photosub", id: "photoSub","data-url": "https://www.pakutaso.com/shared/img/thumb/donutIMGL5813_TP_V.jpg",alt: "bag2")
-          .itemDetail__main__photo__bottomBox__bottom
-            =image_tag("https://www.pakutaso.com/shared/img/thumb/crowncat4020137_TP_V.jpg", class: "photosub", id: "photoSub", "data-url": "https://www.pakutaso.com/shared/img/thumb/crowncat4020137_TP_V.jpg",alt: "bag2")
-      %div
-        %table.itemDetail__main__table
-          %tbody
-            %tr
-              / 一枠
-              %th 出品者
-              %td
-                -# =link_to  @users.name , show_user_path リンク先の記述がわからない
-                = link_to '出品ちゃん＠出品者', 'show'
-                %div
-                  .itemDetail__main__tablel__itemUserRatings
-                    =image_tag("icon-good.png",size: "16x16")
-                    %span 2
-                  .itemDetail__main__tablel__itemUserRatings
-                    =image_tag("icon-normal.png",size: "16x16")
-                    %span 10
-                  .itemDetail__main__tablel__itemUserRatings
-                    =image_tag("icon-bad.png",size: "16x16")
-                    %span 999
+            =image_tag("#{image.image}", class: "photosub", id: "photoSub","data-url": "#{image.image}",alt: "#{@item.name}")
+    %div
+      %table.itemDetail__main__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              
+              = link_to"#{@item.exhibit.user.nickname}",user_path(@item.exhibit.user.id)
+              %div
+                .itemDetail__main__tablel__itemUserRatings
+                  =image_tag("icon-good.png",size: "16x16")
+                  %span 2
+                .itemDetail__main__tablel__itemUserRatings
+                  =image_tag("icon-normal.png",size: "16x16")
+                  %span 10
+                .itemDetail__main__tablel__itemUserRatings
+                  =image_tag("icon-bad.png",size: "16x16")
+                  %span 999
             %tr
               / 一枠
               %th カテゴリー
               %td
-                = link_to 'show' do
-                  レディース
+                = link_to category_path(@category.parent.parent.id) do
+                  #{@category.parent.parent.name}
                   %div
-                = link_to "show"  do
+                = link_to category_path(@category.parent.id)  do
                   %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
-                  バッグ
+                  #{@category.parent.name}
                   %div
-                = link_to "show"  do
+                = link_to category_path(@category.id)  do
                   %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
-                  ショルダーバッグ
+                  #{@category.name}
             %tr
               / 一枠
               %th ブランド
@@ -85,7 +77,7 @@
               / 一枠
               %th 配送元地域
               %td
-                = link_to @item.area,"show"
+                =  @item.prefecture.name
                 -# = link_to '東京都', 'show'
             %tr
               / 一枠
@@ -107,7 +99,7 @@
         -#   着払い
           
     -# .itemDetail__buyBtn 売り切れました
-    =link_to "購入画面に進む" , "show" ,class: "itemDetail__buyBtn"
+    =link_to "購入画面に進む" , new_item_path ,class: "itemDetail__buyBtn"
     .itemDetail__description
       %p.itemDetail__description__inner
         = @item.description
@@ -197,3 +189,4 @@
         =button_tag type: "submit" , class: "itemPostComment__form__btn" do
           / <span>売り切れのためコメントできません</span>
           %span コメントする
+          
