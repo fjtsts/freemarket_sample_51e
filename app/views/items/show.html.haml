@@ -158,11 +158,11 @@
           -#           = button_tag type: "submit" do
           -#             %i=fa_icon "flag",class:"itemComment__icon__flag"
           -# コメント__利用者本人
-          
           - @comments.each do |comment|
             - if user_signed_in?
-              -# ログイン時のビュー画面
+              -# ログイン時のコメント画面
               - if comment.user.id == current_user.id
+                -# 自分のビュー
                 %li.itemCommentMe__content__item__cl.clearfix
                   .itemCommentMe__content__item__cl__user
                     = link_to user_path(comment.user) do
@@ -171,7 +171,6 @@
                       .clearBoth
                       .itemCommentMe__content__item__cl__userName 
                         = comment.user.nickname
-                        さんコメント
                       - if comment.user.id == @item.exhibit.user.id
                         .itemComment__content__item__cl__seller
                           %p 出品者
@@ -180,9 +179,10 @@
                       = comment.content
                     .itemCommentMe__content__item__cl__body__icon.clearfix
                       %time.itemCommentMe__content__item__cl__body__icon__left
-                        %i.itemCommentMe-icon-time ○
+                        %i.itemCommentMe-icon-time
+                          %i.far.fa-clock
                         %span
-                          = comment.created_at
+                          = date_format(comment.created_at)
                       .itemCommentMe__content__item__cl__body__icon__right__delete
                         = link_to item_comment_path(comment.item.id, comment.id) , method: :delete, data: { confirm: 'コメントを削除しますか?' } do 
                           %i=fa_icon "trash",class:"itemComment__icon__delete"
@@ -191,54 +191,11 @@
                           = button_tag type: "submit" do
                             %i=fa_icon "flag",class:"itemComment__icon__flag"
               - else
-                %li.itemComment__content__item__cl.clearfix
-                  .itemComment__content__item__cl__user
-                    = link_to user_path(comment.user) do
-                      %div
-                        =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
-                      .itemComment__content__item__cl__userName
-                        = comment.user.nickname
-                        さんコメント
-                      - if comment.user.id == @item.exhibit.user.id
-                        .itemComment__content__item__cl__seller
-                          %p 出品者
-                  .itemComment__content__item__cl__body
-                    .itemComment__content__item__cl__body__text
-                      = comment.content
-                    .itemComment__content__item__cl__body__icon.clearfix
-                      %time.itemComment__content__item__cl__body__icon__left
-                        %i.itemComment-icon-time ○
-                        %span
-                          = comment.created_at
-                      .itemComment__content__item__cl__body__icon__right
-                        %form{action: "", method: ""}
-                          = button_tag type: "submit" do
-                            %i=fa_icon "flag",class:"itemComment__icon__flag"
+                -# 他の人のコメント
+                = render partial: 'left-comment', locals: { comment: comment }
             - else
-              -# ログインしていない時のビュー画面
-              %li.itemComment__content__item__cl.clearfix
-                .itemComment__content__item__cl__user
-                  = link_to user_path(comment.user) do
-                    %div
-                      =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
-                    .itemComment__content__item__cl__userName
-                      = comment.user.nickname
-                      さんコメント
-                    - if comment.user.id == @item.exhibit.user.id
-                      .itemComment__content__item__cl__seller
-                        %p 出品者
-                .itemComment__content__item__cl__body
-                  .itemComment__content__item__cl__body__text
-                    = comment.content
-                  .itemComment__content__item__cl__body__icon.clearfix
-                    %time.itemComment__content__item__cl__body__icon__left
-                      %i.itemComment-icon-time ○
-                      %span
-                        = comment.created_at
-                    .itemComment__content__item__cl__body__icon__right
-                      %form{action: "", method: ""}
-                        = button_tag type: "submit" do
-                          %i=fa_icon "flag",class:"itemComment__icon__flag"
+              -# ログインしていない時のコメント画面
+              = render partial: 'left-comment', locals: { comment: comment }
         .clearBoth
     .itemPostComment
       = form_for [@item, @comment],  html: { class: 'itemPostComment__form' } do |f|
