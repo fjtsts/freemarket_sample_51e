@@ -130,68 +130,115 @@
       .itemComment__content
         %ul.itemComment__content__item
           -# コメント__コメント削除
-          %li.itemComment__content__item__cl.clearfix
-            .itemComment__content__item__cl__user
-              =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
-            .itemComment__content__item__cl__body
-              .itemComment__content__item__cl__body__text 出品者がコメントを削除しました
-              .itemComment__content__item__cl__body__icon.clearfix
-                %time.itemComment__content__item__cl__body__icon__left
-                  %i.itemComment-icon-time ○
-                  %span 211 日前
-          -# コメント__ユーザーあり
-          %li.itemComment__content__item__cl.clearfix
-            .itemComment__content__item__cl__user
-              = link_to 'show' do
-                %div
-                  =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
-                .itemComment__content__item__cl__userName 出品ちゃん＠出品者コメント
-                .itemComment__content__item__cl__seller 出品者
-            .itemComment__content__item__cl__body
-              .itemComment__content__item__cl__body__text こんにちは、商品出品者です
-              .itemComment__content__item__cl__body__icon.clearfix
-                %time.itemComment__content__item__cl__body__icon__left
-                  %i.itemComment-icon-time ○
-                  %span 211 日前
-                .itemComment__content__item__cl__body__icon__right
-                  %form{action: "", method: ""}
-                    = button_tag type: "submit" do
-                      %i=fa_icon "flag",class:"itemComment__icon__flag"
+          -# %li.itemComment__content__item__cl.clearfix
+          -#   .itemComment__content__item__cl__user
+          -#     =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
+          -#   .itemComment__content__item__cl__body
+          -#     .itemComment__content__item__cl__body__text 出品者がコメントを削除しました
+          -#     .itemComment__content__item__cl__body__icon.clearfix
+          -#       %time.itemComment__content__item__cl__body__icon__left
+          -#         %i.itemComment-icon-time ○
+          -#         %span 211 日前
+          -# -# コメント__ユーザーあり
+          -# %li.itemComment__content__item__cl.clearfix
+          -#   .itemComment__content__item__cl__user
+          -#     = link_to 'show' do
+          -#       %div
+          -#         =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
+          -#       .itemComment__content__item__cl__userName 出品ちゃん＠出品者コメント
+          -#       .itemComment__content__item__cl__seller 出品者
+          -#   .itemComment__content__item__cl__body
+          -#     .itemComment__content__item__cl__body__text こんにちは、商品出品者です
+          -#     .itemComment__content__item__cl__body__icon.clearfix
+          -#       %time.itemComment__content__item__cl__body__icon__left
+          -#         %i.itemComment-icon-time ○
+          -#         %span 211 日前
+          -#       .itemComment__content__item__cl__body__icon__right
+          -#         %form{action: "", method: ""}
+          -#           = button_tag type: "submit" do
+          -#             %i=fa_icon "flag",class:"itemComment__icon__flag"
           -# コメント__利用者本人
-          %li.itemCommentMe__content__item__cl.clearfix
-            .itemCommentMe__content__item__cl__user
-              = link_to 'show' do
-                %div
-                  =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
-                .clearBoth
-                .itemCommentMe__content__item__cl__userName 私ちゃん＠利用者本人コメント
-                -# .itemCommentMe__content__item__cl__seller 出品者
-            .itemCommentMe__content__item__cl__body
-              .itemCommentMe__content__item__cl__body__text こんにちは、利用者本人です
-              .itemCommentMe__content__item__cl__body__icon.clearfix
-                %time.itemCommentMe__content__item__cl__body__icon__left
-                  %i.itemCommentMe-icon-time ○
-                  %span 211 日前
-                .itemCommentMe__content__item__cl__body__icon__right__delete
-                  %form{action: "", method: ""}
-                    = button_tag type: "submit" do
-                      %i=fa_icon "trash",class:"itemComment__icon__delete"
-                .itemCommentMe__content__item__cl__body__icon__right__flag
-                  %form{action: "", method: ""}
-                    = button_tag type: "submit" do
-                      %i=fa_icon "flag",class:"itemComment__icon__flag"
+          
+          - @comments.each do |comment|
+            - if user_signed_in?
+              - if comment.user.id == current_user.id
+                %li.itemCommentMe__content__item__cl.clearfix
+                  .itemCommentMe__content__item__cl__user
+                    = link_to user_path(comment.user) do
+                      %div
+                        =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
+                      .clearBoth
+                      .itemCommentMe__content__item__cl__userName 
+                        = comment.user.nickname
+                        さんコメント
+                      -# .itemCommentMe__content__item__cl__seller 出品者
+                  .itemCommentMe__content__item__cl__body
+                    .itemCommentMe__content__item__cl__body__text
+                      = comment.content
+                    .itemCommentMe__content__item__cl__body__icon.clearfix
+                      %time.itemCommentMe__content__item__cl__body__icon__left
+                        %i.itemCommentMe-icon-time ○
+                        %span
+                          = comment.created_at
+                      .itemCommentMe__content__item__cl__body__icon__right__delete
+                        = comment.id
+                        = link_to item_comment_path(comment.item.id, comment.id) , method: :delete, data: { confirm: 'コメントを削除しますか?' } do 
+                          %i=fa_icon "trash",class:"itemComment__icon__delete"
+                      .itemCommentMe__content__item__cl__body__icon__right__flag
+                        %form{action: "", method: ""}
+                          = button_tag type: "submit" do
+                            %i=fa_icon "flag",class:"itemComment__icon__flag"
+              - else
+                %li.itemComment__content__item__cl.clearfix
+                  .itemComment__content__item__cl__user
+                    = link_to user_path(comment.user) do
+                      %div
+                        =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
+                      .itemComment__content__item__cl__userName
+                        = comment.user.nickname
+                        さんコメント
+                      .itemComment__content__item__cl__seller 出品者
+                  .itemComment__content__item__cl__body
+                    .itemComment__content__item__cl__body__text
+                      = comment.content
+                    .itemComment__content__item__cl__body__icon.clearfix
+                      %time.itemComment__content__item__cl__body__icon__left
+                        %i.itemComment-icon-time ○
+                        %span
+                          = comment.created_at
+                      .itemComment__content__item__cl__body__icon__right
+                        %form{action: "", method: ""}
+                          = button_tag type: "submit" do
+                            %i=fa_icon "flag",class:"itemComment__icon__flag"
+            - else
+              %li.itemComment__content__item__cl.clearfix
+                .itemComment__content__item__cl__user
+                  = link_to user_path(comment.user) do
+                    %div
+                      =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
+                    .itemComment__content__item__cl__userName
+                      = comment.user.nickname
+                      さんコメント
+                    - if comment.user.id == @item.exhibit.user.id
+                      .itemComment__content__item__cl__seller
+                        %p 出品者
+                .itemComment__content__item__cl__body
+                  .itemComment__content__item__cl__body__text
+                    = comment.content
+                  .itemComment__content__item__cl__body__icon.clearfix
+                    %time.itemComment__content__item__cl__body__icon__left
+                      %i.itemComment-icon-time ○
+                      %span
+                        = comment.created_at
+                    .itemComment__content__item__cl__body__icon__right
+                      %form{action: "", method: ""}
+                        = button_tag type: "submit" do
+                          %i=fa_icon "flag",class:"itemComment__icon__flag"
         .clearBoth
-    / コメント入力フォーム
     .itemPostComment
-      -# = form_for @comment, html: { class: 'itemPostComment__form-form' }  do |f|
-      %form.itemPostComment__form{action: ""}
+      = form_for [@item, @comment],  html: { class: 'itemPostComment__form' } do |f|
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %textarea.itemPostComment__form__text{name: "body", type: "text", value: ""}
+        = f.text_field :content, class: 'itemPostComment__form__text'
         =button_tag type: "submit" , class: "itemPostComment__form__btn" do
           / <span>売り切れのためコメントできません</span>
           %span コメントする
-
-      = form_for(@item) do |f|
-        = f.text_field :name
-        = f.submit
-          

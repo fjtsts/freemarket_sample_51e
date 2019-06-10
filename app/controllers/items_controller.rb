@@ -47,7 +47,9 @@ class ItemsController < ApplicationController
         @item = Item.find(params[:id])
         @category =@item.category
         @comment = Comment.new
+        @comments = @item.comments
     end
+
     def search
         $query = Item.ransack(params[:q])
         @items = Item.ransack(name_cont: params[:keyword]).result.all
@@ -65,7 +67,7 @@ class ItemsController < ApplicationController
     end
 
     def comment_params
-        
+
     end
 end
 
