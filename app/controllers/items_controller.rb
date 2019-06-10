@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
     def index
        
         $query = Item.ransack(params[:q])
-        @ladies =Category.first.items.order(created_at: "DESC").limit(4)
+        @ladies =Category.first.items.all.order(created_at: "DESC").limit(4)
         @mens =  Item.ransack(by_name: "メンズ").result.order(created_at: "DESC").limit(4)
         @baby =  Item.ransack(by_category_id: 3).result.order(created_at: "DESC").limit(4)
         @interior =  Item.ransack(by_category_id: 4).result.order(created_at: "DESC").limit(4)
