@@ -46,8 +46,10 @@ before_action :set_parents, only: [:new, :edit]
     def show
         @item = Item.find(params[:id])
         @category =@item.category
-
+        @comment = Comment.new
+        @comments = @item.comments
     end
+
     def search
         $query = Item.ransack(params[:q])
         @items = Item.ransack(name_cont: params[:keyword]).result.all
@@ -63,8 +65,11 @@ before_action :set_parents, only: [:new, :edit]
     end
  
     def search_params
-        binding.pry
       params.require(:q).permit(:name_cont)
+    end
+
+    def comment_params
+
     end
 end
 

@@ -10,6 +10,7 @@ class Item < ApplicationRecord
   belongs_to :category,optional: true
   belongs_to :brand,optional: true
   has_one :exhibit, dependent: :destroy
+  has_many :comments, dependent: :destroy
   # belong_to  :size
 
   with_options presence: true do

@@ -566,7 +566,6 @@ display: inline-block;
         float: right;
         color: #aaa;
         opacity: 0.5;
-        
         form {
           display: inline;
           padding: 0;
@@ -578,6 +577,12 @@ display: inline-block;
           outline: 0;
           background: #fbf0e6;
           cursor: pointer;
+        }
+        a {
+          color: #aaa;
+        }
+        i {
+          text-decoration: none;
         }
       }
     }
