@@ -1,8 +1,11 @@
 class PurchasesController < ApplicationController
 
-  def new
-    @item = Item.find(params[:id])
+  def index
+    @item = Item.find(params[:item_id])
     render layout: 'form-layout'
+  end
+
+  def create
   end
 
 end

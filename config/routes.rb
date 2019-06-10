@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :items do
     resources :comments, only: [:create, :update]
+    resources :purchases, only: [:index, :create]
   end
   resources :user_profiles, only: [:new, :create, :edit]
   resources :addresses, only: [:new, :create, :edit, :show]
@@ -20,7 +21,5 @@ Rails.application.routes.draw do
   resources :categories, only:[:index,:show]
   root to: "items#index"
   get 'search', to: 'items#search'
-  
-  get '/purchases/:id/new', to: 'purchases#new'
 end
 
