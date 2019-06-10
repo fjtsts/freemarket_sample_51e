@@ -6,7 +6,7 @@
       .user-container_right-content_address
         %h2.user-container_right-content_address_chapter 本人情報の登録
         .user-container_right-content_address_content
-          = form_with （model: address,  html:{multipart: true, method: "GET"}, local: true do |f|
+          = form_with model: current_user,  html:{multipart: true, method: "GET"}, local: true do |f|
             .user-container_right-content_address_content_description
               %p
                 お客様の本人情報をご登録ください。
@@ -31,7 +31,7 @@
               %label{for: "prefecture"} 都道府県
               %span.form-arbitrary 任意
               .user-container_right-content_address_content_select-wrap
-                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "--", required:"required"},{class:"user-container_right-content_address_content_select-default"}
+                = f.collection_select :prefecture, Prefecture.all, :name, :name, {include_blank: "--", required:"required"},{class:"user-container_right-content_address_content_select-default"}
                 =fa_icon "angle-down user-address-angle-down"
             .user-container_right-content_address_content_form-group
               %label{for: "city"} 市区町村
