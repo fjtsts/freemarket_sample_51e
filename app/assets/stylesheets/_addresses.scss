@@ -33,8 +33,9 @@
     }
     .input-default {
       @include input_box;
-      height: 26px;
-      width: 538px;
+      box-sizing: border-box;
+      height: 48px;
+      width: 100%;
       margin: 8px 0 0;
       font-size: 16px;
     }
