@@ -103,16 +103,6 @@
     .itemDetail__description
       %p.itemDetail__description__inner
         = @item.description
-        -# ■商品ご覧頂き、誠にありがとうございます。
-        -# ※今だけ、フォロワーになって下さった方に、300円のお値引きサービス中！！
-        
-        -# 私の商品検索は、
-        -# \#Boon・バッグ　
-        -# 検索してください。
-        
-        -# 質問がありましたらコメントでよろしくお願いします！
-        -# ■ 商品説明 ■
-        -# まずはプロフを確認してください
     .itemDetail__button.clearfix
       .itemDetail__button__left
         =button_tag class: "itemDetail__button__left__like" do
@@ -129,35 +119,6 @@
     .itemComment
       .itemComment__content
         %ul.itemComment__content__item
-          -# コメント__コメント削除
-          -# %li.itemComment__content__item__cl.clearfix
-          -#   .itemComment__content__item__cl__user
-          -#     =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
-          -#   .itemComment__content__item__cl__body
-          -#     .itemComment__content__item__cl__body__text 出品者がコメントを削除しました
-          -#     .itemComment__content__item__cl__body__icon.clearfix
-          -#       %time.itemComment__content__item__cl__body__icon__left
-          -#         %i.itemComment-icon-time ○
-          -#         %span 211 日前
-          -# -# コメント__ユーザーあり
-          -# %li.itemComment__content__item__cl.clearfix
-          -#   .itemComment__content__item__cl__user
-          -#     = link_to 'show' do
-          -#       %div
-          -#         =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
-          -#       .itemComment__content__item__cl__userName 出品ちゃん＠出品者コメント
-          -#       .itemComment__content__item__cl__seller 出品者
-          -#   .itemComment__content__item__cl__body
-          -#     .itemComment__content__item__cl__body__text こんにちは、商品出品者です
-          -#     .itemComment__content__item__cl__body__icon.clearfix
-          -#       %time.itemComment__content__item__cl__body__icon__left
-          -#         %i.itemComment-icon-time ○
-          -#         %span 211 日前
-          -#       .itemComment__content__item__cl__body__icon__right
-          -#         %form{action: "", method: ""}
-          -#           = button_tag type: "submit" do
-          -#             %i=fa_icon "flag",class:"itemComment__icon__flag"
-          -# コメント__利用者本人
           - @comments.each do |comment|
             - if user_signed_in?
               -# ログイン時のコメント画面
@@ -185,7 +146,7 @@
                           = date_format(comment.created_at)
                       - if current_user.id == @item.exhibit.user.id
                         .itemCommentMe__content__item__cl__body__icon__right__delete
-                          = link_to item_comment_path(comment.item.id, comment.id) , method: :delete, data: { confirm: 'コメントを削除しますか?' } do 
+                          = link_to item_comment_path(comment.item.id, comment.id) , method: :patch, data: { confirm: 'コメントを削除しますか?' } do 
                             %i=fa_icon "trash",class:"itemComment__icon__delete"
                       .itemCommentMe__content__item__cl__body__icon__right__flag
                         %form{action: "", method: ""}

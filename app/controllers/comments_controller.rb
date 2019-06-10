@@ -8,11 +8,12 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy
+  def update
     @item = Item.find(params[:item_id])
     if current_user.id == @item.exhibit.user.id
       @comment = Comment.find(params[:id])
-      @comment.destroy
+      @comment.content = "出品者がコメントを削除しました"
+      @comment.save
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path)
