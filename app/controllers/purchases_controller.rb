@@ -1,9 +1,9 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_item, only: [:index, :pay]
 
   def index
-    @item = Item.find(params[:item_id])
-    if current_user.card.present?
+    if current_user.card
       card = Card.where(user_id: current_user.id).first
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -13,7 +13,6 @@ class PurchasesController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:item_id])
     price = @item.price
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
@@ -24,5 +23,11 @@ class PurchasesController < ApplicationController
     )
     @item.exhibit.status = "2" #change status 1 to 2
     redirect_to controller: 'items', action: 'show', id: @item.id
+  end
+
+  private
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 end
