@@ -17,18 +17,18 @@ $(document).on('turbolinks:load', function() {
 
   // 発送の方法
   var firstSelecthtml = `<option value="">---</option>`;
+  var selection = $('#how_to_shipping')
   $("#how_to_ship").css("display","none");
   $('#select_shipping_fee').change(function() {
     var fee_payer = $('#select_shipping_fee').val();
-    $("#how_to_shipping").append(firstSelecthtml);
-    console.log(fee_payer)
+    $(selection).append(firstSelecthtml);
     if (fee_payer == "") {
       $("#how_to_ship").css("display","none");
     } else if (fee_payer == "送料込み(出品者負担)") {
       $("#how_to_ship").css("display", "");
-      $("#how_to_shipping").empty();
-      $("#how_to_shipping").append(firstSelecthtml);
-      $("#how_to_shipping").append(
+      $(selection).empty();
+      $(selection).append(firstSelecthtml);
+      $(selection).append(
       ' <option value=1>未定</option>\
         <option value=2>らくらくメルカリ便</option>\
         <option value=3>ゆうメール</option>\
@@ -41,9 +41,9 @@ $(document).on('turbolinks:load', function() {
       );
     } else if (fee_payer == "着払い(購入者負担)") {
       $("#how_to_ship").css("display", "");
-      $("#how_to_shipping").empty();
-      $("#how_to_shipping").append(firstSelecthtml);
-      $("#how_to_shipping").append(
+      $(selection).empty();
+      $(selection).append(firstSelecthtml);
+      $(selection).append(
       ' <option value=1>未定</option>\
         <option value=2>クロネコヤマト</option>\
         <option value=3>ゆうパック</option>\
