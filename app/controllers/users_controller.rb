@@ -20,10 +20,10 @@ class UsersController < ApplicationController
   def update
     @userprofile = UserProfile.find(current_user[:id])
     @user = User.find(current_user[:id])
-    binding.pry
     if current_user.update(user_params)
-       current_user.user_profile.update(user_profile_params)
-       redirect_to controller: 'users', action: 'edit'
+      current_user.user_profile.update(user_profile_params)
+      redirect_to controller: 'users', action: 'edit'
+      # binding.pry
     else
       render :edit
     end
