@@ -9,8 +9,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @userprofile = UserProfile.find(current_user[:id])
-    @user = User.find(current_user[:id])
+    @user_profile = UserProfile.find(current_user[:id])
   end
 
   def new
@@ -18,8 +17,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @userprofile = UserProfile.find(current_user[:id])
-    @user = User.find(current_user[:id])
+    @user_profile = UserProfile.find(current_user[:id])
     if current_user.update(user_params)
       current_user.user_profile.update(user_profile_params)
       redirect_to controller: 'users', action: 'edit'

@@ -6,19 +6,19 @@
       .userProfileEdit__main
         %section
           %h2.userProfileEdit__main__head プロフィール
-          = form_with model: @user do |f|
+          = form_with model: current_user do |f|
             %input{type: "hidden"}/
             .userProfileEdit__main__image
               %figure.userProfileEdit__main__image__user
-                - if @userprofile.avatar == nil
+                - if @user_profile.avatar == nil
                   =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "60px", width: "60px")
                 - else
-                  =image_tag("#{@userprofile.avatar}",alt: "usre", height: "60px", width: "60px")
+                  =image_tag("#{@user_profile.avatar}",alt: "usre", height: "60px", width: "60px")
                 = f.text_field :nickname ,class: "userProfileEdit__main__image__user__nameBtn", placeholder: "例)AYA★セール中", id: "user_nickname"
                 .userProfileEdit__main__image__user__nameBtnerror
                   %p.nicnameover.nickname
             .userProfileEdit__main__bottom
-              = f.fields_for @userprofile do |prf|
+              = f.fields_for @user_profile do |prf|
                 = prf.text_area :introduction,class: "userProfileEdit__main__bottom__form__comment"
               = f.submit "変更する", class: "userProfileEdit__main__bottom__form__btn", name: "button"
       .clearBoth
