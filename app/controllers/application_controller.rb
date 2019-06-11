@@ -25,10 +25,13 @@ class ApplicationController < ActionController::Base
     end
 
   private
-  
-    def search
+    def index
       $query = Item.ransack(params[:q])
-      @items = Item.ransack(name_cont: params[:keyword]).result.all
+    end
+    def search
+     
+      
+      # @items = @query.result(distinct: true)
     end
    
 end
