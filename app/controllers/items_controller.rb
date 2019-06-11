@@ -50,6 +50,20 @@ before_action :set_parents, only: [:new, :edit]
         @comments = @item.comments
     end
 
+    def resale
+        @item = Item.find(params[:id])
+        @item.exhibit.status = 1
+        @item.exhibit.save
+        redirect_to action: 'show', id: @item.id
+    end
+
+    def stop
+        @item = Item.find(params[:id])
+        @item.exhibit.status = 3
+        @item.exhibit.save
+        redirect_to action: 'show', id: @item.id
+    end
+
     def search
         $query = Item.ransack(params[:q])
         @items = Item.ransack(name_cont: params[:keyword]).result.all

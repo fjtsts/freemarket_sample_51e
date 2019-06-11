@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
   resources :items do
+    post 'resale', to: 'items#resale', on: :member
+    post 'stop', to: 'items#stop', on: :member
     resources :comments, only: [:create, :update]
     resources :purchases, only: [:index] do
       collection do
@@ -25,5 +27,6 @@ Rails.application.routes.draw do
   resources :categories, only:[:index,:show]
   root to: "items#index"
   get 'search', to: 'items#search'
+  get 'purchased', to: 'purchases#purchased'
 end
 
