@@ -9,11 +9,16 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @userprofile = UserProfile.find(current_user[:id])
+    @user = User.find(current_user[:id])
   end
 
   def update
+    @userprofile = UserProfile.find(current_user[:id])
+    @user = User.find(current_user[:id])
     if current_user.update(user_params)
-      redirect_to root_path
+       current_user.user_profile.update(user_profile_params)
+       redirect_to controller: 'users', action: 'edit'
     else
       render :edit
     end
@@ -29,7 +34,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:nickname)
+  end
+
+  def user_profile_params
+    params.require(:user).require(:user_profile).permit(:introduction)
   end
 
 end
