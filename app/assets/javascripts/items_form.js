@@ -14,29 +14,41 @@ $(document).on('turbolinks:load', function() {
       $(".sell-form__main__prace__profit--right").html("-");
     }
   });
+
   // 発送の方法
-
-  // バグがあったので次のブランチで修正
-  
-  // $('#how_to_shipping').css("display" , "none");
-  // $('#exhibitor_burden').css("display" , "none");
-  // $('#purchaser_burden').css("display" , "none");
-  // $("#shipping_fee").change(function(){
-  //   var how_to_shipping = $("#select_shipping_fee").val();
-  //   if (how_to_shipping == "送料込み(出品者負担)") {
-  //     $('#how_to_shipping').css("display" , "");
-  //     $('#exhibitor_burden').css("display" , "");
-  //     $('#purchaser_burden').css("display" , "none");
-  //   } else if (how_to_shipping == "着払い(購入者負担)"){
-  //     $('#how_to_shipping').css("display" , "");
-  //     $('#exhibitor_burden').css("display" , "none");
-  //     $('#purchaser_burden').css("display" , "");
-  //   } else {
-  //     $('#how_to_shipping').css("display" , "none");
-  //     $('#exhibitor_burden').css("display" , "none");
-  //     $('#purchaser_burden').css("display" , "none");
-  //   };
+  var firstSelecthtml = `<option value="">---</option>`;
+  $("#how_to_ship").css("display","none");
+  $('#select_shipping_fee').change(function() {
+    var fee_payer = $('#select_shipping_fee').val();
+    $("#how_to_shipping").append(firstSelecthtml);
+    console.log(fee_payer)
+    if (fee_payer == "") {
+      $("#how_to_ship").css("display","none");
+    } else if (fee_payer == "送料込み(出品者負担)") {
+      $("#how_to_ship").css("display", "");
+      $("#how_to_shipping").empty();
+      $("#how_to_shipping").append(firstSelecthtml);
+      $("#how_to_shipping").append(
+      ' <option value=1>未定</option>\
+        <option value=2>らくらくメルカリ便</option>\
+        <option value=3>ゆうメール</option>\
+        <option value=4>レターパック</option>\
+        <option value=5>普通郵便(定形、定形外)</option>\
+        <option value=6>クロネコヤマト</option>\
+        <option value=7>ゆうパック</option>\
+        <option value=8>クリックポスト</option>\
+        <option value=9>ゆうパケット</option>'
+      );
+    } else if (fee_payer == "着払い(購入者負担)") {
+      $("#how_to_ship").css("display", "");
+      $("#how_to_shipping").empty();
+      $("#how_to_shipping").append(firstSelecthtml);
+      $("#how_to_shipping").append(
+      ' <option value=1>未定</option>\
+        <option value=2>クロネコヤマト</option>\
+        <option value=3>ゆうパック</option>\
+        <option value=4>ゆうメール</option>'
+      );
+    }
   });
-
-
 });
