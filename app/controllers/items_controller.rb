@@ -59,9 +59,9 @@ before_action :set_parents, only: [:new, :edit]
     end
     private
     def item_params
-        params.permit(:name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, item_images_attributes: [:image])
+        params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, item_images_attributes: [:image])
     end
-          #  .require(:item)    #  , :size .merge(user_id: current_user.id)
+          #  .require(:item)    #   .merge(user_id: current_user.id)
     def set_parents
         @parents = Category.where(ancestry: nil)
     end
