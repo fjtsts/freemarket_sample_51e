@@ -13,19 +13,20 @@ class UsersController < ApplicationController
     @user = User.find(current_user[:id])
   end
 
+  def new
+    render layout: 'form-layout'
+  end
+
   def update
     @userprofile = UserProfile.find(current_user[:id])
     @user = User.find(current_user[:id])
+    binding.pry
     if current_user.update(user_params)
        current_user.user_profile.update(user_profile_params)
        redirect_to controller: 'users', action: 'edit'
     else
       render :edit
     end
-  end
-
-  def new
-    render layout: 'form-layout'
   end
 
   def logout
@@ -40,5 +41,4 @@ class UsersController < ApplicationController
   def user_profile_params
     params.require(:user).require(:user_profile).permit(:introduction)
   end
-
 end
