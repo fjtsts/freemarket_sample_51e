@@ -12,9 +12,8 @@
   .itemDetail__main
     .itemDetail__main__photo
       .itemDetail__main__photo__top{style: "width: 300px;"}
-        / 売り切れマーク
-        -# .itemDetail__main__photo__soldOut
-        -# =image_tag(@item_images.name, height: "300px", width: "300px") alt: "",
+        - if @item.exhibit.status === 2
+          .itemDetail__main__photo__soldOut
         =image_tag("#{@item.item_images[0].image}", id: "photoMain", "data-url": "#{@item.item_images[0].image}" ,alt: "bag1")
       .itemDetail__main__photo__bottomBox
         - @item.item_images.each do |image|
@@ -96,9 +95,10 @@
         -#   送料込み
         -# -else
         -#   着払い
-          
-    -# .itemDetail__buyBtn 売り切れました
-    =link_to "購入画面に進む" , item_purchases_path(@item) ,class: "itemDetail__buyBtn"
+    - if @item.exhibit.status === 2
+      .itemDetail__buyBtn 売り切れました
+    - else
+      =link_to "購入画面に進む" , item_purchases_path(@item) ,class: "itemDetail__buyBtn"
     .itemDetail__description
       %p.itemDetail__description__inner
         = @item.description
@@ -162,6 +162,8 @@
       = form_for [@item, @comment],  html: { class: 'itemPostComment__form' } do |f|
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         = f.text_field :content, class: 'itemPostComment__form__text'
-        =button_tag type: "submit" , class: "itemPostComment__form__btn" do
-          / <span>売り切れのためコメントできません</span>
-          %span コメントする
+        - if @item.exhibit.status === 2
+          %span.itemPostComment__form__btn 売り切れのためコメントできません
+        - else
+          =button_tag type: "submit" , class: "itemPostComment__form__btn" do
+            %span コメントする

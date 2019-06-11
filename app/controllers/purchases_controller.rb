@@ -12,6 +12,10 @@ class PurchasesController < ApplicationController
     render layout: 'form-layout'
   end
 
+  def purchased
+    @purchases = current_user.purchases
+  end
+
   def pay
     price = @item.price
     card = current_user.card
@@ -23,6 +27,7 @@ class PurchasesController < ApplicationController
     )
     @item.exhibit.status = 2
     @item.exhibit.save
+    Purchase.create(item_id: @item.id, user_id: current_user.id)
     redirect_to controller: 'items', action: 'show', id: @item.id
   end
 

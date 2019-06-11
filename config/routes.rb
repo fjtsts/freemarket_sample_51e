@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   resources :categories, only:[:index,:show]
   root to: "items#index"
   get 'search', to: 'items#search'
+  get 'purchased', to: 'purchases#purchased'
 end
 
