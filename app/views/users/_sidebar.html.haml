@@ -101,7 +101,7 @@
             .user-container_left-content_info_list
               =fa_icon "angle-right"
         - if user_signed_in?
-          = link_to card_path(current_user.id) do
+          = link_to card_path(current_user.id), data: {"turbolinks" => false} do
             %li
               支払い方法
               .user-container_left-content_info_list
