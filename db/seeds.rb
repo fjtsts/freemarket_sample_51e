@@ -19,7 +19,7 @@ brand = %w{
    2XL(3L)
    3XL(4L)
    4XL(5L)
-   FREE SIZE
+   FreeSize
  }
  size.each do |size|
   Size.create!(name: size)
