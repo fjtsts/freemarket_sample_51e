@@ -21,7 +21,8 @@ class PurchasesController < ApplicationController
     customer: card.customer_id,
     currency: 'jpy',
     )
-    @item.exhibit.status = "2" #change status 1 to 2
+    @item.exhibit.status = 2
+    @item.exhibit.save
     redirect_to controller: 'items', action: 'show', id: @item.id
   end
 
