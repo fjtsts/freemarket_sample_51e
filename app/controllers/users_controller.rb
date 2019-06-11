@@ -23,7 +23,6 @@ class UsersController < ApplicationController
     if current_user.update(user_params)
       current_user.user_profile.update(user_profile_params)
       redirect_to controller: 'users', action: 'edit'
-      # binding.pry
     else
       render :edit
     end
