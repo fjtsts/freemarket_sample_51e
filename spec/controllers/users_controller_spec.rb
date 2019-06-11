@@ -1,16 +1,33 @@
 require 'rails_helper'
 
 describe UsersController do
+# RSpec.describe UsersController, type: :controller do
+let(:user) { create(:user) }
+let(:user_profile) { create(:user_profile, user: user) }
+# let(:user_profile) { create(:user_profile, user: user) }
+# user = create(:user)
+# user_profile = create(:user_profile, user: user)
 
+
+  before do
+    # user = create(:user)
+    sign_in user
+  end
+  
   describe 'Get #edit' do
-  # let(:users) { create(:user) }
-  # let(:params) { password: attributes_for(:user) }
-  # let(:article) { create(:article) }
-  # let(:users) { create(:user) }
-  let(:user_profiles) { create(:user_profile) }
-  before { get :edit, params: { id: user_profiles.id }}
-  # before { get :edit, params: { id: users.id }}
   # before { get :edit, params: { id: article.id }, session: {} }
+    # before do
+    #   binding.pry
+    #   get :edit, params: { id: user.id }
+    # end
+    # let(:params) { password: attributes_for(:user) }
+    # let(:article) { create(:article) }
+    # let(:users) { create(:user) }
+    # let(:user_profiles) { create(:user_profile) }
+    # sign_in user
+    # before { get :edit, params: { id: user_profiles.id }}
+    # before { get :edit, params: { id: users.id }}
+    # before { get :edit, params: { id: article.id }, session: {} }
 
     it 'リクエストは200 OKとなること' do
       expect(response.status).to eq 200
@@ -18,8 +35,8 @@ describe UsersController do
 
     it ':editテンプレートを表示すること' do
 
-      get :edit, params
-
+      get :edit, params: { id: user.id }
+      binding.pry
       expect(response).to render_template :edit
 
     end

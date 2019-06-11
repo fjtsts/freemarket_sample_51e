@@ -6,6 +6,7 @@ FactoryBot.define do
     first_name_kata {"タツノリ"}
     birth           {"1989-01-01"}
     tel             {"00000000000"}
+    association :user, factory: :user
   end
 end
 
