@@ -15,7 +15,6 @@ let(:user_profile) { create(:user_profile, user: user) }
   end
   
   describe 'Get #edit' do
-  # before { get :edit, params: { id: article.id }, session: {} }
     # before do
     #   binding.pry
     #   get :edit, params: { id: user.id }
