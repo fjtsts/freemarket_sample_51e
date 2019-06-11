@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
 
   def index
     if current_user.card.present?
-      card = Card.where(user_id: current_user.card).first
+      card = current_user.card
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
@@ -14,7 +14,7 @@ class PurchasesController < ApplicationController
 
   def pay
     price = @item.price
-    card = Card.where(user_id: current_user.card).first
+    card = current_user.card
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
     amount: price,
