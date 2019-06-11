@@ -9,7 +9,6 @@
 .itemDetail
   %h1.itemDetail__title
     = @item.name
-  -# %h1.itemDetail__title 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
   .itemDetail__main
     .itemDetail__main__photo
       .itemDetail__main__photo__top{style: "width: 300px;"}
@@ -99,7 +98,7 @@
         -#   着払い
           
     -# .itemDetail__buyBtn 売り切れました
-    =link_to "購入画面に進む" , new_item_path ,class: "itemDetail__buyBtn"
+    =link_to "購入画面に進む" , item_purchases_path(@item) ,class: "itemDetail__buyBtn"
     .itemDetail__description
       %p.itemDetail__description__inner
         = @item.description

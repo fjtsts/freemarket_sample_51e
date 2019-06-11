@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :edit, :new, :logout]
   def index
     @user = User.find(current_user.id)
   end
