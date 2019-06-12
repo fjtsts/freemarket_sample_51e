@@ -1,0 +1,18 @@
+.user-form
+  %main.user-form__main
+    .user-form__main__warpper
+      %h2.user-form__main__data 
+        取引画面
+      .user-form__main__box
+        %p V評価をしてください
+        %p 購入者に商品が到着し評価がありました。
+        %p 出品者の評価を行って取引を完了してください。
+        %p ※評価は取引が終わった後で見ることができます。
+        %p 商品を買った後の流れ＞
+        %p 購入者のよくある質問＞
+      = form_for item_reviews_path(@item) do |f|
+        = f.label :content
+        = f.text_field :content
+        = f.submit
+
+
