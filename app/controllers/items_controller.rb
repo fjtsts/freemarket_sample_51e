@@ -47,13 +47,10 @@ before_action :set_parents, only: [:new, :edit]
        
         @item = Item.find(params[:id])
         @category =@item.category
-<<<<<<< HEAD
         @brand = @item.brand
 
-=======
         @comment = Comment.new
         @comments = @item.comments
->>>>>>> 1792acb27bfeeaf34e6a66bf299fcb06505db32d
     end
 
     def resale
@@ -72,15 +69,7 @@ before_action :set_parents, only: [:new, :edit]
 
     def search
         $query = Item.ransack(params[:q])
-<<<<<<< HEAD
         @items = $query.result.includes(:category, :brand)
-        # binding.pry
-    
-=======
-        @items = Item.ransack(name_cont: params[:keyword]).result.all
-    end
-
->>>>>>> 1792acb27bfeeaf34e6a66bf299fcb06505db32d
 
     end
     private
@@ -99,3 +88,4 @@ before_action :set_parents, only: [:new, :edit]
     def comment_params
 
     end
+end
