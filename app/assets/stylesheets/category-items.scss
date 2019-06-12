@@ -20,15 +20,20 @@
         height:100%;
         display:flex;
         &__box{
-          height:330px;
-          width:213px;
+          height:298px;
+          width:188px;
           margin:0 0 20px 20px;
           background:white;
+          &:nth-of-type(5n){
+            margin:0 0 20px 0;
+
+          }
           &__image{         
-              height:220px;
+              height:188px;
               .images{
                   height:100%;
                   width:100%;
+                  object-fit:cover;
               }
           }
           &__text{

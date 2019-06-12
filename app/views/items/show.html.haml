@@ -9,14 +9,13 @@
 .itemDetail
   %h1.itemDetail__title
     = @item.name
+  -# %h1.itemDetail__title 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
   .itemDetail__main
     .itemDetail__main__photo
       .itemDetail__main__photo__top{style: "width: 300px;"}
-        - if @item.exhibit.status === 2
-          .itemDetail__main__photo__soldOut
-        - elsif  @item.exhibit.status === 3
-          .itemDetail__main__photo__soldStop
-        - else
+        / 売り切れマーク
+        -# .itemDetail__main__photo__soldOut
+        -# =image_tag(@item_images.name, height: "300px", width: "300px") alt: "",
         =image_tag("#{@item.item_images[0].image}", id: "photoMain", "data-url": "#{@item.item_images[0].image}" ,alt: "bag1")
       .itemDetail__main__photo__bottomBox
         - @item.item_images.each do |image|
@@ -57,8 +56,11 @@
             %tr
               / 一枠
               %th ブランド
-              %td
-                = link_to @brand.name, "/"
+              -if @brand == nil
+                %td
+              -else
+                %td
+                  = link_to "#{@brand.name}", "/"
             %tr
               / 一枠
               %th 商品の状態
@@ -98,29 +100,22 @@
         -#   送料込み
         -# -else
         -#   着払い
-    - if @item.exhibit.status == 2
-      .itemDetail__buyBtn 売り切れました
-    - elsif @item.exhibit.status == 3
-      - if user_signed_in? && @item.exhibit.user.id == current_user.id
-        .itemDetail__buyBtn 商品の編集
-        %br or
-        %br
-        = link_to resale_item_path, method: :post do
-          .itemDetail__buyBtn 出品を再開する
-        .itemDetail__buyBtn この商品を削除する
-    - else
-      - if user_signed_in? && @item.exhibit.user.id == current_user.id
-        .itemDetail__buyBtn 商品の編集
-        %br or
-        %br
-        = link_to stop_item_path, method: :post do
-          .itemDetail__buyBtn 出品を一旦停止する
-        .itemDetail__buyBtn この商品を削除する
-      - else
-        =link_to "購入画面に進む" , item_purchases_path(@item) ,class: "itemDetail__buyBtn"
+          
+    -# .itemDetail__buyBtn 売り切れました
+    =link_to "購入画面に進む" , new_item_path ,class: "itemDetail__buyBtn"
     .itemDetail__description
       %p.itemDetail__description__inner
         = @item.description
+        -# ■商品ご覧頂き、誠にありがとうございます。
+        -# ※今だけ、フォロワーになって下さった方に、300円のお値引きサービス中！！
+        
+        -# 私の商品検索は、
+        -# \#Boon・バッグ　
+        -# 検索してください。
+        
+        -# 質問がありましたらコメントでよろしくお願いします！
+        -# ■ 商品説明 ■
+        -# まずはプロフを確認してください
     .itemDetail__button.clearfix
       .itemDetail__button__left
         =button_tag class: "itemDetail__button__left__like" do
@@ -137,54 +132,64 @@
     .itemComment
       .itemComment__content
         %ul.itemComment__content__item
-          - @comments.each do |comment|
-            - if user_signed_in?
-              -# ログイン時のコメント画面
-              - if comment.user.id == current_user.id
-                -# 自分のビュー
-                %li.itemCommentMe__content__item__cl.clearfix
-                  .itemCommentMe__content__item__cl__user
-                    = link_to user_path(comment.user) do
-                      %div
-                        =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
-                      .clearBoth
-                      .itemCommentMe__content__item__cl__userName 
-                        = comment.user.nickname
-                      - if comment.user.id == @item.exhibit.user.id
-                        .itemComment__content__item__cl__seller
-                          %p 出品者
-                  .itemCommentMe__content__item__cl__body
-                    .itemCommentMe__content__item__cl__body__text
-                      = comment.content
-                    .itemCommentMe__content__item__cl__body__icon.clearfix
-                      %time.itemCommentMe__content__item__cl__body__icon__left
-                        %i.itemCommentMe-icon-time
-                          %i.far.fa-clock
-                        %span
-                          = date_format(comment.created_at)
-                      - if current_user.id == @item.exhibit.user.id
-                        .itemCommentMe__content__item__cl__body__icon__right__delete
-                          = link_to item_comment_path(comment.item.id, comment.id) , method: :patch, data: { confirm: 'コメントを削除しますか?' } do 
-                            %i=fa_icon "trash",class:"itemComment__icon__delete"
-                      .itemCommentMe__content__item__cl__body__icon__right__flag
-                        %form{action: "", method: ""}
-                          = button_tag type: "submit" do
-                            %i=fa_icon "flag",class:"itemComment__icon__flag"
-              - else
-                -# 他の人のコメント
-                = render partial: 'left-comment', locals: { comment: comment }
-            - else
-              -# ログインしていない時のコメント画面
-              = render partial: 'left-comment', locals: { comment: comment }
+          -# コメント__コメント削除
+          %li.itemComment__content__item__cl.clearfix
+            .itemComment__content__item__cl__user
+              =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
+            .itemComment__content__item__cl__body
+              .itemComment__content__item__cl__body__text 出品者がコメントを削除しました
+              .itemComment__content__item__cl__body__icon.clearfix
+                %time.itemComment__content__item__cl__body__icon__left
+                  %i.itemComment-icon-time ○
+                  %span 211 日前
+          -# コメント__ユーザーあり
+          %li.itemComment__content__item__cl.clearfix
+            .itemComment__content__item__cl__user
+              = link_to 'show' do
+                %div
+                  =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
+                .itemComment__content__item__cl__userName 出品ちゃん＠出品者コメント
+                .itemComment__content__item__cl__seller 出品者
+            .itemComment__content__item__cl__body
+              .itemComment__content__item__cl__body__text こんにちは、商品出品者です
+              .itemComment__content__item__cl__body__icon.clearfix
+                %time.itemComment__content__item__cl__body__icon__left
+                  %i.itemComment-icon-time ○
+                  %span 211 日前
+                .itemComment__content__item__cl__body__icon__right
+                  %form{action: "", method: ""}
+                    = button_tag type: "submit" do
+                      %i=fa_icon "flag",class:"itemComment__icon__flag"
+          -# コメント__利用者本人
+          %li.itemCommentMe__content__item__cl.clearfix
+            .itemCommentMe__content__item__cl__user
+              = link_to 'show' do
+                %div
+                  =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "40px", width: "40px")
+                .clearBoth
+                .itemCommentMe__content__item__cl__userName 私ちゃん＠利用者本人コメント
+                -# .itemCommentMe__content__item__cl__seller 出品者
+            .itemCommentMe__content__item__cl__body
+              .itemCommentMe__content__item__cl__body__text こんにちは、利用者本人です
+              .itemCommentMe__content__item__cl__body__icon.clearfix
+                %time.itemCommentMe__content__item__cl__body__icon__left
+                  %i.itemCommentMe-icon-time ○
+                  %span 211 日前
+                .itemCommentMe__content__item__cl__body__icon__right__delete
+                  %form{action: "", method: ""}
+                    = button_tag type: "submit" do
+                      %i=fa_icon "trash",class:"itemComment__icon__delete"
+                .itemCommentMe__content__item__cl__body__icon__right__flag
+                  %form{action: "", method: ""}
+                    = button_tag type: "submit" do
+                      %i=fa_icon "flag",class:"itemComment__icon__flag"
         .clearBoth
+    / コメント入力フォーム
     .itemPostComment
-      = form_for [@item, @comment],  html: { class: 'itemPostComment__form' } do |f|
+      %form.itemPostComment__form{action: ""}
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        = f.text_field :content, class: 'itemPostComment__form__text'
-        - if @item.exhibit.status === 2
-          %span.itemPostComment__form__btn 売り切れのためコメントできません
-        - elsif @item.exhibit.status === 3
-          %span.itemPostComment__form__btn 公開停止中のためコメントできません
-        - else
-          =button_tag type: "submit" , class: "itemPostComment__form__btn" do
-            %span コメントする
+        %textarea.itemPostComment__form__text{name: "body", type: "text", value: ""}
+        =button_tag type: "submit" , class: "itemPostComment__form__btn" do
+          / <span>売り切れのためコメントできません</span>
+          %span コメントする
+          
