@@ -198,12 +198,52 @@
 
 .user-container_right-content_info_content_list_icon {
   float: left;
+  img{
+    object-fit: cover;
+  }
 }
 
 .user-container_right-content_info_content_list_detail {
   float: left;
   width: 600px;
   margin-left: 20px;
+  font-size: 13px;
+  line-height: 1.5;
+  max-height: 4.4em;
+}
+
+.user-container_right-content_info_content_list_detail_sellList{
+  color: #888;
+  font-size: 16px;
+
+  i {
+    font-size: 14px;
+    color: $light-gray;
+  }
+}
+
+.user-container_right-content_info_content_list_detail_sellList_sell {
+  display: inline-block;
+  background: #0099e8;
+  color: #fff;
+  margin: 8px 0 0 0;
+  padding: 5px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
+}
+
+.user-container_right-content_info_content_list_detail_sellList_stop {
+  display: inline-block;
+  background: #ea352d;
+  color: #fff;
+  margin: 8px 0 0 0;
+  padding: 5px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
 }
 
 .user-container_right-content_info_content_list_next {

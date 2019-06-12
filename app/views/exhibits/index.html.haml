@@ -22,13 +22,17 @@
                         %img{alt: "メルカリ", height: "48px", width: "48px", src: "#{exhibit.item.item_images[0].image}"}
                       .user-container_right-content_info_content_list_detail
                         =exhibit.item.name
-                        を出品中
-                        .user-container_right-content_info_content_list_detail_time
-                          %i.far.fa-clock
+                        -# .user-container_right-content_info_content_list_detail_time
+                        .user-container_right-content_info_content_list_detail_sellList
+                          %i=fa_icon "heart",class:"icon-like"
+                          11
+                          %i=fa_icon "comment-alt",class:"icon-comment"
+                          230
+                          -# %i.far.fa-clock
                           - if exhibit.status == 1
-                            出品中
+                            .user-container_right-content_info_content_list_detail_sellList_sell 出品中
                           - else 
-                            公開停止中
+                            .user-container_right-content_info_content_list_detail_sellList_stop 公開停止中
                       .user-container_right-content_info_content_list_next
                         =fa_icon "angle-right"
 
