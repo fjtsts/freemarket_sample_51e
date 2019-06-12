@@ -18,7 +18,12 @@
                   %li
                     = link_to user_path(review.user.id) do
                       .user-container_right-content_info_content_list_icon
-                        = review.status
+                        - if review.status == 1
+                          %p good
+                        - elsif review.status == 2
+                          %p normal
+                        - else
+                          %p bad
                         -# %img{alt: "メルカリ", height: "48px", width: "48px", src: "#{exhibit.item.item_images[0].image}"}
                       .user-container_right-content_info_content_list_detail
                         購入者
