@@ -48,6 +48,19 @@ before_action :set_parents, only: [:new, :edit]
         @category =@item.category
         @comment = Comment.new
         @comments = @item.comments
+        @reviews = @item.exhibit.user.reviews
+        @review_good_count = 0
+        @review_normal_count = 0
+        @review_bad_count = 0
+        @reviews.each do |review|
+            if review.status == 1
+                @review_good_count = @review_good_count + 1
+            elsif review.status == 2
+                @review_normal_count = @review_normal_count + 1
+            else
+                @review_bad_count = @review_bad_count + 1
+            end
+        end
     end
 
     def resale

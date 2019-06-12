@@ -36,4 +36,15 @@
         %i.fab.fa-twitter-square{class: "user-details_description_social-icon twitter-icon"}
       = link_to users_path do
         %i.fab.fa-line{class: "user-details_description_social-icon line-icon"}
+  .user-details_items
+    %h2 この出品者の商品
+    - @exhibits.each do |exhibit|
+      = link_to item_path(exhibit.item.id) do
+        %section
+          %p
+            =image_tag("#{exhibit.item.item_images[0].image}", id: "photoMain",alt: "#{exhibit.item.name}")
+          %p
+            = exhibit.item.name
+          %p
+            = exhibit.item.price
 

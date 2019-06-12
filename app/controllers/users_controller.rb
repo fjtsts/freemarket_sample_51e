@@ -3,11 +3,21 @@ class UsersController < ApplicationController
   before_action :set_review, only: [:index, :show]
   def index
     @user = User.find(current_user.id)
+    @sold_exhibits = @user.exhibits.where(status: 2)
+    @reviews = []
+    @sold_exhibits.each do |exhibit|
+      @reviews.push(exhibit.item.review)
+    end
     @review_count = @reviews.count
   end
 
   def show
     @user = User.find(params[:id])
+    @sold_exhibits = @user.exhibits.where(status: 2)
+    @reviews = []
+    @sold_exhibits.each do |exhibit|
+      @reviews.push(exhibit.item.review)
+    end
     @review_count = @reviews.count
     @review_good_count = 0
     @review_normal_count = 0
@@ -21,6 +31,7 @@ class UsersController < ApplicationController
         @review_bad_count = @review_bad_count + 1
       end
     end
+    @exhibits = @user.exhibits.where(status: 1)
   end
 
   def edit
