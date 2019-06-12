@@ -31,7 +31,7 @@ class UsersController < ApplicationController
         @review_bad_count = @review_bad_count + 1
       end
     end
-    @exhibits = @user.exhibits.where(status: 1)
+    @exhibits = @user.exhibits
   end
 
   def edit

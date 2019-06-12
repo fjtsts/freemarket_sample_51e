@@ -40,11 +40,20 @@
     %h2 この出品者の商品
     - @exhibits.each do |exhibit|
       = link_to item_path(exhibit.item.id) do
-        %section
-          %p
-            =image_tag("#{exhibit.item.item_images[0].image}", id: "photoMain",alt: "#{exhibit.item.name}")
-          %p
-            = exhibit.item.name
-          %p
-            = exhibit.item.price
+        - if exhibit.status == 3
+        - else
+          %section
+            - if exhibit.status == 1
+              %p
+                =image_tag("#{exhibit.item.item_images[0].image}", id: "photoMain",alt: "#{exhibit.item.name}")
+            - else
+              %p
+                =image_tag("#{exhibit.item.item_images[0].image}", id: "photoMain",alt: "#{exhibit.item.name}")
+                %br SOLD OUT
+            %p
+              = exhibit.item.name
+            %p
+              ¥
+              = exhibit.item.price
+              (税込)
 
