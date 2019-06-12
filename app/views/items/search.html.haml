@@ -1,3 +1,4 @@
+
 .search-container
   .search-container__left
     .search-container__left__wrapper
@@ -9,8 +10,22 @@
   .search-container__right
     .search-container__right__wrapper
       .search-container__right__wrapper__head
+        #{$query.conditions.first.values.first.value}
         %span.result-head 
-          の詳細結果
+          の結果
       .search-container__right__wrapper__number
       .search-container__right__wrapper__container
+        -@items.each do |item|
+          .search-container__right__wrapper__container__box
+            = link_to "",item_path(item.id) 
+            .search-container__right__wrapper__container__box__image
+              =image_tag(item.item_images[0].image.to_s,class: "images")
+            .search-container__right__wrapper__container__box__text
+              .search-container__right__wrapper__container__box__text__title #{item.name}
+              .search-container__right__wrapper__container__box__text__num
+
+                %span.like-num 15
+                =fa_icon "heart",class:"icon-like"
+                .search-container__right__wrapper__container__box__text__num__price ¥#{item.price}
+              .search-container__right__wrapper__container__box__text__title__tax (税込)
         

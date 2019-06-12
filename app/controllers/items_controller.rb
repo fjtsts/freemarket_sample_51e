@@ -5,10 +5,10 @@ before_action :set_parents, only: [:new, :edit]
     def index
        
         $query = Item.ransack(params[:q])
-        @ladies =Category.first.items.all.order(created_at: "DESC").limit(4)
-        @mens =  Item.ransack(by_name: "メンズ").result.order(created_at: "DESC").limit(4)
-        @baby =  Item.ransack(by_category_id: 3).result.order(created_at: "DESC").limit(4)
-        @interior =  Item.ransack(by_category_id: 4).result.order(created_at: "DESC").limit(4)
+        @ladies =Item.where(category_id: Category.first.subtree_ids).all.order(created_at: "DESC").limit(4)
+        @mens =  Item.where(category_id: Category.second.subtree_ids).all.order(created_at: "DESC").limit(4)
+        @baby =  Item.where(category_id: Category.third.subtree_ids).all.order(created_at: "DESC").limit(4)
+        @interior =  Item.where(category_id: Category.fourth.subtree_ids).all.order(created_at: "DESC").limit(4)
         @chanel =Brand.first.items.all.order("created_at DESC").limit(4)
         @vuitton =Brand.second.items.all.order("created_at DESC").limit(4)
         @supreme =Brand.third.items.all.order("created_at DESC").limit(4)
@@ -44,10 +44,16 @@ before_action :set_parents, only: [:new, :edit]
     # end
 
     def show
+       
         @item = Item.find(params[:id])
         @category =@item.category
+<<<<<<< HEAD
+        @brand = @item.brand
+
+=======
         @comment = Comment.new
         @comments = @item.comments
+>>>>>>> 1792acb27bfeeaf34e6a66bf299fcb06505db32d
     end
 
     def resale
@@ -66,9 +72,15 @@ before_action :set_parents, only: [:new, :edit]
 
     def search
         $query = Item.ransack(params[:q])
+<<<<<<< HEAD
+        @items = $query.result.includes(:category, :brand)
+        # binding.pry
+    
+=======
         @items = Item.ransack(name_cont: params[:keyword]).result.all
     end
 
+>>>>>>> 1792acb27bfeeaf34e6a66bf299fcb06505db32d
 
     end
     private
