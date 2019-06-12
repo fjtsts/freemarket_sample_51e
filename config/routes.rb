@@ -8,14 +8,18 @@ Rails.application.routes.draw do
       post 'pay', to: 'card#pay'
     end
   end
+  
   resources :items do
     resources :comments, only: [:create, :update]
+    resources :favorite_items, only: [:create, :destroy]
   end
+
   resources :user_profiles, only: [:new, :create, :edit]
   resources :addresses, only: [:new, :create, :edit, :show]
   resources :users, only: [:index, :show, :edit, :new] do
     get :logout, on: :collection
   end
+
   resources :purchases, only: [:new]
   resources :categories, only:[:index,:show]
   root to: "items#index"

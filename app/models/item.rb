@@ -11,6 +11,8 @@ class Item < ApplicationRecord
   belongs_to :brand,optional: true
   has_one :exhibit, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorite_items, dependent: :destroy
+  has_many :favorite_item_users, through: :favorite_items, source: :user
   # belong_to  :size
 
   with_options presence: true do

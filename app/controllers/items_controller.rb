@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-before_action :authenticate_user!, only: :new
+before_action :authenticate_user!, only: [:new, :show, :create]
 before_action :set_parents, only: [:new, :edit]
 
     def index
@@ -13,6 +13,8 @@ before_action :set_parents, only: [:new, :edit]
         @vuitton =Brand.second.items.all.order("created_at DESC").limit(4)
         @supreme =Brand.third.items.all.order("created_at DESC").limit(4)
         @nike=Brand.fourth.items.all.order("created_at DESC").limit(4)
+        @items = Item.all
+        @item = Item.new
     end
 
     def new
@@ -48,13 +50,13 @@ before_action :set_parents, only: [:new, :edit]
         @category =@item.category
         @comment = Comment.new
         @comments = @item.comments
+        @favorite_item = FavoriteItem.new
     end
 
     def search
         $query = Item.ransack(params[:q])
         @items = Item.ransack(name_cont: params[:keyword]).result.all
     end
-
 
     end
     private

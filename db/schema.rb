@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_084340) do
+ActiveRecord::Schema.define(version: 2019_06_10_103137) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "last_name", null: false
@@ -69,6 +69,15 @@ ActiveRecord::Schema.define(version: 2019_06_10_084340) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_exhibits_on_item_id"
     t.index ["user_id"], name: "index_exhibits_on_user_id"
+  end
+
+  create_table "favorite_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_favorite_items_on_item_id"
+    t.index ["user_id"], name: "index_favorite_items_on_user_id"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -138,5 +147,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_084340) do
   add_foreign_key "cards", "users"
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorite_items", "items"
+  add_foreign_key "favorite_items", "users"
   add_foreign_key "user_profiles", "users"
 end
