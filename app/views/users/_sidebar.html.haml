@@ -27,7 +27,7 @@
             出品する
             .user-container_left-content_info_list
               =fa_icon "angle-right"
-        %a{ href: '#'}
+        = link_to exhibits_path do
           %li
             出品した商品 - 出品中
             .user-container_left-content_info_list
@@ -37,7 +37,7 @@
             出品した商品 - 取引中
             .user-container_left-content_info_list
               =fa_icon "angle-right"
-        %a{ href: '#'}
+        = link_to sold_exhibits_path do
           %li
             出品した商品 - 売却済み
             .user-container_left-content_info_list
