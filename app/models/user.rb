@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :exhibits, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :purchases, dependent: :destroy
+  has_many :reviews
 
   validates :nickname, presence: true
 

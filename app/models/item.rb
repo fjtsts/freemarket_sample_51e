@@ -13,6 +13,7 @@ class Item < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one :purchases, dependent: :destroy
   belongs_to  :size
+  has_many :reviews
 
   with_options presence: true do
     validates :name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price
