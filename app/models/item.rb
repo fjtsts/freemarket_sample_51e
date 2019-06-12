@@ -10,7 +10,14 @@ class Item < ApplicationRecord
   belongs_to :category,optional: true
   belongs_to :brand,optional: true
   has_one :exhibit, dependent: :destroy
+  has_many :comments, dependent: :destroy
   # belong_to  :size
+
+  with_options presence: true do
+    validates :name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :area, :day, :price
+  end
+  validates :price, numericality: {greater_than_or_equal_to: 300,less_than_or_equal_to: 9_999_999}
+
 
   enum status: {"新品、未使用": 1, "未使用に近い": 2, "目立った傷や汚れなし": 3, "やや傷や汚れあり": 4, "傷や汚れあり": 5, "全体的に状態が悪い": 6}
   enum day: {"1~2日で発送": 1, "2~3日で発送": 2, "4~7日で発送": 3}
