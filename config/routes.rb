@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
   resources :user_profiles, only: [:new, :create, :edit]
   resources :addresses, only: [:new, :create, :edit, :show]
-  resources :users, only: [:index, :show, :edit, :new] do
+  resources :users, only: [:index, :show, :edit, :new, :update] do
     get :logout, on: :collection
   end
   resources :purchases, only: [:new]
