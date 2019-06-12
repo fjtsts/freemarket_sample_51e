@@ -10,9 +10,16 @@
         %p ※評価は取引が終わった後で見ることができます。
         %p 商品を買った後の流れ＞
         %p 購入者のよくある質問＞
-      = form_for item_reviews_path(@item) do |f|
-        = f.label :content
+      = form_for(@review, url: item_reviews_path) do |f|
+        = f.label(:status, "良い", value: 1)
+        = f.radio_button(:status, 1)
+        = f.label(:status, "普通", value: 2)
+        = f.radio_button(:status, 2)
+        = f.label(:status, "悪い", value: 3)
+        = f.radio_button(:status, 3)
+        = f.label(:content, "評価のコメントを記入しましょう。")
         = f.text_field :content
-        = f.submit
+        = f.submit("評価を投稿する")
+          
 
 
