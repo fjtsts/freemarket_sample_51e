@@ -2,6 +2,13 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @sold_exhibits = current_user.exhibits.where(status: 2)
+    @reviews = []
+    @sold_exhibits.each do |exhibit|
+      @reviews.push(exhibit.item.review)
+    end
+    @reviews.sort_by! { |a| a[:id]}.sort
+    @reviews = @reviews.sort.reverse
   end
 
   def create
