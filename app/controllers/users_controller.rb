@@ -41,10 +41,24 @@ class UsersController < ApplicationController
     render layout: 'form-layout'
   end
 
+  def update
+    begin
+      if current_user.update(user_params)
+        current_user.user_profile.update(user_profile_params)
+        redirect_to controller: 'users', action: 'edit'
+      else
+        render :edit
+      end
+    rescue => e
+      render :edit 
+    end
+  end
+
   def logout
   end
 
   private
+
   def set_review
     @sold_exhibits = current_user.exhibits.where(status: 2)
     @reviews = []
@@ -53,4 +67,12 @@ class UsersController < ApplicationController
     end
   end
 
-end
+  def user_params
+    params.require(:user).permit(:nickname)
+  end
+
+  def user_profile_params
+    params.require(:user).require(:user_profile).permit(:introduction)
+  end
+
+

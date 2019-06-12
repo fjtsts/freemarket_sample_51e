@@ -16,8 +16,64 @@
         height:12px;
         margin:0 16px;
       }
-      &__item-boxs{
-        height:1000px;
+      &__container{
+        width:700px;
+        height:auto;
+        display:flex;
+        flex-wrap: wrap;
+        &__box{
+          height:270px;
+          width:160px;
+          margin:0 20px 20px 0;
+          background:white;
+          &:nth-of-type(4n){
+            margin:0 0 20px 0;
+          }
+          a{
+            display:inline-block;
+            width:160px;
+            height:270px;
+            position:absolute;
+            z-index:1;
+        }
+          &__image{         
+              height:160px;
+              .images{
+                  height:100%;
+                  width:100%;
+                  object-fit:cover;
+              }
+          }
+          &__text{
+              height:110px;
+              padding:15px;
+              &__title{
+                  font-size:16px;
+                  height:48px;
+                  word-wrap:wrap;
+                  &__tax{
+                      font-size:10px;
+                  }
+              }
+              &__num{
+                  height:14px;
+                  margin-top:8px;
+                  @extend .clearfix;
+
+                  &__price{
+                      font-size:17px;
+                  }
+                  .icon-like{
+                      float:right;
+                      
+                  }
+                  .like-num{
+                      float:right;
+                  }
+              }
+          }
+        }
+      
       }
     }
 

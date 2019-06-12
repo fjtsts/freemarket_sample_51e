@@ -29,9 +29,9 @@ class ApplicationController < ActionController::Base
       $query = Item.ransack(params[:q])
     end
     def search
-     
-      
-      # @items = @query.result(distinct: true)
+      $query = Item.ransack(params[:q])
+      @items = $query.result.includes(:item,:category, :brand)
     end
+
    
 end
