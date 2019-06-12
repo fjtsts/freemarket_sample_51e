@@ -16,7 +16,7 @@
                   =image_tag("#{@user_profile.avatar}",alt: "usre", height: "60px", width: "60px")
                 = f.text_field :nickname ,class: "userProfileEdit__main__image__user__nameBtn", placeholder: "例)AYA★セール中", id: "user_nickname"
                 .userProfileEdit__main__image__user__nameBtnerror
-                  %p.nicnameover.nickname
+                  %p#user_nickname.nickname
             .userProfileEdit__main__bottom
               = f.fields_for @user_profile do |prf|
                 = prf.text_area :introduction,class: "userProfileEdit__main__bottom__form__comment"

@@ -18,11 +18,15 @@ class UsersController < ApplicationController
 
   def update
     @user_profile = UserProfile.find(current_user[:id])
-    if current_user.update(user_params)
-      current_user.user_profile.update(user_profile_params)
-      redirect_to controller: 'users', action: 'edit'
-    else
-      render :edit
+    begin
+      if current_user.update(user_params)
+        current_user.user_profile.update(user_profile_params)
+        redirect_to controller: 'users', action: 'edit'
+      else
+        render :edit
+      end
+    rescue => e
+      render :edit 
     end
   end
 
