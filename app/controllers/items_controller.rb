@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-before_action :authenticate_user!, only: :new
+before_action :authenticate_user!, only: [:new, :show, :create]
 before_action :set_parents, only: [:new, :edit]
 
     def index
@@ -13,6 +13,8 @@ before_action :set_parents, only: [:new, :edit]
         @vuitton =Brand.second.items.all.order("created_at DESC").limit(4)
         @supreme =Brand.third.items.all.order("created_at DESC").limit(4)
         @nike=Brand.fourth.items.all.order("created_at DESC").limit(4)
+        @items = Item.all
+        @item = Item.new
     end
 
     def new
@@ -51,6 +53,7 @@ before_action :set_parents, only: [:new, :edit]
 
         @comment = Comment.new
         @comments = @item.comments
+        @favorite_item = FavoriteItem.new
         @user = @item.exhibit.user
         @sold_exhibits = @user.exhibits.where(status: 2)
         @reviews = []
@@ -89,7 +92,9 @@ before_action :set_parents, only: [:new, :edit]
         $query = Item.ransack(params[:q])
         @items = $query.result.includes(:category, :brand)
     end
+
     private
+
     def item_params
         params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, item_images_attributes: [:image])
     end
@@ -98,9 +103,9 @@ before_action :set_parents, only: [:new, :edit]
         @parents = Category.where(ancestry: nil)
     end
  
-    def search_params
-      params.require(:q).permit(:name_cont)
-    end
+    # def search_params
+    #   params.require(:q).permit(:name_cont)
+    # end
 
     def comment_params
 

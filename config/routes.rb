@@ -9,10 +9,12 @@ Rails.application.routes.draw do
       post 'pay', to: 'card#pay'
     end
   end
+  
   resources :items do
     post 'resale', to: 'items#resale', on: :member
     post 'stop', to: 'items#stop', on: :member
     resources :comments, only: [:create, :update]
+    resources :favorite_items, only: [:create, :destroy]
     resources :purchases, only: [:index] do
       collection do
         post 'pay', to: 'purchases#pay'
@@ -20,11 +22,13 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: [:create, :new]
   end
+
   resources :user_profiles, only: [:new, :create, :edit]
   resources :addresses, only: [:new, :create, :edit, :show]
   resources :users, only: [:index, :show, :edit, :new, :update] do
     get :logout, on: :collection
   end
+
   resources :purchases, only: [:new]
   resources :categories, only:[:index,:show]
   root to: "items#index"
