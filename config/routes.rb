@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'exhibits/index'
+  get 'exhibits/sold'
   devise_for :users, controllers: { 
     registrations: 'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
