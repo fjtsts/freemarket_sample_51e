@@ -5,10 +5,10 @@ before_action :set_parents, only: [:new, :edit]
     def index
        
         $query = Item.ransack(params[:q])
-        @ladies =Category.first.items.all.order(created_at: "DESC").limit(4)
-        @mens =  Item.ransack(by_name: "メンズ").result.order(created_at: "DESC").limit(4)
-        @baby =  Item.ransack(by_category_id: 3).result.order(created_at: "DESC").limit(4)
-        @interior =  Item.ransack(by_category_id: 4).result.order(created_at: "DESC").limit(4)
+        @ladies =Item.where(category_id: Category.first.subtree_ids).all.order(created_at: "DESC").limit(4)
+        @mens =  Item.where(category_id: Category.second.subtree_ids).all.order(created_at: "DESC").limit(4)
+        @baby =  Item.where(category_id: Category.third.subtree_ids).all.order(created_at: "DESC").limit(4)
+        @interior =  Item.where(category_id: Category.fourth.subtree_ids).all.order(created_at: "DESC").limit(4)
         @chanel =Brand.first.items.all.order("created_at DESC").limit(4)
         @vuitton =Brand.second.items.all.order("created_at DESC").limit(4)
         @supreme =Brand.third.items.all.order("created_at DESC").limit(4)
@@ -46,8 +46,11 @@ before_action :set_parents, only: [:new, :edit]
     # end
 
     def show
+       
         @item = Item.find(params[:id])
         @category =@item.category
+        @brand = @item.brand
+
         @comment = Comment.new
         @comments = @item.comments
         @favorite_item = FavoriteItem.new
@@ -69,11 +72,11 @@ before_action :set_parents, only: [:new, :edit]
 
     def search
         $query = Item.ransack(params[:q])
-        @items = Item.ransack(name_cont: params[:keyword]).result.all
+        @items = $query.result.includes(:category, :brand)
     end
 
-    end
     private
+    
     def item_params
         params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, item_images_attributes: [:image])
     end
@@ -89,3 +92,4 @@ before_action :set_parents, only: [:new, :edit]
     def comment_params
 
     end
+end
