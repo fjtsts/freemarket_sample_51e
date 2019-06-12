@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   root to: "items#index"
   get 'search', to: 'items#search'
   get 'purchased', to: 'purchases#purchased'
+  get 'reviews', to: 'reviews#index'
   resources :exhibits, only: [:index] do
     get 'sold', to: 'exhibits#sold', on: :collection
   end
