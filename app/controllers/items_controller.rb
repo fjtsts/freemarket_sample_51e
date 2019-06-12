@@ -56,6 +56,20 @@ before_action :set_parents, only: [:new, :edit]
 >>>>>>> 1792acb27bfeeaf34e6a66bf299fcb06505db32d
     end
 
+    def resale
+        @item = Item.find(params[:id])
+        @item.exhibit.status = 1
+        @item.exhibit.save
+        redirect_to action: 'show', id: @item.id
+    end
+
+    def stop
+        @item = Item.find(params[:id])
+        @item.exhibit.status = 3
+        @item.exhibit.save
+        redirect_to action: 'show', id: @item.id
+    end
+
     def search
         $query = Item.ransack(params[:q])
 <<<<<<< HEAD
@@ -71,9 +85,9 @@ before_action :set_parents, only: [:new, :edit]
     end
     private
     def item_params
-        params.permit(:name, :description, :category_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, item_images_attributes: [:image])
+        params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, item_images_attributes: [:image])
     end
-          #  .require(:item)    #  , :size .merge(user_id: current_user.id)
+          #  .require(:item)    #   .merge(user_id: current_user.id)
     def set_parents
         @parents = Category.where(ancestry: nil)
     end
@@ -85,5 +99,3 @@ before_action :set_parents, only: [:new, :edit]
     def comment_params
 
     end
-end
-

@@ -14,6 +14,15 @@
           .sell-form__main__image__box
             = f.fields_for :item_images do |i|
               =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", required: "required", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
 
         .sell-form__main__form-box
           .sell-form__main__name.sell-form__main__box
@@ -52,7 +61,7 @@
                   = f.label "サイズ", class:"sell-form__main__detail__label"
                   %span{class:"sell-form__main__detail__label--require"} 必須
                 .sell-form__main__detail__select-box.sell-form__lastbox
-                  = f.select :status, options_for_select({'free':1}), { include_blank: "---" },{class:"sell-form__main__detail__select-box__text"}
+                  = f.collection_select :size_id, Size.all,:id, :name, { include_blank: "---" },{class:"sell-form__main__detail__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
               #form-wrap-brand.sell-form__main__detail__warp--middle
                 .sell-form__main__detail
@@ -65,7 +74,6 @@
                 .sell-form__main__detail
                   = f.label "商品の状態", class:"sell-form__main__detail__label"
                   %span{class:"sell-form__main__detail__label--require"} 必須
-
                 .sell-form__main__detail__select-box.sell-form__lastbox
                   = f.select :status,Item.statuses.keys.to_a,{ include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
@@ -79,20 +87,16 @@
                 .sell-form__main__delivery
                   = f.label "発送料の負担", class:"sell-form__main__delivery__label"
                   %span{class:"sell-form__main__delivery__label--require"} 必須
-                .sell-form__main__delivery__select-box
-                  = f.select :shipping_fee,Item.shipping_fees.keys.to_a, {include_blank: "---" },{required:"required",class:"sell-form__main__delivery__select-box__text"}
+                #shipping_fee.sell-form__main__delivery__select-box
+                  = f.select :shipping_fee,Item.shipping_fees.keys.to_a, {include_blank: "---" },{required:"required",id:'select_shipping_fee',class:"sell-form__main__delivery__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
-              .sell-form__main__delivery__warp--middle
+              #how_to_ship.sell-form__main__delivery__warp--middle
                 .sell-form__main__delivery
                   = f.label "発送の方法", class:"sell-form__main__delivery__label"
                   %span{class:"sell-form__main__delivery__label--require"} 必須
-                .sell-form__main__delivery__select-box
-                  = f.select :how_to_shipping,Item.how_to_shippings.keys.to_a, { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
+                #exhibitor_burden.sell-form__main__delivery__select-box
+                  = f.select :how_to_shipping,Item.exhibitor_burdens.keys.to_a, { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
-                .sell-form__main__delivery__select-box
-                  -# 少ないver
-                  -# = f.select :how_to_shipping,Item.how_to_shippings.keys.to_a, { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
-                  -# =fa_icon "angle-down sell-form__angle-down"
               .sell-form__main__delivery__warp--middle
                 .sell-form__main__delivery
                   = f.label "発送元の地域", class:"sell-form__main__delivery__label"
