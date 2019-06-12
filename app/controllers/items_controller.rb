@@ -103,9 +103,9 @@ before_action :set_parents, only: [:new, :edit]
         @parents = Category.where(ancestry: nil)
     end
  
-    def search_params
-      params.require(:q).permit(:name_cont)
-    end
+    # def search_params
+    #   params.require(:q).permit(:name_cont)
+    # end
 
     def comment_params
 

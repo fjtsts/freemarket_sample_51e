@@ -4,15 +4,13 @@ class FavoriteItemsController < ApplicationController
   
   def create
     @favorite_item = FavoriteItem.create(item_id: params[:item_id])
-    @favorite_items = FavoritItem.where(item_id: params[:item_id])
-    @item.reload
+    @favorite_items = FavoriteItem.where(item_id: params[:item_id])
   end
 
   def destroy
-    @favorite_item = FavoriteItem.find_by(item_id: params[:item_id], user_id: current_user.id)
-    @favorite_item.destroy
+    favorite_item = FavoriteItem.find_by(item_id: params[:item_id], user_id: current_user.id)
+    favorite_item.destroy
     @favorite_items = FavoriteItem.where(item_id: params[:item_id])
-    @item.reload
   end
 
   private
