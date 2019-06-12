@@ -127,13 +127,41 @@
     top: 0;
     left: 0;
     border-bottom: 120px solid transparent;
-    border-left: 120px solid #ea352d;
+    border-left: 120px solid $red;
     position: absolute;
     z-index: 100;
   }
 
   &::after {
     content: "SOLD";
+    position: absolute;
+    left: 0;
+    display: block;
+    top: 24px;
+    transform: rotate(-45deg);
+    font-size: 28px;
+    color: #fff;
+    z-index: 101;
+  }
+}
+
+.itemDetail__main__photo__soldStop {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  
+  &::before {
+    content: "";
+    top: 0;
+    left: 0;
+    border-bottom: 120px solid transparent;
+    border-left: 120px solid $light-gray;
+    position: absolute;
+    z-index: 100;
+  }
+
+  &::after {
+    content: "公開停止中";
     position: absolute;
     left: 0;
     display: block;

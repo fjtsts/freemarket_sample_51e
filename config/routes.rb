@@ -10,8 +10,15 @@ Rails.application.routes.draw do
   end
   
   resources :items do
+    post 'resale', to: 'items#resale', on: :member
+    post 'stop', to: 'items#stop', on: :member
     resources :comments, only: [:create, :update]
     resources :favorite_items, only: [:create, :destroy]
+    resources :purchases, only: [:index] do
+      collection do
+        post 'pay', to: 'purchases#pay'
+      end
+    end
   end
 
   resources :user_profiles, only: [:new, :create, :edit]
@@ -24,7 +31,6 @@ Rails.application.routes.draw do
   resources :categories, only:[:index,:show]
   root to: "items#index"
   get 'search', to: 'items#search'
-  
-  get '/purchases/:id/new', to: 'purchases#new'
+  get 'purchased', to: 'purchases#purchased'
 end
 
