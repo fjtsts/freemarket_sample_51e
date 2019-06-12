@@ -48,7 +48,12 @@ before_action :set_parents, only: [:new, :edit]
         @category =@item.category
         @comment = Comment.new
         @comments = @item.comments
-        @reviews = @item.exhibit.user.reviews
+        @user = @item.exhibit.user
+        @sold_exhibits = @user.exhibits.where(status: 2)
+        @reviews = []
+        @sold_exhibits.each do |exhibit|
+            @reviews.push(exhibit.item.review)
+        end
         @review_good_count = 0
         @review_normal_count = 0
         @review_bad_count = 0
