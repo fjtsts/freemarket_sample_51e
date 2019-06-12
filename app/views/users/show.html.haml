@@ -7,7 +7,8 @@
         = @user.nickname
       .user-details_profile_info
         %span.user-details_profile_info_list
-          評価20
+          評価
+          = @review_count
         %span.user-details_profile_info_list
           出品数
           = @user.exhibits.count
@@ -16,15 +17,15 @@
       %span.user-details_info_review_icon
         %i.fa.fa-laugh{class: "user-details_info_review_icon_size good-icon"}
         %span.user-details_info_review_icon_number
-          20
+          = @review_good_count
       %span.user-details_info_review_icon
         %i.fa.fa-meh{class: "user-details_info_review_icon_size normal-icon"}
         %span.user-details_info_review_icon_number
-          20
+          = @review_normal_count
       %span.user-details_info_review_icon
         %i.fa.fa-tired{class: "user-details_info_review_icon_size bad-icon"}
         %span.user-details_info_review_icon_number
-          20
+          = @review_bad_count
     .user-details_info_description
       = @user.user_profile.introduction
   .user-details_description_social
