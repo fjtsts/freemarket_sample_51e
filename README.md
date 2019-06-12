@@ -12,6 +12,7 @@
 - has_many :favorite_items, dependent: :destroy
 - has_one :user_profile, dependent: :destroy
 - has_one :address, dependent: :destroy
+- has_many :reviews
 
 ## user_profiles
 |Column|Type|Options|
@@ -74,6 +75,7 @@
 - has_many :purchases
 - has_many :comments, dependent: :destroy
 - has_many :favorite_items, dependent: :destroy
+- has_many :reviews
 
 ## item_images
 |Column|Type|Options|
@@ -150,6 +152,17 @@
 ## favorite_items
 |Column|Type|Options|
 |------|----|-------|
+|user_id|reference|null: false, references:user, foregin_key: true|
+|item_id|reference|null: false, references:item, foregin_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item
+
+## reviews
+|Column|Type|Options|
+|------|----|-------|
+|status|integer|null: false|
+|content|text|null: false|
 |user_id|reference|null: false, references:user, foregin_key: true|
 |item_id|reference|null: false, references:item, foregin_key: true|
 ### Association

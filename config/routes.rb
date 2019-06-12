@@ -18,6 +18,7 @@ Rails.application.routes.draw do
         post 'pay', to: 'purchases#pay'
       end
     end
+    resources :reviews, only: [:create, :new]
   end
   resources :user_profiles, only: [:new, :create, :edit]
   resources :addresses, only: [:new, :create, :edit, :show]
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   root to: "items#index"
   get 'search', to: 'items#search'
   get 'purchased', to: 'purchases#purchased'
+  get 'reviews', to: 'reviews#index'
   resources :exhibits, only: [:index] do
     get 'sold', to: 'exhibits#sold', on: :collection
   end

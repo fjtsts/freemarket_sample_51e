@@ -32,13 +32,16 @@
               %div
                 .itemDetail__main__tablel__itemUserRatings
                   =image_tag("icon-good.png",size: "16x16")
-                  %span 2
+                  %span
+                    = @review_good_count
                 .itemDetail__main__tablel__itemUserRatings
                   =image_tag("icon-normal.png",size: "16x16")
-                  %span 10
+                  %span
+                    = @review_normal_count
                 .itemDetail__main__tablel__itemUserRatings
                   =image_tag("icon-bad.png",size: "16x16")
-                  %span 999
+                  %span
+                    = @review_bad_count
             %tr
               / 一枠
               %th カテゴリー
