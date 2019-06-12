@@ -32,5 +32,8 @@ Rails.application.routes.draw do
   resources :exhibits, only: [:index] do
     get 'sold', to: 'exhibits#sold', on: :collection
   end
+  resources :reviews, only: [:create] do
+    get 'set', to: 'reviews#set', on: :collection
+  end
 end
 
