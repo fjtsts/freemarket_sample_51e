@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user_profile = UserProfile.find(current_user[:id])
   end
 
   def new
@@ -17,7 +16,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user_profile = UserProfile.find(current_user[:id])
     begin
       if current_user.update(user_params)
         current_user.user_profile.update(user_profile_params)

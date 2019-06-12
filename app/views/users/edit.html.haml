@@ -10,15 +10,15 @@
             %input{type: "hidden"}/
             .userProfileEdit__main__image
               %figure.userProfileEdit__main__image__user
-                - if @user_profile.avatar == nil
+                - if current_user.user_profile.avatar == nil
                   =image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png",alt: "usre", height: "60px", width: "60px")
                 - else
-                  =image_tag("#{@user_profile.avatar}",alt: "usre", height: "60px", width: "60px")
+                  =image_tag("#{current_user.user_profile.avatar}",alt: "usre", height: "60px", width: "60px")
                 = f.text_field :nickname ,class: "userProfileEdit__main__image__user__nameBtn", placeholder: "例)AYA★セール中", id: "user_nickname"
                 .userProfileEdit__main__image__user__nameBtnerror
                   %p#user_nickname.nickname
             .userProfileEdit__main__bottom
-              = f.fields_for @user_profile do |prf|
+              = f.fields_for current_user.user_profile do |prf|
                 = prf.text_area :introduction,class: "userProfileEdit__main__bottom__form__comment"
               = f.submit "変更する", class: "userProfileEdit__main__bottom__form__btn", name: "button"
       .clearBoth
