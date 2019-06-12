@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :favorite_items, dependent: :destroy
   has_many :favorite_item_items, through: :favorite_items, source: :item
   has_many :purchases, dependent: :destroy
+  has_many :reviews
 
   validates :nickname, presence: true
   

@@ -54,6 +54,24 @@ before_action :set_parents, only: [:new, :edit]
         @comment = Comment.new
         @comments = @item.comments
         @favorite_item = FavoriteItem.new
+        @user = @item.exhibit.user
+        @sold_exhibits = @user.exhibits.where(status: 2)
+        @reviews = []
+        @sold_exhibits.each do |exhibit|
+            @reviews.push(exhibit.item.review)
+        end
+        @review_good_count = 0
+        @review_normal_count = 0
+        @review_bad_count = 0
+        @reviews.each do |review|
+            if review.status == 1
+                @review_good_count = @review_good_count + 1
+            elsif review.status == 2
+                @review_normal_count = @review_normal_count + 1
+            else
+                @review_bad_count = @review_bad_count + 1
+            end
+        end
     end
 
     def resale
@@ -76,7 +94,7 @@ before_action :set_parents, only: [:new, :edit]
     end
 
     private
-    
+
     def item_params
         params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, item_images_attributes: [:image])
     end
