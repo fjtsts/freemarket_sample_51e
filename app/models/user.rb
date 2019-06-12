@@ -11,6 +11,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address
   has_many :exhibits, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :purchases, dependent: :destroy
 
   validates :nickname, presence: true
 
