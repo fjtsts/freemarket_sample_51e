@@ -21,6 +21,10 @@ class Item < ApplicationRecord
   end
   validates :price, numericality: {greater_than_or_equal_to: 300,less_than_or_equal_to: 9_999_999}
 
+  def favorite_item_by?(user) #いいねしているかどうか
+    favorite_items.where(user_id: user.id).exists?
+  end
+
 
   enum status: {"新品、未使用": 1, "未使用に近い": 2, "目立った傷や汚れなし": 3, "やや傷や汚れあり": 4, "傷や汚れあり": 5, "全体的に状態が悪い": 6}
   enum day: {"1~2日で発送": 1, "2~3日で発送": 2, "4~7日で発送": 3}
