@@ -3,7 +3,8 @@ before_action :authenticate_user!, only: [:new, :show, :create]
 before_action :set_parents, only: [:new, :edit]
 
     def index
-        @query = Item.ransack(params[:q]
+        $query = Item.ransack(params[:q])
+        @query= Item.ransack(params[:q])
         @ladies =Item.where(category_id: Category.first.subtree_ids).all.order(created_at: "DESC").limit(4)
         @mens =  Item.where(category_id: Category.second.subtree_ids).all.order(created_at: "DESC").limit(4)
         @baby =  Item.where(category_id: Category.third.subtree_ids).all.order(created_at: "DESC").limit(4)
@@ -89,8 +90,9 @@ before_action :set_parents, only: [:new, :edit]
 
     def search
         @parents = Category.where(ancestry: nil)
-        @query = Item.ransack(params[:q])
-        @items = @query.result.includes(:category, :brand)
+        $query = Item.ransack(params[:q])
+        @items = $query.result.includes(:category, :brand)
+        @new_items =Item.all.order(created_at: "DESC")
     end
 
     private
