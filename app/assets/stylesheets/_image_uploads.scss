@@ -5,7 +5,6 @@
 }
 
 .form_upload {
-  // jQueryで追加時にクラス名変更もしくは追加
   text-align: center;
   height: 158px;
   background-color: $background-color-gray;
@@ -34,7 +33,6 @@
   }
 
   pre.upload {
-    //クラス名変更
     font-size: 14px;
     font-family: monospace,monospace;
     display: inline-block;
@@ -77,11 +75,3 @@
     }
   }
 }
-
-// .templateArea {//クラス名変更
-//   display: none;
-//   img {
-//     height: 140px;
-//   }
-
-// }
