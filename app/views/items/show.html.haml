@@ -32,13 +32,16 @@
               %div
                 .itemDetail__main__tablel__itemUserRatings
                   =image_tag("icon-good.png",size: "16x16")
-                  %span 2
+                  %span
+                    = @review_good_count
                 .itemDetail__main__tablel__itemUserRatings
                   =image_tag("icon-normal.png",size: "16x16")
-                  %span 10
+                  %span
+                    = @review_normal_count
                 .itemDetail__main__tablel__itemUserRatings
                   =image_tag("icon-bad.png",size: "16x16")
-                  %span 999
+                  %span
+                    = @review_bad_count
             %tr
               / 一枠
               %th カテゴリー
@@ -119,8 +122,8 @@
     .itemDetail__button.clearfix
       .itemDetail__button__left
         =button_tag class: "itemDetail__button__left__like" do
-          %i=fa_icon "heart",class:"icon-like"
-          %span いいね！
+          -# いいね非同期実装
+          = render partial: 'favorite_items/favorite_item', locals: {item: @item}
         =button_tag class: "itemDetail__button__left__report" do
           %i=fa_icon "flag",class:"itemDetail__icon__flag"
           %span 不適切な商品の報告
