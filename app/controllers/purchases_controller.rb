@@ -28,7 +28,7 @@ class PurchasesController < ApplicationController
     @item.exhibit.status = 2
     @item.exhibit.save
     Purchase.create(item_id: @item.id, user_id: current_user.id)
-    redirect_to controller: 'items', action: 'show', id: @item.id
+    redirect_to new_item_review_path(@item)
   end
 
   private
