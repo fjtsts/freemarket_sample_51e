@@ -25,7 +25,7 @@ before_action :set_parents, only: [:new, :edit]
     def create
         @item = Item.create(item_params)
         if @item.save
-            params[:item_images][:image].each do |i|   # .reverse
+            params[:images][:image].reverse.each do |i|
                 @image = @item.item_images.create(image: i.tempfile, item_id: @item.id)
             end
             Exhibit.create(item_id: @item.id, user_id: current_user.id)
@@ -73,7 +73,7 @@ before_action :set_parents, only: [:new, :edit]
     end
     private
     def item_params
-        params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, item_images_attributes: [:image])
+        params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, images_attributes: [:image])
     end
           #  .require(:item)    #   .merge(user_id: current_user.id)
     def set_parents

@@ -1,0 +1,87 @@
+#input_image {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.form_upload {
+  // jQueryで追加時にクラス名変更もしくは追加
+  text-align: center;
+  height: 158px;
+  background-color: $background-color-gray;
+  border: 1px dashed $light-gray;
+  justify-content: center;
+  flex: 1;
+  position: relative;
+  &__text{
+    position: relative;
+    bottom: 100px;
+  }
+}
+
+.items-preview-field-container {
+  display: flex;
+
+  .items-preview-field{
+    display: flex;
+    .item-preview-field {
+      display: flex;
+      flex-direction: column;
+      height: 158px;
+      position: relative;
+      margin-right: 12px;
+    }
+  }
+
+  pre.upload {
+    //クラス名変更
+    font-size: 14px;
+    font-family: monospace,monospace;
+    display: inline-block;
+    position: absolute;
+    }
+
+  .item_image {
+    width: 114px; height: 120px;
+    object-fit: contain;
+    background-color: $background-color-gray;
+    border: solid 1px rgb(236, 236, 236);
+  }
+
+  .button-area {
+    display: flex;
+    justify-content: space-around;
+    color: $light-blue;
+    font-size: 14px;
+    background-color: $background-color-gray;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border: solid 1px $image_border;
+    box-sizing: border-box;
+    &--edit{
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      padding: 8px;
+      border-right:solid 1px $image_border;
+    }
+    &--delete{
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      padding: 8px;
+    }
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+// .templateArea {//クラス名変更
+//   display: none;
+//   img {
+//     height: 140px;
+//   }
+
+// }
