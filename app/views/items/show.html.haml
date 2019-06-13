@@ -1,11 +1,11 @@
-.itemDetail-bread-crumbs
-  %ul
-    %li
-      = link_to 'メルカリ', '/'
-    %li
-      %span
-        アイテム名（パンくず）
-
+-# .itemDetail-bread-crumbs
+-#   %ul
+-#     %li
+-#       = link_to 'メルカリ', '/'
+-#     %li
+-#       %span
+-#         アイテム名（パンくず）
+- breadcrumb :item,@item
 .itemDetail
   %h1.itemDetail__title
     = @item.name

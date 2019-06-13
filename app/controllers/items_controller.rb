@@ -4,7 +4,7 @@ before_action :set_parents, only: [:new, :edit]
 
     def index
        
-        $query = Item.ransack(params[:q])
+        # $query = Item.ransack(params[:q])
         @ladies =Item.where(category_id: Category.first.subtree_ids).all.order(created_at: "DESC").limit(4)
         @mens =  Item.where(category_id: Category.second.subtree_ids).all.order(created_at: "DESC").limit(4)
         @baby =  Item.where(category_id: Category.third.subtree_ids).all.order(created_at: "DESC").limit(4)
@@ -80,9 +80,9 @@ before_action :set_parents, only: [:new, :edit]
         @parents = Category.where(ancestry: nil)
     end
  
-    def search_params
-      params.require(:q).permit(:name_cont)
-    end
+    # def search_params
+    #   params.require(:q).permit(:name_cont)
+    # end
 
     def comment_params
 
