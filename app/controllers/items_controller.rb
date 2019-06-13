@@ -92,6 +92,7 @@ before_action :set_parents, only: [:new, :edit]
         @parents = Category.where(ancestry: nil)
         $query = Item.ransack(params[:q])
         @items = $query.result.includes(:category, :brand)
+        @new_items =Item.all.order(created_at: "DESC")
     end
 
     private
