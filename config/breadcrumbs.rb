@@ -71,3 +71,7 @@ crumb :category do |category|
     parent :categories
 
 end
+crumb :search do |search|
+  link "#{$query.conditions.first.values.first.value}",search_path
+  parent :root
+end
