@@ -16,13 +16,13 @@ $(document).on('turbolinks:load', function() {
   });
 
   // 発送の方法
-  var firstSelecthtml = `<option value="">---</option>`; //準備
+  var firstSelecthtml = `<option value="">---</option>`;
   var selection = $('#how_to_shipping')
   $("#how_to_ship").css("display","none");
-  $('#select_shipping_fee').change(function() { //機能の始まり
-    var fee_payer = $('#select_shipping_fee').val();  //親のあたい
+  $('#select_shipping_fee').change(function() {
+    var fee_payer = $('#select_shipping_fee').val();
     $(selection).append(firstSelecthtml);
-    if (fee_payer == "") {  //条件分岐
+    if (fee_payer == "") {
       $("#how_to_ship").css("display","none");
     } else if (fee_payer == "送料込み(出品者負担)") {
       $("#how_to_ship").css("display", "");

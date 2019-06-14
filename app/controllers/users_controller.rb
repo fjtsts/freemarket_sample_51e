@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   def logout
   end
 
-private
+  private
 
   def set_review
     @sold_exhibits = current_user.exhibits.where(status: 2)
@@ -74,4 +74,5 @@ private
   def user_profile_params
     params.require(:user).require(:user_profile).permit(:introduction)
   end
-end
+
+
