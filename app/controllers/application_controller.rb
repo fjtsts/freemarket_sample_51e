@@ -31,7 +31,8 @@ class ApplicationController < ActionController::Base
     def search
       $query = Item.ransack(params[:q])
       @items = $query.result.includes(:item,:category, :brand)
+      
+     
     end
-
    
 end

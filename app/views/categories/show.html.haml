@@ -9,7 +9,7 @@
         - @items.each do |item|
           .category-items-container__wrapper__box__list__box
             .category-items-container__wrapper__box__list__box__image
-              =image_tag(item.item_images[0].image.to_s,class: "images")
+              =image_tag(item.description,class: "images")
             .category-items-container__wrapper__box__list__box__text
               .category-items-container__wrapper__box__list__box__text__title #{item.name}
               .category-items-container__wrapper__box__list__box__text__num
