@@ -11,16 +11,10 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address
   has_many :exhibits, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :favorite_items, dependent: :destroy
-  has_many :favorite_item_items, through: :favorite_items, source: :item
   has_many :purchases, dependent: :destroy
   has_many :reviews
 
   validates :nickname, presence: true
-  
-  def already_liked?(item)
-    self.favorite_items.exists?(item_id: item.id)
-  end
 
   protected
 
