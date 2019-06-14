@@ -13,8 +13,6 @@ before_action :set_parents, only: [:new, :edit]
         @vuitton =Brand.second.items.all.order("created_at DESC").limit(4)
         @supreme =Brand.third.items.all.order("created_at DESC").limit(4)
         @nike=Brand.fourth.items.all.order("created_at DESC").limit(4)
-        @items = Item.all
-        @item = Item.new
     end
 
     def new
