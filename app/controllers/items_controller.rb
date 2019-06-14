@@ -88,6 +88,7 @@ before_action :set_parents, only: [:new, :edit]
     def search
         $query = Item.ransack(params[:q])
         @items = $query.result.includes(:category, :brand)
+
     end
     private
     def item_params
