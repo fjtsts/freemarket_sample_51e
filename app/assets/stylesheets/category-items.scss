@@ -1,8 +1,8 @@
 .category-items-container{
-  height:auto;
+  height:1000px;
   margin:40px 210px 0px 210px;
   .category-items-container__wrapper{
-    height:auto;
+    height:100%;
     &__nav{
       height:30px;
     }
@@ -17,13 +17,12 @@
       }
       &__list{
         width:100%;
-        height:auto;
+        height:100%;
         display:flex;
-        flex-wrap:wrap;
         &__box{
           height:298px;
           width:188px;
-          margin:0 20px 20px 0;
+          margin:0 0 20px 20px;
           background:white;
           &:nth-of-type(5n){
             margin:0 0 20px 0;

@@ -24,7 +24,7 @@
                 =fa_icon "tag"
                 %span ブランドから探す
               %ul.nav-drawer2
-                - Brand.all.limit(4).each do |brand|
+                - Brand.all.each do |brand|
                   %li.bl2
                     =link_to "#{brand.name}","/"
                 %li.all-brand
