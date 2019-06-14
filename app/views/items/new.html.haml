@@ -10,16 +10,19 @@
             = f.label "出品画像", class: "sell-form__main__image__label"
             %span{class:"sell-form__main__image__label--require"} 必須
           %p.sell-form__main__image__text
-            最大5枚までアップロードできます
-          .items-preview-field-container
-            .items-preview-field
+            最大10枚までアップロードできません
+          .sell-form__main__image__box
             = f.fields_for :item_images do |i|
-              #form_upload.form_upload
-                = i.file_field :image, class: "upload0", accept:"image/*", required: "required", name: "images[image][]", id: "input_image", multipart: true
-                %label.form_upload__text
-                  ドラッグアンドドロップ
-                  %br
-                  またはクリックしてファイルをアップロード
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", required: "required", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
+              =i.file_field :image, class: "sell-form__main__image__form", accept:"image/*", name: "item_images[image][]", multipart: true
 
         .sell-form__main__form-box
           .sell-form__main__name.sell-form__main__box
