@@ -279,7 +279,8 @@
 }
 
 .user-details {
-  margin: 40px auto;
+  margin: 0px auto;
+  padding: 40px 0;
   width: 700px;
 }
 
@@ -350,6 +351,8 @@
 .user-details_info_description {
   padding: 30px 50px 60px;
   border-top: 2px solid #f5f5f5;
+  word-wrap:break-word;
+  white-space: pre-wrap; 
 }
 
 .user-details_description_social {
