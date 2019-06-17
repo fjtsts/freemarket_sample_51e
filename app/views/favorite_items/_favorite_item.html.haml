@@ -1,0 +1,13 @@
+- if item.favorite_item_user(current_user.id)
+	.itemDetail__button__left__like__no
+		= link_to item_favorite_item_path(current_user, item, favorite_item), method: :delete, remote: true do
+			%i=fa_icon "heart",class:"icon-like"
+			%span いいね！
+			= item.favorite_items.count
+- else
+	.itemDetail__button__left__like__yes
+		= link_to item_favorite_items_path(current_user, item), method: :post, remote: true do
+			%i=fa_icon "heart",class:"icon-like"
+			%span いいね！
+			= item.favorite_items.count
+

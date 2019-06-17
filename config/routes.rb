@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     post 'resale', to: 'items#resale', on: :member
     post 'stop', to: 'items#stop', on: :member
     resources :comments, only: [:create, :update]
+    resources :favorite_items, only: [:create, :destroy]
     resources :purchases, only: [:index] do
       collection do
         post 'pay', to: 'purchases#pay'
