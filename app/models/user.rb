@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :exhibits, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorite_items, dependent: :destroy
-  has_many :favorite_item_items, through: :favorite_items, source: :item
+  # has_many :favorite_item_items, through: :favorite_items, source: :item
   has_many :purchases, dependent: :destroy
   has_many :reviews
 

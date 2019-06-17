@@ -12,7 +12,6 @@ class Item < ApplicationRecord
   has_one :exhibit, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorite_items, dependent: :destroy
-  has_many :favorite_item_users, through: :favorite_items, source: :user
   has_one :purchases, dependent: :destroy
   belongs_to  :size
   has_one :review
@@ -22,8 +21,8 @@ class Item < ApplicationRecord
   end
   validates :price, numericality: {greater_than_or_equal_to: 300,less_than_or_equal_to: 9_999_999}
 
-  def favorite_item_by?(user) #いいねしているかどうか
-    favorite_items.where(user_id: user.id).exists?
+  def favorite_item_user(user_id) #いいねしているかどうか
+    favorite_items.find_by(user_id: user_id)
   end
 
 
