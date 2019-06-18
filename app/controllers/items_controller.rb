@@ -22,14 +22,13 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # brand_id = nil
     if params[:brands][:name].present?
-      if brand = Brand.find_by(name: params[:brands][:name])
-        params[:brands][:brand_id] = brand.id
-      else
-        params[:brands][:brand_id] = Brand.create(name: params[:brands][:name]).id
-      end
+      brand = Brand.find_by(name: params[:brands][:name])
+      brand_id = brand.present? ? brand.id : Brand.create(name: params[:brands][:name]).id
     end
     @item = Item.new(item_params)
+    @item[:brand_id] = brand_id
     if @item.save
       params[:images][:image].reverse.each do |i|
         @image = @item.item_images.create(image: i.tempfile, item_id: @item.id)
@@ -109,7 +108,7 @@ class ItemsController < ApplicationController
 
 
   def item_params
-      params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, images_attributes: [:image]).merge(brand_id: params[:brands][:brand_id])
+    params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, images_attributes: [:image])
   end
 
   def set_parents
