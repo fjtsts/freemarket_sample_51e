@@ -129,11 +129,11 @@
         .itemDetail__button__left__like
           = render partial: 'favorite_items/favorite_item', locals: {item: @item, items: @items, favorite_item: @favorite_item, favorite_items: @favorite_items}
         .itemDetail__button__left__report
-          %i=fa_icon "flag",class:"itemDetail__icon__flag"
+          =fa_icon "flag",class:"itemDetail__icon__flag"
           不適切な商品の報告
       .itemDetail__button__right
         = link_to 'show' do
-          %i=fa_icon "flag",class:"itemDetail__icon__clock"
+          =fa_icon "flag",class:"itemDetail__icon__clock"
           あんしん・あんぜんへの取り組み
   .itemComment-itemPostBox
     .itemComment
