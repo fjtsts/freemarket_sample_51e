@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # brand_id = nil
     if params[:brands][:name].present?
       brand = Brand.find_by(name: params[:brands][:name])
       brand_id = brand.present? ? brand.id : Brand.create(name: params[:brands][:name]).id
