@@ -1,9 +1,12 @@
+= @user.nickname
 .user-form
   %main.user-form__main
     .user-form__main__warpper
-      アカウントをお持ちでない方はこちら
-      .user-form__main-newuser
-        新規会員登録
+      .user-form__main__warpper__head
+        アカウントをお持ちでない方はこちら
+        = link_to new_user_path do
+          .user-form__main__warpper__btn
+            新規会員登録
       .user-form__main__box
         = link_to user_facebook_omniauth_authorize_path do
           .user-form__main__box__facebook
@@ -18,7 +21,9 @@
             = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
           .field
             = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
-          .actions
+          .user-form__main__box__robot
+            %p 私はロボットではありません。
+          .user-form__main__box__btn
             = f.submit "ログイン"
-          = link_to "パスワードをお忘れの方" do
+          = link_to "https://www.mercari.com/jp/password/reset/start/" do
             パスワードをお忘れの方
