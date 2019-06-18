@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+  resources :brands,only:[:index,:show]
   resources :card, only: [:new, :show, :destroy] do
     collection do
       post 'pay', to: 'card#pay'
