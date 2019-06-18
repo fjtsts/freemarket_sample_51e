@@ -487,6 +487,23 @@
       width: 700px;
       margin: 0 auto;
       background-color: white;
+      &__head {
+        width: 320px;
+        margin: 0 auto;
+        padding: 40px;
+        border-bottom: 1px solid $gray;
+        text-align: center;
+        a {
+          text-decoration: none;
+        }
+      }
+      &__btn {
+        color: $white;
+        margin: 8px 0 0;
+        line-height: 40px;
+        background: #0099e8;
+        text-align: center;
+      }
     }
     &__data {
       padding: 32px 16px;
@@ -499,6 +516,29 @@
       width: 320px;
       margin: 0 auto;
       padding: 0px 16px 40px;
+      &__robot {
+        background: #f9f9f9;
+        height: 78px;
+        line-height: 78px;
+        text-align: center;
+        border: 1px solid #d3d3d3;
+        border-radius: 3px;
+        margin: 20px 0;
+      }
+      &__btn {
+        background-color: #ea352d;
+        border: 1px solid #ea352d;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 30px;
+        input {
+          cursor: pointer;
+          border: 0px !important;
+          color: $white;
+        }
+      }
       &__birthday {
         margin-top: 8px;
         select {
