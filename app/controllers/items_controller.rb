@@ -86,6 +86,8 @@ before_action :set_item, only: [:show, :resale, :stop, :destroy]
     end
 
     def destroy
+        @item.destroy
+        redirect_to controller: 'users', action: 'index'
     end
 
     private
