@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-before_action :authenticate_user!, only: :new
-before_action :set_parents, only: [:new, :edit]
-before_action :set_item, only: [:show, :resale, :stop, :destroy]
+    before_action :authenticate_user!, only: :new
+    before_action :set_parents, only: [:new, :edit]
+    before_action :set_item, only: [:show, :resale, :stop, :destroy]
 
     def index
        
@@ -84,7 +84,7 @@ before_action :set_item, only: [:show, :resale, :stop, :destroy]
         $query = Item.ransack(params[:q])
         @items = Item.ransack(name_cont: params[:keyword]).result.all
     end
-
+    
     def destroy
         @item.destroy
         redirect_to controller: 'exhibits', action: 'index'
