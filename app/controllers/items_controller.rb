@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-    before_action :authenticate_user!, only: :new
+    before_action :authenticate_user!, only: [:new, :create, :resale, :stop, :destroy]
     before_action :set_parents, only: [:new, :edit]
     before_action :set_item, only: [:show, :resale, :stop, :destroy]
 
@@ -85,8 +85,8 @@ class ItemsController < ApplicationController
     end
     
     def destroy
-        @item.destroy
-        redirect_to controller: 'exhibits', action: 'index'
+      @item.destroy
+      redirect_to controller: 'exhibits', action: 'index'
     end
 
     private
