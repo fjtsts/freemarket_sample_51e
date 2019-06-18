@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
         params[:brands][:brand_id] = Brand.create(name: params[:brands][:name]).id
       end
     end
-    @item = Item.create(item_params)       
+    @item = Item.new(item_params)
     if @item.save
       params[:images][:image].reverse.each do |i|
         @image = @item.item_images.create(image: i.tempfile, item_id: @item.id)
