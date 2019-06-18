@@ -29,25 +29,25 @@ $(document).on('turbolinks:load', function() {
       $(selection).empty();
       $(selection).append(firstSelecthtml);
       $(selection).append(
-      ' <option value=1>未定</option>\
-        <option value=2>らくらくメルカリ便</option>\
-        <option value=3>ゆうメール</option>\
-        <option value=4>レターパック</option>\
-        <option value=5>普通郵便(定形、定形外)</option>\
-        <option value=6>クロネコヤマト</option>\
-        <option value=7>ゆうパック</option>\
-        <option value=8>クリックポスト</option>\
-        <option value=9>ゆうパケット</option>'
+      ' <option value=未定>未定</option>\
+        <option value=らくらくメルカリ便>らくらくメルカリ便</option>\
+        <option value=ゆうメール>ゆうメール</option>\
+        <option value=レターパック>レターパック</option>\
+        <option value=普通郵便(定形、定形外)>普通郵便(定形、定形外)</option>\
+        <option value=クロネコヤマト>クロネコヤマト</option>\
+        <option value=ゆうパック>ゆうパック</option>\
+        <option value=クリックポスト>クリックポスト</option>\
+        <option value=ゆうパケット>ゆうパケット</option>'
       );
     } else if (fee_payer == "着払い(購入者負担)") {
       $("#how_to_ship").css("display", "");
       $(selection).empty();
       $(selection).append(firstSelecthtml);
       $(selection).append(
-      ' <option value=1>未定</option>\
-        <option value=2>クロネコヤマト</option>\
-        <option value=3>ゆうパック</option>\
-        <option value=4>ゆうメール</option>'
+      ' <option value=未定>未定</option>\
+        <option value=クロネコヤマト>クロネコヤマト</option>\
+        <option value=ゆうパック>ゆうパック</option>\
+        <option value=ゆうメール>ゆうメール</option>'
       );
     }
   });
