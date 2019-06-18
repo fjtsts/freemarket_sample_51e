@@ -22,10 +22,9 @@
                         %img{alt: "メルカリ", height: "48px", width: "48px", src: "#{exhibit.item.item_images[0].image}"}
                       .user-container_right-content_info_content_list_detail
                         =exhibit.item.name
-                        売却済
-                        .user-container_right-content_info_content_list_detail_time
-                          %i.far.fa-clock
-                          取引完了
+                        .user-container_right-content_info_content_list_detail_sellList
+                          .user-container_right-content_info_content_list_detail_sold
+                            売却済
                       .user-container_right-content_info_content_list_next
                         =fa_icon "angle-right"
                 - if @exhibits.empty?

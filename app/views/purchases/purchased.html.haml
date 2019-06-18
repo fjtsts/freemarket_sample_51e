@@ -22,9 +22,9 @@
                       .user-container_right-content_info_content_list_detail
                         =purchase.item.name
                         を購入しました。取引が完了しました。
-                        .user-container_right-content_info_content_list_detail_time
-                          %i.far.fa-clock
-                          取引完了
+                        .user-container_right-content_info_content_list_detail_sellList
+                          .user-container_right-content_info_content_list_detail_sold
+                            取引完了
                       .user-container_right-content_info_content_list_next
                         =fa_icon "angle-right"
                 - if @purchases.empty?
