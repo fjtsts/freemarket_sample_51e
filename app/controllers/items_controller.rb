@@ -5,14 +5,14 @@ class ItemsController < ApplicationController
 
   def index
     $query = Item.ransack(params[:q])
-    @ladies =Category.first.items.all.order(created_at: "DESC").limit(4)
-    @mens =  Item.ransack(by_name: "メンズ").result.order(created_at: "DESC").limit(4)
-    @baby =  Item.ransack(by_category_id: 3).result.order(created_at: "DESC").limit(4)
-    @interior =  Item.ransack(by_category_id: 4).result.order(created_at: "DESC").limit(4)
-    @chanel =Brand.first.items.all.order("created_at DESC").limit(4)
-    @vuitton =Brand.second.items.all.order("created_at DESC").limit(4)
-    @supreme =Brand.third.items.all.order("created_at DESC").limit(4)
-    @nike=Brand.fourth.items.all.order("created_at DESC").limit(4)
+    @ladies =Category.first.items.latest_four_items
+    @mens =  Item.ransack(by_name: "メンズ").result.latest_four_items
+    @baby =  Item.ransack(by_category_id: 3).result.latest_four_items
+    @interior =  Item.ransack(by_category_id: 4).result.latest_four_items
+    @chanel =Brand.first.items.latest_four_items
+    @vuitton =Brand.second.items.latest_four_items
+    @supreme =Brand.third.items.latest_four_items
+    @nike=Brand.fourth.items.latest_four_items
   end
 
   def new
