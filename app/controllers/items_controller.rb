@@ -22,11 +22,12 @@ before_action :set_parents, only: [:new, :edit]
     end
 
     def create
-        # if ( Brand.where(name: params[:brands][:name]) )　　　一致したらreateせず既存のidを渡す、しなければcrea  find_or_initialize_by
-        Brand.create(name: params[:brands][:name])
+        if params[:brands][:name] != ""    #find_or_initialize_by
+            Brand.create(name: params[:brands][:name])
+        end
         @item = Item.create(item_params)
         if @item.save
-            params[:item_images][:image].reverse.each do |i|
+            params[:images][:image].reverse.each do |i|
                 @image = @item.item_images.create(image: i.tempfile, item_id: @item.id)
             end
             Exhibit.create(item_id: @item.id, user_id: current_user.id)
