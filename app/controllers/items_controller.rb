@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 before_action :authenticate_user!, only: :new
 before_action :set_parents, only: [:new, :edit]
+before_action :set_item, only: [:show, :resale, :stop, :destroy]
 
     def index
        
@@ -44,7 +45,6 @@ before_action :set_parents, only: [:new, :edit]
     # end
 
     def show
-        @item = Item.find(params[:id])
         @category =@item.category
         @comment = Comment.new
         @comments = @item.comments
@@ -69,14 +69,12 @@ before_action :set_parents, only: [:new, :edit]
     end
 
     def resale
-        @item = Item.find(params[:id])
         @item.exhibit.status = 1
         @item.exhibit.save
         redirect_to action: 'show', id: @item.id
     end
 
     def stop
-        @item = Item.find(params[:id])
         @item.exhibit.status = 3
         @item.exhibit.save
         redirect_to action: 'show', id: @item.id
@@ -87,9 +85,15 @@ before_action :set_parents, only: [:new, :edit]
         @items = Item.ransack(name_cont: params[:keyword]).result.all
     end
 
-
+    def destroy
     end
+
     private
+
+    def set_item
+        @item = Item.find(params[:id])
+    end
+
     def item_params
         params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, images_attributes: [:image])
     end
@@ -101,7 +105,4 @@ before_action :set_parents, only: [:new, :edit]
     def search_params
       params.require(:q).permit(:name_cont)
     end
-
-    def comment_params
-
-    end
+end
