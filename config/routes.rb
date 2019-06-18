@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
   resources :items do
+    get 'select_category' , to: 'items#select_category', on: :collection
     post 'resale', to: 'items#resale', on: :member
     post 'stop', to: 'items#stop', on: :member
     resources :comments, only: [:create, :update]
