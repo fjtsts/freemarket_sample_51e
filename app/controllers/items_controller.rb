@@ -39,11 +39,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @images = @item.images
-  #   @category = @item.category
-  # end
-
   def show
     @category =@item.category
     @comment = Comment.new
