@@ -23,11 +23,10 @@ class ItemsController < ApplicationController
 
   def create
     if params[:brands][:name].present?
-      brand = params[:brands][:name]
-      if @brand = Brand.find_by(name: brand)
-        params[:brands][:brand_id] = @brand.id
+      if brand = Brand.find_by(name: params[:brands][:name])
+        params[:brands][:brand_id] = brand.id
       else
-        params[:brands][:brand_id] = Brand.create(name: brand).id
+        params[:brands][:brand_id] = Brand.create(name: params[:brands][:name]).id
       end
     end
     @item = Item.new(item_params)
