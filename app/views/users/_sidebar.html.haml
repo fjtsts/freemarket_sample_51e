@@ -90,8 +90,8 @@
       設定
     .user-container_left-content_info_list
       %ul
-        %a{ href: '#'}
-          %li
+        %li
+          = link_to edit_user_path(current_user) do
             プロフィール
             .user-container_left-content_info_list
               =fa_icon "angle-right"
