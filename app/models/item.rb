@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   belongs_to :brand,optional: true
   has_one :exhibit, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_one :purchases, dependent: :destroy
+  has_one :purchases
   belongs_to  :size
   has_one :review
 
