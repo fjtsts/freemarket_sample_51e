@@ -22,8 +22,12 @@ before_action :set_parents, only: [:new, :edit]
     end
 
     def create
-        if params[:brands][:name] != ""    #find_or_initialize_by
-            Brand.create(name: params[:brands][:name])
+        if params[:brands][:name] != ""
+            if brand = Brand.find_by(name: params[:brands][:name])
+                params[:brands][:brand_id] = brand.id
+            else
+                params[:brands][:brand_id] = Brand.create(name: params[:brands][:name]).id
+            end
         end
         @item = Item.create(item_params)
         if @item.save
@@ -31,7 +35,6 @@ before_action :set_parents, only: [:new, :edit]
                 @image = @item.item_images.create(image: i.tempfile, item_id: @item.id)
             end
             Exhibit.create(item_id: @item.id, user_id: current_user.id)
-            
             redirect_to root_path
         else
             render :index
@@ -93,12 +96,11 @@ before_action :set_parents, only: [:new, :edit]
         end
     end
 
-    end
     private
     def item_params
-        params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, images_attributes: [:image])
+        params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, images_attributes: [:image]).merge(brand_id: params[:brands][:brand_id])
     end
-          #  .require(:item)    #   .merge(user_id: current_user.id)
+
     def set_parents
         @parents = Category.where(ancestry: nil)
     end
