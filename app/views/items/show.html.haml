@@ -110,7 +110,8 @@
         %br
         = link_to resale_item_path, method: :post do
           .itemDetail__buyBtn 出品を再開する
-        .itemDetail__buyBtn この商品を削除する
+        = link_to item_path, method: :delete, data: { confirm: '本当に削除しますか？' } do
+          .itemDetail__buyBtn この商品を削除する
     - else
       - if user_signed_in? && @item.exhibit.user.id == current_user.id
         .itemDetail__buyBtn 商品の編集
@@ -118,7 +119,8 @@
         %br
         = link_to stop_item_path, method: :post do
           .itemDetail__buyBtn 出品を一旦停止する
-        .itemDetail__buyBtn この商品を削除する
+        = link_to item_path, method: :delete, data: { confirm: '本当に削除しますか？' } do
+          .itemDetail__buyBtn この商品を削除する
       - else
         =link_to "購入画面に進む" , item_purchases_path(@item) ,class: "itemDetail__buyBtn"
     .itemDetail__description

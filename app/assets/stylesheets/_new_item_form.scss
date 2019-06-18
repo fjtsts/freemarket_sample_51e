@@ -22,6 +22,13 @@
       }
       &__text {
         margin: 5px 0;
+        &__container{
+          height: 158px;
+          background-color: $background-color-gray;
+          border: 1px dashed $light-gray;
+          justify-content: center;
+          flex: 1;
+        }
       }
     }
     &__name {
