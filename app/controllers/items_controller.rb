@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
     before_action :set_item, only: [:show, :resale, :stop, :destroy]
 
     def index
-       
         $query = Item.ransack(params[:q])
         @ladies =Category.first.items.all.order(created_at: "DESC").limit(4)
         @mens =  Item.ransack(by_name: "メンズ").result.order(created_at: "DESC").limit(4)
