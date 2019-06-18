@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
       @item = Item.create(item_params)
       if @item.save
         params[:item_images][:image].reverse.each do |i|
-            @image = @item.item_images.create(image: i.tempfile, item_id: @item.id)
+          @image = @item.item_images.create(image: i.tempfile, item_id: @item.id)
         end
         Exhibit.create(item_id: @item.id, user_id: current_user.id)
         # if ( Brand.where(name: params[:brands][:name]) )　　　一致したらreateせず既存のidを渡す、しなければcrea  find_or_initialize_by
