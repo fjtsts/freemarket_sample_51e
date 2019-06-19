@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 2019_06_18_103200) do
     t.index ["user_id"], name: "index_exhibits_on_user_id"
   end
 
+  create_table "favorite_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_favorite_items_on_item_id"
+    t.index ["user_id"], name: "index_favorite_items_on_user_id"
+  end
+
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.bigint "item_id", null: false
@@ -93,6 +102,7 @@ ActiveRecord::Schema.define(version: 2019_06_18_103200) do
     t.bigint "category_id", null: false
     t.bigint "prefecture_id"
     t.bigint "size_id", null: false
+    t.integer "favorite_items_count"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
@@ -159,6 +169,8 @@ ActiveRecord::Schema.define(version: 2019_06_18_103200) do
   add_foreign_key "cards", "users"
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorite_items", "items"
+  add_foreign_key "favorite_items", "users"
   add_foreign_key "purchases", "items"
   add_foreign_key "purchases", "users"
   add_foreign_key "reviews", "items"
