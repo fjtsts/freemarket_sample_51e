@@ -72,13 +72,12 @@ crumb :item do |item|
   parent :root
 end
 crumb :category do |category|
-    link "#{category.name}",category_path(category.id)
+  link category.name, category_path(category.id)
     if category.parent
       parent category.parent # inferred to :category
     else
       parent :categories
     end
-
 end
 crumb :search do |search|
   link "#{$query.conditions.first.values.first.value}",search_path
