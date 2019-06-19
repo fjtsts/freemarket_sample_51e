@@ -3,8 +3,8 @@ class CategoriesController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
   def show
-    @category = Category.find(params[:id])
-    @items = @category.items.order("created_at DESC").page(params[:page]).per(60)
+    @category = Category.find(1)
+    @items = Item.where(category_id: @category.subtree_ids).order("created_at DESC").page(params[:page]).per(60)
   end
   end
 

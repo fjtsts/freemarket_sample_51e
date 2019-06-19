@@ -16,9 +16,14 @@ crumb :show_user do |user|
   parent :users
 end
 crumb :card do
-  link "支払い方法", card_users_path
-  parent :mypage
+  link "支払い方法", new_card_path(current_user.id)
+  parent :users
 end
+crumb :edit_card do 
+  link'発送元・お届け先住所変更',edit_address_path(current_user.id)
+  parent :users
+end
+
 
 
 crumb :profile do
@@ -27,13 +32,13 @@ crumb :profile do
 end
 
 crumb :identification do
-  link "本人情報の登録", edit_address_path
-  parent :mypage
+  link "本人情報の登録", edit_address_path(current_user.id)
+  parent :users
 end
 
 crumb :logout do
   link "ログアウト", logout_users_path
-  parent :mypage
+  parent :users
 end
 
 crumb :onsale do
@@ -61,4 +66,28 @@ end
 crumb :categories do
   link "カテゴリー一覧",categories_path
   parent :root
+end
+crumb :item do |item|
+  link "#{item.name}",item_path(item.id )
+  parent :root
+end
+crumb :category do |category|
+    link "#{category.name}",category_path(category.id)
+    if category.parent
+      parent category.parent # inferred to :category
+    else
+      parent :categories
+    end
+
+end
+crumb :search do |search|
+  link "#{$query.conditions.first.values.first.value}",search_path
+  parent :root
+end
+crumb :without_link do
+  link "Breadcrumb without link"
+end
+crumb :exhibits do
+link'出品した商品 - 出品中', exhibits_path
+parent :users
 end

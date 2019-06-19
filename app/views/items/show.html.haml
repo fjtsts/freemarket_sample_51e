@@ -1,11 +1,4 @@
-.itemDetail-bread-crumbs
-  %ul
-    %li
-      = link_to 'メルカリ', '/'
-    %li
-      %span
-        アイテム名（パンくず）
-
+- breadcrumb :item,@item
 .itemDetail
   %h1.itemDetail__title
     = @item.name
@@ -176,7 +169,7 @@
                             %i=fa_icon "flag",class:"itemComment__icon__flag"
               - else
                 -# 他の人のコメント
-                = render partial: 'left-comment', locals: { comment: comment }
+                = render partial: 'left-comment-owner', locals: { comment: comment }
             - else
               -# ログインしていない時のコメント画面
               = render partial: 'left-comment', locals: { comment: comment }
