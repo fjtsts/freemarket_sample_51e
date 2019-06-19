@@ -385,6 +385,29 @@
   font-size: 24px;
 }
 
+.user-details_items {
+  background-color: $white;
+  height: 1000px;
+}
+
+.user-details_items_title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.user-details_items_content {
+  
+}
+
+.user-details_items_content_box {
+  float: left;
+  margin: 0 16px 20px;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
 .good-icon {
   color: #ff6b8b;
 }
