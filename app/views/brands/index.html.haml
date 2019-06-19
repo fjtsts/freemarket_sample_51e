@@ -1,16 +1,20 @@
--breadcrumb :categories
 .category-container
   %h2.category-container__title カテゴリー一覧
   .category-container__parent-box
     -@parents.each_with_index do |parent,index|
       =link_to "#{parent.name}",{ anchor: "topic#{index}" },class: "parent-link"
+  .category-container__initial-box
+    -@sort.each do |sort|
+      .category-container__initial-box__initial
+        =link_to"#{sort}|","/"
+
   -@parents.each_with_index do |parent,index|
     .category-container__list-box{id:"topic#{index}"}
       .category-container__list-box__parent-title #{parent.name}
       .category-container__list-box__inner-box#parent.name
         %p.category-container__list-box__inner-box__ladies-all
           = link_to "すべて","/"
-        -parent.children.each do |chaild|
+        -# -parent.children.each do |chaild|
           .category-container__list-box__inner-box__sub-title
             %h4 #{chaild.name}
             .category-container__list-box__inner-box__container
