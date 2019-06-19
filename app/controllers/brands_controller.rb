@@ -8,6 +8,7 @@ class BrandsController < ApplicationController
     watch = Category.find(27)
     game = Category.find(81)
     phone =Category.find(104)
+   
     category.each do |category|
       @parents.push(category)
     end

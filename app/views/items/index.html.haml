@@ -116,7 +116,7 @@
       .pickup-container__item-boxs__box
         = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
-          =image_tag(item.description,class: "images")
+          =image_tag(item.item_images[0].image.to_s,class: "images")
         .pickup-container__item-boxs__box__text
           .pickup-container__item-boxs__box__text__title #{item.name}
           .pickup-container__item-boxs__box__text__num
