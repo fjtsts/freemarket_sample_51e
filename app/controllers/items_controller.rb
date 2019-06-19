@@ -1,18 +1,19 @@
 class ItemsController < ApplicationController
+     
   before_action :authenticate_user!, only: [:new, :create, :resale, :stop, :destroy]
   before_action :set_parents, only: [:new, :edit]
   before_action :set_item, only: [:show, :resale, :stop, :destroy]
 
   def index
     $query = Item.ransack(params[:q])
-    @ladies =Category.first.items.latest_four_items
-    @mens =  Item.ransack(by_name: "メンズ").result.latest_four_items
-    @baby =  Item.ransack(by_category_id: 3).result.latest_four_items
-    @interior =  Item.ransack(by_category_id: 4).result.latest_four_items
-    @chanel =Brand.first.items.latest_four_items
-    @vuitton =Brand.second.items.latest_four_items
-    @supreme =Brand.third.items.latest_four_items
-    @nike=Brand.fourth.items.latest_four_items
+    @ladies =Item.where(category_id: Category.first.subtree_ids).all.order(created_at: "DESC").limit(4)
+    @mens =  Item.where(category_id: Category.second.subtree_ids).all.order(created_at: "DESC").limit(4)
+    @baby =  Item.where(category_id: Category.third.subtree_ids).all.order(created_at: "DESC").limit(4)
+    @interior =  Item.where(category_id: Category.fourth.subtree_ids).all.order(created_at: "DESC").limit(4)
+    @chanel =Brand.first.items.all.order("created_at DESC").limit(4)
+    @vuitton =Brand.second.items.all.order("created_at DESC").limit(4)
+    @supreme =Brand.third.items.all.order("created_at DESC").limit(4)
+    @nike=Brand.fourth.items.all.order("created_at DESC").limit(4)
   end
 
   def new
@@ -76,8 +77,11 @@ class ItemsController < ApplicationController
   end
 
   def search
+    @parents = Category.where(id: 1..13)
+    @children = @parents.where(id: params[:id])
     $query = Item.ransack(params[:q])
-    @items = Item.ransack(name_cont: params[:keyword]).result.all
+    @items = $query.result.includes(:category, :brand)
+    @new_items =Item.all.order(created_at: "DESC")
   end
 
   def destroy
@@ -113,3 +117,4 @@ class ItemsController < ApplicationController
     params.require(:q).permit(:name_cont)
   end
 end
+
