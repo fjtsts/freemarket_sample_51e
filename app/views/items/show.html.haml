@@ -170,7 +170,7 @@
                             %i=fa_icon "flag",class:"itemComment__icon__flag"
               - else
                 -# 他の人のコメント
-                = render partial: 'left-comment', locals: { comment: comment }
+                = render partial: 'left-comment-owner', locals: { comment: comment }
             - else
               -# ログインしていない時のコメント画面
               = render partial: 'left-comment', locals: { comment: comment }
