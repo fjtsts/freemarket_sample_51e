@@ -1,5 +1,5 @@
 
-$(function (){
+
   $(document).on('turbolinks:load', function(){
   var mySwiper = new Swiper('.swiper-container',{
     mode: 'horizontal',
@@ -21,4 +21,4 @@ $(function (){
     }
   });
   })
-});
+
