@@ -8,9 +8,6 @@ class BrandsController < ApplicationController
     watch = Category.find(27)
     game = Category.find(81)
     phone =Category.find(104)
-    @sort.each do |sort|
-      Brand.where("name like '%" + "sort" + "%'")
-    end
     category.each do |category|
       @parents.push(category)
     end

@@ -46,6 +46,8 @@
     height:100%;
     margin-bottom:40px;
     background:$white;
+    display:none;
+    
     &__parent-title{
       height:33px;
       padding:7px 30px 0 30px;
@@ -95,4 +97,35 @@
       }
     }
   }
+
+  .presence{
+   display:block;
+ }
+ #brand1{
+   display:none;
+ }
+ #brand2{
+  display:none;
+}
+#brand3{
+  display:none;
+}
+#brand4{
+  display:none;
+}
+#brand5{
+  display:none;
+}
+#brand6{
+  display:none;
+}
+#brand7{
+  display:none;
+}
+#brand8{
+  display:none;
+}
+#brand9{
+  display:none;
+}
 }
