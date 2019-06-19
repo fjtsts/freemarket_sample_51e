@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end
   resources :items do
+    get 'select_category' , to: 'items#select_category', on: :collection
     post 'resale', to: 'items#resale', on: :member
     post 'stop', to: 'items#stop', on: :member
     resources :comments, only: [:create, :update]
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
   end
   resources :user_profiles, only: [:new, :create, :edit]
   resources :addresses, only: [:new, :create, :edit, :show]
-  resources :users, only: [:index, :show, :edit, :new] do
+  resources :users, only: [:index, :show, :edit, :new, :update] do
     get :logout, on: :collection
   end
   resources :purchases, only: [:new]

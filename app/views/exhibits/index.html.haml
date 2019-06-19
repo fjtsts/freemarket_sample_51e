@@ -22,33 +22,20 @@
                         %img{alt: "メルカリ", height: "48px", width: "48px", src: "#{exhibit.item.item_images[0].image}"}
                       .user-container_right-content_info_content_list_detail
                         =exhibit.item.name
-                        を出品中
-                        .user-container_right-content_info_content_list_detail_time
-                          %i.far.fa-clock
+                        .user-container_right-content_info_content_list_detail_sellList
+                          %i=fa_icon "heart",class:"icon-like"
+                          11
+                          %i=fa_icon "comment-alt",class:"icon-comment"
+                          230
                           - if exhibit.status == 1
-                            出品中
+                            .user-container_right-content_info_content_list_detail_sellList_sell 出品中
                           - else 
-                            公開停止中
+                            .user-container_right-content_info_content_list_detail_sellList_stop 公開停止中
                       .user-container_right-content_info_content_list_next
                         =fa_icon "angle-right"
-
-                %li{class: "user-container_right-content_info_content_list_go"}
-                  %a{ href: '#'}
-                    一覧を見る
-            -# .user-container_right-content_info_content_info
-            -#   %a{ href: 'http://google.co.jp'}
-            -#     一覧を見る
-      .user-container_right-content_items
-        .user-container_right-content_items_head
-          購入した商品
-        .user-container_right-content_items_title
-          %ul
-            %li{class: "active"}
-              取引中
-            %li
-              過去の取引
-        .user-container_right-content_items_list
-          .user-container_right-content_items_list_none
-            %img{alt: "メルカリ", height: "120px", width: "120px", src: "http://static.mercdn.net/images/mercari_profile.png", class: "user-container_right-content_items_list_none_image"}
-            %br
-            取引中の商品はありません。
+                - if @exhibits.empty?
+                  .user-container_right-content_items_list
+                    .user-container_right-content_items_list_none
+                      %img{alt: "メルカリ", height: "120px", width: "120px", src: "http://static.mercdn.net/images/mercari_profile.png", class: "user-container_right-content_items_list_none_image"}
+                      %br
+                      出品中の商品はありません。

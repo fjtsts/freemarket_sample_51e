@@ -28,7 +28,7 @@
     background: #fff;
 
     &__head {
-      padding: 32px 16px;
+      padding: 16px;
       font-size: 22px; 
       text-align: center;
       line-height: 1.5;
@@ -50,6 +50,10 @@
           margin-inline-start: 0px;
           margin-inline-end: 0px;
           font-weight: bold;
+
+          img {
+            object-fit: cover;
+          }
         }
 
         &__itemName {
@@ -67,7 +71,7 @@
           &__price {
             margin: 8px 0 0;
             line-height: 1.5;
-            font-size: 28px;
+            font-size: 21px;
             font-weight: normal;
 
             &__tax {
@@ -104,23 +108,27 @@
             width: 100%;
 
             &__inner {
-              font-size: 28px;
               display: table-row;
               font-weight: 600;
-
+              line-height: 30px;
+              
               &__text {
                 text-align: left;
                 display: table-cell;
-                padding: 10px 0;
+                padding-top: 16px;
                 background-repeat: no-repeat;
                 display: block;
+                float: left;
+                font-size: 18px;
               }
 
               &__price {
                 display: table-cell;
-                padding: 16px 0;
+                padding-top: 16px;
                 text-align: right;
                 font-weight: normal;
+                float: right;
+                font-size: 28px;
               }
             }
           }
@@ -139,6 +147,7 @@
             cursor: pointer;
             text-align: center;
             padding:2px 7px;
+            outline:none;
           }
         }
       }

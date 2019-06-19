@@ -169,15 +169,15 @@
   background-color: #eee;
   ul {
     font-size: 0;
-  }
-  li {
-    display: inline-block;
-    line-height: 74px;
-    font-weight: bold;
-    width: 50%;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
+    li {
+      display: inline-block;
+      line-height: 74px;
+      font-weight: bold;
+      width: 50%;
+      font-size: 16px;
+      text-align: center;
+      cursor: pointer;
+    }
   }
 }
 
@@ -198,12 +198,67 @@
 
 .user-container_right-content_info_content_list_icon {
   float: left;
+  img{
+    object-fit: cover;
+  }
 }
 
 .user-container_right-content_info_content_list_detail {
   float: left;
   width: 600px;
   margin-left: 20px;
+  font-size: 13px;
+  line-height: 1.5;
+  max-height: 4.4em;
+}
+
+.user-container_right-content_info_content_list_detail_sellList{
+  color: #888;
+  font-size: 16px;
+
+  i {
+    font-size: 14px;
+    color: $light-gray;
+  }
+}
+
+.user-container_right-content_info_content_list_detail_sellList_sell {
+  display: inline-block;
+  background: #0099e8;
+  color: #fff;
+  margin: 8px 0 0 0;
+  padding: 5px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
+  text-align: center;
+}
+
+.user-container_right-content_info_content_list_detail_sellList_stop {
+  display: inline-block;
+  background: #ea352d;
+  color: #fff;
+  margin: 8px 0 0 0;
+  padding: 5px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
+  text-align: center;
+}
+
+.user-container_right-content_info_content_list_detail_sold {
+  display: inline-block;
+  background: #888;
+  color: #fff;
+  margin: 8px 0 0 0;
+  padding: 5px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 12px;
+  text-align: center;
 }
 
 .user-container_right-content_info_content_list_next {
@@ -350,6 +405,8 @@
 .user-details_info_description {
   padding: 30px 50px 60px;
   border-top: 2px solid #f5f5f5;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .user-details_description_social {
@@ -430,6 +487,23 @@
       width: 700px;
       margin: 0 auto;
       background-color: white;
+      &__head {
+        width: 320px;
+        margin: 0 auto;
+        padding: 40px;
+        border-bottom: 1px solid $gray;
+        text-align: center;
+        a {
+          text-decoration: none;
+        }
+      }
+      &__btn {
+        color: $white;
+        margin: 8px 0 0;
+        line-height: 40px;
+        background: #0099e8;
+        text-align: center;
+      }
     }
     &__data {
       padding: 32px 16px;
@@ -442,6 +516,29 @@
       width: 320px;
       margin: 0 auto;
       padding: 0px 16px 40px;
+      &__robot {
+        background: #f9f9f9;
+        height: 78px;
+        line-height: 78px;
+        text-align: center;
+        border: 1px solid #d3d3d3;
+        border-radius: 3px;
+        margin: 20px 0;
+      }
+      &__btn {
+        background-color: #ea352d;
+        border: 1px solid #ea352d;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 30px;
+        input {
+          cursor: pointer;
+          border: 0px !important;
+          color: $white;
+        }
+      }
       &__birthday {
         margin-top: 8px;
         select {
