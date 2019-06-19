@@ -1,5 +1,3 @@
-
-// エラーが解消されるまで、暫定的にコメントアウトしています。
 $(function (){
   $(document).on('turbolinks:load', function(){
   var mySwiper = new Swiper('.swiper-container',{
