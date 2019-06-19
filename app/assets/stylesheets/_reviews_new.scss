@@ -1,59 +1,62 @@
-.review-user-form__main__box {
+.review-user-form__main__data {
+  padding:16px;
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
 
-  &__description {
+.review-label {
+  display: block;
+  margin-bottom: 10px;
+
+  &__sub {
+    margin-bottom: 10px;
+    cursor: default;
+  }
+}
+
+.review-user-form__main__box {
+  padding-bottom:30px; 
     
-    &__subTitle {
-      width: 320px;
-      margin: 0 auto;
-      padding: 10px 16px;
-      text-align: center;
-      font-weight: 600;
-    }
+  &__links {
+    text-align: right;
+    padding: 30px 15px;
     
-    &__top {
-      width: 320px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-    
-    &__bottom {
-      text-align: right;
-      padding: 10px 10px 40px;
-      
-      &__link {
-        display: block;
-        a {
-          color: #0099e8;
-          text-decoration: none;
-        }
+    &__list {
+      display: block;
+      a {
+        color: #0099e8;
+        text-decoration: none;
       }
     }
   }
-
+  
   &__form {
     width: 320px;
     margin: 0 auto;
-
+    
     .review-comment-form {
       border: 1px solid #ccc;
       border-radius: 4px;
-      margin: 8px 0;
       width: 286px;
       height: 150px;
       padding: 10px 16px 8px;
+      margin-bottom:30px;
+      outline: none;
     }
 
     .review-post-btn {
       all: initial;
       width: 100%;
-      margin: 8px 0 0;
       text-align: center;
-      border: 1px solid #888;
       background: #888;
       color: #fff;
       display: block;
       line-height: 48px;
       font-size: 14px;
+      outline: none;
+      cursor: pointer;
     }
   }
 }
@@ -63,7 +66,7 @@
   justify-content: center;
   position: relative;
   height: 80px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 
   .review-goodbtn {
     position: absolute;
@@ -94,8 +97,8 @@
       color: #0099e8;
       
       img{
-        transform:rotate(360deg);
-        transition: 0.5s;
+        // transform:rotate(360deg);
+        // transition: 0.5s;
       }
     }
   }
@@ -107,7 +110,8 @@
     border-radius: 4px;
     width: 80px;
     height: 80px;
-    transition:all 0.3s;
+    transition:all 0.1s;
+    cursor: pointer;
 
     &__inner {
       position: absolute;
