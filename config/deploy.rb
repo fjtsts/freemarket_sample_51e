@@ -17,14 +17,15 @@ set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
 set :branch, ENV['BRANCH'] || "create-review"
-# set :default_env, {
-#   rbenv_root: "/usr/local/rbenv",
-#   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-#   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-#   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
-# }
 
-# set :linked_files, %w{ config/master.key }
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+}
+
+set :linked_files, %w{ config/master.key }
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
@@ -32,15 +33,15 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
-  # desc 'upload master.key'
-  # task :upload do
-  #   on roles(:app) do |host|
-  #     if test "[ ! -d #{shared_path}/config ]"
-  #       execute "mkdir -p #{shared_path}/config"
-  #     end
-  #     upload!('config/master.key', "#{shared_path}/config/master.key")
-  #   end
-  # end
-  # before :starting, 'deploy:upload'
-  # after :finishing, 'deploy:cleanup'
+  desc 'upload master.key'
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
+      end
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+    end
+  end
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
 end
