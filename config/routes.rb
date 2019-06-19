@@ -4,15 +4,18 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+  resources :brands,only:[:index,:show]
   resources :card, only: [:new, :show, :destroy] do
     collection do
       post 'pay', to: 'card#pay'
     end
   end
   resources :items do
+    get 'select_category' , to: 'items#select_category', on: :collection
     post 'resale', to: 'items#resale', on: :member
     post 'stop', to: 'items#stop', on: :member
     resources :comments, only: [:create, :update]
+    resources :favorite_items, only: [:create, :destroy]
     resources :purchases, only: [:index] do
       collection do
         post 'pay', to: 'purchases#pay'
@@ -21,7 +24,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :new]
   end
   resources :user_profiles, only: [:new, :create, :edit]
-  resources :addresses, only: [:new, :create, :edit, :show]
+  resources :addresses, only: [:new, :create, :edit, :show, :update]
   resources :users, only: [:index, :show, :edit, :new, :update] do
     get :logout, on: :collection
   end

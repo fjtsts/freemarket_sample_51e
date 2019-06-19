@@ -1,11 +1,4 @@
-.itemDetail-bread-crumbs
-  %ul
-    %li
-      = link_to 'メルカリ', '/'
-    %li
-      %span
-        アイテム名（パンくず）
-
+- breadcrumb :item,@item
 .itemDetail
   %h1.itemDetail__title
     = @item.name
@@ -117,9 +110,9 @@
         .itemDetail__buyBtn 商品の編集
         %br or
         %br
-        = link_to stop_item_path, method: :post do
+        = link_to stop_item_path,class:"item_btn", method: :post do
           .itemDetail__buyBtn 出品を一旦停止する
-        = link_to item_path, method: :delete, data: { confirm: '本当に削除しますか？' } do
+        = link_to item_path, class:"item_btn", method: :delete, data: { confirm: '本当に削除しますか？' } do
           .itemDetail__buyBtn この商品を削除する
       - else
         =link_to "購入画面に進む" , item_purchases_path(@item) ,class: "itemDetail__buyBtn"
@@ -128,15 +121,14 @@
         = @item.description
     .itemDetail__button.clearfix
       .itemDetail__button__left
-        =button_tag class: "itemDetail__button__left__like" do
-          %i=fa_icon "heart",class:"icon-like"
-          %span いいね！
-        =button_tag class: "itemDetail__button__left__report" do
-          %i=fa_icon "flag",class:"itemDetail__icon__flag"
-          %span 不適切な商品の報告
+        %div{class:"itemDetail__button__left__like__#{@item.id}"}
+          = render partial: 'favorite_items/favorite_item', locals: {item: @item, favorite_items: @favorite_items}
+        .itemDetail__button__left__report
+          =fa_icon "flag",class:"itemDetail__icon__flag"
+          不適切な商品の報告
       .itemDetail__button__right
         = link_to 'show' do
-          %i=fa_icon "flag",class:"itemDetail__icon__clock"
+          =fa_icon "flag",class:"itemDetail__icon__clock"
           あんしん・あんぜんへの取り組み
   .itemComment-itemPostBox
     .itemComment
@@ -177,7 +169,7 @@
                             %i=fa_icon "flag",class:"itemComment__icon__flag"
               - else
                 -# 他の人のコメント
-                = render partial: 'left-comment', locals: { comment: comment }
+                = render partial: 'left-comment-owner', locals: { comment: comment }
             - else
               -# ログインしていない時のコメント画面
               = render partial: 'left-comment', locals: { comment: comment }

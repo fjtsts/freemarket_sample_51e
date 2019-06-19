@@ -38,7 +38,7 @@
             %h3.sell-form__main__detail__sub-head
               商品の詳細
             .sell-form__main__detail__warpper
-              -# 作業中
+
               .sell-form__main__detail__warp--top
                 .sell-form__main__detail
                   = f.label "カテゴリー", class:"sell-form__main__detail__label"
@@ -50,15 +50,15 @@
                   = f.collection_select :category_id, @parents[0].children,:id, :name, {include_blank: "---" },{id:'select_children', class:"sell-form__main__detail__select-box__text", required:"required"}
                   =fa_icon "angle-down sell-form__angle-down"
                 #category_grandchildren.sell-form__main__detail__select-box--grandchild.sell-form__lastbox
-                  = f.collection_select :category_id, @parents[0].children[0].children,:id, :name, {include_blank: "---" },{id:'select_grondchildren', class:"sell-form__main__detail__select-box__text", required:"required"}
+                  = f.collection_select :category_id, @parents[0].children[0].children,:id, :name, {include_blank: "---" },{id:'select_grandchildren', class:"sell-form__main__detail__select-box__text", required:"required"}
                   =fa_icon "angle-down sell-form__angle-down"
-              -# 作業
+
               #form-wrap-size.sell-form__main__detail__warp--middle
                 .sell-form__main__detail
                   = f.label "サイズ", class:"sell-form__main__detail__label"
                   %span{class:"sell-form__main__detail__label--require"} 必須
                 .sell-form__main__detail__select-box.sell-form__lastbox
-                  = f.collection_select :size_id, Size.all,:id, :name, { include_blank: "---" },{class:"sell-form__main__detail__select-box__text"}
+                  = f.collection_select :size_id, Size.all,:id, :name, { include_blank: "---" },{class:"sell-form__main__detail__select-box__text", required:"required"}
                   =fa_icon "angle-down sell-form__angle-down"
               #form-wrap-brand.sell-form__main__detail__warp--middle
                 .sell-form__main__detail
@@ -99,7 +99,7 @@
                   = f.label "発送元の地域", class:"sell-form__main__delivery__label"
                   %span{class:"sell-form__main__delivery__label--require"} 必須
                 .sell-form__main__delivery__select-box
-                  = f.collection_select :prefecture_id, JpPrefecture::Prefecture.all, :code, :name,{include_blank: "---" , required:"required"},{class:"sell-form__main__delivery__select-box__text"}
+                  = f.collection_select :prefecture_id, JpPrefecture::Prefecture.all, :code, :name,{include_blank: "---"},{class:"sell-form__main__delivery__select-box__text" , required:"required"}
                   =fa_icon "angle-down sell-form__angle-down"
               .sell-form__main__delivery__warp--middle
                 .sell-form__main__delivery

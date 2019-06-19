@@ -1,0 +1,24 @@
+- if user_signed_in?
+  - unless item.favorite_item_user(current_user.id).blank?
+    = link_to item_favorite_item_path(item_id: item.id,id: item.favorite_items[0].id), class:"favorite_item_link", method: :delete, remote: true do
+      .itemDetail__button__left__like__no
+        =fa_icon "heart",class:"icon-like"
+        %span いいね！
+        = item.favorite_items_count
+  - else
+    = link_to item_favorite_items_path(item.id),class:"favorite_item_link", method: :post, remote: true do
+      .itemDetail__button__left__like__yes
+        =fa_icon "heart",class:"icon-like"
+        %span いいね！
+        = item.favorite_items_count
+- else
+  - if item.favorite_items_count > 0
+    .itemDetail__button__left__like__no
+      =fa_icon "heart",class:"icon-like"
+      %span いいね！
+      = item.favorite_items_count
+  - else
+    .itemDetail__button__left__like__yes
+      =fa_icon "heart",class:"icon-like"
+      %span いいね！
+      = item.favorite_items_count

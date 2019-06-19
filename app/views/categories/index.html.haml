@@ -2,12 +2,12 @@
 .category-container
   %h2.category-container__title カテゴリー一覧
   .category-container__parent-box
-    -@parents.each do |parent|
-      =link_to "#{parent.name}","/",class: "parent-link"
-  -@parents.each do |parent|
-    .category-container__list-box
+    -@parents.each_with_index do |parent,index|
+      =link_to "#{parent.name}",{ anchor: "topic#{index}" },class: "parent-link"
+  -@parents.each_with_index do |parent,index|
+    .category-container__list-box{id:"topic#{index}"}
       .category-container__list-box__parent-title #{parent.name}
-      .category-container__list-box__inner-box
+      .category-container__list-box__inner-box#parent.name
         %p.category-container__list-box__inner-box__ladies-all
           = link_to "すべて","/"
         -parent.children.each do |chaild|

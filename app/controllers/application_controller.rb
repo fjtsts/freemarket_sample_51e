@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
       $query = Item.ransack(params[:q])
     end
     def search
-     
+      $query = Item.ransack(params[:q])
       
       # @items = @query.result(distinct: true)
     end

@@ -1,4 +1,4 @@
--breadcrumb :users 
+-breadcrumb :exhibits
 .user-main
   .user-container
     = render '/users/sidebar'
@@ -24,9 +24,9 @@
                         =exhibit.item.name
                         .user-container_right-content_info_content_list_detail_sellList
                           %i=fa_icon "heart",class:"icon-like"
-                          11
+                          00
                           %i=fa_icon "comment-alt",class:"icon-comment"
-                          230
+                          = exhibit.item.comments.count
                           - if exhibit.status == 1
                             .user-container_right-content_info_content_list_detail_sellList_sell 出品中
                           - else 

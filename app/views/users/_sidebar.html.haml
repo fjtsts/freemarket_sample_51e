@@ -90,13 +90,13 @@
       設定
     .user-container_left-content_info_list
       %ul
-        %a{ href: '#'}
+        = link_to edit_user_path(current_user) do
           %li
             プロフィール
             .user-container_left-content_info_list
               =fa_icon "angle-right"
-        %li
-          = link_to edit_address_path(current_user) do
+        = link_to edit_address_path(current_user) do
+          %li
             発送元・お届け先住所変更
             .user-container_left-content_info_list
               =fa_icon "angle-right"

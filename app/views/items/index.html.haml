@@ -19,7 +19,7 @@
 
   %h2 ピックアップカテゴリー 
   %h3
-    =link_to "レディース新着アイテム","/"
+    =link_to "レディース新着アイテム",category_path(Category.first.id)
   .pickup-container__item-boxs
     -@ladies.each do |lady|
       .pickup-container__item-boxs__box
@@ -116,7 +116,7 @@
       .pickup-container__item-boxs__box
         = link_to "",item_path(item.id)
         .pickup-container__item-boxs__box__image
-          =image_tag(item.description,class: "images")
+          =image_tag(item.item_images[0].image.to_s,class: "images")
         .pickup-container__item-boxs__box__text
           .pickup-container__item-boxs__box__text__title #{item.name}
           .pickup-container__item-boxs__box__text__num

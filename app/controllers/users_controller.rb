@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :edit, :new, :logout]
+  before_action :authenticate_user!, only: [:index, :edit, :logout]
   before_action :set_review, only: [:index, :show]
   def index
     @user = User.find(current_user.id)

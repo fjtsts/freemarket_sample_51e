@@ -17,11 +17,11 @@
           %i.far.fa-clock
         %span
           = date_format(comment.created_at)
-      - if current_user.id == @item.exhibit.user.id
-        .itemCommentMe__content__item__cl__body__icon__right__delete
-          = link_to item_comment_path(comment.item.id, comment.id) , method: :patch, data: { confirm: 'コメントを削除しますか?' } do 
-            %i=fa_icon "trash",class:"itemComment__icon__delete"
-      .itemCommentMe__content__item__cl__body__icon__right__flag
-        %form{action: "", method: ""}
-          = button_tag type: "submit" do
-            %i=fa_icon "flag",class:"itemComment__icon__flag"
+      -# - if current_user.id == @item.exhibit.user.id
+      -#   .itemCommentMe__content__item__cl__body__icon__right__delete
+      -#     = link_to item_comment_path(comment.item.id, comment.id) , method: :patch, data: { confirm: 'コメントを削除しますか?' } do 
+      -#       %i=fa_icon "trash",class:"itemComment__icon__delete"
+      -# .itemCommentMe__content__item__cl__body__icon__right__flag
+      -#   %form{action: "", method: ""}
+      -#     = button_tag type: "submit" do
+      -#       %i=fa_icon "flag",class:"itemComment__icon__flag"
