@@ -117,9 +117,9 @@
         .itemDetail__buyBtn 商品の編集
         %br or
         %br
-        = link_to stop_item_path, method: :post do
+        = link_to stop_item_path,class:"item_btn", method: :post do
           .itemDetail__buyBtn 出品を一旦停止する
-        = link_to item_path, method: :delete, data: { confirm: '本当に削除しますか？' } do
+        = link_to item_path, class:"item_btn", method: :delete, data: { confirm: '本当に削除しますか？' } do
           .itemDetail__buyBtn この商品を削除する
       - else
         =link_to "購入画面に進む" , item_purchases_path(@item) ,class: "itemDetail__buyBtn"
@@ -128,8 +128,8 @@
         = @item.description
     .itemDetail__button.clearfix
       .itemDetail__button__left
-        .itemDetail__button__left__like
-          = render partial: 'favorite_items/favorite_item', locals: {item: @item, items: @items, favorite_item: @favorite_item, favorite_items: @favorite_items}
+        %div{class:"itemDetail__button__left__like__#{@item.id}"}
+          = render partial: 'favorite_items/favorite_item', locals: {item: @item, favorite_items: @favorite_items}
         .itemDetail__button__left__report
           =fa_icon "flag",class:"itemDetail__icon__flag"
           不適切な商品の報告

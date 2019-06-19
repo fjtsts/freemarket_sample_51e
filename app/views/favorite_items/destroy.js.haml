@@ -1,2 +1,1 @@
-$(".itemDetail__button__left__like").html("#{escape_javascript(render partial: 'favorite_items/favorite_item', locals: {item: @item, items: @items, favorite_item: @favorite_item, favorite_items: @favorite_items})}")
-
+$(".itemDetail__button__left__like__#{@item.id}").html("#{escape_javascript(render partial: 'favorite_items/favorite_item', locals: {item: @item, favorite_item: @favorite_item})}")
