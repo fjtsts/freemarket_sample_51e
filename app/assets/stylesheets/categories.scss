@@ -4,6 +4,7 @@
   width:700px;
   height:100%;
   margin :0 370px ;
+  overflow:scroll;
   &__title{
     padding-top:40px;
     font-size :22px;
@@ -29,6 +30,15 @@
       line-height:40px;
       color:black;
       border-radius:4px;
+    }
+    
+  }
+  &__initial-box{
+    width:700px;
+    height:141px;
+    &__initial{
+      display:inline-block;
+      word-wrap: wrap;
     }
   }
   &__list-box{

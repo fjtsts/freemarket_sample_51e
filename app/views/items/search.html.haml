@@ -1,16 +1,88 @@
+-if @items == Item.all
+  %p.breadcrumbs
+    =link_to "メルカリ",root_path
+-else
+  -breadcrumb :search
 .search-container
   .search-container__left
     .search-container__left__wrapper
       .search-container__left__wrapper__sort
-      -# =search_form_for(@q,url:search_path)
-      -#   = f.select :status, options_for_select({'新品、未使用':1,'未使用に近い':2,'目立った傷や汚れなし':3,'やや汚れや傷あり':4,'傷や汚れあり':5,'全体的に状態が悪い':6}), { include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
-
-      
+        %select
+          %option
+            =sort_link($query, "価格順",:price,hide_indicator: true)
+          %option
+            =sort_link($query,"新着順", :created_at,hide_indicator: true)
+        .search-container__left__wrapper__forms
+          .search-container__left__wrapper__forms__label 詳細検索
+          .search-container__left__wrapper__forms__form
+            -if @items == Item.all
+              = search_form_for($query,url: search_path) do |f|
+                .search-container__left__wrapper__forms__form__label
+                  =f.label :name,"キーワードを追加する"
+                .search-container__left__wrapper__forms__form__keyword
+                  =f.text_field :name, class: "input-keyword", value: nil
+                #category_parent.search-container__left__wrapper__forms__form__select-parent
+                  =f.collection_select :category_id,@parents,:id, :name, {include_blank: "---" },{id:'select_parent', class:"input-parents", required:"required"}
+                #category_children.search-container__left__wrapper__forms__form__select-children
+                  = f.collection_select :category_id, @children,:id, :name, {include_blank: "---" },{id:'select_children', class:"sell-form__main__detail__select-box__text", required:"required"}
+                #category_grandchildren.search-container__left__wrapper__forms__form__select-grand-chaild
+                  = f.collection_select :category_id, @parents[0].children[0].children,:id, :name, {include_blank: "---" },{id:'select_grondchildren', class:"sell-form__main__detail__select-box__text", required:"required"}
+            -else
+              = search_form_for($query,url: search_path) do |f|
+                .search-container__left__wrapper__forms__form__label
+                  =f.label :name,"キーワードを追加する"
+                .search-container__left__wrapper__forms__form__keyword
+                  =f.text_field :name, class: "input-keyword", value: "#{$query.conditions.first.values.first.value}"
+                #category_parent.search-container__left__wrapper__forms__form__select-parent
+                  =f.collection_select :category_id,@parents,:id, :name, {include_blank: "---" },{id:'select_parent', class:"input-parents", required:"required"}
+                #category_children.search-container__left__wrapper__forms__form__select-children
+                  = f.collection_select :category_id, @children,:id, :name, {include_blank: "---" },{id:'select_children', class:"sell-form__main__detail__select-box__text", required:"required"}
+                #category_grandchildren.search-container__left__wrapper__forms__form__select-grand-chaild
+                  = f.collection_select :category_id, @parents[0].children[0].children,:id, :name, {include_blank: "---" },{id:'select_grondchildren', class:"sell-form__main__detail__select-box__text", required:"required"}
+  
   .search-container__right
     .search-container__right__wrapper
-      .search-container__right__wrapper__head
-        %span.result-head 
-          の詳細結果
+      -if @items != Item.all
+        .search-container__right__wrapper__head
+          #{$query.conditions.first.values.first.value}
+          %span.result-head 
+            の結果
+            -if @items== []
+              %p 該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+      -else
+        .search-container__right__wrapper__head
+          新着アイテム
       .search-container__right__wrapper__number
+        -# ="#{@items.length}"
       .search-container__right__wrapper__container
+        -if @items ==[]
+          %p新着アイテム
+          -@new_items.each do |item|
+            .search-container__right__wrapper__container__box
+              = link_to "",item_path(item.id) 
+              .search-container__right__wrapper__container__box__image
+                =image_tag(item.item_images[0].image.to_s,class: "images")
+              .search-container__right__wrapper__container__box__text
+                .search-container__right__wrapper__container__box__text__title #{item.name}
+                .search-container__right__wrapper__container__box__text__num
+
+                  %span.like-num 15
+                  =fa_icon "heart",class:"icon-like"
+                  .search-container__right__wrapper__container__box__text__num__price ¥#{item.price}
+                .search-container__right__wrapper__container__box__text__title__tax (税込)
         
+        -else
+          -@items.each do |item|
+            .search-container__right__wrapper__container__box
+              = link_to "",item_path(item.id) 
+              .search-container__right__wrapper__container__box__image
+                =image_tag(item.item_images[0].image.to_s,class: "images")
+              .search-container__right__wrapper__container__box__text
+                .search-container__right__wrapper__container__box__text__title #{item.name}
+                .search-container__right__wrapper__container__box__text__num
+
+                  %span.like-num 15
+                  =fa_icon "heart",class:"icon-like"
+                  .search-container__right__wrapper__container__box__text__num__price ¥#{item.price}
+                .search-container__right__wrapper__container__box__text__title__tax (税込)
+          

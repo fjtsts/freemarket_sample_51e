@@ -4,8 +4,7 @@
   border-top:1px solid $light-gray;
   background:$white;
   margin:0;
-
-
+  box-shadow:0 3px 3px 0 rgba(0,0,0,0.16);
   height:49px;
   padding:0;
   line-height:49px;
@@ -14,6 +13,12 @@
     color:black;
     font-size:14px;
     padding-left:150px;
+    &:nth-of-type(2n){
+      padding:0;
+    }
+    &:nth-of-type(3){
+      padding:0;
+    }
   }
   .current{
     font-weight:bold;
