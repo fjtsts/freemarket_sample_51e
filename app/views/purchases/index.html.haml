@@ -53,7 +53,7 @@
             %h3 支払い方法
             .itemBuy__main__container__userInfo__inner__text
             %p
-            = link_to card_path(current_user.id) do
+            = link_to card_path(current_user.id), data: {"turbolinks" => false} do
               変更する
               %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
         - else
