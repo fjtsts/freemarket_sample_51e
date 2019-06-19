@@ -1,25 +1,46 @@
 .user-form
   %main.user-form__main
     .user-form__main__warpper
-      %h2.user-form__main__data 
+      %h2.review-user-form__main__data 
         取引画面
-      .user-form__main__box
-        %p V評価をしてください
-        %p 購入者に商品が到着し評価がありました。
-        %p 出品者の評価を行って取引を完了してください。
-        %p ※評価は取引が終わった後で見ることができます。
-        %p 商品を買った後の流れ＞
-        %p 購入者のよくある質問＞
-      = form_for(@review, url: item_reviews_path) do |f|
-        = f.label(:status, "良い", value: 1)
-        = f.radio_button(:status, 1)
-        = f.label(:status, "普通", value: 2)
-        = f.radio_button(:status, 2)
-        = f.label(:status, "悪い", value: 3)
-        = f.radio_button(:status, 3)
-        = f.label(:content, "評価のコメントを記入しましょう。")
-        = f.text_field :content
-        = f.submit("評価を投稿する")
-          
-
-
+      .review-user-form__main__box
+        .review-user-form__main__box__links
+          .review-user-form__main__box__links__list
+            %a(href="#")
+              商品を買った後の流れ
+              %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
+          .review-user-form__main__box__links__list
+            %a(href="#")
+              購入者のよくある質問
+              %i=fa_icon "chevron-right",class:"itemDetail__icon-arrow-right"
+        .review-user-form__main__box__form
+          %label.review-label 評価をしてください。
+          .review-label__sub
+            %p 出品者の評価を行って取引を完了してください。
+            %p ※評価は取引が終わった後で見ることができます。
+          = form_for(@review, url: item_reviews_path) do |f|
+            .review-user-form__radioBloks
+              .review-user-form__main__box__form__blok.review-goodbtn
+                = f.radio_button(:status, 1, id: "goodbtn")
+                %label(for="goodbtn")
+                  .review-user-form__main__box__form__blok__icon
+                    .review-user-form__main__box__form__blok__icon__inner
+                      =image_tag("icon-good.png",size: "45x45")
+                      %p 良い
+              .review-user-form__main__box__form__blok.review-normalbtn
+                = f.radio_button(:status, 2, id: "normalbtn")
+                %label(for="normalbtn")
+                  .review-user-form__main__box__form__blok__icon
+                    .review-user-form__main__box__form__blok__icon__inner
+                      =image_tag("icon-normal.png",size: "45x45")
+                      %p 普通
+              .review-user-form__main__box__form__blok.review-badbtn
+                = f.radio_button(:status, 3, id: "badbtn")
+                %label(for="badbtn")
+                  .review-user-form__main__box__form__blok__icon
+                    .review-user-form__main__box__form__blok__icon__inner
+                      =image_tag("icon-bad.png",size: "45x45")
+                      %p 悪い
+            %label.review-label 評価のコメントを記入しましょう。
+            = f.text_area :content, class: "review-comment-form", placeholder: "コメントはなくても構いませんが、お礼のメッセージなどを書くと喜ばれます。"
+            = f.submit "評価を投稿する", class: "review-post-btn"

@@ -1,0 +1,136 @@
+.review-user-form__main__data {
+  padding:16px;
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+}
+
+.review-label {
+  display: block;
+  margin-bottom: 10px;
+
+  &__sub {
+    margin-bottom: 10px;
+    cursor: default;
+  }
+}
+
+.review-user-form__main__box {
+  padding-bottom:30px; 
+    
+  &__links {
+    text-align: right;
+    padding: 30px 15px;
+    
+    &__list {
+      display: block;
+      a {
+        color: #0099e8;
+        text-decoration: none;
+      }
+    }
+  }
+  
+  &__form {
+    width: 320px;
+    margin: 0 auto;
+    
+    .review-comment-form {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 286px;
+      height: 150px;
+      padding: 10px 16px 8px;
+      margin-bottom:30px;
+      outline: none;
+    }
+
+    .review-post-btn {
+      all: initial;
+      width: 100%;
+      text-align: center;
+      background: #888;
+      color: #fff;
+      display: block;
+      line-height: 48px;
+      font-size: 14px;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.review-user-form__radioBloks {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 80px;
+  margin-bottom: 30px;
+
+  .review-goodbtn {
+    position: absolute;
+    left: 0;
+  }
+  
+  .review-normalbtn {
+    position: absolute;
+  }
+  
+  .review-badbtn {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.review-user-form__main__box__form__blok {
+  display: inline-block;
+
+  input[type=radio] {
+    display: none !important;
+  }
+  
+  input[type="radio"]:checked + label{
+    
+    .review-user-form__main__box__form__blok__icon {
+      border: 1px solid #0099e8;
+      color: #0099e8;
+      
+      img{
+        // transform:rotate(360deg);
+        // transition: 0.5s;
+      }
+    }
+  }
+  
+  
+  &__icon {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 80px;
+    height: 80px;
+    transition:all 0.1s;
+    cursor: pointer;
+
+    &__inner {
+      position: absolute;
+      width: 45px;
+      height: 65px;
+      top: 50%;
+      left: 50%;
+      -webkit-transform : translate(-50%,-50%);
+      transform : translate(-50%,-50%);
+
+      img {
+        border-radius: 50%;
+      }
+    
+      p {
+        display: block;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+}
