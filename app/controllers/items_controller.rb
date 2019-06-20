@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
         @image = @item.item_images.create(image: i.tempfile, item_id: @item.id)
       end
       Exhibit.create(item_id: @item.id, user_id: current_user.id)
-      redirect_to root_path
+      redirect_to item_path(@item)
     else
       render :new
     end
