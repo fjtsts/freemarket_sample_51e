@@ -35,9 +35,9 @@
             .pickup-container__item-boxs__box__text__num__price ¥#{lady.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
-    =link_to "すべての商品をみる","/"
+    =link_to "すべての商品をみる",category_path(Category.first.id)
   %h3
-    =link_to "メンズ新着アイテム","/"
+    =link_to "メンズ新着アイテム",category_path(Category.second.id)
   .pickup-container__item-boxs
     -@mens.each do |men|
       .pickup-container__item-boxs__box
@@ -53,9 +53,9 @@
             .pickup-container__item-boxs__box__text__num__price ¥#{men.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
-    =link_to "すべての商品をみる","/"
+    =link_to "すべての商品をみる",category_path(Category.second.id)
   %h3
-    =link_to "ベビー・キッズ新着アイテム","/"
+    =link_to "ベビー・キッズ新着アイテム",category_path(Category.third.id)
   .pickup-container__item-boxs
     -@baby.each do |item|
       .pickup-container__item-boxs__box
@@ -71,9 +71,9 @@
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
-    =link_to "すべての商品をみる","/"
+    =link_to "すべての商品をみる",category_path(Category.third.id)
   %h3
-    =link_to "インテリア・住まい・小物新着アイテム","/"
+    =link_to "インテリア・住まい・小物新着アイテム",category_path(Category.fourth.id)
   .pickup-container__item-boxs
     -@interior.each do |item|
       .pickup-container__item-boxs__box
@@ -89,10 +89,10 @@
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
-    =link_to "すべての商品をみる","/"
+    =link_to "すべての商品をみる",category_path(Category.fourth.id)
   %h2 ピックアップブランド
   %h3
-    =link_to "シャネル新着アイテム","/"
+    =link_to "シャネル新着アイテム",brand_path(Brand.first.id)
   .pickup-container__item-boxs
     -@chanel.each do |item|
       .pickup-container__item-boxs__box
@@ -108,9 +108,9 @@
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
-    =link_to "すべての商品をみる",""
+    =link_to "すべての商品をみる",brand_path(Brand.first.id)
   %h3
-    =link_to "ルイヴィトン新着アイテム","/"
+    =link_to "ルイヴィトン新着アイテム",brand_path(Brand.second.id)
   .pickup-container__item-boxs
     -@vuitton.each do |item|
       .pickup-container__item-boxs__box
@@ -126,9 +126,9 @@
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
-    =link_to "すべての商品をみる","/"
+    =link_to "すべての商品をみる",brand_path(Brand.second.id)
   %h3
-    =link_to "シュプリーム新着アイテム","/"
+    =link_to "シュプリーム新着アイテム",brand_path(Brand.third.id)
   .pickup-container__item-boxs
     -@supreme.each do |item|
       .pickup-container__item-boxs__box
@@ -144,9 +144,9 @@
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
-    =link_to "すべての商品をみる","/"
+    =link_to "すべての商品をみる",brand_path(Brand.third.id)
   %h3
-    =link_to "ナイキ新着アイテム","/"
+    =link_to "ナイキ新着アイテム",brand_path(Brand.fourth.id)
   .pickup-container__item-boxs
     -@nike.each do |item|
       .pickup-container__item-boxs__box
@@ -161,6 +161,7 @@
             =fa_icon "heart",class:"icon-like"
             .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
           .pickup-container__item-boxs__box__text__title__tax (税込)
-
+  .view-all.clearfix
+    =link_to "すべての商品をみる",brand_path(Brand.fourth.id)
 = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"
 

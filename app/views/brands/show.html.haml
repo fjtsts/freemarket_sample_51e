@@ -1,10 +1,11 @@
+-breadcrumb :brand,@brand
 .category-items-container
   .category-items-container__wrapper
     %ul.category-items-container__wrapper__nav
       -# -@category.each do |category|
       -#   %li
     .category-items-container__wrapper__box
-      %h1.category-items-container__wrapper__box__title #{@brand.name}
+      %h1.category-items-container__wrapper__box__title #{@brand.name}の商品一覧
       .category-items-container__wrapper__box__list
         - @items.each do |item|
           .category-items-container__wrapper__box__list__box
