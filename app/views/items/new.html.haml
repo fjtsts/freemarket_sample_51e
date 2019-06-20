@@ -78,7 +78,7 @@
           .sell-form__main__delivery.sell-form__main__box
             %h3.sell-form__main__delivery__sub-head
               配送について
-              = link_to "?", new_item, class: "sell-form__main__delivery__sub-head--question"
+              = link_to "?", new_item_path, class: "sell-form__main__delivery__sub-head--question"
             .sell-form__main__delivery__warpper
               .sell-form__main__delivery__warp--top
                 .sell-form__main__delivery
@@ -112,7 +112,7 @@
           .sell-form__main__prace.sell-form__main__box
             %h3.sell-form__main__prace__sub-head
               販売価格(300〜9,999,999)
-              = link_to "?", new_item, class: "sell-form__main__prace__sub-head--question"
+              = link_to "?", new_item_path, class: "sell-form__main__prace__sub-head--question"
             .sell-form__main__prace__warpper
               .sell-form__main__prace__warp--top
                 .sell-form__main__prace__inner
@@ -135,21 +135,21 @@
           .sell-form__main__notes.sell-form__main__box
             .sell-form__main__notes__text
               %p
-                = link_to "禁止されている出品", new_item, class: "sell-form__main__notes__text--link"
+                = link_to "禁止されている出品", new_item_path, class: "sell-form__main__notes__text--link"
                 、
-                = link_to "行為", new_item, class: "sell-form__main__notes__text--link"
+                = link_to "行為", new_item_path, class: "sell-form__main__notes__text--link"
                 を必ずご確認ください。
               %p
                 またブランド品でシリアルナンバー等がある場合はご記載ください。
-                = link_to "偽ブランドの販売", new_item, class: "sell-form__main__notes__text--link"
+                = link_to "偽ブランドの販売", new_item_path, class: "sell-form__main__notes__text--link"
                 は犯罪であり処罰される可能性があります
               %p.sell-form__main__notes__text
                 また、出品をもちまして
-                = link_to "加盟店規約", new_item, class: "sell-form__main__notes__text--link"
+                = link_to "加盟店規約", new_item_path, class: "sell-form__main__notes__text--link"
                 に同意したことになります。
 
         .sell-form__main__btn
           .sell-form__main__btn__box
             = f.submit "出品する",class: "sell-form__main__btn__box__sell"
           .sell-form__main__btn__box
-            = link_to "もどる",items, class: "sell-form__main__btn__box__back"
+            = link_to "もどる",items_path, class: "sell-form__main__btn__box__back"
