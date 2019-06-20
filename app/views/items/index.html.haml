@@ -93,9 +93,9 @@
             .pickup-container__item-boxs__box__text__title #{baby.name}
             .pickup-container__item-boxs__box__text__num
               %span.like-num
-                = item.favorite_items_count
+                = baby.favorite_items_count
               =fa_icon "heart",class:"icon-like"
-              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+              .pickup-container__item-boxs__box__text__num__price ¥#{baby.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
 
   .view-all.clearfix
