@@ -110,7 +110,9 @@
           .itemDetail__deleteBtn この商品を削除する
     - else
       - if user_signed_in? && @item.exhibit.user.id == current_user.id
-        .itemDetail__editBtn__edit 商品の編集
+
+        = link_to edit_item_path(@item.id) do
+          .itemDetail__editBtn__edit 商品の編集
         #p.itemDetail__or or
         = link_to stop_item_path,class:"item_btn", method: :post do
           .itemDetail__editBtn 出品を一旦停止する

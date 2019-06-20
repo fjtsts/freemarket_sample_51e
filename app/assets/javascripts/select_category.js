@@ -16,6 +16,8 @@ $(document).on('turbolinks:load',function(){
     if (parent_id == "" || parent_id == "---") {
       $('#category_children').css("display" , "none");
       $('#category_grandchildren').css("display" , "none");
+      $('#form-wrap-size').css("display" , "none");
+      $('#form-wrap-brand').css("display" , "none");
     } else {
       $.ajax({
         type:    'GET',
@@ -32,6 +34,7 @@ $(document).on('turbolinks:load',function(){
           $("#select_children").append(html);
         });
         $('#category_children').css("display" , "");
+        $('#category_grandchildren').css("display" , "none");
       })
     };
   });
@@ -39,7 +42,7 @@ $(document).on('turbolinks:load',function(){
   // children->grandchildren
   $("#category_children").change(function(){
     var children_id = $("#select_children").val();
-    if (children_id == "---") {
+    if (children_id == "" || children_id == "---") {
       $('#category_grandchildren').css("display" , "none");
     } else {
       $.ajax({
@@ -62,8 +65,8 @@ $(document).on('turbolinks:load',function(){
   });
 // size.brand
   $("#category_children").change(function(){
-    var children_id = $("#select_grandchildren").val();
-    if (children_id == "---") {
+    var children_id = $("#select_children").val();
+    if (children_id == "" || children_id == "---") {
       $('#form-wrap-size').css("display" , "none");
       $('#form-wrap-brand').css("display" , "none");
     } else {

@@ -8,16 +8,25 @@
       %h1.category-items-container__wrapper__box__title #{@brand.name}の商品一覧
       .category-items-container__wrapper__box__list
         - @items.each do |item|
-          .category-items-container__wrapper__box__list__box
-            =link_to"",item_path(item.id)
-            .category-items-container__wrapper__box__list__box__image
-              =image_tag(item.item_images[0].image.to_s,class: "images")
-            .category-items-container__wrapper__box__list__box__text
-              .category-items-container__wrapper__box__list__box__text__title #{item.name}
-              .category-items-container__wrapper__box__list__box__text__num
+          -if item.exhibit.status === 3
+            %p
+          -else
+            .category-items-container__wrapper__box__list__box
+              =link_to"",item_path(item.id)
+              .category-items-container__wrapper__box__list__box__image
+                - if item.exhibit.status === 2
+                  .itemDetail__main__photo__soldOut
+                - elsif  item.exhibit.status === 3
+                  .itemDetail__main__photo__soldStop
+                - else
+                =image_tag(item.item_images[0].image.to_s,class: "images")
+              .category-items-container__wrapper__box__list__box__text
+                .category-items-container__wrapper__box__list__box__text__title #{item.name}
+                .category-items-container__wrapper__box__list__box__text__num
 
                 %span.like-num
                   = item.favorite_items_count
                 =fa_icon "heart",class:"icon-like"
                 .category-items-container__wrapper__box__list__box__text__num__price ¥#{item.price}
               .category-items-container__wrapper__box__list__box__text__title__tax (税込)
+

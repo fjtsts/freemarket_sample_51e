@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
      
   before_action :authenticate_user!, only: [:new, :create, :resale, :stop, :destroy]
   before_action :set_parents, only: [:new, :edit]
-  before_action :set_item, only: [:show, :resale, :stop, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :resale, :stop, :destroy]
+  before_action :set_image, only: [:edit, :update]
 
   def index
     $query = Item.ransack(params[:q])
@@ -34,13 +35,32 @@ class ItemsController < ApplicationController
         @image = @item.item_images.create(image: i.tempfile, item_id: @item.id)
       end
       Exhibit.create(item_id: @item.id, user_id: current_user.id)
-      redirect_to root_path
+      redirect_to item_path(@item)
     else
-      render :index
+      render :new
+    end
+  end
+
+  def edit
+    render layout: 'form-layout'
+  end
+
+  def update
+    brand_id　= nil
+    if params[:item][:brands][:name].present?
+      brand = Brand.find_by(name: params[:item][:brands][:name])
+      brand_id = brand.present? ? brand.id : Brand.create(name: params[:item][:brands][:name]).id
+    end
+    @item[:brand_id] = brand_id
+    if @item.update(item_parameter)
+      redirect_to item_path(@item)
+    else
+      render :edit
     end
   end
 
   def show
+    @brand = @item.brand
     @category =@item.category
     @comment = Comment.new
     @comments = @item.comments
@@ -104,9 +124,16 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def set_image
+    @images = @item.item_images
+  end
 
   def item_params
     params.permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price, images_attributes: [:image])
+  end
+
+  def item_parameter
+    params.require(:item).permit(:name, :description, :category_id, :size_id, :status, :shipping_fee, :how_to_shipping, :prefecture_id, :day, :price)
   end
 
   def set_parents

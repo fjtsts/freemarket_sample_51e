@@ -16,7 +16,7 @@
             .category-container__list-box__inner-box__container
               .category-container__list-box__inner-box__container__title
                 %p
-                  = link_to "すべて","category_path" 
+                  = link_to "すべて",category_path(chaild.id) 
               -chaild.children.each do |grandchaild|
                 .category-container__list-box__inner-box__container__title
                   %p
