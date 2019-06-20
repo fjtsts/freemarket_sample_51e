@@ -1,0 +1,155 @@
+.sell-form
+  %main.sell-form__main
+    .sell-form__main__warpper
+      %h2.sell-form__main__data 商品の情報を入力
+
+      = form_with model: @item, url: item_path, html:{multipart: true, method: "PATCH"}, local: true do |f|
+
+        .sell-form__main__image.sell-form__main__box
+          .sell-form__main__image
+            = f.label "出品画像", class: "sell-form__main__image__label"
+            %span{class:"sell-form__main__image__label--require"} 必須
+          %p.sell-form__main__image__text
+            最大5枚までアップロードできます
+          .items-preview-field-container
+            .items-preview-field
+              - @images.each do |img|
+                .item-preview-field
+                  = image_tag("#{img.image}", class: "item_image")
+                  .button-area
+                    .button-area--edit 編集
+                    .button-area--delete.delete1 削除
+
+        .sell-form__main__form-box
+          .sell-form__main__name.sell-form__main__box
+            .sell-form__main__name__warp--top
+              .sell-form__main__name
+                = f.label "商品名", class: "sell-form__main__name__label"
+                %span{class:"sell-form__main__name__label--require"} 必須
+              = f.text_field :name, class:"sell-form__main__name__text", placeholder:"商品名（必須40文字まで）", required:"required", maxlength:"40"
+            .sell-form__main__name__warp
+              .sell-form__main__name
+                = f.label "商品説明", class: "sell-form__main__name__label"
+                %span{class:"sell-form__main__name__label--require"} 必須
+              = f.text_area :description, class:"sell-form__main__name__text sell-form__main__name__textarea", placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです", required:"required", maxlength:"1000"
+
+          .sell-form__main__detail.sell-form__main__box
+            %h3.sell-form__main__detail__sub-head
+              商品の詳細
+            .sell-form__main__detail__warpper
+
+              .sell-form__main__detail__warp--top
+                .sell-form__main__detail
+                  = f.label "カテゴリー", class:"sell-form__main__detail__label"
+                  %span{class:"sell-form__main__detail__label--require"} 必須
+                #category_parent--edit.sell-form__main__detail__select-box--parent.sell-form__lastbox
+                  = f.collection_select :category_id, @parents,:id, :name, {include_blank: "---", selected: @item.category.parent.parent.id},{id:'select_parent--edit', class:"sell-form__main__detail__select-box__text", required:"required"}
+                  =fa_icon "angle-down sell-form__angle-down"
+                #category_children--edit.sell-form__main__detail__select-box--child.sell-form__lastbox
+                  = f.collection_select :category_id, @item.category.parent.siblings,:id, :name, {include_blank: "---" , selected: @item.category.parent.id},{id:'select_children--edit', class:"sell-form__main__detail__select-box__text", required:"required"}
+                  =fa_icon "angle-down sell-form__angle-down"
+                #category_grandchildren--edit.sell-form__main__detail__select-box--grandchild.sell-form__lastbox
+                  = f.collection_select :category_id, @item.category.siblings,:id, :name, {include_blank: "---" },{id:'select_grandchildren--edit', class:"sell-form__main__detail__select-box__text", required:"required"}
+                  =fa_icon "angle-down sell-form__angle-down"
+
+              #form-wrap-size--edit.sell-form__main__detail__warp--middle
+                .sell-form__main__detail
+                  = f.label "サイズ", class:"sell-form__main__detail__label"
+                  %span{class:"sell-form__main__detail__label--require"} 必須
+                .sell-form__main__detail__select-box.sell-form__lastbox
+                  = f.collection_select :size_id, Size.all,:id, :name, { include_blank: "---" },{class:"sell-form__main__detail__select-box__text", required:"required"}
+                  =fa_icon "angle-down sell-form__angle-down"
+              #form-wrap-brand--edit.sell-form__main__detail__warp--middle
+                .sell-form__main__detail
+                  = f.label "ブランド", class:"sell-form__main__detail__label"
+                  %span{class:"sell-form__main__detail__label--require sell-form__main__detail__label--require--brand"} 任意
+                .sell-form__main__detail__select-box.sell-form__lastbox
+                  = f.fields_for :brands do |i|
+                    = i.text_field :name, class:"sell-form__main__detail__select-box__text sell-form__main__detail__select-box__text--brand", placeholder:"例）シャネル"
+              .sell-form__main__detail__warp--middle
+                .sell-form__main__detail
+                  = f.label "商品の状態", class:"sell-form__main__detail__label"
+                  %span{class:"sell-form__main__detail__label--require"} 必須
+                .sell-form__main__detail__select-box.sell-form__lastbox
+                  = f.select :status,Item.statuses.keys.to_a,{ include_blank: "---" },{required:"required", class:"sell-form__main__detail__select-box__text"}
+
+                  =fa_icon "angle-down sell-form__angle-down"
+
+          .sell-form__main__delivery.sell-form__main__box
+            %h3.sell-form__main__delivery__sub-head
+              配送について
+              = link_to "?", "/", class: "sell-form__main__delivery__sub-head--question"
+            .sell-form__main__delivery__warpper
+              .sell-form__main__delivery__warp--top
+                .sell-form__main__delivery
+                  = f.label "発送料の負担", class:"sell-form__main__delivery__label"
+                  %span{class:"sell-form__main__delivery__label--require"} 必須
+                #shipping_fee.sell-form__main__delivery__select-box
+                  = f.select :shipping_fee,Item.shipping_fees.keys.to_a, {include_blank: "---" },{required:"required",id:'select_shipping_fee',class:"sell-form__main__delivery__select-box__text"}
+                  =fa_icon "angle-down sell-form__angle-down"
+              #how_to_ship--edit.sell-form__main__delivery__warp--middle
+                .sell-form__main__delivery
+                  = f.label "発送の方法", class:"sell-form__main__delivery__label"
+                  %span{class:"sell-form__main__delivery__label--require"} 必須
+                #exhibitor_burden.sell-form__main__delivery__select-box
+                  = f.select :how_to_shipping,Item.exhibitor_burdens.keys.to_a, { include_blank: "---", selected: @item.how_to_shipping},{required:"required", class:"sell-form__main__detail__select-box__text"}
+                  =fa_icon "angle-down sell-form__angle-down"
+              .sell-form__main__delivery__warp--middle
+                .sell-form__main__delivery
+                  = f.label "発送元の地域", class:"sell-form__main__delivery__label"
+                  %span{class:"sell-form__main__delivery__label--require"} 必須
+                .sell-form__main__delivery__select-box
+                  = f.collection_select :prefecture_id, JpPrefecture::Prefecture.all, :code, :name,{include_blank: "---"},{class:"sell-form__main__delivery__select-box__text" , required:"required"}
+                  =fa_icon "angle-down sell-form__angle-down"
+              .sell-form__main__delivery__warp--middle
+                .sell-form__main__delivery
+                  = f.label "発送までの日数", class:"sell-form__main__delivery__label"
+                  %span{class:"sell-form__main__delivery__label--require"} 必須
+                .sell-form__main__delivery__select-box.sell-form__lastbox
+                  = f.select :day,Item.days.keys.to_a , {include_blank: "---" },{required:"required",class:"sell-form__main__delivery__select-box__text"}
+                  =fa_icon "angle-down sell-form__angle-down"
+
+          .sell-form__main__prace.sell-form__main__box
+            %h3.sell-form__main__prace__sub-head
+              販売価格(300〜9,999,999)
+              = link_to "?", "/", class: "sell-form__main__prace__sub-head--question"
+            .sell-form__main__prace__warpper
+              .sell-form__main__prace__warp--top
+                .sell-form__main__prace__inner
+                  = f.label "価格", class:"sell-form__main__prace__label"
+                  %span{class:"sell-form__main__prace__label--require"} 必須
+                %h3.sell-form__main__prace__num
+                  ¥
+                  = f.text_field :price, class:"sell-form__main__prace__num__input", placeholder:"例）300", required:"required"
+              .sell-form__main__prace__fee
+                %h3.sell-form__main__prace__fee--left
+                  販売手数料 (10%)
+                %h3.sell-form__main__prace__fee--right
+                  = "¥#{@item.price}"
+              .sell-form__main__prace__profit
+                %h3.sell-form__main__prace__profit--left
+                  販売利益
+                %h3.sell-form__main__prace__profit--right
+                  = "¥#{@item.price-(@item.price/10).floor}"
+
+          .sell-form__main__notes.sell-form__main__box
+            .sell-form__main__notes__text
+              %p
+                = link_to "禁止されている出品", "/", class: "sell-form__main__notes__text--link"
+                、
+                = link_to "行為", "/", class: "sell-form__main__notes__text--link"
+                を必ずご確認ください。
+              %p
+                またブランド品でシリアルナンバー等がある場合はご記載ください。
+                = link_to "偽ブランドの販売", "/", class: "sell-form__main__notes__text--link"
+                は犯罪であり処罰される可能性があります
+              %p.sell-form__main__notes__text
+                また、出品をもちまして
+                = link_to "加盟店規約", "/", class: "sell-form__main__notes__text--link"
+                に同意したことになります。
+
+        .sell-form__main__btn
+          .sell-form__main__btn__box
+            = f.submit "変更する",class: "sell-form__main__btn__box__sell"
+          .sell-form__main__btn__box
+            = link_to "キャンセル","/", class: "sell-form__main__btn__box__back"
