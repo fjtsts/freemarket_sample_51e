@@ -60,7 +60,6 @@ $(document).on('turbolinks:load',function(){
     if (fee_payer == "") {
       $("#how_to_ship--edit").css("display","none");
     } else if (fee_payer == "送料込み(出品者負担)") {
-      console.log(fee_payer)
       $("#how_to_ship--edit").css("display", "");
       $(selection).empty();
       $(selection).append(firstSelecthtml);
@@ -76,7 +75,6 @@ $(document).on('turbolinks:load',function(){
         <option value=ゆうパケット>ゆうパケット</option>'
       );
     } else if (fee_payer == "着払い(購入者負担)") {
-      console.log(fee_payer)
       $("#how_to_ship--edit").css("display", "");
       $(selection).empty();
       $(selection).append(firstSelecthtml);
