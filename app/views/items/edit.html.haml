@@ -37,7 +37,6 @@
             %h3.sell-form__main__detail__sub-head
               商品の詳細
             .sell-form__main__detail__warpper
-
               .sell-form__main__detail__warp--top
                 .sell-form__main__detail
                   = f.label "カテゴリー", class:"sell-form__main__detail__label"
@@ -85,14 +84,14 @@
                   = f.label "発送料の負担", class:"sell-form__main__delivery__label"
                   %span{class:"sell-form__main__delivery__label--require"} 必須
                 #shipping_fee.sell-form__main__delivery__select-box
-                  = f.select :shipping_fee,Item.shipping_fees.keys.to_a, {include_blank: "---" },{required:"required",id:'select_shipping_fee',class:"sell-form__main__delivery__select-box__text"}
+                  = f.select :shipping_fee,Item.shipping_fees.keys.to_a, {include_blank: "---" },{required:"required",id:'select_shipping_fee--edit',class:"sell-form__main__delivery__select-box__text"}
                   =fa_icon "angle-down sell-form__angle-down"
               #how_to_ship--edit.sell-form__main__delivery__warp--middle
                 .sell-form__main__delivery
                   = f.label "発送の方法", class:"sell-form__main__delivery__label"
                   %span{class:"sell-form__main__delivery__label--require"} 必須
                 #exhibitor_burden.sell-form__main__delivery__select-box
-                  = f.select :how_to_shipping,Item.exhibitor_burdens.keys.to_a, { include_blank: "---", selected: @item.how_to_shipping},{required:"required", class:"sell-form__main__detail__select-box__text"}
+                  = f.select :how_to_shipping,Item.exhibitor_burdens.keys.to_a, { include_blank: "---", selected: @item.how_to_shipping},{required:"required", class:"sell-form__main__detail__select-box__text", id:"how_to_shipping--edit"}
                   =fa_icon "angle-down sell-form__angle-down"
               .sell-form__main__delivery__warp--middle
                 .sell-form__main__delivery

@@ -52,4 +52,40 @@ $(document).on('turbolinks:load',function(){
       })
     };
   });
+  var firstSelecthtml = `<option value="">---</option>`;
+  var selection = $('#how_to_shipping--edit');
+  $('#select_shipping_fee--edit').change(function() {
+    var fee_payer = $('#select_shipping_fee--edit').val();
+    $(selection).append(firstSelecthtml);
+    if (fee_payer == "") {
+      $("#how_to_ship--edit").css("display","none");
+    } else if (fee_payer == "送料込み(出品者負担)") {
+      console.log(fee_payer)
+      $("#how_to_ship--edit").css("display", "");
+      $(selection).empty();
+      $(selection).append(firstSelecthtml);
+      $(selection).append(
+      ' <option value=未定>未定</option>\
+        <option value=らくらくメルカリ便>らくらくメルカリ便</option>\
+        <option value=ゆうメール>ゆうメール</option>\
+        <option value=レターパック>レターパック</option>\
+        <option value=普通郵便(定形、定形外)>普通郵便(定形、定形外)</option>\
+        <option value=クロネコヤマト>クロネコヤマト</option>\
+        <option value=ゆうパック>ゆうパック</option>\
+        <option value=クリックポスト>クリックポスト</option>\
+        <option value=ゆうパケット>ゆうパケット</option>'
+      );
+    } else if (fee_payer == "着払い(購入者負担)") {
+      console.log(fee_payer)
+      $("#how_to_ship--edit").css("display", "");
+      $(selection).empty();
+      $(selection).append(firstSelecthtml);
+      $(selection).append(
+      ' <option value=未定>未定</option>\
+        <option value=クロネコヤマト>クロネコヤマト</option>\
+        <option value=ゆうパック>ゆうパック</option>\
+        <option value=ゆうメール>ゆうメール</option>'
+      );
+    }
+  });
 })
