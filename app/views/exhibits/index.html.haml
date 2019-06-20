@@ -24,7 +24,7 @@
                         =exhibit.item.name
                         .user-container_right-content_info_content_list_detail_sellList
                           %i=fa_icon "heart",class:"icon-like"
-                          00
+                          = exhibit.item.favorite_items_count
                           %i=fa_icon "comment-alt",class:"icon-comment"
                           = exhibit.item.comments.count
                           - if exhibit.status == 1
