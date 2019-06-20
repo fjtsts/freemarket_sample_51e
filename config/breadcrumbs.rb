@@ -3,7 +3,14 @@ crumb :root do
 end
 
 
-
+crumb :brands do
+  link "ブランド一覧",brands_path
+  parent :root
+end 
+crumb :brand do |brand|
+  link"#{brand.name}",brand_path(brand.id)
+  parent :brands
+end
 # user#index
 crumb :users do 
   link "マイページ", users_path
@@ -72,13 +79,12 @@ crumb :item do |item|
   parent :root
 end
 crumb :category do |category|
-    link "#{category.name}",category_path(category.id)
+  link category.name, category_path(category.id)
     if category.parent
       parent category.parent # inferred to :category
     else
       parent :categories
     end
-
 end
 crumb :search do |search|
   link "#{$query.conditions.first.values.first.value}",search_path
@@ -90,4 +96,16 @@ end
 crumb :exhibits do
 link'出品した商品 - 出品中', exhibits_path
 parent :users
+end
+crumb :sold do
+  link "出品した商品 - 売却済み",sold_exhibits_path
+  parent :users
+end
+crumb :purchased do
+  link  "購入した商品 - 取引中",purchased_path
+  parent :users
+end
+crumb :user_edit do
+  link "プロフィール",edit_user_path(current_user)
+  parent :users
 end

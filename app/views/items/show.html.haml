@@ -53,8 +53,11 @@
             %tr
               / 一枠
               %th ブランド
-              %td
-                = link_to 'コーチ', "/"
+              -if @brand == nil
+                %td
+              -else
+                %td
+                  = link_to "#{@brand.name}", brand_path(@brand.id)
             %tr
               / 一枠
               %th 商品の状態
@@ -99,7 +102,7 @@
     - elsif @item.exhibit.status == 3
       - if user_signed_in? && @item.exhibit.user.id == current_user.id
         .itemDetail__buyBtn 商品の編集
-        %br or
+        %br 
         %br
         = link_to resale_item_path, method: :post do
           .itemDetail__buyBtn 出品を再開する
@@ -108,8 +111,7 @@
     - else
       - if user_signed_in? && @item.exhibit.user.id == current_user.id
         .itemDetail__buyBtn 商品の編集
-        %br or
-        %br
+        
         = link_to stop_item_path,class:"item_btn", method: :post do
           .itemDetail__buyBtn 出品を一旦停止する
         = link_to item_path, class:"item_btn", method: :delete, data: { confirm: '本当に削除しますか？' } do

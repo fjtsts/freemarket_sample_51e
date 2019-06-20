@@ -23,11 +23,11 @@
                 =fa_icon "tag"
                 %span ブランドから探す
               %ul.nav-drawer2
-                - Brand.all.each do |brand|
+                - Brand.all.limit(4).each do |brand|
                   %li.bl2
-                    =link_to "#{brand.name}","/"
+                    =link_to "#{brand.name}",brand_path(brand.id)
                 %li.all-brand
-                  カテゴリー一覧
+                  =link_to"ブランド一覧",brands_path
         -if user_signed_in?
           .header-inner__bottom__nav2
             %ul.nav2
