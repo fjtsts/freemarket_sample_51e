@@ -59,6 +59,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @brand = @item.brand
     @category =@item.category
     @comment = Comment.new
     @comments = @item.comments

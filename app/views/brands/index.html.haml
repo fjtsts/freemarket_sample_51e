@@ -1,29 +1,33 @@
 -breadcrumb :brands
-.category-container
-  %h2.category-container__title カテゴリー一覧
-  .category-container__parent-box
-    -@parents.each_with_index do |parent,index|
-      =link_to "#{parent.name}","#",class: "parent-link",id: "parent-link#{index}"
-  .category-container__initial-box
+.brand-container
+  %h2.brand-container__title カテゴリー一覧
+  .brand-container__parent-box
+    -@parents.each do |parent|
+      =link_to "#{parent.name}","",class: "parent-link1",id: "parent-link"
+  .brand-container__initial-box
     -@sort.each do |sort|
-      .category-container__initial-box__initial
-        =link_to"#{sort}|","/"
+      -# .brand-container__initial-box__initial
+       
+      -#   =link_to"#{sort}|","",class: "parent-link1"
 
   -@parents.each_with_index do |parent,index|
-    .category-container__list-box
-      .category-container__list-box__parent-title #{parent.name}
-      .category-container__list-box__inner-box#parent.name
-        %p.category-container__list-box__inner-box__ladies-all
-          = link_to "すべて","/"
+    
+    .brand-container__list-box
+      .brand-container__list-box__parent-title #{parent.name}
+      .brand-container__list-box__inner-box#parent.name
+        %p.brand-container__list-box__inner-box__ladies-all
+          = link_to "すべて",category_path(parent.id)
         -@sort.each do |sort|
-          .category-container__list-box__inner-box__sub-title
-            %h4 #{sort}
-            .category-container__list-box__inner-box__container
-              .category-container__list-box__inner-box__container__title
-                %p
-                  = link_to "すべて","category_path" 
+          -unless Brand.where("name LIKE?", ""+sort+"%") == []
+            .brand-container__list-box__inner-box__sub-title{id:"brand#{index}"}
+              %h4 #{sort}
+              .brand-container__list-box__inner-box__container
+                .brand-container__list-box__inner-box__container__title
+                  -unless Brand.where("name LIKE?", ""+sort+"%") == []
+                    %p
+                      = link_to "すべて",search_path(Brand.where("name LIKE?", ""+sort+"%").ids)
               -Brand.where("name LIKE?", ""+sort+"%").each do |grandchaild|
-                .category-container__list-box__inner-box__container__title
+                .brand-container__list-box__inner-box__container__title
                   %p
-                    = link_to "#{grandchaild.name}"
+                    = link_to grandchaild.name,brand_path(grandchaild.id)
 

@@ -58,33 +58,53 @@
         -if @items ==[]
           %p新着アイテム
           -@new_items.each do |item|
-            .search-container__right__wrapper__container__box
-              = link_to "",item_path(item.id) 
-              .search-container__right__wrapper__container__box__image
-                =image_tag(item.item_images[0].image.to_s,class: "images")
-              .search-container__right__wrapper__container__box__text
-                .search-container__right__wrapper__container__box__text__title #{item.name}
-                .search-container__right__wrapper__container__box__text__num
+            -if item.exhibit.status === 3
+              %p
+            -else
+              .search-container__right__wrapper__container__box
+                = link_to "",item_path(item.id) 
+                .search-container__right__wrapper__container__box__image
+                  - if item.exhibit.status === 2
+                    .itemDetail__main__photo__soldOut
+                  - elsif  item.exhibit.status === 3
+                    .itemDetail__main__photo__soldStop
+                  - else
+                  =image_tag(item.item_images[0].image.to_s,class: "images")
+                .search-container__right__wrapper__container__box__text
+                  .search-container__right__wrapper__container__box__text__title #{item.name}
+                  .search-container__right__wrapper__container__box__text__num
 
-                  %span.like-num
-                    = item.favorite_items_count
-                  =fa_icon "heart",class:"icon-like"
-                  .search-container__right__wrapper__container__box__text__num__price ¥#{item.price}
-                .search-container__right__wrapper__container__box__text__title__tax (税込)
+
+                    %span.like-num
+                      = item.favorite_items_count
+                    =fa_icon "heart",class:"icon-like"
+                    .search-container__right__wrapper__container__box__text__num__price ¥#{item.price}
+                  .search-container__right__wrapper__container__box__text__title__tax (税込)
+
         
         -else
           -@items.each do |item|
-            .search-container__right__wrapper__container__box
-              = link_to "",item_path(item.id) 
-              .search-container__right__wrapper__container__box__image
-                =image_tag(item.item_images[0].image.to_s,class: "images")
-              .search-container__right__wrapper__container__box__text
-                .search-container__right__wrapper__container__box__text__title #{item.name}
-                .search-container__right__wrapper__container__box__text__num
+            -if item.exhibit.status === 3
+              %p
+            -else
+              .search-container__right__wrapper__container__box
+                = link_to "",item_path(item.id) 
+                .search-container__right__wrapper__container__box__image
+                  - if item.exhibit.status === 2
+                    .itemDetail__main__photo__soldOut
+                  - elsif  item.exhibit.status === 3
+                    .itemDetail__main__photo__soldStop
+                  - else
 
-                  %span.like-num
-                    = item.favorite_items_count
-                  =fa_icon "heart",class:"icon-like"
-                  .search-container__right__wrapper__container__box__text__num__price ¥#{item.price}
-                .search-container__right__wrapper__container__box__text__title__tax (税込)
+                  =image_tag(item.item_images[0].image.to_s,class: "images")
+                .search-container__right__wrapper__container__box__text
+                  .search-container__right__wrapper__container__box__text__title #{item.name}
+                  .search-container__right__wrapper__container__box__text__num
+
+                    %span.like-num
+                      = item.favorite_items_count
+                    =fa_icon "heart",class:"icon-like"
+                    .search-container__right__wrapper__container__box__text__num__price ¥#{item.price}
+                  .search-container__right__wrapper__container__box__text__title__tax (税込)
           
+

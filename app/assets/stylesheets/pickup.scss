@@ -37,6 +37,7 @@
         height:330px;
         display:flex;
         &__box{
+            position:relative;
             a{
                 display:inline-block;
                 width:213px;
@@ -53,6 +54,7 @@
                 .images{
                     height:100%;
                     width:100%;
+                    object-fit:cover;
                 }
             }
             &__text{
