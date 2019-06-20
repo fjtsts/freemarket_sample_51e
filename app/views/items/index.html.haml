@@ -22,72 +22,104 @@
     =link_to "レディース新着アイテム",category_path(Category.first.id)
   .pickup-container__item-boxs
     -@ladies.each do |lady|
-      .pickup-container__item-boxs__box
-        = link_to "",item_path(lady.id) 
-        .pickup-container__item-boxs__box__image
-          =image_tag(lady.item_images[0].image.to_s,class: "images")
-        .pickup-container__item-boxs__box__text
-          .pickup-container__item-boxs__box__text__title #{lady.name}
-          .pickup-container__item-boxs__box__text__num
+      -if lady.exhibit.status === 3
+        %p
+      -else
+        .pickup-container__item-boxs__box
+          = link_to "",item_path(lady.id) 
+          .pickup-container__item-boxs__box__image
+            - if lady.exhibit.status === 2
+              .itemDetail__main__photo__soldOut
+            - elsif  lady.exhibit.status === 3
+              .itemDetail__main__photo__soldStop
+            - else
+            =image_tag(lady.item_images[0].image.to_s,class: "images")
+          .pickup-container__item-boxs__box__text
+            .pickup-container__item-boxs__box__text__title #{lady.name}
+            .pickup-container__item-boxs__box__text__num
 
-            %span.like-num 15
-            =fa_icon "heart",class:"icon-like"
-            .pickup-container__item-boxs__box__text__num__price ¥#{lady.price}
-          .pickup-container__item-boxs__box__text__title__tax (税込)
+              %span.like-num 15
+              =fa_icon "heart",class:"icon-like"
+              .pickup-container__item-boxs__box__text__num__price ¥#{lady.price}
+            .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
     =link_to "すべての商品をみる",category_path(Category.first.id)
   %h3
     =link_to "メンズ新着アイテム",category_path(Category.second.id)
   .pickup-container__item-boxs
     -@mens.each do |men|
-      .pickup-container__item-boxs__box
-        = link_to "",item_path(men.id)
-        .pickup-container__item-boxs__box__image
-          =image_tag(men.item_images[0].image.to_s,class: "images")
-        .pickup-container__item-boxs__box__text
-          .pickup-container__item-boxs__box__text__title #{men.name}
-          .pickup-container__item-boxs__box__text__num
+      -if men.exhibit.status === 3
+        %p
+      -else
+        .pickup-container__item-boxs__box
+          = link_to "",item_path(men.id)
+          .pickup-container__item-boxs__box__image
+            - if men.exhibit.status === 2
+              .itemDetail__main__photo__soldOut
+            - elsif  men.exhibit.status === 3
+              .itemDetail__main__photo__soldStop
+            - else
+            =image_tag(men.item_images[0].image.to_s,class: "images")
+          .pickup-container__item-boxs__box__text
+            .pickup-container__item-boxs__box__text__title #{men.name}
+            .pickup-container__item-boxs__box__text__num
 
-            %span.like-num 15
-            =fa_icon "heart",class:"icon-like"
-            .pickup-container__item-boxs__box__text__num__price ¥#{men.price}
-          .pickup-container__item-boxs__box__text__title__tax (税込)
+              %span.like-num 15
+              =fa_icon "heart",class:"icon-like"
+              .pickup-container__item-boxs__box__text__num__price ¥#{men.price}
+            .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
     =link_to "すべての商品をみる",category_path(Category.second.id)
   %h3
     =link_to "ベビー・キッズ新着アイテム",category_path(Category.third.id)
   .pickup-container__item-boxs
-    -@baby.each do |item|
-      .pickup-container__item-boxs__box
-        = link_to "",item_path(item.id)
-        .pickup-container__item-boxs__box__image
-          =image_tag(item.item_images[0].image.to_s,class: "images")
-        .pickup-container__item-boxs__box__text
-          .pickup-container__item-boxs__box__text__title #{item.name}
-          .pickup-container__item-boxs__box__text__num
+    -@baby.each do |baby|
+      -if baby.exhibit.status === 3
+        %p
+      -else
+        .pickup-container__item-boxs__box
+          = link_to "",item_path(baby.id)
+          .pickup-container__item-boxs__box__image
+            - if baby.exhibit.status === 2
+              .itemDetail__main__photo__soldOut
+            - elsif  baby.exhibit.status === 3
+              .itemDetail__main__photo__soldStop
+            - else
+            =image_tag(baby.item_images[0].image.to_s,class: "images")
+          .pickup-container__item-boxs__box__text
+            .pickup-container__item-boxs__box__text__title #{baby.name}
+            .pickup-container__item-boxs__box__text__num
 
-            %span.like-num 15
-            =fa_icon "heart",class:"icon-like"
-            .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
-          .pickup-container__item-boxs__box__text__title__tax (税込)
+              %span.like-num 15
+              =fa_icon "heart",class:"icon-like"
+              .pickup-container__item-boxs__box__text__num__price ¥#{baby.price}
+            .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
     =link_to "すべての商品をみる",category_path(Category.third.id)
   %h3
     =link_to "インテリア・住まい・小物新着アイテム",category_path(Category.fourth.id)
   .pickup-container__item-boxs
-    -@interior.each do |item|
-      .pickup-container__item-boxs__box
-        = link_to "",item_path(item.id)
-        .pickup-container__item-boxs__box__image
-          =image_tag(item.item_images[0].image.to_s,class: "images")
-        .pickup-container__item-boxs__box__text
-          .pickup-container__item-boxs__box__text__title #{item.name}
-          .pickup-container__item-boxs__box__text__num
+    -@interior.each do |interior|
+      -if interior.exhibit.status === 3
+        %p
+      -else
+        .pickup-container__item-boxs__box
+          = link_to "",item_path(interior.id)
+          .pickup-container__item-boxs__box__image
+            - if interior.exhibit.status === 2
+              .itemDetail__main__photo__soldOut
+            - elsif  interior.exhibit.status === 3
+              .itemDetail__main__photo__soldStop
+            - else
+            =image_tag(interior.item_images[0].image.to_s,class: "images")
+          .pickup-container__item-boxs__box__text
+            .pickup-container__item-boxs__box__text__title #{interior.name}
+            .pickup-container__item-boxs__box__text__num
 
-            %span.like-num 15
-            =fa_icon "heart",class:"icon-like"
-            .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
-          .pickup-container__item-boxs__box__text__title__tax (税込)
+              %span.like-num 15
+              =fa_icon "heart",class:"icon-like"
+              .pickup-container__item-boxs__box__text__num__price ¥#{interior.price}
+            .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
     =link_to "すべての商品をみる",category_path(Category.fourth.id)
   %h2 ピックアップブランド
@@ -95,72 +127,104 @@
     =link_to "シャネル新着アイテム",brand_path(Brand.first.id)
   .pickup-container__item-boxs
     -@chanel.each do |item|
-      .pickup-container__item-boxs__box
-        = link_to "",item_path(item.id)
-        .pickup-container__item-boxs__box__image
-          =image_tag(item.item_images[0].image.to_s,class: "images")
-        .pickup-container__item-boxs__box__text
-          .pickup-container__item-boxs__box__text__title #{item.name}
-          .pickup-container__item-boxs__box__text__num
+      -if item.exhibit.status === 3
+        %p
+      -else
+        .pickup-container__item-boxs__box
+          = link_to "",item_path(item.id)
+          .pickup-container__item-boxs__box__image
+            - if item.exhibit.status === 2
+              .itemDetail__main__photo__soldOut
+            - elsif  item.exhibit.status === 3
+              .itemDetail__main__photo__soldStop
+            - else
+            =image_tag(item.item_images[0].image.to_s,class: "images")
+          .pickup-container__item-boxs__box__text
+            .pickup-container__item-boxs__box__text__title #{item.name}
+            .pickup-container__item-boxs__box__text__num
 
-            %span.like-num 15
-            =fa_icon "heart",class:"icon-like"
-            .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
-          .pickup-container__item-boxs__box__text__title__tax (税込)
+              %span.like-num 15
+              =fa_icon "heart",class:"icon-like"
+              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+            .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
     =link_to "すべての商品をみる",brand_path(Brand.first.id)
   %h3
     =link_to "ルイヴィトン新着アイテム",brand_path(Brand.second.id)
   .pickup-container__item-boxs
     -@vuitton.each do |item|
-      .pickup-container__item-boxs__box
-        = link_to "",item_path(item.id)
-        .pickup-container__item-boxs__box__image
-          =image_tag(item.item_images[0].image.to_s,class: "images")
-        .pickup-container__item-boxs__box__text
-          .pickup-container__item-boxs__box__text__title #{item.name}
-          .pickup-container__item-boxs__box__text__num
+      -if item.exhibit.status === 3
+        %p
+      -else
+        .pickup-container__item-boxs__box
+          = link_to "",item_path(item.id)
+          .pickup-container__item-boxs__box__image
+            - if item.exhibit.status === 2
+              .itemDetail__main__photo__soldOut
+            - elsif  item.exhibit.status === 3
+              .itemDetail__main__photo__soldStop
+            - else
+            =image_tag(item.item_images[0].image.to_s,class: "images")
+          .pickup-container__item-boxs__box__text
+            .pickup-container__item-boxs__box__text__title #{item.name}
+            .pickup-container__item-boxs__box__text__num
 
-            %span.like-num 15
-            =fa_icon "heart",class:"icon-like"
-            .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
-          .pickup-container__item-boxs__box__text__title__tax (税込)
+              %span.like-num 15
+              =fa_icon "heart",class:"icon-like"
+              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+            .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
     =link_to "すべての商品をみる",brand_path(Brand.second.id)
   %h3
     =link_to "シュプリーム新着アイテム",brand_path(Brand.third.id)
   .pickup-container__item-boxs
     -@supreme.each do |item|
-      .pickup-container__item-boxs__box
-        = link_to "",item_path(item.id)
-        .pickup-container__item-boxs__box__image
-          =image_tag(item.item_images[0].image.to_s,class: "images")
-        .pickup-container__item-boxs__box__text
-          .pickup-container__item-boxs__box__text__title #{item.name}
-          .pickup-container__item-boxs__box__text__num
+      -if item.exhibit.status === 3
+        %p
+      -else
+        .pickup-container__item-boxs__box
+          - if item.exhibit.status === 2
+            .itemDetail__main__photo__soldOut
+          - elsif  item.exhibit.status === 3
+            .itemDetail__main__photo__soldStop
+          - else
+          = link_to "",item_path(item.id)
+          .pickup-container__item-boxs__box__image
+            =image_tag(item.item_images[0].image.to_s,class: "images")
+          .pickup-container__item-boxs__box__text
+            .pickup-container__item-boxs__box__text__title #{item.name}
+            .pickup-container__item-boxs__box__text__num
 
-            %span.like-num 15
-            =fa_icon "heart",class:"icon-like"
-            .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
-          .pickup-container__item-boxs__box__text__title__tax (税込)
+              %span.like-num 15
+              =fa_icon "heart",class:"icon-like"
+              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+            .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
     =link_to "すべての商品をみる",brand_path(Brand.third.id)
   %h3
     =link_to "ナイキ新着アイテム",brand_path(Brand.fourth.id)
   .pickup-container__item-boxs
     -@nike.each do |item|
-      .pickup-container__item-boxs__box
-        = link_to "",item_path(item.id)
-        .pickup-container__item-boxs__box__image
-          =image_tag(item.item_images[0].image.to_s,class: "images")
-        .pickup-container__item-boxs__box__text
-          .pickup-container__item-boxs__box__text__title #{item.name}
-          .pickup-container__item-boxs__box__text__num
+      -if item.exhibit.status === 3
+        %p
+      -else
+        .pickup-container__item-boxs__box
+          = link_to "",item_path(item.id)
+          .pickup-container__item-boxs__box__image
+            - if item.exhibit.status === 2
+              .itemDetail__main__photo__soldOut
+            - elsif  item.exhibit.status === 3
+              .itemDetail__main__photo__soldStop
+            - else
+            =image_tag(item.item_images[0].image.to_s,class: "images")
+          .pickup-container__item-boxs__box__text
+            .pickup-container__item-boxs__box__text__title #{item.name}
+            .pickup-container__item-boxs__box__text__num
 
-            %span.like-num 15
-            =fa_icon "heart",class:"icon-like"
-            .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
-          .pickup-container__item-boxs__box__text__title__tax (税込)
+              %span.like-num 15
+              =fa_icon "heart",class:"icon-like"
+              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+            .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
     =link_to "すべての商品をみる",brand_path(Brand.fourth.id)
 = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"

@@ -2,7 +2,7 @@ $(function (){
   var url   = location.href;
   
     
-    if(url == "http://localhost:3000/"){
+    if(url == "http://localhost:3000/" || url =="http://3.113.56.233/"){
       var swiper;
       $(document).on('turbolinks:load', function() {
         swiper = new Swiper('.swiper-container',{
