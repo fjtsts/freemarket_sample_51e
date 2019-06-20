@@ -9,6 +9,8 @@ $(document).on('turbolinks:load',function(){
     if (parent_id == "" || parent_id == "---") {
       $('#category_children--edit').css("display" , "none");
       $('#category_grandchildren--edit').css("display" , "none");
+      $('#form-wrap-size--edit').css("display" , "none");
+      $('#form-wrap-brand--edit').css("display" , "none");
     } else {
       $.ajax({
         type:    'GET',
@@ -50,6 +52,16 @@ $(document).on('turbolinks:load',function(){
         });
         $('#category_grandchildren--edit').css("display" , "");
       })
+    };
+  });
+  $("#category_children--edit").change(function(){
+    var children_id = $("#select_children--edit").val();
+    if (children_id == "" || children_id == "---") {
+      $('#form-wrap-size--edit').css("display" , "none");
+      $('#form-wrap-brand--edit').css("display" , "none");
+    } else {
+      $('#form-wrap-size--edit').css("display" , "");
+      $('#form-wrap-brand--edit').css("display" , "");
     };
   });
   var firstSelecthtml = `<option value="">---</option>`;
