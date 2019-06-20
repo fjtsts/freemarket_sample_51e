@@ -46,11 +46,12 @@ class ItemsController < ApplicationController
   end
 
   def update
+    brand_id　= nil
     if params[:item][:brands][:name].present?
       brand = Brand.find_by(name: params[:item][:brands][:name])
       brand_id = brand.present? ? brand.id : Brand.create(name: params[:item][:brands][:name]).id
-      @item[:brand_id] = brand_id
     end
+    @item[:brand_id] = brand_id
     if @item.update(item_parameter)
       redirect_to item_path(@item)
     else
