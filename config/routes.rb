@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         post 'pay', to: 'purchases#pay'
       end
     end
-    resources :reviews, only: [:create, :new]
+    resources :reviews, only: [:create, :new, :show]
   end
   resources :user_profiles, only: [:new, :create, :edit]
   resources :addresses, only: [:new, :create, :edit, :show, :update]

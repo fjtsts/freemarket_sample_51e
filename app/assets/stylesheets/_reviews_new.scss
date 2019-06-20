@@ -1,3 +1,23 @@
+.review_content_title {
+  height: 74px;
+  background-color: #eee;
+  ul {
+    font-size: 0;
+    li {
+      display: inline-block;
+      line-height: 74px;
+      font-weight: bold;
+      width: 25%;
+      font-size: 16px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}
+.user-details_info_review_icon_size_reviewpage{
+  font-size: 16px;
+}
+
 .review-user-form__main__data {
   padding:16px;
   font-size: 22px;

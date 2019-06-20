@@ -23,6 +23,9 @@ class ReviewsController < ApplicationController
     render layout: 'form-layout'
   end
 
+  def show
+  end
+
   private
 
   def review_params
