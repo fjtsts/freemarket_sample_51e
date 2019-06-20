@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
     if @item.update(item_parameter)
       redirect_to item_path(@item)
     else
-      render :index
+      render :edit
     end
   end
 
