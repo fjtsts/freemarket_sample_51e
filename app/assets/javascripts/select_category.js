@@ -39,7 +39,7 @@ $(document).on('turbolinks:load',function(){
   // children->grandchildren
   $("#category_children").change(function(){
     var children_id = $("#select_children").val();
-    if (children_id == "---") {
+    if (children_id == "" || children_id == "---") {
       $('#category_grandchildren').css("display" , "none");
     } else {
       $.ajax({
@@ -63,7 +63,7 @@ $(document).on('turbolinks:load',function(){
 // size.brand
   $("#category_children").change(function(){
     var children_id = $("#select_grandchildren").val();
-    if (children_id == "---") {
+    if (children_id == "" || children_id == "---") {
       $('#form-wrap-size').css("display" , "none");
       $('#form-wrap-brand').css("display" , "none");
     } else {
