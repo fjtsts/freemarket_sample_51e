@@ -42,16 +42,15 @@
       - @exhibits.each do |exhibit|
         .user-details_items_content_box
           = link_to item_path(exhibit.item.id) do
-            - if exhibit.status == 3
-            - else
+            - unless exhibit.status == 3
               %section
                 - if exhibit.status == 1
                   %p
                     =image_tag("#{exhibit.item.item_images[0].image}", id: "photoMain",alt: "#{exhibit.item.name}", width: "200px", height: "240px")
                 - else
                   %p
-                    =image_tag("#{exhibit.item.item_images[0].image}", id: "photoMain",alt: "#{exhibit.item.name}")
-                    %br SOLD OUT
+                    .itemDetail__main__photo__soldOut
+                    =image_tag("#{exhibit.item.item_images[0].image}", id: "photoMain",alt: "#{exhibit.item.name}", width: "200px", height: "240px")
                 %p
                   = exhibit.item.name
                 %p
