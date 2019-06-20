@@ -50,7 +50,7 @@
                     =image_tag("#{exhibit.item.item_images[0].image}", id: "photoMain",alt: "#{exhibit.item.name}", width: "200px", height: "240px")
                 - else
                   %p
-                    =image_tag("#{exhibit.item.item_images[0].image}", id: "photoMain",alt: "#{exhibit.item.name}")
+                    =image_tag("#{exhibit.item.item_images[0].image}", id: "photoMain",alt: "#{exhibit.item.name}", width: "200px", height: "240px")
                     %br SOLD OUT
                 %p
                   = exhibit.item.name
