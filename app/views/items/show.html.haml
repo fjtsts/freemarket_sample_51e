@@ -1,5 +1,5 @@
 - breadcrumb :item,@item
-.itamDetail_space
+.itemDetail__space
 .itemDetail
   %h1.itemDetail__title
     = @item.name
@@ -11,9 +11,8 @@
         - elsif  @item.exhibit.status === 3
           .itemDetail__main__photo__soldStop
         - else
-        #photoMainBox.photoMainBox
-          =image_tag("#{@item.item_images[0].image}", id: "photoMain", "data-url": "#{@item.item_images[0].image}" ,alt: "bag1")
-      #photoSubBox.itemDetail__main__photo__bottomBox
+        =image_tag("#{@item.item_images[0].image}", id: "photoMain", "data-url": "#{@item.item_images[0].image}" ,alt: "bag1")
+      .itemDetail__main__photo__bottomBox
         - @item.item_images.each do |image|
           .itemDetail__main__photo__bottomBox__bottom
             =image_tag("#{image.image}", class: "photosub", id: "photoSub","data-url": "#{image.image}",alt: "#{@item.name}")
@@ -95,31 +94,30 @@
       %span.itemDetail__price__tax (税込)
       %span.itemDetail__price__shippingFee
         -# 送料込み
-        -if @item.shipping_fee == "着払い(購入者負担)"
-          着払い
-        -else
+        -if @item.shipping_fee == "送料込み(出品者負担)"
           送料込み
+        -else
+          着払い
     - if @item.exhibit.status == 2
-      .itemDetail__buyBtn 売り切れました
+      .itemDetail__buyBtn__sold 売り切れました
     - elsif @item.exhibit.status == 3
       - if user_signed_in? && @item.exhibit.user.id == current_user.id
-        = link_to edit_item_path(current_user) do
-          .itemDetail__buyBtn 商品の編集
-        %br
-        %br
+        .itemDetail__editBtn__edit 商品の編集
+        %p.itemDetail__or or
         = link_to resale_item_path, method: :post do
-          .itemDetail__buyBtn 出品を再開する
+          .itemDetail__editBtn 出品を再開する
         = link_to item_path, method: :delete, data: { confirm: '本当に削除しますか？' } do
-          .itemDetail__buyBtn この商品を削除する
+          .itemDetail__deleteBtn この商品を削除する
     - else
       - if user_signed_in? && @item.exhibit.user.id == current_user.id
+
         = link_to edit_item_path(@item.id) do
-          .itemDetail__buyBtn 商品の編集
-        
+          .itemDetail__editBtn__edit 商品の編集
+        #p.itemDetail__or or
         = link_to stop_item_path,class:"item_btn", method: :post do
-          .itemDetail__buyBtn 出品を一旦停止する
+          .itemDetail__editBtn 出品を一旦停止する
         = link_to item_path, class:"item_btn", method: :delete, data: { confirm: '本当に削除しますか？' } do
-          .itemDetail__buyBtn この商品を削除する
+          .itemDetail__deleteBtn この商品を削除する
       - else
         =link_to "購入画面に進む" , item_purchases_path(@item) ,class: "itemDetail__buyBtn"
     .itemDetail__description
@@ -136,6 +134,7 @@
         = link_to 'show' do
           =fa_icon "flag",class:"itemDetail__icon__clock"
           あんしん・あんぜんへの取り組み
+  .itemComment__space
   .itemComment-itemPostBox
     .itemComment
       .itemComment__content
@@ -191,5 +190,4 @@
         - else
           =button_tag type: "submit" , class: "itemPostComment__form__btn" do
             %span コメントする
-.itamDetail_space
-            
+.itemDetail__space

@@ -59,11 +59,11 @@
 }
 
 .itemDetail {
-  padding: 24px 40px 40px;
+  padding: 24px 0 40px;
   background:#fff;
   margin: 0 auto;
-  /* width:700px; */
-  width:620px;
+  width:700px;
+  // width:620px;
 }
 
 .itemDetail__title {
@@ -77,6 +77,7 @@
 /* ここから写真と説明 */
 .itemDetail__main {
   margin:16px 0 10px;
+  padding: 0 40px;
   a {
     text-decoration: none;
     }
@@ -208,9 +209,9 @@
     position: absolute;
     left: 0;
     display: block;
-    top: 24px;
+    top: 35px;
     transform: rotate(-45deg);
-    font-size: 28px;
+    font-size: 20px;
     color: #fff;
     z-index: 101;
   }
@@ -298,7 +299,7 @@
 }
 
 //  売り切れの場合 
-.itemDetail__buyBtn {
+.itemDetail__buyBtn__sold {
   background: #888;
   cursor: not-allowed;
   height: 60px;
@@ -311,7 +312,14 @@
   font-size: 23px;
   text-decoration: none;
   cursor: not-allowed;
+}
 
+.itemDetail__or {
+  margin: 16px 0 0;
+  height: 20px;
+  line-height: 20px;
+  display: block;
+  text-align: center;
 }
 
 .itemDetail__buyBtn {
@@ -326,6 +334,51 @@
   font-size: 23px;
   cursor: pointer;
 }
+
+.itemDetail__editBtn {
+  background: #ea352d;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  margin: 16px 0 0;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.itemDetail__editBtn__edit {
+  background: #ea352d;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  margin: 16px 0 0;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition:all 0.7s;
+
+  &:hover{
+    opacity: 0.6;
+  }
+}
+
+.itemDetail__deleteBtn {
+  background: #aaa;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  margin: 16px 0 0;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 .item_btn {
   text-decoration: none;
 }
@@ -407,6 +460,18 @@
     color: #0099e8;
   }
 
+}
+
+.itemDetail__space{
+  width: 100%;
+  height: 40px;
+  background: #f5f5f5;
+}
+
+.itemComment__space {
+  width: 100%;
+  height: 8px;
+  background: #f5f5f5;
 }
 
 /* ここからコメント表示と入力欄 */
@@ -698,7 +763,7 @@
 
 .itemPostComment__form__text {
   display: block;
-  width: 550px;
+  width: 629px;
   max-width: 100%;
   min-height: 104px;
   padding: 10px;
@@ -707,6 +772,7 @@
   font-size: 16px;
   line-height: 1.5;
   margin: 8px 0 0;
+  outline: none;
 }
 
 .itemPostComment__form__btn {
@@ -719,6 +785,7 @@
   display: block;
   line-height: 48px;
   font-size: 14px;
+  outline: 0;
 }
 
 
