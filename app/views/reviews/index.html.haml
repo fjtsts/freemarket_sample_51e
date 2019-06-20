@@ -6,12 +6,19 @@
       .user-container_right-content_info
         .user-container_right-content_info_content
           .user-container_right-content_info_content
-            .user-container_right-content_info_content_title
+            .review_content_title
               %ul
                 %li{class: "active"}
-                  全て
+                  すべて
                 %li
-                  出品中
+                  %i.fa.fa-laugh{class: "user-details_info_review_icon_size_reviewpage good-icon"}
+                  良い
+                %li
+                  %i.fa.fa-meh{class: "user-details_info_review_icon_size_reviewpage normal-icon"}
+                  普通
+                %li
+                  %i.fa.fa-tired{class: "user-details_info_review_icon_size_reviewpage bad-icon"}
+                  悪い
             .user-container_right-content_info_content_list
               %ul
                 - @reviews.each do |review|
@@ -19,11 +26,11 @@
                     = link_to user_path(review.user.id) do
                       .user-container_right-content_info_content_list_icon
                         - if review.status == 1
-                          %p good
+                          %i.fa.fa-laugh{class: "user-details_info_review_icon_size_reviewpage good-icon"}
                         - elsif review.status == 2
-                          %p normal
+                          %i.fa.fa-meh{class: "user-details_info_review_icon_size_reviewpage normal-icon"}
                         - else
-                          %p bad
+                          %i.fa.fa-tired{class: "user-details_info_review_icon_size_reviewpage bad-icon"}
                         -# %img{alt: "メルカリ", height: "48px", width: "48px", src: "#{exhibit.item.item_images[0].image}"}
                       .user-container_right-content_info_content_list_detail
                         購入者
@@ -35,24 +42,15 @@
                           = review.created_at.strftime("%Y年%-m月%d日 %H:%M")
                       .user-container_right-content_info_content_list_next
                         =fa_icon "angle-right"
-
-                %li{class: "user-container_right-content_info_content_list_go"}
-                  %a{ href: '#'}
-                    一覧を見る
+                - if @sold_exhibits.empty?
+                  .user-container_right-content_items_list
+                    .user-container_right-content_items_list_none
+                      %img{alt: "メルカリ", height: "120px", width: "120px", src: "http://static.mercdn.net/images/mercari_profile.png", class: "user-container_right-content_items_list_none_image"}
+                      %br
+                      評価はまだありません。
+                  %li{class: "user-container_right-content_info_content_list_go"}
+                    %a{ href: '#'}
+                      一覧を見る
             -# .user-container_right-content_info_content_info
             -#   %a{ href: 'http://google.co.jp'}
             -#     一覧を見る
-      .user-container_right-content_items
-        .user-container_right-content_items_head
-          購入した商品
-        .user-container_right-content_items_title
-          %ul
-            %li{class: "active"}
-              取引中
-            %li
-              過去の取引
-        .user-container_right-content_items_list
-          .user-container_right-content_items_list_none
-            %img{alt: "メルカリ", height: "120px", width: "120px", src: "http://static.mercdn.net/images/mercari_profile.png", class: "user-container_right-content_items_list_none_image"}
-            %br
-            取引中の商品はありません。
