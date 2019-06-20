@@ -43,6 +43,11 @@
   }
 }
 
+.itamDetail_space {
+  padding:20px 0;
+  width: 100%;
+}
+
 .clearBoth {
   clear: both;
 }
@@ -56,7 +61,7 @@
 .itemDetail {
   padding: 24px 40px 40px;
   background:#fff;
-  margin: 40px auto 0;
+  margin: 0 auto;
   /* width:700px; */
   width:620px;
 }
@@ -72,6 +77,9 @@
 /* ここから写真と説明 */
 .itemDetail__main {
   margin:16px 0 10px;
+  a {
+    text-decoration: none;
+    }
 }
 
 .itemDetail__main__photo {
@@ -86,8 +94,8 @@
     width: 300px;
     height: 300px;
     img {
-      width: 100%;
-      height: 100%;
+      width: 300px;
+      height: 300px;
       object-fit: scale-down;
     }
   }
@@ -108,6 +116,12 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        opacity: 0.5;
+        transition:all 0.3s;
+
+      &:hover {
+        opacity: 1.0;
+      }
       }
     }
   }
@@ -140,6 +154,35 @@
     top: 24px;
     transform: rotate(-45deg);
     font-size: 28px;
+    color: #fff;
+    z-index: 101;
+  }
+}
+
+/* 売り切れマーク(いいね一覧) */
+.itemDetail__main__photo__soldOut-mini {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  
+  &::before {
+    content: "";
+    top: 0;
+    left: 0;
+    border-bottom: 40px solid transparent;
+    border-left: 40px solid $red;
+    position: absolute;
+    z-index: 100;
+  }
+
+  &::after {
+    content: "SOLD";
+    position: absolute;
+    left: 0;
+    display: block;
+    top: 10px;
+    transform: rotate(-45deg);
+    font-size: 12px;
     color: #fff;
     z-index: 101;
   }
@@ -254,8 +297,8 @@
   font-size: 18px;
 }
 
-/* 売り切れの場合 */
-/* .itemDetail__buyBtn {
+//  売り切れの場合 
+.itemDetail__buyBtn {
   background: #888;
   cursor: not-allowed;
   height: 60px;
@@ -268,7 +311,8 @@
   font-size: 23px;
   text-decoration: none;
   cursor: not-allowed;
-} */
+
+}
 
 .itemDetail__buyBtn {
   background: #ea352d;
@@ -311,7 +355,6 @@
           }
         a {
           color: red;
-          text-decoration: none;
         }
       }
       
@@ -328,7 +371,6 @@
           }
         a {
           color: #333;
-          text-decoration: none;
         }
       }
     }

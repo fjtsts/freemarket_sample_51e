@@ -24,8 +24,10 @@
                 .category-items-container__wrapper__box__list__box__text__title #{item.name}
                 .category-items-container__wrapper__box__list__box__text__num
 
-                  %span.like-num 15
+                  %span.like-num
+                    = item.favorite_items_count
                   =fa_icon "heart",class:"icon-like"
                   .category-items-container__wrapper__box__list__box__text__num__price ¥#{item.price}
                 .category-items-container__wrapper__box__list__box__text__title__tax (税込)
           = paginate @items
+

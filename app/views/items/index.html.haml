@@ -38,7 +38,8 @@
             .pickup-container__item-boxs__box__text__title #{lady.name}
             .pickup-container__item-boxs__box__text__num
 
-              %span.like-num 15
+              %span.like-num
+                = lady.favorite_items_count
               =fa_icon "heart",class:"icon-like"
               .pickup-container__item-boxs__box__text__num__price ¥#{lady.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
@@ -64,7 +65,9 @@
             .pickup-container__item-boxs__box__text__title #{men.name}
             .pickup-container__item-boxs__box__text__num
 
-              %span.like-num 15
+
+              %span.like-num
+                = men.favorite_items_count
               =fa_icon "heart",class:"icon-like"
               .pickup-container__item-boxs__box__text__num__price ¥#{men.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
@@ -89,11 +92,12 @@
           .pickup-container__item-boxs__box__text
             .pickup-container__item-boxs__box__text__title #{baby.name}
             .pickup-container__item-boxs__box__text__num
-
-              %span.like-num 15
+              %span.like-num
+                = item.favorite_items_count
               =fa_icon "heart",class:"icon-like"
-              .pickup-container__item-boxs__box__text__num__price ¥#{baby.price}
+              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
+
   .view-all.clearfix
     =link_to "すべての商品をみる",category_path(Category.third.id)
   %h3
@@ -116,9 +120,11 @@
             .pickup-container__item-boxs__box__text__title #{interior.name}
             .pickup-container__item-boxs__box__text__num
 
-              %span.like-num 15
+
+              %span.like-num
+                = item.favorite_items_count
               =fa_icon "heart",class:"icon-like"
-              .pickup-container__item-boxs__box__text__num__price ¥#{interior.price}
+              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
     =link_to "すべての商品をみる",category_path(Category.fourth.id)
@@ -143,7 +149,9 @@
             .pickup-container__item-boxs__box__text__title #{item.name}
             .pickup-container__item-boxs__box__text__num
 
-              %span.like-num 15
+
+              %span.like-num
+                = item.favorite_items_count
               =fa_icon "heart",class:"icon-like"
               .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
@@ -169,10 +177,13 @@
             .pickup-container__item-boxs__box__text__title #{item.name}
             .pickup-container__item-boxs__box__text__num
 
-              %span.like-num 15
+
+              %span.like-num
+                = item.favorite_items_count
               =fa_icon "heart",class:"icon-like"
               .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
+
   .view-all.clearfix
     =link_to "すべての商品をみる",brand_path(Brand.second.id)
   %h3
@@ -195,10 +206,13 @@
             .pickup-container__item-boxs__box__text__title #{item.name}
             .pickup-container__item-boxs__box__text__num
 
-              %span.like-num 15
+
+              %span.like-num
+                = item.favorite_items_count
               =fa_icon "heart",class:"icon-like"
               .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
+
   .view-all.clearfix
     =link_to "すべての商品をみる",brand_path(Brand.third.id)
   %h3
@@ -221,7 +235,8 @@
             .pickup-container__item-boxs__box__text__title #{item.name}
             .pickup-container__item-boxs__box__text__num
 
-              %span.like-num 15
+              %span.like-num
+                = item.favorite_items_count
               =fa_icon "heart",class:"icon-like"
               .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)

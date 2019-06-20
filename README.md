@@ -5,16 +5,15 @@
 |mail|string|null: false, unique: true|
 |password|string|null: false|
 ### Association
-- has_many :reviews
-- has_many :exhibits, dependent: :destroy
-- has_many :purchases, dependent: :destroy
-- has_many :comments
-- has_many :favorite_items, dependent: :destroy
 - has_one :user_profile, dependent: :destroy
 - has_one :address, dependent: :destroy
+- has_one :card, dependent: :destroy
+- has_many :exhibits, dependent: :destroy
+- has_many :purchases, dependent: :destroy
 - has_many :reviews
+- has_many :favorite_items, dependent: :destroy
 
-## user_profiles
+## user_profiles table
 |Column|Type|Options|
 |------|----|-------|
 |last_name|string|null: false|
@@ -48,7 +47,35 @@
 ### Association
 - belongs_to :user
 
-## review table
+## cards table
+|Column|Type|Options|
+|------|----|-------|
+|user_id|reference|null: false, references:user, foregin_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+### Association
+- belongs_to :user
+
+## exhibits table
+|Column|Type|Options|
+|------|----|-------|
+|status|string|null: false|
+|user_id|reference|null: false, references:user, foregin_key: true|
+|item_id|reference|null: false, references:item, foregin_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item
+
+## purchases table
+|Column|Type|Options|
+|------|----|-------|
+|user_id|reference|null: false, references:user, foregin_key: true|
+|item_id|reference|null: false, references:item, foregin_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item
+
+## reviews table
 |Column|Type|Options|
 |------|----|-------|
 |status|string|null: false|
@@ -56,6 +83,16 @@
 |user_id|reference|null: false,foregin_key: true|
 ### Association
 - belongs_to :user
+- belongs_to :item
+
+## favorite_items table
+|Column|Type|Options|
+|------|----|-------|
+|item_id|reference|null: false,foregin_key: true|
+|user_id|reference|null: false,foregin_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item
 
 ## items
 |Column|Type|Options|
@@ -64,18 +101,24 @@
 |description|text|null: false|
 |status|enum|null: false|
 |shipping_fee|string|null: false|
-|area|string|null: false|
-|day|date|null: false|
-|price|int|null: false|
+|how_to_shipping|string|null: false|
+|day|integer|null: false|
+|price|integer|null: false|
+|brand_id|reference|null: false|
+|category_id|reference|null: false|
+|prefecture_id|integer|null: false|
+|size_id|integer|null: false|
+|favorite_items_count|integer|null: false|
 ### Association
-- has_many :item_images
-- has_many :item_categories
-- has_many :categories, through: :item_categories
-- has_many :exhibits, dependent: :destroy
-- has_many :purchases
-- has_many :comments, dependent: :destroy
-- has_many :favorite_items, dependent: :destroy
-- has_many :reviews
+- has_many    :item_images, dependent: :delete_all
+- belongs_to  :category,optional: true
+- belongs_to  :brand,optional: true
+- has_one     :exhibit, dependent: :destroy
+- has_many    :comments, dependent: :destroy
+- has_one     :purchases
+- belongs_to  :size
+- has_one     :review
+- has_many    :favorite_items, dependent: :destroy
 
 ## item_images
 |Column|Type|Options|
@@ -85,59 +128,28 @@
 ### Association
 - belongs_to :item
 
-## item_categories
-|Column|Type|Options|
-|------|----|-------|
-|item_id|reference|null: false, references:item, foregin_key: true|
-|category_id|reference|null: false, references:category, foregin_key: true|
-### Association
-- belongs_to :item
-- belongs_to :category
-
 ## categories
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
-|parent_id|int|null: true|
+|ancestry|string|
 ### Association
-- has_many :items, through: :item_categories
-- has_many :sizes
-- has_many :brands
+- has_many :items
+- has_ancestry
 
 ## sizes
 |Column|Type|Options|
 |------|----|-------|
 |name|sting|null: false|
-|category_id|reference|null: false,foregin_key: true|
 ### Association
-- belongs_to :category
+- has_many :items
 
 ## brands
 |Column|Type|Options|
 |------|----|-------|
 |name|sting|null: false, index: true|
-|category_id|reference|null: false,foregin_key: true|
 ### Association
-- belongs_to :category
-
-## exhibits
-|Column|Type|Options|
-|------|----|-------|
-|status|string|null: false|
-|user_id|reference|null: false, references:user, foregin_key: true|
-|item_id|reference|null: false, references:item, foregin_key: true|
-### Association
-- belongs_to :user
-- belongs_to :item
-
-## purchases
-|Column|Type|Options|
-|------|----|-------|
-|user_id|reference|null: false, references:user, foregin_key: true|
-|item_id|reference|null: false, references:item, foregin_key: true|
-### Association
-- belongs_to :user
-- belongs_to :item
+- has_many :items
 
 ## comments
 |Column|Type|Options|

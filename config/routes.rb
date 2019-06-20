@@ -37,5 +37,6 @@ Rails.application.routes.draw do
   resources :exhibits, only: [:index] do
     get 'sold', to: 'exhibits#sold', on: :collection
   end
+  get 'favorite_items', to: 'favorite_items#index'
 end
 

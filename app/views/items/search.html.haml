@@ -74,10 +74,13 @@
                   .search-container__right__wrapper__container__box__text__title #{item.name}
                   .search-container__right__wrapper__container__box__text__num
 
-                    %span.like-num 15
+
+                    %span.like-num
+                      = item.favorite_items_count
                     =fa_icon "heart",class:"icon-like"
                     .search-container__right__wrapper__container__box__text__num__price ¥#{item.price}
                   .search-container__right__wrapper__container__box__text__title__tax (税込)
+
         
         -else
           -@items.each do |item|
@@ -98,8 +101,10 @@
                   .search-container__right__wrapper__container__box__text__title #{item.name}
                   .search-container__right__wrapper__container__box__text__num
 
-                    %span.like-num 15
+                    %span.like-num
+                      = item.favorite_items_count
                     =fa_icon "heart",class:"icon-like"
                     .search-container__right__wrapper__container__box__text__num__price ¥#{item.price}
                   .search-container__right__wrapper__container__box__text__title__tax (税込)
-            
+          
+

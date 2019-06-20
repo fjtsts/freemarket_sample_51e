@@ -1,0 +1,29 @@
+-breadcrumb :exhibits
+.user-main
+  .user-container
+    = render '/users/sidebar'
+    .user-container_right-content
+      .user-container_right-content_info
+        .user-container_right-content_info_content
+          .user-container_right-content_info_content
+            .user-container_right-content_info_content_title
+              %ul
+                %li
+                  いいね！一覧
+            .user-container_right-content_info_content_list
+              %ul
+                - @likes.each do |like|
+                  - unless like.item.exhibit.status == 3
+                    %li
+                      = link_to item_path(like.item.id) do
+                        .user-container_right-content_info_content_list_icon
+                          - if like.item.exhibit.status == 2
+                            .itemDetail__main__photo__soldOut-mini
+                          %img{alt: "メルカリ", height: "48px", width: "48px", src: "#{like.item.item_images[0].image}"}
+                        .user-container_right-content_info_content_list_detail
+                          = like.item.name
+                          .user-container_right-content_info_content_list_detail_sellList
+                            ¥
+                            = like.item.price
+                        .user-container_right-content_info_content_list_next
+                          =fa_icon "angle-right"

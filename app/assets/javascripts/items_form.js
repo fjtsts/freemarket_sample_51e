@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function() {
 
   // 発送の方法
   var firstSelecthtml = `<option value="">---</option>`;
-  var selection = $('#how_to_shipping')
+  var selection = $('#how_to_shipping');
   $("#how_to_ship").css("display","none");
   $('#select_shipping_fee').change(function() {
     var fee_payer = $('#select_shipping_fee').val();
