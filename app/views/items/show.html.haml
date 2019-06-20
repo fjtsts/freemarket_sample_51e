@@ -113,7 +113,7 @@
           .itemDetail__buyBtn この商品を削除する
     - else
       - if user_signed_in? && @item.exhibit.user.id == current_user.id
-        = link_to edit_item_path(current_user) do
+        = link_to edit_item_path(@item.id) do
           .itemDetail__buyBtn 商品の編集
         
         = link_to stop_item_path,class:"item_btn", method: :post do
