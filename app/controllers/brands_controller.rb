@@ -14,6 +14,7 @@ class BrandsController < ApplicationController
     end
     @parents.push(kitchin,watch,game,phone)
   end
+    
   def show
     @brand = Brand.find(params[:id])
     @items = Item.where(brand_id:params[:id]).all

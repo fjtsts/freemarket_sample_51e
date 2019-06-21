@@ -93,7 +93,7 @@
             .pickup-container__item-boxs__box__text__title #{baby.name}
             .pickup-container__item-boxs__box__text__num
               %span.like-num
-                = item.favorite_items_count
+                = baby.favorite_items_count
               =fa_icon "heart",class:"icon-like"
               .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
@@ -122,9 +122,9 @@
 
 
               %span.like-num
-                = item.favorite_items_count
+                = interior.favorite_items_count
               =fa_icon "heart",class:"icon-like"
-              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+              .pickup-container__item-boxs__box__text__num__price ¥#{interior.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
     =link_to "すべての商品をみる",category_path(Category.fourth.id)
@@ -132,28 +132,28 @@
   %h3
     =link_to "シャネル新着アイテム",brand_path(Brand.first.id)
   .pickup-container__item-boxs
-    -@chanel.each do |item|
-      -if item.exhibit.status === 3
+    -@chanel.each do |chanel|
+      -if chanel.exhibit.status === 3
         %p
       -else
         .pickup-container__item-boxs__box
-          = link_to "",item_path(item.id)
+          = link_to "",item_path(chanel.id)
           .pickup-container__item-boxs__box__image
-            - if item.exhibit.status === 2
+            - if chanel.exhibit.status === 2
               .itemDetail__main__photo__soldOut
-            - elsif  item.exhibit.status === 3
+            - elsif  chanel.exhibit.status === 3
               .itemDetail__main__photo__soldStop
             - else
-            =image_tag(item.item_images[0].image.to_s,class: "images")
+            =image_tag(chanel.item_images[0].image.to_s,class: "images")
           .pickup-container__item-boxs__box__text
-            .pickup-container__item-boxs__box__text__title #{item.name}
+            .pickup-container__item-boxs__box__text__title #{chanel.name}
             .pickup-container__item-boxs__box__text__num
 
 
               %span.like-num
-                = item.favorite_items_count
+                = chanel.favorite_items_count
               =fa_icon "heart",class:"icon-like"
-              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+              .pickup-container__item-boxs__box__text__num__price ¥#{chanel.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
     =link_to "すべての商品をみる",brand_path(Brand.first.id)
@@ -161,25 +161,25 @@
     =link_to "ルイヴィトン新着アイテム",brand_path(Brand.second.id)
   .pickup-container__item-boxs
     -@vuitton.each do |item|
-      -if item.exhibit.status === 3
+      -if vuitton.exhibit.status === 3
         %p
       -else
         .pickup-container__item-boxs__box
-          = link_to "",item_path(item.id)
+          = link_to "",item_path(vuitton.id)
           .pickup-container__item-boxs__box__image
-            - if item.exhibit.status === 2
+            - if vuitton.exhibit.status === 2
               .itemDetail__main__photo__soldOut
-            - elsif  item.exhibit.status === 3
+            - elsif  vuitton.exhibit.status === 3
               .itemDetail__main__photo__soldStop
             - else
-            =image_tag(item.item_images[0].image.to_s,class: "images")
+            =image_tag(vuitton .item_images[0].image.to_s,class: "images")
           .pickup-container__item-boxs__box__text
-            .pickup-container__item-boxs__box__text__title #{item.name}
+            .pickup-container__item-boxs__box__text__title #{vuitton.name}
             .pickup-container__item-boxs__box__text__num
 
 
               %span.like-num
-                = item.favorite_items_count
+                = vuitton.favorite_items_count
               =fa_icon "heart",class:"icon-like"
               .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
@@ -189,28 +189,28 @@
   %h3
     =link_to "シュプリーム新着アイテム",brand_path(Brand.third.id)
   .pickup-container__item-boxs
-    -@supreme.each do |item|
-      -if item.exhibit.status === 3
+    -@supreme.each do |supreme|
+      -if supreme.exhibit.status === 3
         %p
       -else
         .pickup-container__item-boxs__box
-          - if item.exhibit.status === 2
+          - if supreme.exhibit.status === 2
             .itemDetail__main__photo__soldOut
-          - elsif  item.exhibit.status === 3
+          - elsif  supreme.exhibit.status === 3
             .itemDetail__main__photo__soldStop
           - else
-          = link_to "",item_path(item.id)
+          = link_to "",item_path(supreme.id)
           .pickup-container__item-boxs__box__image
-            =image_tag(item.item_images[0].image.to_s,class: "images")
+            =image_tag(supreme.item_images[0].image.to_s,class: "images")
           .pickup-container__item-boxs__box__text
             .pickup-container__item-boxs__box__text__title #{item.name}
             .pickup-container__item-boxs__box__text__num
 
 
               %span.like-num
-                = item.favorite_items_count
+                = supreme.favorite_items_count
               =fa_icon "heart",class:"icon-like"
-              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+              .pickup-container__item-boxs__box__text__num__price ¥#{supreme.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
 
   .view-all.clearfix
@@ -218,27 +218,27 @@
   %h3
     =link_to "ナイキ新着アイテム",brand_path(Brand.fourth.id)
   .pickup-container__item-boxs
-    -@nike.each do |item|
-      -if item.exhibit.status === 3
+    -@nike.each do |nike|
+      -if nike.exhibit.status === 3
         %p
       -else
         .pickup-container__item-boxs__box
-          = link_to "",item_path(item.id)
+          = link_to "",item_path(nike.id)
           .pickup-container__item-boxs__box__image
-            - if item.exhibit.status === 2
+            - if nike.exhibit.status === 2
               .itemDetail__main__photo__soldOut
-            - elsif  item.exhibit.status === 3
+            - elsif  nike.exhibit.status === 3
               .itemDetail__main__photo__soldStop
             - else
-            =image_tag(item.item_images[0].image.to_s,class: "images")
+            =image_tag(nike.item_images[0].image.to_s,class: "images")
           .pickup-container__item-boxs__box__text
-            .pickup-container__item-boxs__box__text__title #{item.name}
+            .pickup-container__item-boxs__box__text__title #{nike.name}
             .pickup-container__item-boxs__box__text__num
 
               %span.like-num
-                = item.favorite_items_count
+                = nike.favorite_items_count
               =fa_icon "heart",class:"icon-like"
-              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+              .pickup-container__item-boxs__box__text__num__price ¥#{nike.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
   .view-all.clearfix
     =link_to "すべての商品をみる",brand_path(Brand.fourth.id)
