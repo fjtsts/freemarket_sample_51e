@@ -95,7 +95,7 @@
               %span.like-num
                 = baby.favorite_items_count
               =fa_icon "heart",class:"icon-like"
-              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+              .pickup-container__item-boxs__box__text__num__price ¥#{baby.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
 
   .view-all.clearfix
@@ -160,7 +160,7 @@
   %h3
     =link_to "ルイヴィトン新着アイテム",brand_path(Brand.second.id)
   .pickup-container__item-boxs
-    -@vuitton.each do |item|
+    -@vuitton.each do |vuitton|
       -if vuitton.exhibit.status === 3
         %p
       -else
@@ -181,7 +181,7 @@
               %span.like-num
                 = vuitton.favorite_items_count
               =fa_icon "heart",class:"icon-like"
-              .pickup-container__item-boxs__box__text__num__price ¥#{item.price}
+              .pickup-container__item-boxs__box__text__num__price ¥#{vuitton.price}
             .pickup-container__item-boxs__box__text__title__tax (税込)
 
   .view-all.clearfix
@@ -203,7 +203,7 @@
           .pickup-container__item-boxs__box__image
             =image_tag(supreme.item_images[0].image.to_s,class: "images")
           .pickup-container__item-boxs__box__text
-            .pickup-container__item-boxs__box__text__title #{item.name}
+            .pickup-container__item-boxs__box__text__title #{supreme.name}
             .pickup-container__item-boxs__box__text__num
 
 
