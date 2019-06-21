@@ -7,14 +7,14 @@ class ItemsController < ApplicationController
 
   def index
     $query = Item.ransack(params[:q])
-    @ladies =Item.where(category_id: Category.first.subtree_ids).all.order(created_at: "DESC").limit(4)
-    @mens =  Item.where(category_id: Category.second.subtree_ids).all.order(created_at: "DESC").limit(4)
-    @baby =  Item.where(category_id: Category.third.subtree_ids).all.order(created_at: "DESC").limit(4)
-    @interior =  Item.where(category_id: Category.fourth.subtree_ids).all.order(created_at: "DESC").limit(4)
-    @chanel =Brand.first.items.all.order("created_at DESC").limit(4)
-    @vuitton =Brand.second.items.all.order("created_at DESC").limit(4)
-    @supreme =Brand.third.items.all.order("created_at DESC").limit(4)
-    @nike=Brand.fourth.items.all.order("created_at DESC").limit(4)
+    @ladies =Item.where(category_id: Category.first.subtree_ids).latest_four_items
+    @mens =  Item.where(category_id: Category.second.subtree_ids).latest_four_items
+    @baby =  Item.where(category_id: Category.third.subtree_ids).latest_four_items
+    @interior =  Item.where(category_id: Category.fourth.subtree_ids).latest_four_items
+    @chanel =Brand.first.items.latest_four_items
+    @vuitton =Brand.second.items.latest_four_items
+    @supreme =Brand.third.items.latest_four_items
+    @nike=Brand.fourth.items.latest_four_items
   end
 
   def new
