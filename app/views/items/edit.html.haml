@@ -15,7 +15,7 @@
             .items-preview-field
               - @images.each do |img|
                 .item-preview-field
-                  = image_tag("#{img.image}", class: "item_image")
+                  = image_tag("#{img}", class: "item_image")
                   .button-area
                     .button-area--edit 編集
                     .button-area--delete.delete1 削除

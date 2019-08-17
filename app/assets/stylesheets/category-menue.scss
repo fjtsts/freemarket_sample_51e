@@ -9,40 +9,41 @@
   height:600px;
   width:250px;
   font-size:16px;
+  margin-top:26px;
   z-index:3;
+  border-left:1px solid $light-gray;
   &__ctd2{
+    
     width:250px;
     padding-top:15px;
-    margin-left:20px;
+    padding-left:20px;
     font-weight:normal;
     letter-spacing: 2px;
-   
-   
-      a{
-          display:inline-block;
+    line-height:31px;
+    box-sizing: border-box;
+    &:hover {
+      background:red;
+      .parent-l{
+        color:white;
       }
+    }
       li:hover {
+       background:#eee;
         display:block;
-        
         ul{
           display:block;
           }
           li{
             display:block;
+           
           }
-        }
-      
-      
+      }
       li:hover  > ul{
         display:block;
-      
-      
       }
-      
   }
   .all{
     @include ctd;
-
   }
 
 }
@@ -51,28 +52,30 @@
   display:none;
 position:absolute;
 width:250px;
-padding-left:30px;
 top:0px;
 left:250px;
 background-color:$white;
 height:600px;
+border-left:1px solid $light-gray;
 
 .ctd3{
   font-size:12px;
   padding-top:40px;
   position:relative;
+  margin-left:30px;
   width:250px;
-  padding-left:50px;
+  padding-left:30px;
   font-weight:normal;
   letter-spacing: 2px;
-  a{
-      width:200px;
-      display:inline-block;
-  }
   &:hover{
     background:red;
 
   }
+  .a{
+      display:inline-block;
+      width:200px;
+  }
+ 
 }
 
 }
@@ -84,15 +87,12 @@ li:hover >#nav-drawer__2{
 #nav-drawer__3{
   display:none;
 position:absolute;
-padding-left:30px;
 width:300px;
 top:0;
 left:250px;
 background-color:$white;
 height:600px;
-
-
-
+border-left:1px solid $light-gray;
 .ctd4{
   font-size:12px;
   padding-top:40px;

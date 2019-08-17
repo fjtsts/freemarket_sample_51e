@@ -3,7 +3,7 @@ class CardController < ApplicationController
   require "payjp"
 
   def new
-    gon.payjp_api_key = ENV['PAYJP_KEY']
+    payjp_api_key = ENV['PAYJP_KEY']
     card = Card.where(user_id: current_user.id)
     redirect_to card_path(current_user.id) if card.exists?
   end

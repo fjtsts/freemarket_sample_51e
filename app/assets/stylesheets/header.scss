@@ -26,10 +26,6 @@
             width:841px;
             position:relative;
             margin-left:45px;
-        
-
-            
-
             &__form{
                 height:100%;
                 width:798px; 
@@ -41,11 +37,8 @@
                 border-radius:4px;
                 border:1px solid $light-gray;
                 outline: none;
-                
-
             }
             &__button{
-        
             height:40px;
             width:40px;
             border:none; 
@@ -111,13 +104,12 @@
             z-index:2;
 
         
-            
+            &:hover{
+              padding-bottom:32px;
+            }
             li:hover + #nav-drawer{
                 display:block;
                 z-index:3;
-            
-    
-                
             }
             &:hover > #nav-drawer{
                 display:block;
@@ -179,40 +171,43 @@
                     height:32px;
                     float:left;
                     padding-right:14px;
-                    line-height:44px;
+                    line-height:53px;
                     position:relative;
                     @extend .clearfix;
                         
                     &:nth-child(1){
                         width:90px;
                     }
-                    &:nth-child(3){
-                        position:absolute;
-                        top:50px;
-                        right:200px;
-                        }
+                   
                         &:hover {
                             color:$light-blue;
                         }
                     i{
                         size:23px;
                         color:$light-gray;
-                            
                     }
                     img{
                         border-radius: 50%;
                         height:32px;
                         width:32px;
-                        
                     }
                     span{
                         font-size:14px;
                         height:18px;
                         @extend .clearfix;
+                        display:inline-block;
+
+                          height:32px;
+                          line-height:32px;
+                        
                     }
+                   
                     a{
                         text-decoration: none;
                         color:black;
+                        display:inline-block;
+                        width:130px;
+                    
                     }
                     &:hover {
                         color:$light-blue;
@@ -250,8 +245,6 @@
                         padding:0 10px;
                         margin-left:6px;
                         border-radius:4px;
-                       
-
                     }
                 }
             }

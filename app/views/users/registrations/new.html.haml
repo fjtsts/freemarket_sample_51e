@@ -78,8 +78,8 @@
                 .user-form__main__box__birthday
                   = f.date_select(:birth,
                       use_month_numbers: true,   
-                      start_year:     1930,
-                      end_year:       (Time.now.year),
+                      start_year:     (Time.now.year),
+                      end_year:       1930,
                       default:        Date.new(1989, 1, 1),
                       date_separator: '年') 
                   %p

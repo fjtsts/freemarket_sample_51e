@@ -1,14 +1,14 @@
-- Category.all.order("id ASC").limit(13).each do |parent|
+- Category.roots.order("id ASC").each do |parent|
   %li#nav-drawer__ctd2
-    =link_to "#{parent.name}",category_path(parent.id)
+    =link_to "#{parent.name}",category_path(parent.id),class: "parent-l"
     %ul#nav-drawer__2
       -parent.children.limit(14).each do |chaild|
         %li#nav-drawer__ctd3
-          =link_to "#{chaild.name}",category_path(chaild.id)
+          =link_to "#{chaild.name}",category_path(chaild.id),class: "chaild-l"
           %ul#nav-drawer__3
             -chaild.children.limit(14).each do |grandchaild|
               %li#nav-drawer__ctd4
-                =link_to "#{ grandchaild.name}",category_path(grandchaild.id)
+                =link_to "#{ grandchaild.name}",category_path(grandchaild.id),class:"grandchaild-l" 
 %li.all
   =link_to "カテゴリー一覧",categories_path
   
